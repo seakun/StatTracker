@@ -1,4 +1,26 @@
 StatTracker::Application.routes.draw do
+  resources :teams
+
+  resources :players
+
+  resources :pitching_stats
+
+  resources :pitching_post_stats
+
+  resources :leagues
+
+  resources :franchises
+
+  resources :fielding_post_stats
+
+  resources :fielding_stats
+
+  resources :divisions
+
+  resources :batting_stats
+
+  resources :batting_post_stats
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,61 @@
+<% title "Players" %>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Nickname</th>
+    <th>Birth Year</th>
+    <th>Birth Month</th>
+    <th>Birth Day</th>
+    <th>Birth Country</th>
+    <th>Birth State</th>
+    <th>Birth City</th>
+    <th>Death Year</th>
+    <th>Death Month</th>
+    <th>Death Day</th>
+    <th>Death Country</th>
+    <th>Death State</th>
+    <th>Death City</th>
+    <th>Weight</th>
+    <th>Height</th>
+    <th>Bats</th>
+    <th>Throws</th>
+    <th>Debut</th>
+    <th>Final Game</th>
+    <th>College</th>
+    <th>Hof</th>
+  </tr>
+  <% for player in @players %>
+    <tr>
+      <td><%= player.first_name %></td>
+      <td><%= player.last_name %></td>
+      <td><%= player.nickname %></td>
+      <td><%= player.birth_year %></td>
+      <td><%= player.birth_month %></td>
+      <td><%= player.birth_day %></td>
+      <td><%= player.birth_country %></td>
+      <td><%= player.birth_state %></td>
+      <td><%= player.birth_city %></td>
+      <td><%= player.death_year %></td>
+      <td><%= player.death_month %></td>
+      <td><%= player.death_day %></td>
+      <td><%= player.death_country %></td>
+      <td><%= player.death_state %></td>
+      <td><%= player.death_city %></td>
+      <td><%= player.weight %></td>
+      <td><%= player.height %></td>
+      <td><%= player.bats %></td>
+      <td><%= player.throws %></td>
+      <td><%= player.debut %></td>
+      <td><%= player.final_game %></td>
+      <td><%= player.college %></td>
+      <td><%= player.hof %></td>
+      <td><%= link_to "Show", player %></td>
+      <td><%= link_to "Edit", edit_player_path(player) %></td>
+      <td><%= link_to "Destroy", player, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Player", new_player_path(player) %></p>
