@@ -1386,3 +1386,156 @@ Started GET "/fielding_stats/1" for 127.0.0.1 at 2011-02-04 00:31:33 -0500
   [1m[36mFieldingStat Load (5.0ms)[0m  [1mSELECT "fielding_stats".* FROM "fielding_stats" WHERE ("fielding_stats"."id" = 1) LIMIT 1[0m
 Rendered fielding_stats/show.html.erb within layouts/application (75.0ms)
 Completed 200 OK in 222ms (Views: 142.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2011-02-06 15:04:15 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1173.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (29.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3) LIMIT 1
+Rendered players/show.html.erb within layouts/application (129.0ms)
+Completed 200 OK in 2458ms (Views: 228.0ms | ActiveRecord: 1202.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-06 15:04:58 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 264ms (Views: 110.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/batting_stats/1" for 127.0.0.1 at 2011-02-06 15:05:35 -0500
+  Processing by BattingStatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBattingStat Load (18.0ms)[0m  SELECT "batting_stats".* FROM "batting_stats" WHERE ("batting_stats"."id" = 1) LIMIT 1
+  [1m[36mPlayer Load (72.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17157) LIMIT 1[0m
+  [1m[35mTeam Load (18.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2538) LIMIT 1
+Rendered batting_stats/show.html.erb within layouts/application (860.0ms)
+Completed 200 OK in 1073ms (Views: 836.0ms | ActiveRecord: 108.0ms)
+
+
+Started GET "/fielding_stats/1" for 127.0.0.1 at 2011-02-06 15:06:39 -0500
+  Processing by FieldingStatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFieldingStat Load (4.0ms)[0m  [1mSELECT "fielding_stats".* FROM "fielding_stats" WHERE ("fielding_stats"."id" = 1) LIMIT 1[0m
+Rendered fielding_stats/show.html.erb within layouts/application (75.0ms)
+Completed 200 OK in 230ms (Views: 149.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/fielding_stats/3" for 127.0.0.1 at 2011-02-06 15:12:52 -0500
+  Processing by FieldingStatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mFieldingStat Load (3.0ms)[0m  SELECT "fielding_stats".* FROM "fielding_stats" WHERE ("fielding_stats"."id" = 3) LIMIT 1
+Rendered fielding_stats/show.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 146ms (Views: 93.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/fielding_stats" for 127.0.0.1 at 2011-02-06 15:24:52 -0500
+  Processing by FieldingStatsController#index as HTML
+
+
+Started GET "/fielding_stats/3" for 127.0.0.1 at 2011-02-06 15:32:50 -0500
+  Processing by FieldingStatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mFieldingStat Load (3.0ms)[0m  SELECT "fielding_stats".* FROM "fielding_stats" WHERE ("fielding_stats"."id" = 3) LIMIT 1
+Rendered fielding_stats/show.html.erb within layouts/application (76.0ms)
+Completed 200 OK in 739ms (Views: 146.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2011-02-06 15:33:08 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 576ms (Views: 160.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/teamss/3" for 127.0.0.1 at 2011-02-06 15:33:12 -0500
+
+ActionController::RoutingError (No route matches "/teamss/3"):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.0ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2011-02-06 15:33:15 -0500
+  Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTeam Load (3.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 3) LIMIT 1
+Rendered teams/show.html.erb within layouts/application (159.0ms)
+Completed 200 OK in 403ms (Views: 241.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2011-02-06 15:33:23 -0500
+  Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (8211.0ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+Rendered teams/index.html.erb within layouts/application (625.0ms)
+Completed   in 9995ms
+
+ActionView::Template::Error (undefined method `earned_run' for #<Team:0x647d7c8>):
+    78:       <td><%= team.hit_by_pitch %></td>
+    79:       <td><%= team.sacrifice_flies %></td>
+    80:       <td><%= team.runs_allowed %></td>
+    81:       <td><%= team.earned_run %></td>
+    82:       <td><%= team.earned_run_average %></td>
+    83:       <td><%= team.complete_games %></td>
+    84:       <td><%= team.shutouts %></td>
+  app/views/teams/index.html.erb:81:in `block in _app_views_teams_index_html_erb___450205156_51953568__1056143520'
+  app/views/teams/index.html.erb:50:in `each'
+  app/views/teams/index.html.erb:50:in `_app_views_teams_index_html_erb___450205156_51953568__1056143520'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1902.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (2210.0ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2011-02-06 15:35:28 -0500
+  Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (7151.0ms)[0m  SELECT "teams".* FROM "teams"
+Rendered teams/index.html.erb within layouts/application (7260.0ms)
+Completed 200 OK in 15282ms (Views: 7308.0ms | ActiveRecord: 7151.0ms)
+
+
+Started GET "/league" for 127.0.0.1 at 2011-02-06 15:36:11 -0500
+
+ActionController::RoutingError (No route matches "/league"):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.0ms)
+
+
+Started GET "/leagues" for 127.0.0.1 at 2011-02-06 15:36:15 -0500
+  Processing by LeaguesController#index as HTML
+  [1m[36mLeague Load (9.0ms)[0m  [1mSELECT "leagues".* FROM "leagues"[0m
+Rendered leagues/index.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 178ms (Views: 117.0ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/divisions" for 127.0.0.1 at 2011-02-06 15:36:24 -0500
+  Processing by DivisionsController#index as HTML
+  [1m[35mDivision Load (17.0ms)[0m  SELECT "divisions".* FROM "divisions"
+Rendered divisions/index.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 217ms (Views: 141.0ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/franchises" for 127.0.0.1 at 2011-02-06 15:36:31 -0500
+  Processing by FranchisesController#index as HTML
+  [1m[36mFranchise Load (97.0ms)[0m  [1mSELECT "franchises".* FROM "franchises"[0m
+Rendered franchises/index.html.erb within layouts/application (390.0ms)
+Completed 200 OK in 621ms (Views: 466.0ms | ActiveRecord: 97.0ms)
+
+
+Started GET "/franchises/109" for 127.0.0.1 at 2011-02-06 15:36:59 -0500
+  Processing by FranchisesController#show as HTML
+  Parameters: {"id"=>"109"}
+  [1m[35mFranchise Load (1.0ms)[0m  SELECT "franchises".* FROM "franchises" WHERE ("franchises"."id" = 109) LIMIT 1
+Rendered franchises/show.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 109ms (Views: 70.0ms | ActiveRecord: 1.0ms)
