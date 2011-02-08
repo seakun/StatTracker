@@ -1539,3 +1539,66 @@ Started GET "/franchises/109" for 127.0.0.1 at 2011-02-06 15:36:59 -0500
   [1m[35mFranchise Load (1.0ms)[0m  SELECT "franchises".* FROM "franchises" WHERE ("franchises"."id" = 109) LIMIT 1
 Rendered franchises/show.html.erb within layouts/application (19.0ms)
 Completed 200 OK in 109ms (Views: 70.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-02-08 16:55:11 -0500
+  Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (37174.1ms)[0m  [1mSELECT "players".* FROM "players"[0m
+Rendered players/index.html.erb within layouts/application (49594.8ms)
+Completed 200 OK in 89355ms (Views: 49617.8ms | ActiveRecord: 37174.1ms)
+
+
+Started GET "/players/4" for 127.0.0.1 at 2011-02-08 16:56:47 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 97ms (Views: 56.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/players/4" for 127.0.0.1 at 2011-02-08 16:56:47 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4) LIMIT 1
+Rendered players/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 96ms (Views: 56.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/franchises/" for 127.0.0.1 at 2011-02-08 16:56:47 -0500
+  Processing by FranchisesController#index as HTML
+  [1m[36mFranchise Load (28.0ms)[0m  [1mSELECT "franchises".* FROM "franchises"[0m
+Rendered franchises/index.html.erb within layouts/application (146.0ms)
+Completed 200 OK in 215ms (Views: 169.0ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/franchises" for 127.0.0.1 at 2011-02-08 16:56:48 -0500
+  Processing by FranchisesController#index as HTML
+  [1m[35mFranchise Load (61.0ms)[0m  SELECT "franchises".* FROM "franchises"
+Rendered franchises/index.html.erb within layouts/application (114.0ms)
+Completed 200 OK in 215ms (Views: 138.0ms | ActiveRecord: 61.0ms)
+
+
+Started GET "/franchises/1" for 127.0.0.1 at 2011-02-08 16:56:48 -0500
+  Processing by FranchisesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFranchise Load (1.0ms)[0m  [1mSELECT "franchises".* FROM "franchises" WHERE ("franchises"."id" = 1) LIMIT 1[0m
+Rendered franchises/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 52ms (Views: 34.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/franchises/" for 127.0.0.1 at 2011-02-08 16:56:53 -0500
+  Processing by FranchisesController#index as HTML
+  [1m[35mFranchise Load (54.0ms)[0m  SELECT "franchises".* FROM "franchises"
+Rendered franchises/index.html.erb within layouts/application (113.0ms)
+Completed 200 OK in 210ms (Views: 139.0ms | ActiveRecord: 54.0ms)
+
+
+Started GET "/players/4" for 127.0.0.1 at 2011-02-08 16:57:17 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 133ms (Views: 55.0ms | ActiveRecord: 3.0ms)
