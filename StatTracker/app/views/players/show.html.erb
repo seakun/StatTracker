@@ -1,0 +1,100 @@
+<% title "Player" %>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @player.first_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @player.last_name %>
+</p>
+<p>
+  <strong>Nickname:</strong>
+  <%= @player.nickname %>
+</p>
+<p>
+  <strong>Birth Year:</strong>
+  <%= @player.birth_year %>
+</p>
+<p>
+  <strong>Birth Month:</strong>
+  <%= @player.birth_month %>
+</p>
+<p>
+  <strong>Birth Day:</strong>
+  <%= @player.birth_day %>
+</p>
+<p>
+  <strong>Birth Country:</strong>
+  <%= @player.birth_country %>
+</p>
+<p>
+  <strong>Birth State:</strong>
+  <%= @player.birth_state %>
+</p>
+<p>
+  <strong>Birth City:</strong>
+  <%= @player.birth_city %>
+</p>
+<p>
+  <strong>Death Year:</strong>
+  <%= @player.death_year %>
+</p>
+<p>
+  <strong>Death Month:</strong>
+  <%= @player.death_month %>
+</p>
+<p>
+  <strong>Death Day:</strong>
+  <%= @player.death_day %>
+</p>
+<p>
+  <strong>Death Country:</strong>
+  <%= @player.death_country %>
+</p>
+<p>
+  <strong>Death State:</strong>
+  <%= @player.death_state %>
+</p>
+<p>
+  <strong>Death City:</strong>
+  <%= @player.death_city %>
+</p>
+<p>
+  <strong>Weight:</strong>
+  <%= @player.weight %>
+</p>
+<p>
+  <strong>Height:</strong>
+  <%= @player.height %>
+</p>
+<p>
+  <strong>Bats:</strong>
+  <%= @player.bats %>
+</p>
+<p>
+  <strong>Throws:</strong>
+  <%= @player.throws %>
+</p>
+<p>
+  <strong>Debut:</strong>
+  <%= @player.debut %>
+</p>
+<p>
+  <strong>Final Game:</strong>
+  <%= @player.final_game %>
+</p>
+<p>
+  <strong>College:</strong>
+  <%= @player.college %>
+</p>
+<p>
+  <strong>Hof:</strong>
+  <%= @player.hof %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_player_path(@player) %> |
+  <%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", players_path %>
+</p>

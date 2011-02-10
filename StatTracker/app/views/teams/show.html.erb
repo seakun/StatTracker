@@ -1,0 +1,192 @@
+<% title "Team" %>
+
+<p>
+  <strong>Franchise:</strong>
+  <%= @team.franchise_id %>
+</p>
+<p>
+  <strong>Division:</strong>
+  <%= @team.division_id %>
+</p>
+<p>
+  <strong>Year:</strong>
+  <%= @team.year %>
+</p>
+<p>
+  <strong>Baseball Era:</strong>
+  <%= @team.baseball_era %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+<p>
+  <strong>Park:</strong>
+  <%= @team.park %>
+</p>
+<p>
+  <strong>Attendance:</strong>
+  <%= @team.attendance %>
+</p>
+<p>
+  <strong>Rank:</strong>
+  <%= @team.rank %>
+</p>
+<p>
+  <strong>Games:</strong>
+  <%= @team.games %>
+</p>
+<p>
+  <strong>Home Games:</strong>
+  <%= @team.home_games %>
+</p>
+<p>
+  <strong>Wins:</strong>
+  <%= @team.wins %>
+</p>
+<p>
+  <strong>Losses:</strong>
+  <%= @team.losses %>
+</p>
+<p>
+  <strong>Div Win:</strong>
+  <%= @team.div_win %>
+</p>
+<p>
+  <strong>Wc Win:</strong>
+  <%= @team.wc_win %>
+</p>
+<p>
+  <strong>Lg Win:</strong>
+  <%= @team.lg_win %>
+</p>
+<p>
+  <strong>Ws Win:</strong>
+  <%= @team.ws_win %>
+</p>
+<p>
+  <strong>Runs:</strong>
+  <%= @team.runs %>
+</p>
+<p>
+  <strong>Plate Appearances:</strong>
+  <%= @team.plate_appearances %>
+</p>
+<p>
+  <strong>At Bats:</strong>
+  <%= @team.at_bats %>
+</p>
+<p>
+  <strong>Hits:</strong>
+  <%= @team.hits %>
+</p>
+<p>
+  <strong>Doubles:</strong>
+  <%= @team.doubles %>
+</p>
+<p>
+  <strong>Triples:</strong>
+  <%= @team.triples %>
+</p>
+<p>
+  <strong>Home Runs:</strong>
+  <%= @team.home_runs %>
+</p>
+<p>
+  <strong>Total Bases:</strong>
+  <%= @team.total_bases %>
+</p>
+<p>
+  <strong>Extra Base Hits:</strong>
+  <%= @team.extra_base_hits %>
+</p>
+<p>
+  <strong>Walks:</strong>
+  <%= @team.walks %>
+</p>
+<p>
+  <strong>Strikeouts:</strong>
+  <%= @team.strikeouts %>
+</p>
+<p>
+  <strong>Stolen Bases:</strong>
+  <%= @team.stolen_bases %>
+</p>
+<p>
+  <strong>Caught Stealing:</strong>
+  <%= @team.caught_stealing %>
+</p>
+<p>
+  <strong>Hit By Pitch:</strong>
+  <%= @team.hit_by_pitch %>
+</p>
+<p>
+  <strong>Sacrifice Flies:</strong>
+  <%= @team.sacrifice_flies %>
+</p>
+<p>
+  <strong>Runs Allowed:</strong>
+  <%= @team.runs_allowed %>
+</p>
+<p>
+  <strong>Earned Runs:</strong>
+  <%= @team.earned_runs %>
+</p>
+<p>
+  <strong>Complete Games:</strong>
+  <%= @team.complete_games %>
+</p>
+<p>
+  <strong>Shutouts:</strong>
+  <%= @team.shutouts %>
+</p>
+<p>
+  <strong>Saves:</strong>
+  <%= @team.saves %>
+</p>
+<p>
+  <strong>Innings Pitched Outs:</strong>
+  <%= @team.innings_pitched_outs %>
+</p>
+<p>
+  <strong>Hits Allowed:</strong>
+  <%= @team.hits_allowed %>
+</p>
+<p>
+  <strong>Home Runs Allowed:</strong>
+  <%= @team.home_runs_allowed %>
+</p>
+<p>
+  <strong>Walks Allowed:</strong>
+  <%= @team.walks_allowed %>
+</p>
+<p>
+  <strong>Strikeouts Allowed:</strong>
+  <%= @team.strikeouts_allowed %>
+</p>
+<p>
+  <strong>Errors Made:</strong>
+  <%= @team.errors_made %>
+</p>
+<p>
+  <strong>Double Plays:</strong>
+  <%= @team.double_plays %>
+</p>
+<p>
+  <strong>Fielding Percentage:</strong>
+  <%= @team.fielding_percentage %>
+</p>
+<p>
+  <strong>Batters Park Factor:</strong>
+  <%= @team.batters_park_factor %>
+</p>
+<p>
+  <strong>Pitchers Park Factor:</strong>
+  <%= @team.pitchers_park_factor %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_team_path(@team) %> |
+  <%= link_to "Destroy", @team, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", teams_path %>
+</p>

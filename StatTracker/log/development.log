@@ -1,0 +1,119 @@
+  [1m[36mSQL (3.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (138.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (82.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateBattingPostStats (20110209233353)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "batting_post_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "team_id" integer, "round" varchar(255), "games" integer, "plate_appearances" integer, "at_bats" integer, "runs" integer, "hits" integer, "doubles" integer, "triples" integer, "home_runs" integer, "total_bases" integer, "extra_base_hits" integer, "rbi" integer, "stolen_bases" integer, "caught_stealing" integer, "walks" integer, "strikeouts" integer, "intentional_walks" integer, "hit_by_pitch" integer, "sacrifice_hits" integer, "sacrifice_flies" integer, "grounded_into_double_plays" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209233353')
+Migrating to CreateBattingStats (20110209233816)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "batting_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "team_id" integer, "stint" integer, "games" integer, "games_batting" integer, "plate_appearances" integer, "at_bats" integer, "runs" integer, "hits" integer, "doubles" integer, "triples" integer, "home_runs" integer, "total_bases" integer, "extra_base_hits" integer, "rbi" integer, "stolen_bases" integer, "caught_stealing" integer, "walks" integer, "strikeouts" integer, "intentional_walks" integer, "hit_by_pitch" integer, "sacrifice_hits" integer, "sacrifice_flies" integer, "grounded_into_double_plays" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209233816')
+Migrating to CreateDivisions (20110209234028)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "divisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "league_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209234028')
+Migrating to CreateFieldingPostStats (20110209234648)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "fielding_post_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "team_id" integer, "round" varchar(255), "position" varchar(255), "games" integer, "games_started" integer, "inning_outs" integer, "chances" integer, "put_outs" integer, "assists" integer, "errors_made" integer, "double_plays" integer, "triple_plays" integer, "passed_balls" integer, "stolen_bases" integer, "caught_stealing" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209234648')
+Migrating to CreateFieldingStats (20110209234943)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "fielding_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "team_id" integer, "stint" integer, "position" varchar(255), "games" integer, "games_started" integer, "inning_outs" integer, "chances" integer, "put_outs" integer, "assists" integer, "errors_made" integer, "double_plays" integer, "passed_balls" integer, "wild_pitches" integer, "stolen_bases" integer, "caught_stealing" integer, "zone_rating" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209234943')
+Migrating to CreateLeagues (20110209235126)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "leagues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209235126')
+Migrating to CreateFranchises (20110209235213)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "franchises" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209235213')
+Migrating to CreatePitchingPostStats (20110209235635)
+  [1m[36mSQL (2.0ms)[0m  [1mCREATE TABLE "pitching_post_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "team_id" integer, "round" varchar(255), "wins" integer, "losses" integer, "games" integer, "games_started" integer, "complete_games" integer, "shutouts" integer, "saves" integer, "innings_pitched_outs" integer, "hits" integer, "earned_runs" integer, "home_runs" integer, "walks" integer, "strikeouts" integer, "intentional_walks" integer, "wild_pitches" integer, "hit_by_pitch" integer, "balks" integer, "batters_faced" integer, "games_finished" integer, "runs" integer, "sacrifice_hits" integer, "sacrifice_flies" integer, "grounded_into_double_plays" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209235635')
+Migrating to CreatePitchingStats (20110209235852)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "pitching_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "team_id" integer, "stint" integer, "wins" integer, "losses" integer, "games" integer, "games_started" integer, "complete_games" integer, "shutouts" integer, "saves" integer, "innings_pitched_outs" integer, "hits" integer, "earned_runs" integer, "home_runs" integer, "walks" integer, "strikeouts" integer, "intentional_walks" integer, "wild_pitches" integer, "hit_by_pitch" integer, "balks" integer, "batters_faced" integer, "games_finished" integer, "runs" integer, "sacrifice_hits" integer, "sacrifice_flies" integer, "grounded_into_double_plays" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110209235852')
+Migrating to CreatePlayers (20110210000332)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "nickname" varchar(255), "birth_year" integer, "birth_month" integer, "birth_day" integer, "birth_country" varchar(255), "birth_state" varchar(255), "birth_city" varchar(255), "death_year" integer, "death_month" integer, "death_day" integer, "death_country" varchar(255), "death_state" varchar(255), "death_city" varchar(255), "weight" integer, "height" integer, "bats" varchar(255), "throws" integer, "debut" datetime, "final_game" datetime, "college" varchar(255), "hof" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110210000332')
+Migrating to CreateTeams (20110210001159)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "teams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "franchise_id" integer, "division_id" integer, "year" integer, "baseball_era" varchar(255), "name" varchar(255), "park" varchar(255), "attendance" integer, "rank" integer, "games" integer, "home_games" integer, "wins" integer, "losses" integer, "div_win" boolean, "wc_win" boolean, "lg_win" boolean, "ws_win" boolean, "runs" integer, "plate_appearances" integer, "at_bats" integer, "hits" integer, "doubles" integer, "triples" integer, "home_runs" integer, "total_bases" integer, "extra_base_hits" integer, "walks" integer, "strikeouts" integer, "stolen_bases" integer, "caught_stealing" integer, "hit_by_pitch" integer, "sacrifice_flies" integer, "runs_allowed" integer, "earned_runs" integer, "complete_games" integer, "shutouts" integer, "saves" integer, "innings_pitched_outs" integer, "hits_allowed" integer, "home_runs_allowed" integer, "walks_allowed" integer, "strikeouts_allowed" integer, "errors_made" integer, "double_plays" integer, "fielding_percentage" float, "batters_park_factor" integer, "pitchers_park_factor" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110210001159')
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("batting_post_stats")
+  [1m[36mSQL (1.0ms)[0m  [1mPRAGMA index_list("batting_stats")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("divisions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("fielding_post_stats")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("fielding_stats")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("franchises")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("leagues")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("pitching_post_stats")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("pitching_stats")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("players")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("teams")
+
+
+Started GET "/players/3" for 127.0.0.1 at 2011-02-09 19:23:54 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3) LIMIT 1
+Rendered players/show.html.erb within layouts/application (195.0ms)
+Completed   in 781ms
+
+ActionView::Template::Error (undefined method `title' for #<#<Class:0x2f4ed30>:0x2f4c2a0>):
+    1: <% title "Player" %>
+    2: 
+    3: <p>
+    4:   <strong>First Name:</strong>
+  app/views/players/show.html.erb:1:in `_app_views_players_show_html_erb___777635854_24792816_145390174'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (52.0ms)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2011-02-09 19:27:13 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3) LIMIT 1
+Rendered players/show.html.erb within layouts/application (252.0ms)
+Completed 200 OK in 991ms (Views: 297.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/franchises" for 127.0.0.1 at 2011-02-09 19:27:41 -0500
+  Processing by FranchisesController#index as HTML
+  [1m[36mFranchise Load (95.0ms)[0m  [1mSELECT "franchises".* FROM "franchises"[0m
+Rendered franchises/index.html.erb within layouts/application (260.0ms)
+Completed 200 OK in 435ms (Views: 309.0ms | ActiveRecord: 95.0ms)
+
+
+Started GET "/franchises/10" for 127.0.0.1 at 2011-02-09 19:27:46 -0500
+  Processing by FranchisesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mFranchise Load (1.0ms)[0m  SELECT "franchises".* FROM "franchises" WHERE ("franchises"."id" = 10) LIMIT 1
+Rendered franchises/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 101ms (Views: 67.0ms | ActiveRecord: 1.0ms)
