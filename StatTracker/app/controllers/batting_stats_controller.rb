@@ -1,6 +1,6 @@
 class BattingStatsController < ApplicationController
   def index
-    @batting_stats = BattingStat.all
+    @batting_stats = BattingStat.single_season_sort
   end
 
   def show
