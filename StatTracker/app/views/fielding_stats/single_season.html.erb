@@ -1,0 +1,20 @@
+<% title "Fielding Stats" %>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Team</th>
+	<th>Year</th>
+    <th>Round</th>
+	<th><%= params[:stat].titleize %></th>
+  </tr>
+  <% for fielding_stat in @fielding_stats %>
+    <tr>
+      <td><%= fielding_stat.player.last_name %></td>
+      <td><%= fielding_stat.team.name %></td>
+	  <td><%= fielding_stat.team.year %></td>
+      <td><%= fielding_stat.round %></td>
+	  <td><%= fielding_stat.send(params[:stat])%></td>
+    </tr>
+  <% end %>
+</table>

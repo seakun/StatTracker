@@ -22,11 +22,11 @@ StatTracker::Application.routes.draw do
   resources :batting_post_stats
   
   match 'leaders/season/batting/:stat' => 'batting_stats#single_season'
-  match 'leaders/season/batting_post' => 'batting_post_stats#single_season'
-  match 'leaders/season/pitching' => 'pitching_stats#single_season'
-  match 'leaders/season/pitching_post' => 'pitching_post_stats#single_season'
-  match 'leaders/season/fielding' => 'fielding_stats#single_season'
-  match 'leaders/season/fielding_post' => 'fielding_post_stats#single_season'
+  match 'leaders/season/batting_post/:stat' => 'batting_post_stats#single_season'
+  match 'leaders/season/pitching/:stat' => 'pitching_stats#single_season'
+  match 'leaders/season/pitching_post/:stat' => 'pitching_post_stats#single_season'
+  match 'leaders/season/fielding/:stat' => 'fielding_stats#single_season'
+  match 'leaders/season/fielding_post/:stat' => 'fielding_post_stats#single_season'
   
   match 'leaders/career/batting' => 'batting_stats#career'
   match 'leaders/career/pitching_post' => 'pitching_post_stats#career'

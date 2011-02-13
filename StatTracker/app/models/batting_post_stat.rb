@@ -4,8 +4,8 @@ class BattingPostStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
-	def self.single_season_sort()
-		sorted = BattingPostStat.all.sort{|a,b| b.doubles <=> a.doubles}
+	def self.single_season_sort(stat)
+		sorted = BattingPostStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
 		return sorted.take(50)
 	end
 

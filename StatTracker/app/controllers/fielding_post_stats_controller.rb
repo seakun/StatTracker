@@ -41,4 +41,8 @@ class FieldingPostStatsController < ApplicationController
     flash[:notice] = "Successfully destroyed fielding post stat."
     redirect_to fielding_post_stats_url
   end
+  
+  def single_season
+		@fielding_post_stats = FieldingPostStat.single_season_sort(params[:stat])
+  end
 end

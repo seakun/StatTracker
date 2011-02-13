@@ -4,31 +4,17 @@
   <tr>
     <th>Player</th>
     <th>Team</th>
+	<th>Year</th>
     <th>Round</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Games</th>
-    <th>Shutouts</th>
-    <th>Saves</th>
-    <th>Innings Pitched Outs</th>
-    <th>Hits</th>
-    <th>Earned Runs</th>
-    <th>Strikeouts</th>
+    <th><%= params[:stat].titleize %></th>
   </tr>
   <% for pitching_post_stat in @pitching_post_stats %>
     <tr>
       <td><%= pitching_post_stat.player.last_name %></td>
       <td><%= pitching_post_stat.team.name%></td>
+	  <td><%= pitching_post_stat.team.year %></td>
       <td><%= pitching_post_stat.round %></td>
-      <td><%= pitching_post_stat.wins %></td>
-      <td><%= pitching_post_stat.losses %></td>
-      <td><%= pitching_post_stat.games %></td>
-      <td><%= pitching_post_stat.shutouts %></td>
-      <td><%= pitching_post_stat.saves %></td>
-      <td><%= pitching_post_stat.innings_pitched_outs %></td>
-      <td><%= pitching_post_stat.hits %></td>
-      <td><%= pitching_post_stat.earned_runs %></td>
-      <td><%= pitching_post_stat.strikeouts %></td>
+      <td><%= pitching_post_stat.send(params[:stat])%></td>
     </tr>
   <% end %>
 </table>
