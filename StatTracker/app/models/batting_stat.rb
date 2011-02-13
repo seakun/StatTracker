@@ -28,7 +28,7 @@ class BattingStat < ActiveRecord::Base
 		stats = {}
 		BattingStat.all.each { |s|
 			player = Player.find(s.player_id)
-			if player.final_game.equal?(nil)
+			if player.final_game.nil?
 				if stats.has_key?(player)
 					stats[player] += s.home_runs
 				else stats.store(player, s.home_runs)

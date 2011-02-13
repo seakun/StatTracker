@@ -8,5 +8,6 @@ class Player < ActiveRecord::Base
 	has_many :fielding_stats
 	has_many :fielding_post_stats
 	
-	
+	def get_career_total(stat)
+	end
 end
