@@ -8,5 +8,21 @@ class PitchingStat < ActiveRecord::Base
 		sorted = PitchingStat.all.sort{|a,b| b.strikeouts <=> a.strikeouts}
 		return sorted.take(50)
 	end
-	
+
+  def year
+    team.year
+  end
+
+  def win_loss_percentage()
+    wins / (wins + losses)
+  end
+
+  def innings_pitched
+    innings_pitched_outs / 3
+  end
+
+  def era
+    (earned_runs * 9) / inings_pitched
+  end
+
 end
