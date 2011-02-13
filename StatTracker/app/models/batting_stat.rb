@@ -48,11 +48,11 @@ class BattingStat < ActiveRecord::Base
   end
 	
 	def batting_average
-		hits / at_bats
+		sprintf("%.3f", hits / at_bats)
 	end
 	
 	def on_base_percentage
-		(hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies)
+		sprintf("%.3f", (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies))
 	end
 
   def total_bases
