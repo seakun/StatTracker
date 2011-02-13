@@ -1,4 +1,4 @@
-StatTracker::Application.routes.draw do
+  StatTracker::Application.routes.draw do
   resources :teams
 
   resources :players

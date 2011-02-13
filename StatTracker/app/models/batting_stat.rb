@@ -4,13 +4,12 @@ class BattingStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
-	def self.single_season_sort(stat)
-		puts stat.actionize
-		sorted = BattingStat.all.sort{|a,b| b.stat <=> a.stat}
-		return sorted.take(50)
-	end
-	
-	def self.career_sort()
+	def single_season_sort(stat)
+    sorted = BattingStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
+    return sorted.take(50)
+  end
+
+  def self.career_sort()
 		stats = {}
 		BattingStat.all.each { |s|
 			if stats.has_key?(s.player_id)
