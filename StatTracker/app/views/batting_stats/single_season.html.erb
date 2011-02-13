@@ -5,10 +5,7 @@
     <th>Player</th>
     <th>Team</th>
 	<th>Year</th>
-	<th>Doubles</th>
-	<th>Triples</th>
-	<th>Home Runs</th>
-    <th>Runs Batted In</th>
+	<th><%= params[:stat].titleize %></th>
 
   </tr>
   <% for batting_stat in @batting_stats %>
@@ -16,10 +13,7 @@
       <td><%= batting_stat.player.last_name %></td>
       <td><%= batting_stat.team.name %></td>
 	  <td><%= batting_stat.team.year %></td>
-	  <td><%= batting_stat.doubles%></td>
-	  <td><%= batting_stat.triples %></td>
-      <td><%= batting_stat.home_runs %></td>
-	  <td><%= batting_stat.rbi %></td>
+	  <td><%= batting_stat.send(params[:stat])%></td>
     </tr>
   <% end %>
 </table>
