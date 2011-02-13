@@ -21,7 +21,7 @@ StatTracker::Application.routes.draw do
 
   resources :batting_post_stats
   
-  match 'sort/season/batting' => 'batting_stats#single_season'
+  match 'sort/season/batting/:stat' => 'batting_stats#single_season'
   match 'sort/season/batting_post' => 'batting_post_stats#single_season'
   match 'sort/season/pitching' => 'pitching_stats#single_season'
   match 'sort/season/pitching_post' => 'pitching_post_stats#single_season'
