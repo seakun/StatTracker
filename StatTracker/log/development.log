@@ -14245,3 +14245,25 @@ NoMethodError (undefined method `actionize' for "rbi":String):
 Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
 Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
 Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (59.0ms)
+
+
+Started GET "/sort/season/batting_average" for 127.0.0.1 at 2011-02-13 15:33:28 -0500
+
+ActionController::RoutingError (No route matches "/sort/season/batting_average"):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/sort/season/batting/batting_average" for 127.0.0.1 at 2011-02-13 15:33:53 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"batting_average"}
+Completed   in 62ms
+
+NoMethodError (undefined method `actionize' for "batting_average":String):
+  app/models/batting_stat.rb:8:in `single_season_sort'
+  app/controllers/batting_stats_controller.rb:46:in `single_season'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.0ms)
