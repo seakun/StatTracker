@@ -14284,3 +14284,585 @@ NoMethodError (undefined method `single_season_sort' for #<Class:0x35ae1d8>):
 Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
 Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
 Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/leaders/season/batting/batting_average" for 127.0.0.1 at 2011-02-13 15:55:10 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"batting_average"}
+  [1m[35mBattingStat Load (91.0ms)[0m  SELECT "batting_stats".* FROM "batting_stats"
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (16.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+  [1m[36mTeam Load (10.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2094) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 246) LIMIT 1
+  [1m[36mTeam Load (9.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1008) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 465) LIMIT 1
+  [1m[36mTeam Load (19.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2466) LIMIT 1[0m
+  [1m[35mPlayer Load (73.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 571) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1968) LIMIT 1[0m
+  [1m[35mPlayer Load (27.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17263) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1217) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 998) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1012) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1039) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 882) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 895) LIMIT 1[0m
+  [1m[35mPlayer Load (6.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 907) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2531) LIMIT 1[0m
+  [1m[35mPlayer Load (18.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2370) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2474) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2490) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2506) LIMIT 1[0m
+  [1m[35mPlayer Load (14.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2092) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1049) LIMIT 1[0m
+  [1m[35mPlayer Load (5.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2244) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2432) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2297) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1998) LIMIT 1[0m
+  [1m[35mPlayer Load (12.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3367) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2287) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3607) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 378) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4382) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 929) LIMIT 1[0m
+  [1m[35mPlayer Load (34.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17519) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2580) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4620) LIMIT 1
+  [1m[36mTeam Load (16.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2168) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 339) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 347) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 382) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4832) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2403) LIMIT 1[0m
+  [1m[35mPlayer Load (9.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 354) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 370) LIMIT 1[0m
+  [1m[35mPlayer Load (13.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5176) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1064) LIMIT 1[0m
+  [1m[35mPlayer Load (5.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5267) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1020) LIMIT 1[0m
+  [1m[35mPlayer Load (5.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5271) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2476) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5439) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 385) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5436) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2483) LIMIT 1[0m
+  [1m[35mPlayer Load (5.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1019) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1033) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1046) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1060) LIMIT 1[0m
+  [1m[35mPlayer Load (15.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2480) LIMIT 1[0m
+  [1m[35mPlayer Load (33.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6603) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 657) LIMIT 1[0m
+  [1m[35mPlayer Load (23.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2582) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2598) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6851) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 655) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2541) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 583) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 603) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 653) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1886) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1
+  [1m[36mTeam Load (4.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1902) LIMIT 1[0m
+Rendered batting_stats/single_season.html.erb within layouts/application (886.1ms)
+Completed 200 OK in 1086ms (Views: 392.0ms | ActiveRecord: 608.0ms)
+
+
+Started GET "/leaders/season/batting/batting_average" for 127.0.0.1 at 2011-02-13 15:55:30 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"batting_average"}
+  [1m[35mBattingStat Load (57.0ms)[0m  SELECT "batting_stats".* FROM "batting_stats"
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2094) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 246) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1008) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 465) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2466) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 571) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1968) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17263) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1217) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 998) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1012) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1039) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 882) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 895) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 907) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2531) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2370) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2474) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2490) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2506) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2092) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1049) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2244) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2432) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2297) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1998) LIMIT 1
+  [1m[36mPlayer Load (25.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3367) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2287) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3607) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 378) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4382) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 929) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17519) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2580) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4620) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2168) LIMIT 1
+  [1m[36mPlayer Load (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 339) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 347) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 382) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4832) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2403) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 354) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 370) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5176) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1064) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5267) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1020) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5271) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2476) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5439) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 385) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5436) LIMIT 1[0m
+  [1m[35mTeam Load (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2483) LIMIT 1
+  [1m[36mPlayer Load (110.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1019) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1033) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1046) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1060) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1[0m
+  [1m[35mTeam Load (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2480) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6603) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 657) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2582) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2598) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6851) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 655) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2541) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 583) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 603) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 653) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1886) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1902) LIMIT 1
+Rendered batting_stats/single_season.html.erb within layouts/application (685.0ms)
+Completed 200 OK in 847ms (Views: 452.0ms | ActiveRecord: 309.0ms)
+
+
+Started GET "/leaders/season/batting/batting_average" for 127.0.0.1 at 2011-02-13 15:55:47 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"batting_average"}
+  [1m[36mBattingStat Load (75.0ms)[0m  [1mSELECT "batting_stats".* FROM "batting_stats"[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2094) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 246) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1008) LIMIT 1[0m
+  [1m[35mPlayer Load (26.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 465) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2466) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 571) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1968) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17263) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1217) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 998) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1012) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1039) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 882) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 895) LIMIT 1[0m
+  [1m[35mPlayer Load (3.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 907) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2531) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2370) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2474) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2490) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2506) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2092) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1049) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2244) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2432) LIMIT 1[0m
+  [1m[35mPlayer Load (4.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2297) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1998) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3367) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2287) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3607) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 378) LIMIT 1[0m
+  [1m[35mPlayer Load (28.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4382) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 929) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17519) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2580) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4620) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2168) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 339) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 347) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 382) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4832) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2403) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 354) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 370) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5176) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1064) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5267) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1020) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5271) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2476) LIMIT 1[0m
+  [1m[35mPlayer Load (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5439) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 385) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5436) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2483) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (3.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1019) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1033) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1046) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1060) LIMIT 1[0m
+  [1m[35mPlayer Load (26.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2480) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6603) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 657) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2582) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2598) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6851) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 655) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2541) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 583) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 603) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 653) LIMIT 1[0m
+  [1m[35mPlayer Load (2.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1886) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1
+  [1m[36mTeam Load (2.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1902) LIMIT 1[0m
+Rendered batting_stats/single_season.html.erb within layouts/application (591.0ms)
+Completed 200 OK in 799ms (Views: 407.0ms | ActiveRecord: 280.0ms)
+
+
+Started GET "/leaders/season/batting/batting_average" for 127.0.0.1 at 2011-02-13 15:55:59 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"batting_average"}
+  [1m[35mBattingStat Load (230.0ms)[0m  SELECT "batting_stats".* FROM "batting_stats"
+  [1m[36mPlayer Load (18.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (24.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 250) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (8.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 242) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 290) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2506) LIMIT 1
+  [1m[36mPlayer Load (17.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14736) LIMIT 1[0m
+  [1m[35mTeam Load (25.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2417) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 339) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 354) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 322) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (3.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 347) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15339) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1746) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 370) LIMIT 1
+  [1m[36mPlayer Load (17.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1[0m
+  [1m[35mTeam Load (30.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 532) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 382) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3607) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 378) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (3.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2370) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2480) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 907) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2531) LIMIT 1
+  [1m[36mPlayer Load (24.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2570) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1039) LIMIT 1
+  [1m[36mPlayer Load (37.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2478) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2490) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2618) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2094) LIMIT 1
+  [1m[36mPlayer Load (11.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7621) LIMIT 1[0m
+  [1m[35mTeam Load (6.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1938) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5271) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2476) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10843) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1062) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 306) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (3.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1142) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4620) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2168) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2462) LIMIT 1
+  [1m[36mPlayer Load (15.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9039) LIMIT 1[0m
+  [1m[35mTeam Load (33.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1948) LIMIT 1
+  [1m[36mPlayer Load (52.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2244) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2432) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (16.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1090) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 998) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 574) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9039) LIMIT 1[0m
+  [1m[35mTeam Load (3.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2038) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12068) LIMIT 1[0m
+  [1m[35mTeam Load (8.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 616) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5439) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 385) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5267) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1020) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7621) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1946) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1170) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 571) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1968) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1886) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1018) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2297) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1998) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1012) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1902) LIMIT 1
+Rendered batting_stats/single_season.html.erb within layouts/application (1077.1ms)
+Completed 200 OK in 1414ms (Views: 650.0ms | ActiveRecord: 679.0ms)
+
+
+Started GET "/leaders/season/batting/on_base_percentage" for 127.0.0.1 at 2011-02-13 15:56:18 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"on_base_percentage"}
+  [1m[36mBattingStat Load (56.0ms)[0m  [1mSELECT "batting_stats".* FROM "batting_stats"[0m
+Completed   in 123ms
+
+TypeError (nil can't be coerced into Fixnum):
+  app/models/batting_stat.rb:55:in `+'
+  app/models/batting_stat.rb:55:in `on_base_percentage'
+  app/models/batting_stat.rb:8:in `block in single_season_sort'
+  app/models/batting_stat.rb:8:in `sort'
+  app/models/batting_stat.rb:8:in `single_season_sort'
+  app/controllers/batting_stats_controller.rb:46:in `single_season'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/leaders/season/batting/on_base_percentage" for 127.0.0.1 at 2011-02-13 15:57:14 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"on_base_percentage"}
+  [1m[35mBattingStat Load (59.0ms)[0m  SELECT "batting_stats".* FROM "batting_stats"
+  [1m[36mPlayer Load (27.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2506) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 242) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2490) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 290) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 250) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 322) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 370) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2443) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1018) LIMIT 1
+  [1m[36mPlayer Load (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 339) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 532) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 354) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 306) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2370) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14736) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2417) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 382) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15339) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1746) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2618) LIMIT 1
+  [1m[36mPlayer Load (16.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14146) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1096) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1[0m
+  [1m[35mTeam Load (27.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 574) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 347) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2478) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2474) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1170) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5271) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2476) LIMIT 1
+  [1m[36mPlayer Load (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5439) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 385) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 465) LIMIT 1[0m
+  [1m[35mTeam Load (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2466) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2480) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2570) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 653) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1142) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1902) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2459) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10843) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1062) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12068) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 616) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14146) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1082) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6851) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 655) LIMIT 1
+  [1m[36mPlayer Load (45.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10717) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1149) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1012) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1886) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3607) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 378) LIMIT 1
+  [1m[36mPlayer Load (4.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+  [1m[35mTeam Load (3.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2094) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1090) LIMIT 1
+  [1m[36mPlayer Load (5.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 246) LIMIT 1[0m
+  [1m[35mTeam Load (2.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1008) LIMIT 1
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7621) LIMIT 1[0m
+  [1m[35mTeam Load (4.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1938) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2462) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (20.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1910) LIMIT 1
+Rendered batting_stats/single_season.html.erb within layouts/application (545.0ms)
+Completed 200 OK in 723ms (Views: 329.0ms | ActiveRecord: 295.0ms)
+
+
+Started GET "/leaders/season/batting/ops" for 127.0.0.1 at 2011-02-13 16:00:17 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"ops"}
+  [1m[36mBattingStat Load (90.0ms)[0m  [1mSELECT "batting_stats".* FROM "batting_stats"[0m
+Completed   in 169ms
+
+TypeError (nil can't be coerced into Fixnum):
+  app/models/batting_stat.rb:69:in `+'
+  app/models/batting_stat.rb:69:in `ops'
+  app/models/batting_stat.rb:8:in `block in single_season_sort'
+  app/models/batting_stat.rb:8:in `sort'
+  app/models/batting_stat.rb:8:in `single_season_sort'
+  app/controllers/batting_stats_controller.rb:46:in `single_season'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
