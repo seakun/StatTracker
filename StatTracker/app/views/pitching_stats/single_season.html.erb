@@ -1,0 +1,30 @@
+<% title "Pitching Stats" %>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Team</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Games</th>
+    <th>Shutouts</th>
+    <th>Saves</th>
+    <th>Innings Pitched Outs</th>
+    <th>Hits</th>
+    <th>Earned Runs</th>
+  </tr>
+  <% for pitching_stat in @pitching_stats %>
+    <tr>
+      <td><%= pitching_stat.player.last_name %></td>
+      <td><%= pitching_stat.team.name %></td>
+      <td><%= pitching_stat.wins %></td>
+      <td><%= pitching_stat.losses %></td>
+      <td><%= pitching_stat.games %></td>
+      <td><%= pitching_stat.shutouts %></td>
+      <td><%= pitching_stat.saves %></td>
+      <td><%= pitching_stat.innings_pitched_outs %></td>
+      <td><%= pitching_stat.hits %></td>
+      <td><%= pitching_stat.earned_runs %></td>
+    </tr>
+  <% end %>
+</table>

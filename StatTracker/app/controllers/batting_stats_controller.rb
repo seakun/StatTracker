@@ -1,6 +1,6 @@
 class BattingStatsController < ApplicationController
   def index
-    @batting_stats = BattingStat.single_season_sort
+    @batting_stats = BattingStat.all
   end
 
   def show
@@ -41,4 +41,17 @@ class BattingStatsController < ApplicationController
     flash[:notice] = "Successfully destroyed batting stat."
     redirect_to batting_stats_url
   end
+  
+  def single_season
+	@batting_stats = BattingStat.single_season_sort
+  end
+  
+   def career
+		@batting_stats = BattingStat.career_sort
+	end
+  
+    def active
+		@batting_stats = BattingStat.active_sort
+	end
+	
 end

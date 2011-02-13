@@ -4,14 +4,43 @@ class BattingStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
-	
 	def self.single_season_sort()
+		sorted = BattingStat.all.sort{|a,b| b.rbi <=> a.rbi}
+		return sorted.take(50)
+	end
+	
+	def self.career_sort()
 		stats = {}
-		BattingStat.all.each { |s| stats.store(s, s.home_runs) }
-		new = stats.sort{|a,b| b[1] <=>a[1]}
-		new2 = []
-		new.take(50).each { |a| new2.push(a[0]) }
-		return new2
+		BattingStat.all.each { |s|
+			if stats.has_key?(s.player_id)
+				stats[s.player_id] += s.home_runs
+			else stats.store(s.player_id, s.home_runs)
+			end
+		}
+		sorted = stats.sort{|a,b| b[1] <=> a[1]}
+		sorted.take(50).each { |a| 
+		a[0] = Player.find(a[0])
+		}
+		return sorted
+	end
+	
+	def self.active_sort()
+		stats = {}
+		BattingStat.all.each { |s|
+			player = Player.find(s.player_id)
+
+			if player.final_game == nil
+				if stats.has_key?(player)
+					stats[player] += s.home_runs
+				else stats.store(player, s.home_runs)
+				end
+			end
+		}
+		sorted = stats.sort{|a,b| b[1] <=> a[1]}
+		# sorted.take(50).each { |a| 
+		# a[0] = Player.find(a[0])
+		# }
+		return sorted.take(50)
 	end
 	
 end

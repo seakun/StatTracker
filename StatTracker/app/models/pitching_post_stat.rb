@@ -4,4 +4,24 @@ class PitchingPostStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
+	def self.single_season_sort()
+		sorted = PitchingPostStat.all.sort{|a,b| b.strikeouts <=> a.strikeouts}
+		return sorted.take(50)
+	end
+	
+	def self.career_sort()
+		stats = {}
+		PitchingPostStat.all.each { |s|
+			if stats.has_key?(s.player_id)
+				stats[s.player_id] += s.strikeouts
+			else stats.store(s.player_id, s.strikeouts)
+			end
+		}
+		sorted = stats.sort{|a,b| b[1] <=> a[1]}
+		sorted.take(50).each { |a| 
+		a[0] = Player.find(a[0])
+		}
+		return sorted.take(50)
+	end
+	
 end

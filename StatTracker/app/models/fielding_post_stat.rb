@@ -4,4 +4,9 @@ class FieldingPostStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
+	def self.single_season_sort()
+		sorted = FieldingPostStat.all.sort{|a,b| b.errors_made <=> a.errors_made}
+		return sorted.take(50)
+	end
+	
 end

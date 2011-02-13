@@ -20,7 +20,19 @@ StatTracker::Application.routes.draw do
   resources :batting_stats
 
   resources :batting_post_stats
+  
+  match 'sort/season/batting' => 'batting_stats#single_season'
+  match 'sort/season/batting_post' => 'batting_post_stats#single_season'
+  match 'sort/season/pitching' => 'pitching_stats#single_season'
+  match 'sort/season/pitching_post' => 'pitching_post_stats#single_season'
+  match 'sort/season/fielding' => 'fielding_stats#single_season'
+  match 'sort/season/fielding_post' => 'fielding_post_stats#single_season'
+  
+  match 'sort/career/batting' => 'batting_stats#career'
+  match 'sort/career/pitching_post' => 'pitching_post_stats#career'
 
+  match 'sort/active/batting' => 'batting_stats#active'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

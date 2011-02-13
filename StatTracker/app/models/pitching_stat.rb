@@ -4,4 +4,9 @@ class PitchingStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
+	def self.single_season_sort()
+		sorted = PitchingStat.all.sort{|a,b| b.strikeouts <=> a.strikeouts}
+		return sorted.take(50)
+	end
+	
 end

@@ -41,4 +41,13 @@ class PitchingPostStatsController < ApplicationController
     flash[:notice] = "Successfully destroyed pitching post stat."
     redirect_to pitching_post_stats_url
   end
+  
+    def single_season
+		@pitching_post_stats = PitchingPostStat.single_season_sort
+	end
+  
+    def career
+		@pitching_post_stats = PitchingPostStat.career_sort
+	end
+	
 end
