@@ -24,7 +24,7 @@ StatTracker::Application.routes.draw do
   match 'leaders/season/batting/:stat' => 'batting_stats#single_season'
   match 'leaders/season/batting_post' => 'batting_post_stats#single_season'
   match 'leaders/season/pitching' => 'pitching_stats#single_season'
-  match 'ledaers/season/pitching_post' => 'pitching_post_stats#single_season'
+  match 'leaders/season/pitching_post' => 'pitching_post_stats#single_season'
   match 'leaders/season/fielding' => 'fielding_stats#single_season'
   match 'leaders/season/fielding_post' => 'fielding_post_stats#single_season'
   
