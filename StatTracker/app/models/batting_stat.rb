@@ -4,7 +4,7 @@ class BattingStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
-	def single_season_sort(stat)
+	def self.single_season_sort(stat)
     sorted = BattingStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
     return sorted.take(50)
   end
