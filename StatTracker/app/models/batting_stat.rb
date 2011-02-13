@@ -47,13 +47,11 @@ class BattingStat < ActiveRecord::Base
   end
 	
 	def batting_average
-		value = hits / at_bats
-    sprintf(".3f", value)
+    sprintf("%.3f", avg)
 	end
 	
 	def on_base_percentage
-		value = (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies)
-    sprintf(".3f", value)
+    sprintf("%.3f", obp)
 	end
 
   def total_bases
@@ -61,33 +59,33 @@ class BattingStat < ActiveRecord::Base
   end
 
   def slugging_percentage
-    total_bases / at_bats
+    sprintf("%.3f", slg)
   end
 
-  def ops
-    on_base_percentage + slugging_percentage
+  def on_base_plus_slugging
+    sprintf("%.3f", ops)
   end
 
   def stolen_base_percentage
-    stolen_bases / (stolen_bases + caught_stealing)
+    sprintf("%.3f", sbp)
   end
 
   def at_bats_per_strikeout
-    at_bats / strikeouts
+    sprintf("%.3f", ab_per_k)
   end
 
   def at_bats_per_home_run
-    at_bats / home_runs
+    sprintf("%.3f", ab_per_hr)
   end
 
   def adjusted_ops
     league_obp = BattingStat.where(year => self.year).average(on_base_percentage)
     league_slg = BattingStat.where(year => self.year).average(slugging_percentage)
-    100 * ((on_base_percentage / league_obp) + (slugging_percentage / league_slg) - 1)
+    100 * ((obp / league_obp) + (slg / league_slg) - 1)
   end
 
   def isolated_power
-    slugging_percentage - batting_average
+    sprintf("%.3f", slg - avg)
   end
 
   def runs_created
@@ -103,10 +101,44 @@ class BattingStat < ActiveRecord::Base
   end
 
   def secondary_average
-    (total_bases - hits + walks + stolen_bases - caught_stealing) / at_bats
+    sprintf("%.3f", sec_avg)
   end
 
   def base_runs
     #code goes here
+  end
+
+  private
+
+  def avg
+    hits / at_bats.to_f
+  end
+
+  def obp
+    (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies).to_f
+  end
+
+  def slg
+    total_bases / at_bats.to_f
+  end
+
+  def ops
+    obp + slg
+  end
+
+  def sbp
+    stolen_bases / (stolen_bases + caught_stealing).to_f
+  end
+
+  def ab_per_k
+    at_bats / strikeouts.to_f
+  end
+
+  def ab_per_hr
+    at_bats / home_runs.to_f
+  end
+
+  def sec_avg
+    (total_bases - hits + walks + stolen_bases - caught_stealing) / at_bats.to_f
   end
 end
