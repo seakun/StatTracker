@@ -14,7 +14,7 @@ class PitchingStat < ActiveRecord::Base
   end
 
   def win_loss_percentage()
-    wins / (wins + losses)
+     sprintf("%.3f", (wins / (wins + losses)))
   end
 
   def innings_pitched
@@ -26,7 +26,7 @@ class PitchingStat < ActiveRecord::Base
   end
 
   def opponents_batting_average
-    #(hits) / (batters_faced - walks - )
+    (hits) / (batters_faced - walks - hit_by_pitch - intentional_walks)
   end
 
   def walks_and_hits_innings_pitched

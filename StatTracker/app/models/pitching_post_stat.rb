@@ -23,5 +23,58 @@ class PitchingPostStat < ActiveRecord::Base
 		}
 		return sorted.take(50)
 	end
+
+  def year
+    team.year
+  end
+
+  def win_loss_percentage()
+     sprintf("%.3f", (wins / (wins + losses)))
+  end
+
+  def innings_pitched
+    innings_pitched_outs / 3
+  end
+
+  def era
+    (earned_runs * 9) / inings_pitched
+  end
+
+  def opponents_batting_average
+    (hits) / (batters_faced - walks - hit_by_pitch - intentional_walks)
+  end
+
+  def walks_and_hits_innings_pitched
+    (walks + hits) / innings_pitched
+  end
+
+  def hits_innings
+    (hits * 9) / innings_pitched
+  end
+
+  def home_runs_innings
+    (home_runs * 9) / innings_pitched
+  end
+
+  def walks_innings
+    (walks * 9) / innings_pitched
+  end
+
+  def strikeouts_innings
+    (strikeouts * 9) / innings_pitched
+  end
+
+  def strikeouts_walks
+    (strikeouts / walks)
+  end
+
+  def adjusted_era
+    league_era = Pitchingstat.where(year => self.year).average(era)
+    100 * (league_era / era)
+  end
+
+  def base_runs
+
+  end
 	
 end

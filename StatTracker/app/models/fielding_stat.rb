@@ -8,5 +8,30 @@ class FieldingStat < ActiveRecord::Base
 		sorted = FieldingStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
 		return sorted.take(50)
 	end
-	
+
+  def chances
+    put_outs + assists + errors_made
+  end
+
+  def innings
+    innings_outs / 3
+  end
+
+  def fielding_percentage
+    sprintf("%.3f", ((put_outs + assists) / chances) )
+  end
+
+  def range_factor_innings
+    9 * (put_outs + assists) / innings
+  end
+
+  def range_factor__game
+    (put_outs + assists) / games
+  end
+  
+#  League Fielding Percentage (lgfLD%)
+#League Range Factor/9 Innings (lgRF9)
+#League Range Factor/ Game (lgRFG)
+
+
 end
