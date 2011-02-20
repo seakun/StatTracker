@@ -42,7 +42,16 @@ class PitchingStatsController < ApplicationController
     redirect_to pitching_stats_url
   end
   
-   def single_season
+	def single_season
 		@pitching_stats = PitchingStat.single_season_sort(params[:stat])
 	end
+	
+	def career
+		@pitching_stats = PitchingStat.career_sort(params[:stat])
+	end
+	
+	def active
+		@pitching_stats = PitchingStat.active_sort(params[:stat])
+	end
+	
 end

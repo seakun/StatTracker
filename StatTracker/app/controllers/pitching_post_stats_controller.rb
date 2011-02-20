@@ -47,7 +47,11 @@ class PitchingPostStatsController < ApplicationController
 	end
   
     def career
-		@pitching_post_stats = PitchingPostStat.career_sort
+		@pitching_post_stats = PitchingPostStat.career_sort(params[:stat])
+	end
+	
+	def active
+		@pitching_post_stats = PitchingPostStat.active_sort(params[:stat])
 	end
 	
 end

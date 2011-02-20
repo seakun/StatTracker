@@ -42,8 +42,16 @@ class BattingPostStatsController < ApplicationController
     redirect_to batting_post_stats_url
   end
   
-   def single_season
+	def single_season
 		@batting_post_stats = BattingPostStat.single_season_sort(params[:stat])
-  end
+	end
   
+	def career
+		@batting_post_stats = BattingPostStat.career_sort(params[:stat])
+	end
+	
+	def active
+		@batting_post_stats = BattingPostStat.active_sort(params[:stat])
+	end
+	
 end

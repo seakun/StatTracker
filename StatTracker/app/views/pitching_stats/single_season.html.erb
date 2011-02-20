@@ -3,16 +3,20 @@
 <table>
   <tr>
     <th>Player</th>
-    <th>Team</th>
+	<th>Throws</th>
+	<th>Team</th>
 	<th>Year</th>
 	<th><%= params[:stat].titleize %></th>
   </tr>
+  
   <% for pitching_stat in @pitching_stats %>
     <tr>
-      <td><%= pitching_stat.player.last_name %></td>
+      <td><%= pitching_stat.player.name %></td>
+	  <td><%= pitching_stat.player.throws %></td>
       <td><%= pitching_stat.team.name %></td>
 	  <td><%= pitching_stat.team.year %></td>
-      <td><%= pitching_stat.send(params[:stat])%></td>
+	  <td><%= pitching_stat.send(params[:stat])%></td>
     </tr>
   <% end %>
+  
 </table>

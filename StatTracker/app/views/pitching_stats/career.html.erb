@@ -1,0 +1,18 @@
+<% title "Pitching Stats" %>
+
+<table>
+  <tr>
+    <th>Player</th>
+	<th>Throws</th>
+	<th><%= params[:stat].titleize %></th>
+  </tr>
+  
+  <% for pitching_stat in @pitching_stats %>
+    <tr>
+      <td><%= pitching_stat[0].name %></td>
+	  <td><%= pitching_stat[0].throws %></td>
+	  <td><%= pitching_stat[1]%></td>
+    </tr>
+  <% end %>
+  
+</table>

@@ -8,6 +8,13 @@ class Player < ActiveRecord::Base
 	has_many :fielding_stats
 	has_many :fielding_post_stats
 	
-	def get_career_total(stat)
+	def self.get_career_total(stat)
+		Player.all.each {|p|	
+		}
 	end
+	
+	def name
+		first_name + " " + last_name
+	end
+	
 end

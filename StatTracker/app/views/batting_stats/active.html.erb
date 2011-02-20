@@ -3,15 +3,16 @@
 <table>
   <tr>
     <th>Player</th>
-	<th>Home Runs</th>
 	<th>Bats</th>
-
+	<th><%= params[:stat].titleize %></th>
   </tr>
+  
   <% for batting_stat in @batting_stats %>
     <tr>
-      <td><%= batting_stat[0].last_name %></td>
-      <td><%= batting_stat[1] %></td>
-	   <td><%= batting_stat[0].bats %></td>
+      <td><%= batting_stat[0].name %></td>
+	  <td><%= batting_stat[0].bats %></td>
+	  <td><%= batting_stat[1]%></td>
     </tr>
   <% end %>
+  
 </table>

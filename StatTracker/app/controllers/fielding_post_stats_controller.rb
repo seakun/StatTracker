@@ -42,7 +42,16 @@ class FieldingPostStatsController < ApplicationController
     redirect_to fielding_post_stats_url
   end
   
-  def single_season
+	def single_season
 		@fielding_post_stats = FieldingPostStat.single_season_sort(params[:stat])
-  end
+	end
+  
+	def career
+		@fielding_post_stats = FieldingPostStat.career_sort(params[:stat])
+	end
+  
+	def active
+		@fielding_post_stats = FieldingPostStat.active_sort(params[:stat])
+	end
+	
 end
