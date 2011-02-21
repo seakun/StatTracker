@@ -5,23 +5,32 @@ class BattingStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-		sorted = BattingStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
-		return sorted.take(50)
+		batter_ids = BattingStat.find(:all, :select => :id, :order => stat + " DESC", :limit => 50)
+		leaders = []
+		batter_ids.each { |b|
+			leaders.push(BattingStat.find(b.id))
+		}
+		leaders
+		# sorted = BattingStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
+		# return sorted.take(50)
 	end
 
 	def self.career_sort(stat)
 		stats = {}
-		BattingStat.all.each { |s|
-			if stats.has_key?(s.player_id)
-				stats[s.player_id] += s.send(stat)
-			else stats.store(s.player_id, s.send(stat))
-			end
-		}
-		sorted = stats.sort{|a,b| b[1] <=> a[1]}
-		sorted.take(50).each { |a| 
-		a[0] = Player.find(a[0])
-		}
-		return sorted.take(50)
+		new = BattingStat.find(:all, :select => stat, :order => stat)
+		return new.take(50)
+		# BattingStat.find(:all, :select => player_id, stat) { |s|
+			# if stats.has_key?(s.player_id)
+				# stats[s.player_id] += s.send(stat)
+			# else 
+			# stats.store(s.player_id, s.send(stat))
+			# end
+		# }
+		# sorted = stats.sort{|a,b| b[1] <=> a[1]}
+		# sorted.take(50).each { |a| 
+		# a[0] = Player.find(a[0])
+		# }
+		# return sorted.take(50)
 	end
 	
 	def self.active_sort(stat)
