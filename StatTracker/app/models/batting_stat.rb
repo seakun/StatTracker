@@ -1,52 +1,51 @@
 class BattingStat < ActiveRecord::Base
-  attr_accessible :player_id, :team_id, :stint, :games, :games_batting, :plate_appearances, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :total_bases, :extra_base_hits, :rbi, :stolen_bases, :caught_stealing, :walks, :strikeouts, :intentional_walks, :hit_by_pitch, :sacrifice_hits, :sacrifice_flies, :grounded_into_double_plays
+	attr_accessible :player_id, :team_id, :stint, :games, :games_batting, :plate_appearances, :at_bats, :runs, :hits, :doubles, :triples, :home_runs, :total_bases, :extra_base_hits, :rbi, :stolen_bases, :caught_stealing, :walks, :strikeouts, :intentional_walks, :hit_by_pitch, :sacrifice_hits, :sacrifice_flies, :grounded_into_double_plays
 
 	belongs_to :player
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-		batter_ids = BattingStat.find(:all, :select => :id, :order => stat + " DESC", :limit => 50)
-		leaders = []
-		batter_ids.each { |b|
-			leaders.push(BattingStat.find(b.id))
-		}
-		leaders
-		# sorted = BattingStat.all.sort{|a,b| b.send(stat) <=> a.send(stat)}
-		# return sorted.take(50)
+		BattingStat.find(:all, :select => [:player_id, :team_id, stat.to_sym], :order => stat + " DESC", :limit => 50)
 	end
 
 	def self.career_sort(stat)
-		stats = {}
-		new = BattingStat.find(:all, :select => stat, :order => stat)
-		return new.take(50)
-		# BattingStat.find(:all, :select => player_id, stat) { |s|
-			# if stats.has_key?(s.player_id)
-				# stats[s.player_id] += s.send(stat)
-			# else 
-			# stats.store(s.player_id, s.send(stat))
-			# end
-		# }
-		# sorted = stats.sort{|a,b| b[1] <=> a[1]}
-		# sorted.take(50).each { |a| 
-		# a[0] = Player.find(a[0])
-		# }
-		# return sorted.take(50)
+		stats = BattingStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
+		comb = {}
+		stats.each { |s| 
+			if comb.has_key?(s.player_id)
+					comb[s.player_id] += s.send(stat).to_i
+			else
+				if (s.send(stat) == 0 || s.send(stat).nil?)
+					comb.store(s.player_id, 0)
+				else
+					comb.store(s.player_id, s.send(stat))
+				end
+			end
+		} 
+		sorted = comb.sort{|a,b| b[1] <=> a[1]}
+		sorted.take(50).each { |a| 
+		a[0] = Player.find(a[0])
+		}
+		return sorted.take(50)
 	end
 	
 	def self.active_sort(stat)
-		stats = {}
-		BattingStat.all.each { |s|
-			player = Player.find(s.player_id)
-			if player.final_game.nil?
-				if stats.has_key?(player)
-					stats[player] += s.send(stat)
-				else stats.store(player, s.send(stat))
+		stats = BattingStat.find(:all, :select => [:player_id, stat.to_sym], :conditions => ["final_game is NULL"], :joins => [:player])
+		comb = {}
+		stats.each { |s| 
+			if comb.has_key?(s.player_id)
+					comb[s.player_id] += s.send(stat).to_i
+			else
+				if (s.send(stat) == 0 || s.send(stat).nil?)
+					comb.store(s.player_id, 0)
+				else
+					comb.store(s.player_id, s.send(stat))
 				end
 			end
-		}
-		sorted = stats.sort{|a,b| b[1] <=> a[1]}
+		} 
+		sorted = comb.sort{|a,b| b[1] <=> a[1]}
 		sorted.take(50).each { |a| 
-			a[0] = Player.find(a[0])
+		a[0] = Player.find(a[0])
 		}
 		return sorted.take(50)
 	end
