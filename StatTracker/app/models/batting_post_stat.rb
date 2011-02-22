@@ -97,15 +97,15 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def runs_created
-    #code goes here
+    ((hits + walks) * total_bases) / (at_bats + walks)
   end
 
   def weighted_on_base_average
-    #code goes here
+    #can't figure out formula
   end
 
   def extrapolated_runs
-    #code goes here
+    (0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits))
   end
 
   def secondary_average
@@ -113,7 +113,11 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def base_runs
-    #code goes here
+    a = hits + walks - home_runs
+    b = (1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02
+    c = at_bats - hits
+    d = home_runs
+    (a * b)/(b + c) + d
   end
 
   private
