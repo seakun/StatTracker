@@ -25,6 +25,7 @@ StatTracker::Application.routes.draw do
 
   resources :batting_post_stats
   
+  match 'users/show' => 'users#show'
   match 'leaders/season/batting/:stat' => 'batting_stats#single_season'
   match 'leaders/season/batting_post/:stat' => 'batting_post_stats#single_season'
   match 'leaders/season/pitching/:stat' => 'pitching_stats#single_season'
