@@ -5,7 +5,6 @@ class BattingStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-    self.class
     s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
     min_ab = accessible_attributes.include?(stat)? 0 : 400
 		BattingStat.find(:all, :conditions => ["at_bats > ?", min_ab], :order => s + " DESC", :limit => 50)
