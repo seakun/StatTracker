@@ -18,14 +18,14 @@ a {
   overflow: hidden;
 }
 #nav {
-	float: top;
+	float: top-left;
 	margin: 0 0 3em 0;
-	padding: 10px;
 	list-style: none;
-	
+	padding: 20px 40px;
 	}
 #nav li {
 	list-style: none;
+	border: solid 1px black;
 	float:left;
 	background-color:white;}
 #nav li a {
@@ -33,14 +33,17 @@ a {
 	padding: 8px 15px;
 	text-decoration: none;
 	font-weight: bold;
-	color: #069;
+	color: black;
 	border-right: 1px solid #ccc; }
 #nav li a:hover {
 	color: #c00;
 	background-color: #fff; }
 	
 #sign{
-
+float:right;
+font-weight: bold;
+color: black;
+color: black;
 }
 
 #container {

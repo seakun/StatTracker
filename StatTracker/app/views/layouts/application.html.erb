@@ -4,21 +4,12 @@
     <title>StatTracker :: <%= controller.controller_name.capitalize %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag :defaults %>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon" />
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
-  <div id="nav">
-      	<ul>
-          	<!-- OPTIONS FOR EVERYONE -->
-		
-			<li><%= link_to 'Players', players_path %></li>
-			<li><%= link_to 'Teams', teams_path %></li>
-			<li><%= link_to 'Leagues', leagues_path %></li>  
-</ul>
-</div> 
-<div id="sign">
+  <div id="sign">
 <% if user_signed_in? %>  
  Signed in as <%= current_user.email %>. Not you?  
 <%= link_to "Sign out", destroy_user_session_path %>  
@@ -28,6 +19,20 @@
 <%= link_to "Sign in", new_user_session_path %>  
 <% end %>
 </div>
+  <div id="nav">
+      	<ul>
+          	<!-- OPTIONS FOR EVERYONE -->
+		
+			<li><%= link_to 'Players', '/players/1' %></li>
+			<li><%= link_to 'Teams', '/teams/1' %></li>
+			<li><%= link_to 'Leagues', leagues_path %></li>  
+			<li><%= link_to 'Season Finder' %></li> 
+			<li><%= link_to 'Single Season Home Run Leaders', '/leaders/season/batting/home_runs' %> </li> 
+			<li><%= link_to 'Career Home Run Leaders', '/leaders/career/batting/home_runs' %> </li> 
+			<li><%= link_to 'Active Home Run Leaders', '/leaders/active/batting/home_runs' %> </li> 
+</ul>
+</div> 
+
     <div id="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
