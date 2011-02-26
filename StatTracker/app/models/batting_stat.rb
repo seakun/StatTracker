@@ -5,8 +5,8 @@ class BattingStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-    s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
-    min_ab = accessible_attributes.include?(stat)? 0 : 400
+		s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
+		min_ab = accessible_attributes.include?(stat)? 0 : 400
 		BattingStat.find(:all, :conditions => ["at_bats > ?", min_ab], :order => s + " DESC", :limit => 50)
 	end
 
@@ -52,12 +52,24 @@ class BattingStat < ActiveRecord::Base
 		return sorted.take(50)
 	end
 
-  def year
-    team.year
-  end
+	def self.season_compare(comp)
+		split_strings = comp.split("/")
+		players = []
+		split_strings.each { |s|
+			split = s.split(".")
+			player = split[0]
+			year = split[1]
+			players.push(BattingStat.find(:all, :conditions => ['player_id = ? AND year = ?', s.to_i, year], :joins => [:team]))
+		}
+		players
+	end
+	
+	def year
+		team.year
+	end
 	
 	def batting_average
-    sprintf("%.3f", avg)
+		sprintf("%.3f", avg)
 	end
 	
 	def on_base_percentage

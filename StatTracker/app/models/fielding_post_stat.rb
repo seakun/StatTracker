@@ -5,7 +5,11 @@ class FieldingPostStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-		FieldingPostStat.find(:all, :select => [:player_id, :team_id, stat.to_sym, :position], :order => stat + " DESC", :limit => 50)
+		s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
+		min_g = accessible_attributes.include?(stat)? 0 : 4
+		field = FieldingPostStat.find(:all, :conditions => ["games > ?", min_g], :order => s + " DESC", :limit => 50)
+		puts field
+		field
 	end
 	
 	def self.career_sort(stat)
@@ -48,6 +52,48 @@ class FieldingPostStat < ActiveRecord::Base
 		a[0] = Player.find(a[0])
 		}
 		return sorted.take(50)
+	end
+	
+	def innings
+		inning_outs / 3
+	end
+
+	def fielding_percentage
+		sprintf("%.3f", ((put_outs + assists) / chances) )
+	end
+
+	def range_factor_inning
+		sprintf("%.3f", rfi)
+	end
+
+	def range_factor_game
+		sprintf("%.3f", rfg)
+	end
+  
+	private
+	
+	def rfi
+		(9 * (put_outs + assists) / innings.to_f)
+	end
+	
+	def rfg
+		(put_outs + assists) / games.to_f
+	end
+	
+	def self.multiplier
+		10000
+	end
+	
+	def self.str_fielding_percentage
+		"(put_outs + assists) * #{multiplier} / chances "
+	end
+	
+	def self.str_range_factor_inning
+		"(9* (put_outs + assists)) * #{multiplier} / (inning_outs / 3) "
+	end
+	
+	def self.str_range_factor_game
+		"(put_outs + assists) * #{multiplier} / games "
 	end
 	
 end

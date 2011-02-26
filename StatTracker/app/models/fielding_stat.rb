@@ -5,7 +5,9 @@ class FieldingStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-		FieldingPostStat.find(:all, :select => [:player_id, :team_id, stat.to_sym, :position], :order => stat + " DESC", :limit => 50)
+		s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
+		min_g = accessible_attributes.include?(stat)? 0 : 80
+		FieldingStat.find(:all, :conditions => ["games > ?", min_g], :order => s + " DESC", :limit => 1)
 	end
 	
 	def self.career_sort(stat)
@@ -50,27 +52,68 @@ class FieldingStat < ActiveRecord::Base
 		return sorted.take(50)
 	end
 
-	def chances
-		put_outs + assists + errors_made
+	def innings
+		inning_outs / 3
 	end
 
-  def innings
-    innings_outs / 3
-  end
+	def fielding_percentage
+		sprintf("%.3f", ((put_outs + assists) / chances) )
+	end
 
-  def fielding_percentage
-    sprintf("%.3f", ((put_outs + assists) / chances) )
-  end
+	def range_factor_innings
+		sprintf("%.3f", rfi)
+	end
 
-  def range_factor_innings
-    9 * (put_outs + assists) / innings
-  end
-
-  def range_factor__game
-    (put_outs + assists) / games
-  end
+	def range_factor_game
+		sprintf("%.3f", rfg)
+	end
+	
+	# def lfp(team_id, position)
+		# fielders = FieldingStat.find(:all, :conditions => ["position = ? AND team.year = ?", position])
+		# puts "*****"
+		# po = 0
+		# a = 0
+		# c = 0
+		# puts "****"
+		# fielders.each {|f|
+			# po += f.put_outs
+			# puts po
+			# a += f.assists
+			# c += f.chances
+		# }
+		# puts "***"
+		# puts po + a
+		# puts c
+		# sprintf("%.3f", ((po + a) / c.to_f))
+	# end
   
-#  League Fielding Percentage (lgfLD%)
+	private
+	
+	def rfi
+		(9 * (put_outs + assists) / innings.to_f)
+	end
+	
+	def rfg
+		(put_outs + assists) / games.to_f
+	end
+	
+	def self.multiplier
+		10000
+	end
+	
+	def self.str_fielding_percentage
+		"(put_outs + assists) * #{multiplier} / chances "
+	end
+	
+	def self.str_range_factor_innings
+		"(9* (put_outs + assists)) * #{multiplier} / (inning_outs / 3) "
+	end
+	
+	def self.str_range_factor_game
+		"(put_outs + assists) * #{multiplier} / games "
+	end
+	
+	
 #League Range Factor/9 Innings (lgRF9)
 #League Range Factor/ Game (lgRFG)
 

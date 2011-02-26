@@ -54,4 +54,8 @@ class BattingStatsController < ApplicationController
 		@batting_stats = BattingStat.active_sort(params[:stat])
 	end
 	
+	def season_compare
+		@batters = BattingStat.season_compare(params[:comp])
+	end
+  
 end

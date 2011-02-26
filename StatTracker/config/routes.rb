@@ -49,6 +49,13 @@ StatTracker::Application.routes.draw do
   match 'leaders/active/fielding/:stat' => 'fielding_stats#active'
   match 'leaders/active/fielding_post/:stat' => 'fielding_post_stats#active'
   
+  match 'compare/season/batting/*comp' => 'batting_stats#season_compare'
+  match 'compare/career/batting/*comp' => 'batting_stats#career_compare'
+  match 'compare/multi/batting/*comp' => 'batting_stats#mutli_compare'
+  match 'compare/season/pitching/*comp' => 'pitching_stats#season_compare'
+  match 'compare/career/pitching/*comp' => 'pitching_stats#career_compare'
+  match 'compare/multi/pitching/*comp' => 'pitching_stats#multi_compare'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

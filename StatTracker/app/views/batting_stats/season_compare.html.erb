@@ -1,0 +1,56 @@
+<% title "Batting Compare" %>
+
+<table>
+  <tr>
+  <th>Name</th>
+  <th>Year</th>
+  <th>Age</th>
+  <th>Team</th>
+  <th>League</th>
+  <th>G</th>
+  <th>PA</th>
+  <th>AB</th>
+  <th>R</th>
+  <th>H</th>
+  <th>2B</th>
+  <th>3B</th>
+  <th>HR</th>
+  <th>RBI</th>
+  <th>SB</th>
+  <th>CS</th>
+  <th>BB</th>
+  <th>K</th>
+  <th>BA</th>
+  <th>OBP</th>
+  <th>SLG</th>
+  <th>OPS</th>
+  <th>TB</th>
+  </tr>
+  <% for batter in @batters %>
+    <tr>
+	<td><%= batter[0].player.name %></td>
+	<td><%= batter[0].team.year %></td>
+	<td><%= batter[0].player.age(batter[0].team.year) %></td>
+	<td><%= batter[0].team.name %></td>
+	<td><%= batter[0].team.division.league.name %></td>
+	<td><%= batter[0].games %></td>
+	<td><%= batter[0].plate_appearances %></td>
+	<td><%= batter[0].at_bats %></td>
+	<td><%= batter[0].runs%></td>
+	<td><%= batter[0].hits %></td>
+	<td><%= batter[0].doubles %></td>
+	<td><%= batter[0].triples %></td>
+	<td><%= batter[0].home_runs %></td>
+	<td><%= batter[0].rbi %></td>
+	<td><%= batter[0].stolen_bases %></td>
+	<td><%= batter[0].caught_stealing %></td>
+	<td><%= batter[0].walks %></td>
+	<td><%= batter[0].strikeouts %></td>
+	<td><%= batter[0].batting_average %></td>
+	<td><%= batter[0].on_base_percentage%></td>
+	<td><%= batter[0].slugging_percentage %></td>
+	<td><%= batter[0].on_base_plus_slugging %></td>
+	<td><%= batter[0].total_bases %></td>
+    </tr>
+  <% end %>
+</table>
