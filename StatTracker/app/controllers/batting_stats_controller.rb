@@ -57,5 +57,20 @@ class BattingStatsController < ApplicationController
 	def season_compare
 		@batters = BattingStat.season_compare(params[:comp])
 	end
+	
+	def career_compare
+		@batters = BattingStat.career_compare(params[:comp])
+		@player = []
+		@players = []
+		@batters.each_value {|value|
+			if @player.include?(value)
+			else @player.push(value)
+			end
+		}
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+		}
+		puts @players
+	end
   
 end

@@ -64,6 +64,22 @@ class BattingStat < ActiveRecord::Base
 		players
 	end
 	
+	def self.career_compare(comp)
+		split_strings = comp.split("/")
+		players = {}
+		split_strings.each { |s|
+			stats = BattingStat.find(:all, :conditions => ['player_id = ?', s.to_i])
+			stats.each { |st|
+				players.store(st, s.to_i)
+			}
+		}
+		players
+	end
+	
+	def self.career_totals(players)
+		
+	end
+	
 	def year
 		team.year
 	end
