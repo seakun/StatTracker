@@ -22,6 +22,10 @@
   <th>BA</th>
   <th>SLG</th>
   <th>TB</th>
+  <th>OBP</th>
+  <th>OPS</th>
+  <th>ISO</th>
+  <th>RC</th>
   </tr>
   <% for batter in @batters %>
     <tr>
@@ -46,6 +50,10 @@
 	<td><%= batter[0].batting_average %></td>
 	<td><%= batter[0].slugging_percentage %></td>
 	<td><%= batter[0].total_bases %></td>
+	<td><%= batter[0].on_base_percentage	%></td>
+	<td><%= batter[0].on_base_plus_slugging	%></td>
+	<td><%= batter[0].isolated_power	%></td>
+	<td><%= batter[0].runs_created	%></td>
     </tr>
   <% end %>
 </table>
