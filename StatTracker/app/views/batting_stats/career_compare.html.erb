@@ -1,33 +1,5 @@
 <% title "Batting Compare" %>
-<script type="text/javascript">
-      google.load('visualization', '1', {packages: ['corechart']});
-</script>
 
-<script type="text/javascript">
-      function drawVisualization() {
-        // Create and populate the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'x');
-		<% for player in @players %>
-			data.addColumn('number', <%= player.name%>)
-		<% end %>
-		
-        data.addRow(["A", 1]);
-		data.addRow(["A", 1]);
-		data.addRow(["A", 1]);
-       
-        // Create and draw the visualization.
-        new google.visualization.LineChart(document.getElementById('visualization')).
-            draw(data, {curveType: "function",
-                        width: 500, height: 400,
-                        vAxis: {maxValue: 10}}
-                );
-      }
-      
-
-      google.setOnLoadCallback(drawVisualization);
-    </script>
-	
 <table>
   <tr>
   <th>Name</th>
@@ -78,5 +50,3 @@
     </tr>
   <% end %>
 </table>
-
-<div id="visualization" style="width: 500px; height: 400px;"></div>

@@ -44,6 +44,26 @@ class BattingStatsController < ApplicationController
   
 	def single_season
 		@batting_stats = BattingStat.single_season_sort(params[:stat])
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Team')
+		@table.add_column('number' , 'Year')
+		@table.add_column('number' , params[:stat].titleize)
+		@table.add_rows(50)
+		@batting_stats.each { |b|
+			i = @batting_stats.index(b)
+			@table.set_cell(i, 0, b.player.name)
+			@table.set_cell(i, 1, b.player.bats)
+			@table.set_cell(i, 2, b.team.name)
+			@table.set_cell(i, 3, b.year)
+			@table.set_cell(i, 4, b.send(params[:stat]))
+		}
+		
+		options = { :width => 600, :showRowNumber => true }
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
 	end
   
 	def career
