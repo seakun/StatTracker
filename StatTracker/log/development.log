@@ -26111,3 +26111,2064 @@ Started GET "/compare/career/batting/12352/public/favicon.ico" for 127.0.0.1 at 
   [1m[35mLeague Load (2.0ms)[0m  SELECT "leagues".* FROM "leagues" WHERE ("leagues"."id" = 5) LIMIT 1
 Rendered batting_stats/career_compare.html.erb within layouts/application (660.0ms)
 Completed 200 OK in 1705ms (Views: 792.0ms | ActiveRecord: 455.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:11:03 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:11:03 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:11:04 -0500
+
+ActionController::RoutingError (No route matches "/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:11:04 -0500
+
+ActionController::RoutingError (No route matches "/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.4ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:11:34 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (17.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (106.5ms)
+Completed 200 OK in 220ms (Views: 124.4ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/players/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:11:35 -0500
+
+ActionController::RoutingError (No route matches "/players/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/players/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:11:35 -0500
+
+ActionController::RoutingError (No route matches "/players/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-02-27 00:11:41 -0500
+  Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (46650.6ms)[0m  [1mSELECT "players".* FROM "players"[0m
+Rendered players/index.html.erb within layouts/application (45318.3ms)
+Completed 200 OK in 95170ms (Views: 45350.8ms | ActiveRecord: 46650.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:13:16 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 29ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/leaders/season/batting/home_runs" for 127.0.0.1 at 2011-02-27 00:13:17 -0500
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"home_runs"}
+  [1m[35mBattingStat Load (431.0ms)[0m  SELECT "batting_stats".* FROM "batting_stats" WHERE (at_bats > 0) ORDER BY home_runs DESC LIMIT 50
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2490) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2443) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2430) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2459) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2478) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2446) LIMIT 1
+  [1m[36mPlayer Load (0.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8814) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 574) LIMIT 1
+  [1m[36mPlayer Load (0.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 298) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 250) LIMIT 1
+  [1m[36mPlayer Load (0.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 339) LIMIT 1
+  [1m[36mPlayer Load (0.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5439) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 385) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5271) LIMIT 1[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2476) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1104) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1033) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1046) LIMIT 1
+  [1m[36mPlayer Load (0.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15339) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1746) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17263) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1217) LIMIT 1
+  [1m[36mPlayer Load (2.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (1.5ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1902) LIMIT 1
+  [1m[36mPlayer Load (0.7ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 574) LIMIT 1
+  [1m[36mPlayer Load (3.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10717) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1149) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1170) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 242) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 306) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4620) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2168) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 532) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9039) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2038) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1018) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1090) LIMIT 1
+  [1m[36mPlayer Load (2.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14146) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1096) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4382) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 929) LIMIT 1
+  [1m[36mPlayer Load (3.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2541) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7516) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1886) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9039) LIMIT 1[0m
+  [1m[35mTeam Load (69.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1948) LIMIT 1
+  [1m[36mPlayer Load (0.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9794) LIMIT 1[0m
+  [1m[35mTeam Load (1.4ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1884) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 246) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1008) LIMIT 1
+  [1m[36mPlayer Load (2.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 998) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17519) LIMIT 1[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2580) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 382) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2462) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14569) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2441) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 898) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1039) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2474) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3367) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2287) LIMIT 1
+  [1m[36mPlayer Load (0.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 354) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 370) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5436) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2483) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1019) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2480) LIMIT 1
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 603) LIMIT 1
+Rendered batting_stats/single_season.html.erb within layouts/application (553.8ms)
+Completed 200 OK in 1432ms (Views: 412.1ms | ActiveRecord: 589.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:16:24 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 25ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:18:15 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:18:16 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:19:06 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 54ms (Views: 53.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:19:11 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:19:22 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (80.2ms)
+Completed 200 OK in 86ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:19:23 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:19:35 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 19ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:20:07 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 20ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:20:32 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:20:37 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 28ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:20:54 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:21:02 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 83ms (Views: 82.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:21:17 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:22:27 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:22:31 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:22:38 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:22:42 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:22:50 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:22:51 -0500
+
+ActionController::RoutingError (No route matches "/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:23:29 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:23:50 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 40ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:23:55 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:23:56 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 19ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:24:05 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:24:10 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:24:51 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:24:52 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:25:41 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 33ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:25:59 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:26:05 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 23ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:26:13 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:26:57 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:27:15 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:27:30 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:27:41 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:27:42 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:28:24 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:28:36 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 19ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:28:44 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:28:48 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:29:41 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 49ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:34:58 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 123ms (Views: 82.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/leaders/career/batting/home_runs" for 127.0.0.1 at 2011-02-27 00:35:04 -0500
+  Processing by BattingStatsController#career as HTML
+  Parameters: {"stat"=>"home_runs"}
+  [1m[35mBattingStat Load (2896.8ms)[0m  SELECT player_id, home_runs FROM "batting_stats" INNER JOIN "players" ON "players"."id" = "batting_stats"."player_id"
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1274) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+  [1m[36mPlayer Load (0.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12352) LIMIT 1[0m
+  [1m[35mPlayer Load (0.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 9039) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13381) LIMIT 1[0m
+  [1m[35mPlayer Load (1.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 14146) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12068) LIMIT 1[0m
+  [1m[35mPlayer Load (0.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 9298) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7493) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 10843) LIMIT 1
+  [1m[36mPlayer Load (0.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6851) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11623) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12634) LIMIT 1[0m
+  [1m[35mPlayer Load (0.8ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 8785) LIMIT 1
+  [1m[36mPlayer Load (0.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4658) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 14118) LIMIT 1
+  [1m[36mPlayer Load (0.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15275) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 9153) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 571) LIMIT 1[0m
+  [1m[35mPlayer Load (0.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 8953) LIMIT 1
+  [1m[36mPlayer Load (0.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10766) LIMIT 1[0m
+  [1m[35mPlayer Load (1.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 12920) LIMIT 1
+  [1m[36mPlayer Load (0.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10196) LIMIT 1[0m
+  [1m[35mPlayer Load (0.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 9285) LIMIT 1
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4996) LIMIT 1[0m
+  [1m[35mPlayer Load (0.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 10216) LIMIT 1
+  [1m[36mPlayer Load (0.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13536) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3458) LIMIT 1
+  [1m[36mPlayer Load (0.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15389) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2092) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15607) LIMIT 1[0m
+  [1m[35mPlayer Load (216.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 465) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7537) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3367) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5570) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7105) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5267) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11968) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11221) LIMIT 1[0m
+  [1m[35mPlayer Load (0.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 15216) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5056) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4205) LIMIT 1
+  [1m[36mPlayer Load (3.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 13321) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4832) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7253) LIMIT 1[0m
+  [1m[35mPlayer Load (0.8ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 10159) LIMIT 1
+Rendered batting_stats/career.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 5703ms (Views: 63.7ms | ActiveRecord: 3162.4ms)
+
+
+Started GET "/leaders/career/batting/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:35:10 -0500
+
+ActionController::RoutingError (No route matches "/leaders/career/batting/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/leaders/career/batting/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:35:10 -0500
+
+ActionController::RoutingError (No route matches "/leaders/career/batting/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:37:12 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (349.9ms)
+Completed 200 OK in 385ms (Views: 354.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:39:15 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 78ms (Views: 47.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home/1" for 127.0.0.1 at 2011-02-27 00:39:16 -0500
+
+ActionController::RoutingError (No route matches "/home/1"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.2ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:39:32 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (2.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 94ms (Views: 61.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:39:32 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:39:49 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 149ms (Views: 45.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:39:56 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:41:20 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:41:21 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:41:34 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:41:35 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (118.3ms)
+Completed 200 OK in 207ms (Views: 123.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:41:36 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:41:47 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:41:50 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (88.9ms)
+Completed 200 OK in 129ms (Views: 94.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:41:51 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:42:51 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:42:52 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:42:54 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 126ms (Views: 59.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:42:55 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:44:02 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:46:00 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 131ms (Views: 42.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:46:02 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:46:31 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:46:44 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 00:46:45 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (86.2ms)
+Completed 200 OK in 120ms (Views: 90.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:46:47 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:32 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:33 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:33 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:33 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:34 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:54 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:55 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:47:55 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateBattingPostStats (20110209233353)
+Migrating to CreateBattingStats (20110209233817)
+Migrating to CreateDivisions (20110209234028)
+Migrating to CreateFieldingPostStats (20110209234648)
+Migrating to CreateFieldingStats (20110209234943)
+Migrating to CreateLeagues (20110209235126)
+Migrating to CreateFranchises (20110209235213)
+Migrating to CreatePitchingPostStats (20110209235635)
+Migrating to CreatePitchingStats (20110209235852)
+Migrating to CreatePlayers (20110210000332)
+Migrating to CreateTeams (20110210001159)
+Migrating to DeviseCreateUsers (20110222030030)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("batting_post_stats")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("batting_stats")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("divisions")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("fielding_post_stats")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("fielding_stats")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("franchises")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("leagues")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("pitching_post_stats")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("pitching_stats")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("players")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("teams")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_unlock_token')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_confirmation_token')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:48:50 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:48:58 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:48:58 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:48:58 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/home/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:48:58 -0500
+
+ActionController::RoutingError (No route matches "/home/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.6ms)
+
+
+Started GET "/home/public/favicon.ico" for 127.0.0.1 at 2011-02-27 00:48:58 -0500
+
+ActionController::RoutingError (No route matches "/home/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2011-02-27 00:49:13 -0500
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:49:21 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:49:48 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:49:49 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:49:49 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:49:49 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:53:16 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:53:18 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:53:18 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:53:18 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:53:28 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 21ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:53:32 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:53:32 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:53:32 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:53:38 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:53:38 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/home/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:53:38 -0500
+
+ActionController::RoutingError (No route matches "/home/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:53:46 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:56:53 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:56:54 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:56:54 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-27 00:57:15 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 21ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:16 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.5ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:16 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:19 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:19 -0500
+
+ActionController::RoutingError (No route matches "/home/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:19 -0500
+
+ActionController::RoutingError (No route matches "/home/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:24 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 51ms (Views: 50.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:24 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:24 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:25 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:25 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/public/images/hideo_nomo.jpg" for 127.0.0.1 at 2011-02-27 00:57:25 -0500
+
+ActionController::RoutingError (No route matches "/public/images/hideo_nomo.jpg"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:35 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (44.7ms)
+Completed 200 OK in 50ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:36 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 52ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:39 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (48.4ms)
+Completed 200 OK in 54ms (Views: 53.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 00:57:40 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:02:26 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:02:46 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (126.3ms)
+Completed 200 OK in 334ms (Views: 136.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:03:31 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 76ms (Views: 75.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:04:13 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (48.4ms)
+Completed 200 OK in 55ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:04:30 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 54ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:04:41 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:05:41 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (77.6ms)
+Completed 200 OK in 146ms (Views: 83.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:09:21 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (86.9ms)
+Completed 200 OK in 131ms (Views: 92.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:09:52 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (36.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 116ms (Views: 50.8ms | ActiveRecord: 36.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:13 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (44.5ms)
+Completed 200 OK in 112ms (Views: 49.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:19 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 153ms (Views: 83.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:23 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (78.7ms)
+Completed 200 OK in 147ms (Views: 84.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:31 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (75.5ms)
+Completed 200 OK in 110ms (Views: 80.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:39 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (66.3ms)
+Completed 200 OK in 135ms (Views: 71.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:44 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (96.8ms)
+Completed 200 OK in 165ms (Views: 101.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:10:58 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (77.6ms)
+Completed 200 OK in 143ms (Views: 82.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:11:55 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (82.3ms)
+Completed 200 OK in 117ms (Views: 87.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:11:56 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (37.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (48.7ms)
+Completed 200 OK in 122ms (Views: 53.6ms | ActiveRecord: 37.5ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:12:00 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (76.3ms)
+Completed 200 OK in 146ms (Views: 81.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:12:05 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (78.7ms)
+Completed 200 OK in 147ms (Views: 84.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:12:21 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (77.1ms)
+Completed 200 OK in 111ms (Views: 81.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:12:29 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 110ms (Views: 81.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:13:19 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (77.6ms)
+Completed 200 OK in 149ms (Views: 87.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:13:34 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (2.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (79.0ms)
+Completed 200 OK in 174ms (Views: 93.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:13:44 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (78.6ms)
+Completed 200 OK in 116ms (Views: 83.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:13:46 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 110ms (Views: 45.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:14:17 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (108.2ms)
+Completed 200 OK in 178ms (Views: 112.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:14:23 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:14:42 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:14:44 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (85.5ms)
+Completed 200 OK in 121ms (Views: 91.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:15:44 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 112ms (Views: 49.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:15:48 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 145ms (Views: 82.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:16:14 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (86.6ms)
+Completed 200 OK in 125ms (Views: 91.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/leaders/active/batting/home_runs" for 127.0.0.1 at 2011-02-27 01:18:57 -0500
+  Processing by BattingStatsController#active as HTML
+  Parameters: {"stat"=>"home_runs"}
+  [1m[35mBattingStat Load (376.7ms)[0m  SELECT player_id, home_runs FROM "batting_stats" INNER JOIN "players" ON "players"."id" = "batting_stats"."player_id" WHERE (final_game is NULL)
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14146) LIMIT 1[0m
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11623) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12920) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3458) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5570) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7105) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5056) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1
+  [1m[36mPlayer Load (47.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1[0m
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3998) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7700) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3879) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10717) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8081) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 982) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3928) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5176) LIMIT 1
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13373) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 8086) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12117) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 12172) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14043) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11620) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 10697) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5112) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 255) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1884) LIMIT 1
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 905) LIMIT 1[0m
+  [1m[35mPlayer Load (1.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 907) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 31) LIMIT 1[0m
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 16805) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2031) LIMIT 1[0m
+  [1m[35mPlayer Load (48.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 13494) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11390) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6745) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2505) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 16877) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3803) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6955) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4543) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6788) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11033) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2368) LIMIT 1[0m
+  [1m[35mPlayer Load (0.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 4910) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6672) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 15002) LIMIT 1
+Rendered batting_stats/active.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 1004ms (Views: 38.9ms | ActiveRecord: 530.8ms)
+
+
+Started GET "/leaders/active/batting/home_runs" for 127.0.0.1 at 2011-02-27 01:18:58 -0500
+  Processing by BattingStatsController#active as HTML
+  Parameters: {"stat"=>"home_runs"}
+  [1m[36mBattingStat Load (346.7ms)[0m  [1mSELECT player_id, home_runs FROM "batting_stats" INNER JOIN "players" ON "players"."id" = "batting_stats"."player_id" WHERE (final_game is NULL)[0m
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5479) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 14146) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11623) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 12920) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3458) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5570) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7105) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 5056) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11504) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7089) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3998) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 7700) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3879) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 10717) LIMIT 1
+  [1m[36mPlayer Load (0.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6105) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 8081) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 982) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 3928) LIMIT 1
+  [1m[36mPlayer Load (1.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5176) LIMIT 1[0m
+  [1m[35mPlayer Load (1.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 13373) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8086) LIMIT 1[0m
+  [1m[35mPlayer Load (52.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 12117) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12172) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 14043) LIMIT 1
+  [1m[36mPlayer Load (1.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11620) LIMIT 1[0m
+  [1m[35mPlayer Load (1.4ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 10697) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5112) LIMIT 1[0m
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 255) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1884) LIMIT 1[0m
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 905) LIMIT 1
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 907) LIMIT 1[0m
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 31) LIMIT 1
+  [1m[36mPlayer Load (0.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 16805) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2031) LIMIT 1
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13494) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 11390) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6745) LIMIT 1[0m
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17237) LIMIT 1
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2505) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 16877) LIMIT 1
+  [1m[36mPlayer Load (1.7ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 3803) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6955) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4543) LIMIT 1[0m
+  [1m[35mPlayer Load (1.8ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6788) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11033) LIMIT 1[0m
+  [1m[35mPlayer Load (1.5ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 2368) LIMIT 1
+  [1m[36mPlayer Load (57.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4910) LIMIT 1[0m
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 6672) LIMIT 1
+  [1m[36mPlayer Load (1.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15002) LIMIT 1[0m
+Rendered batting_stats/active.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 979ms (Views: 41.4ms | ActiveRecord: 517.3ms)
+
+
+Started GET "/leaders/active/batting/public/favicon.ico" for 127.0.0.1 at 2011-02-27 01:19:00 -0500
+
+ActionController::RoutingError (No route matches "/leaders/active/batting/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/leaders/active/batting/public/favicon.ico" for 127.0.0.1 at 2011-02-27 01:19:00 -0500
+
+ActionController::RoutingError (No route matches "/leaders/active/batting/public/favicon.ico"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:19:01 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 83ms (Views: 82.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:19:04 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.3ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 115ms (Views: 47.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:20:48 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 21ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:20:55 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:21:27 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:21:45 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:23:36 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 41ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:24:00 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 65ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:24:05 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 125ms (Views: 46.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:24:12 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.2ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 131ms (Views: 47.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:25:40 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (84.8ms)
+Completed 200 OK in 121ms (Views: 89.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:25:44 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:26:20 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (54.4ms)
+Completed 200 OK in 60ms (Views: 59.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:26:22 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (41.3ms)
+Completed 200 OK in 118ms (Views: 47.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:26:33 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:27:04 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (84.4ms)
+Completed 200 OK in 118ms (Views: 89.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:27:29 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (81.3ms)
+Completed 200 OK in 155ms (Views: 86.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:27:34 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (78.5ms)
+Completed 200 OK in 155ms (Views: 83.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:27:57 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (49.7ms)
+Completed 200 OK in 130ms (Views: 54.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:28:01 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 114ms (Views: 46.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:28:39 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (92.4ms)
+Completed 200 OK in 133ms (Views: 99.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:28:45 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (82.3ms)
+Completed 200 OK in 116ms (Views: 87.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:29:00 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (84.1ms)
+Completed 200 OK in 118ms (Views: 89.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:29:05 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (84.1ms)
+Completed 200 OK in 160ms (Views: 89.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:30:30 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (83.8ms)
+Completed 200 OK in 162ms (Views: 89.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:30:43 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (2.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (80.8ms)
+Completed 200 OK in 166ms (Views: 85.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:30:48 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 114ms (Views: 44.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:30:53 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (44.7ms)
+Completed 200 OK in 123ms (Views: 49.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:30:58 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (82.2ms)
+Completed 200 OK in 119ms (Views: 86.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:03 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (83.7ms)
+Completed 200 OK in 118ms (Views: 88.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:14 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (2.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (86.3ms)
+Completed 200 OK in 122ms (Views: 91.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:16 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (83.7ms)
+Completed 200 OK in 157ms (Views: 88.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:16 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 117ms (Views: 46.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:30 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (41.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 142ms (Views: 72.1ms | ActiveRecord: 41.5ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:34 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (86.7ms)
+Completed 200 OK in 122ms (Views: 92.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:31:41 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (88.7ms)
+Completed 200 OK in 123ms (Views: 93.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:32:14 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (84.1ms)
+Completed 200 OK in 117ms (Views: 88.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:32:18 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (83.2ms)
+Completed 200 OK in 158ms (Views: 88.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:32:21 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+Rendered players/show.html.erb within layouts/application (85.6ms)
+Completed 200 OK in 170ms (Views: 92.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:32:25 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.3ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (82.6ms)
+Completed 200 OK in 186ms (Views: 89.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:34:08 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPlayer Load (1.1ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1
+ERROR: compiling _app_views_players_show_html_erb___198554683884377240_2189814400__1704381448187077077 RAISED /Users/seakun/Dropbox/Spring2011/67-373/project files/svn (trunk)/StatTracker/app/views/players/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Function body:           def _app_views_players_show_html_erb___198554683884377240_2189814400__1704381448187077077(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "players/show";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new; title "Player" center
+@output_buffer.safe_concat('
+<div class="player">
+<img src="../images/hank_aaron.jpg" id="player_show">
+</div>
+
+<div id="text">
+<p>
+  <strong>First Name:</strong>
+  ');@output_buffer.append= ( @player.first_name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Last Name:</strong>
+  ');@output_buffer.append= ( @player.last_name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Nickname:</strong>
+  ');@output_buffer.append= ( @player.nickname );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Birth Year:</strong>
+  ');@output_buffer.append= ( @player.birth_year );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Birth Month:</strong>
+  ');@output_buffer.append= ( @player.birth_month );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Birth Day:</strong>
+  ');@output_buffer.append= ( @player.birth_day );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Birth Country:</strong>
+  ');@output_buffer.append= ( @player.birth_country );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Birth State:</strong>
+  ');@output_buffer.append= ( @player.birth_state );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Birth City:</strong>
+  ');@output_buffer.append= ( @player.birth_city );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Death Year:</strong>
+  ');@output_buffer.append= ( @player.death_year );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Death Month:</strong>
+  ');@output_buffer.append= ( @player.death_month );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Death Day:</strong>
+  ');@output_buffer.append= ( @player.death_day );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Death Country:</strong>
+  ');@output_buffer.append= ( @player.death_country );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Death State:</strong>
+  ');@output_buffer.append= ( @player.death_state );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Death City:</strong>
+  ');@output_buffer.append= ( @player.death_city );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Weight:</strong>
+  ');@output_buffer.append= ( @player.weight );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Height:</strong>
+  ');@output_buffer.append= ( @player.height );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Bats:</strong>
+  ');@output_buffer.append= ( @player.bats );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Throws:</strong>
+  ');@output_buffer.append= ( @player.throws );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Debut:</strong>
+  ');@output_buffer.append= ( @player.debut );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Final Game:</strong>
+  ');@output_buffer.append= ( @player.final_game );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>College:</strong>
+  ');@output_buffer.append= ( @player.college );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Hof:</strong>
+  ');@output_buffer.append= ( @player.hof );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+
+<p>
+  ');@output_buffer.append= ( link_to "Edit", edit_player_path(@player) );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "View All", players_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+</div>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `module_eval'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `compile'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `block in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__3779455261591885440__process_action__729379360615920919__callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `block in action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/warden-1.0.3/lib/warden/manager.rb:35:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered players/show.html.erb within layouts/application (83.7ms)
+Completed   in 168ms
+
+ActionView::Template::Error (/Users/seakun/Dropbox/Spring2011/67-373/project files/svn (trunk)/StatTracker/app/views/players/show.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end):
+    1: <% title "Player" center%>
+    2: 
+    3: <div class="player">
+    4: <img src="../images/hank_aaron.jpg" id="player_show">
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (320.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (363.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2011-02-27 01:34:14 -0500
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 35ms (Views: 34.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2011-02-27 01:34:17 -0500
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1) LIMIT 1[0m
+Rendered players/show.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 119ms (Views: 90.2ms | ActiveRecord: 1.0ms)
