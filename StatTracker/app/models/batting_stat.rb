@@ -79,7 +79,7 @@ class BattingStat < ActiveRecord::Base
 	def self.career_totals(players)
 		
 	end
-	
+ 
 	def year
 		team.year
 	end

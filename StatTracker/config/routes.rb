@@ -57,6 +57,9 @@ StatTracker::Application.routes.draw do
   match 'compare/season/pitching/*comp' => 'pitching_stats#season_compare'
   match 'compare/career/pitching/*comp' => 'pitching_stats#career_compare'
   match 'compare/multi/pitching/*comp' => 'pitching_stats#multi_compare'
+
+  match 'seasonfinder/batting' => 'batting_stats#season_finder'
+  match 'seasonfinder/batting/results' => 'batting_stats#find_seasons'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
