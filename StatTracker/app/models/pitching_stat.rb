@@ -69,7 +69,7 @@ class PitchingStat < ActiveRecord::Base
 	end
 
 	def opponents_batting_average
-		sprintf("%.4f", ((hits) / (batters_faced - walks - hit_by_pitch - intentional_walks).to_f))
+		sprintf("%.4f", ((hits) / (batters_faced - walks - hit_by_pitch).to_f))
 	end
 
 	def walks_and_hits_innings_pitched
