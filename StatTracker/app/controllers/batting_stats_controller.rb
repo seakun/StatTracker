@@ -83,7 +83,7 @@ class BattingStatsController < ApplicationController
     operations = []
     (1..number).each do |i|
       stat = params["#{i}"][:stat]
-      break if stat.blank?
+      next if stat.blank?
       operator = params["#{i}"][:operator]
       number = params["#{i}"][:number]
       string = stat + " " + operator + " " + number
