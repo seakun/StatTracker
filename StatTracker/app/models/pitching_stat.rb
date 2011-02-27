@@ -5,11 +5,9 @@ class PitchingStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-		pitchers = PitchingStat.find(:all, :select => [:player_id, :team_id, stat.to_sym], :order => stat + " DESC", :limit => 50)
-		puts pitchers[0].player.throws
-		s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
+		s = accessible_attributes.include?(stat)? stat.to_s + " DESC" : send("str_" + stat)
 		min_ip = accessible_attributes.include?(stat)? 0 : 300
-		PitchingStat.find(:all, :conditions => ["innings_pitched_outs > ?", min_ip], :order => s + " DESC", :limit => 50)
+		PitchingStat.find(:all, :conditions => ["innings_pitched_outs > ?", min_ip], :order => s, :limit => 50)
 	end
 
 	def self.career_sort(stat)
@@ -59,7 +57,7 @@ class PitchingStat < ActiveRecord::Base
 	end
 
 	def win_loss_percentage()
-		sprintf("%.3f", (wins / (wins + losses).to_f))
+		sprintf("%.4f", (wins / (wins + losses).to_f))
 	end
 
 	def innings_pitched
@@ -67,35 +65,35 @@ class PitchingStat < ActiveRecord::Base
 	end
 
 	def era
-		sprintf("%.2f", (earned_runs * 9) / innings_pitched.to_f)
+		sprintf("%.4f", (earned_runs * 9) / innings_pitched.to_f)
 	end
 
 	def opponents_batting_average
-		(hits) / (batters_faced - walks - hit_by_pitch - intentional_walks).to_f
+		sprintf("%.4f", ((hits) / (batters_faced - walks - hit_by_pitch - intentional_walks).to_f))
 	end
 
 	def walks_and_hits_innings_pitched
-		(walks + hits) / innings_pitched.to_f
+		sprintf("%.4f", ((walks + hits) / innings_pitched.to_f))
 	end
 
 	def hits_innings
-		(hits * 9) / innings_pitched.to_f
+		sprintf("%.4f", ((hits * 9) / innings_pitched.to_f))
 	end
 
 	def home_runs_innings
-		(home_runs * 9) / innings_pitched.to_f
+		sprintf("%.4f", ((home_runs * 9) / innings_pitched.to_f))
 	end
   
 	def walks_innings
-		(walks * 9) / innings_pitched.to_f
+		sprintf("%.4f", ((walks * 9) / innings_pitched.to_f))
 	end
 
 	def strikeouts_innings
-		(strikeouts * 9) / innings_pitched.to_f
+		sprintf("%.4f", ((strikeouts * 9) / innings_pitched.to_f))
 	end
 
 	def strikeouts_walks
-		(strikeouts / walks.to_f)
+		sprintf("%.4f", ((strikeouts / walks.to_f)))
 	end
 
 	def adjusted_era
@@ -110,47 +108,47 @@ class PitchingStat < ActiveRecord::Base
   end
 
   def self.str_win_loss_percentage()
-		"((wins * #{multiplier}) / (wins + losses))"
+		"((wins * #{multiplier}) / (wins + losses)) DESC"
 	end
 
 	def self.str_innings_pitched
-		"innings_pitched_outs * #{multiplier} / 3"
+		"innings_pitched_outs * #{multiplier} / 3 DESC"
 	end
 
 	def self.str_era
-		"((earned_runs * 9) * #{multiplier}) / (innings_pitched_outs / 3)"
+		"((earned_runs * 9) * #{multiplier}) / (innings_pitched_outs / 3) ASC"
 	end
 
 	def self.str_opponents_batting_average
-		"(hits * #{multiplier}) / (batters_faced - walks - hit_by_pitch - intentional_walks)"
+		"((hits * #{multiplier}) / (batters_faced - walks - hit_by_pitch - intentional_walks)) ASC"
 	end
 
 	def self.str_walks_and_hits_innings_pitched
-		"(walks + hits) * #{multiplier} / (innings_pitched_outs / 3)"
+		"(walks + hits) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
 	def self.str_hits_innings
-		"(hits * 9) * #{multiplier} / (innings_pitched_outs / 3)"
+		"(hits * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
 	def self.str_home_runs_innings
-		"(home_runs * 9) * #{multiplier} / (innings_pitched_outs / 3)"
+		"(home_runs * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
 	def self.str_walks_innings
-		"(walks * 9) * #{multiplier} / (innings_pitched_outs / 3)"
+		"(walks * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
 	def self.str_strikeouts_innings
-		"(strikeouts * 9) * #{multiplier} / (innings_pitched_outs / 3)"
+		"(strikeouts * 9) * #{multiplier} / (innings_pitched_outs / 3) DESC"
 	end
 
 	def self.str_strikeouts_walks
-		"(strikeouts * #{multiplier} / walks)"
+		"(strikeouts * #{multiplier} / walks) DESC"
 	end
 
 	def self.str_adjusted_era
 		league_era = PitchingStat.where(year => self.year).average(era)
-		"100 * #{multiplier} * (#{league_era} / era)"
+		"100 * #{multiplier} * (#{league_era} / era) DESC"
 	end
 end

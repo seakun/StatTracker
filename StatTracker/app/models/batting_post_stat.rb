@@ -5,13 +5,13 @@ class BattingPostStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-    s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
-    min_ab = accessible_attributes.include?(stat)? 0 : 400
-		BattingStat.find(:all, :conditions => ["at_bats > ?", min_ab], :order => s + " DESC", :limit => 50)
+    s = accessible_attributes.include?(stat)? stat.to_s + " DESC" : send("str_" + stat)
+    min_ab = accessible_attributes.include?(stat)? 0 : 20
+		BattingPostStat.find(:all, :conditions => ["at_bats > ?", min_ab], :order => s, :limit => 50)
 	end
 
 	def self.career_sort(stat)
-		stats = BattingStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
+		stats = BattingPostStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
 		comb = {}
 		stats.each { |s|
 			if comb.has_key?(s.player_id)
@@ -32,7 +32,7 @@ class BattingPostStat < ActiveRecord::Base
 	end
 
 	def self.active_sort(stat)
-		stats = BattingStat.find(:all, :select => [:player_id, stat.to_sym], :conditions => ["final_game is NULL"], :joins => [:player])
+		stats = BattingPostStat.find(:all, :select => [:player_id, stat.to_sym], :conditions => ["final_game is NULL"], :joins => [:player])
 		comb = {}
 		stats.each { |s|
 			if comb.has_key?(s.player_id)
@@ -121,7 +121,7 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def obp
-    (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies).to_f
+    (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_flies).to_f
   end
 
   def slg
@@ -140,8 +140,8 @@ class BattingPostStat < ActiveRecord::Base
     at_bats / strikeouts.to_f
   end
 
-  def hr_per_ab
-    home_runs / at_bats.to_f
+  def ab_per_hr
+    at_bats / home_runs.to_f
   end
 
   def sec_avg
@@ -160,11 +160,11 @@ class BattingPostStat < ActiveRecord::Base
     10000
   end
   def self.str_batting_average
-    "hits * #{multiplier} / at_bats"
+    "hits * #{multiplier} / at_bats DESC"
 	end
 
 	def self.str_on_base_percentage
-    "(hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies)"
+    "(hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_flies) DESC"
 	end
 
   def self.str_slugging_percentage
@@ -172,19 +172,19 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def self.str_on_base_plus_slugging
-    "((hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_hits + sacrifice_flies)) + (total_bases * #{multiplier} / at_bats)"
+    "((hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_flies)) + (total_bases * #{multiplier} / at_bats) DESC"
   end
 
   def self.str_stolen_base_percentage
-    "stolen_bases * #{multiplier} / (stolen_bases + caught_stealing)"
+    "stolen_bases * #{multiplier} / (stolen_bases + caught_stealing) DESC"
   end
 
   def self.str_at_bats_per_strikeout
-    "at_bats * #{multiplier} / strikeouts"
+    "at_bats * #{multiplier} / strikeouts DESC"
   end
 
-  def self.str_home_runs_per_at_bat
-    "home_runs * #{multiplier} / at_bats"
+  def self.str_at_bats_per_home_run
+    "(at_bats * #{multiplier} / home_runs) ASC"
   end
 
   def self.str_adjusted_ops
@@ -194,11 +194,11 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def self.str_isolated_power
-    "#{str_slugging_percentage} - #{str_batting_average}"
+    "#{str_slugging_percentage} - #{str_batting_average} DESC"
   end
 
   def self.str_runs_created
-    "(hits + walks) * total_bases) * #{multiplier} / (at_bats + walks"
+    "(hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
   end
 
   def self.str_weighted_on_base_average
@@ -206,14 +206,14 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def self.str_extrapolated_runs
-    "(0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits))"
+    "(0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits)) DESC"
   end
 
   def self.str_secondary_average
-    "(total_bases - hits + walks + stolen_bases - caught_stealing) * #{multiplier} / at_bats"
+    "(total_bases - hits + walks + stolen_bases - caught_stealing) * #{multiplier} / at_bats DESC"
   end
 
   def self.str_base_runs
-    "((hits + walks - home_runs) * ((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02)) * 10000/(((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02) + (at_bats - hits)) + home_runs * 10000"
+    "((hits + walks - home_runs) * ((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02)) * 10000/(((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02) + (at_bats - hits)) + home_runs * 10000 DESC"
   end
 end
