@@ -1,22 +1,4 @@
-<% title "Fielding Stats" %>
+<% title params[:stat].titleize + " Single Season Leaders" %>
 
-<table>
-  <tr>
-    <th>Player</th>
-	<th>Position</th>
-	<th>Team</th>
-	<th>Year</th>
-	<th><%= params[:stat].titleize %></th>
-  </tr>
-  
-  <% for fielding_stat in @fielding_stats %>
-    <tr>
-      <td><%= fielding_stat.player.name %></td>
-	  <td><%= fielding_stat.position %></td>
-      <td><%= fielding_stat.team.name %></td>
-	  <td><%= fielding_stat.team.year %></td>
-	  <td><%= fielding_stat.send(params[:stat])%></td>
-    </tr>
-  <% end %>
-  
-</table>
+	<div id = 'chart'></div>
+	<%= raw @table.render('chart') %>

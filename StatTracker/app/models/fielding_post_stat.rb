@@ -54,6 +54,10 @@ class FieldingPostStat < ActiveRecord::Base
 		return sorted.take(50)
 	end
 	
+	def year
+		team.year
+	end
+	
 	def innings
 		inning_outs / 3
 	end

@@ -7,11 +7,11 @@ class FieldingStat < ActiveRecord::Base
 	def self.single_season_sort(stat)
 		s = accessible_attributes.include?(stat)? stat.to_s : send("str_" + stat)
 		min_g = accessible_attributes.include?(stat)? 0 : 80
-		FieldingStat.find(:all, :conditions => ["games > ?", min_g], :order => s + " DESC", :limit => 1)
+		FieldingStat.find(:all, :conditions => ["games > ?", min_g], :order => s + " DESC", :limit =>  50)
 	end
 	
 	def self.career_sort(stat)
-		stats = FieldingPostStat.find(:all, :select => [:player_id, stat.to_sym, :position], :joins => [:player])
+		stats = FieldingStat.find(:all, :select => [:player_id, stat.to_sym, :position], :joins => [:player])
 		comb = {}
 		stats.each { |s| 
 			if comb.has_key?(s.player_id)
@@ -32,7 +32,7 @@ class FieldingStat < ActiveRecord::Base
 	end
 	
 	def self.active_sort(stat)
-		stats = FieldingPostStat.find(:all, :select => [:player_id, stat.to_sym, :position], :conditions => ["final_game is NULL"], :joins => [:player])
+		stats = FieldingStat.find(:all, :select => [:player_id, stat.to_sym, :position], :conditions => ["final_game is NULL"], :joins => [:player])
 		comb = {}
 		stats.each { |s| 
 			if comb.has_key?(s.player_id)
@@ -52,6 +52,10 @@ class FieldingStat < ActiveRecord::Base
 		return sorted.take(50)
 	end
 
+	def year
+		team.year
+	end
+	
 	def innings
 		inning_outs / 3
 	end

@@ -1,18 +1,4 @@
-<% title "Fielding Stats" %>
+<% title params[:stat].titleize + " Active Leaders" %>
 
-<table>
-  <tr>
-    <th>Player</th>
-	<th>Position</th>
-	<th><%= params[:stat].titleize %></th>
-  </tr>
-  
-  <% for fielding_stat in @fielding_stats %>
-    <tr>
-      <td><%= fielding_stat[0].name %></td>
-	  <td><%= fielding_stat.position %></td>
-	  <td><%= fielding_stat[1]%></td>
-    </tr>
-  <% end %>
-  
-</table>
+	<div id = 'chart'></div>
+	<%= raw @table.render('chart') %>

@@ -1,5 +1,4 @@
-<% title "Batting Stats" %>
+<% title params[:stat].titleize + " Single Season Leaders" %>
 
 	<div id = 'chart'></div>
 	<%= raw @table.render('chart') %>
-

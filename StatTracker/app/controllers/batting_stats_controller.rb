@@ -48,30 +48,64 @@ class BattingStatsController < ApplicationController
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Bats')
 		@table.add_column('string' , 'Team')
-		@table.add_column('number' , 'Year')
-		@table.add_column('number' , params[:stat].titleize)
+		@table.add_column('string' , 'Year')
+		@table.add_column('string' , params[:stat].titleize)
 		@table.add_rows(50)
 		@batting_stats.each { |b|
 			i = @batting_stats.index(b)
 			@table.set_cell(i, 0, b.player.name)
 			@table.set_cell(i, 1, b.player.bats)
 			@table.set_cell(i, 2, b.team.name)
-			@table.set_cell(i, 3, b.year)
-			@table.set_cell(i, 4, b.send(params[:stat]))
+			@table.set_cell(i, 3, "#{b.year}")
+			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
 		}
 		
+		options = { :width => 600, :showRowNumber => true }
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end	
+	end
+  
+	def career
+		@batting_stats = BattingStat.career_sort(params[:stat])
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , params[:stat].titleize)
+		@table.add_rows(50)
+		i = 0
+			@batting_stats.each { |k, v|
+				@table.set_cell(i, 0, k.name)
+				@table.set_cell(i, 1, k.bats)
+				@table.set_cell(i, 2, "#{v}")
+				i += 1
+			}
+
 		options = { :width => 600, :showRowNumber => true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
 	end
   
-	def career
-		@batting_stats = BattingStat.career_sort(params[:stat])
-	end
-  
     def active
 		@batting_stats = BattingStat.active_sort(params[:stat])
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , params[:stat].titleize)
+		@table.add_rows(50)
+		i = 0
+			@batting_stats.each { |k, v|
+				@table.set_cell(i, 0, k.name)
+				@table.set_cell(i, 1, k.bats)
+				@table.set_cell(i, 2, "#{v}")
+				i += 1
+			}
+
+		options = { :width => 600, :showRowNumber => true }
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
 	end
 	
 	def season_compare
