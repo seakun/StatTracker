@@ -14,7 +14,7 @@
 <% unless @teams.empty? %>
 	<p><em><strong>Teams matching term '<%= @query %>'</strong></em></p>
 	<ul>
-		<% for team in @teams do %>>
+		<% for team in @teams do %>
 			<li><%= link_to team.name, team_path(team) %></li>
 		<% end %>
 	</ul>
