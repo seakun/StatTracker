@@ -21,5 +21,12 @@ class Player < ActiveRecord::Base
 		season_start = DateTime.new(y=year, m = 7, d = 1, h=0, m=0, s=0)
 		(season_start-birthday).to_i/365
 	end
-	
+
+
+  # search for all the players in the system by either first or last name
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['first_name LIKE ? OR last_name LIKE ?', search_condition, search_condition])
+  end
+
 end

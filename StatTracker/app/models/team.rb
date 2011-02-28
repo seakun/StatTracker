@@ -10,4 +10,10 @@ class Team < ActiveRecord::Base
 	belongs_to :division
 	belongs_to :franchise
 
+  # Search all teams that have a name or park like some term
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['name LIKE ? OR park LIKE ?', search_condition, search_condition])
+  end
+
 end

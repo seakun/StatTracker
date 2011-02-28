@@ -1,0 +1,22 @@
+<h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
+<p class="supertiny">&nbsp;</p>
+
+<% unless @players.empty? %>
+	<p><em><strong>Players matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for player in @players do %>
+			<li><%= link_to player.name, player_path(player) %></li>
+		<% end %>
+	</ul>
+	<p class="smtext">&nbsp;</p>
+<% end %>
+
+<% unless @teams.empty? %>
+	<p><em><strong>Teams matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for team in @teams do %>
+			<li><%= link_to team.name, team_path(team) %></li>
+		<% end %>
+	</ul>
+	<p class="supertiny">&nbsp;</p>
+<% end %>

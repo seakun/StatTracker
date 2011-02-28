@@ -1,6 +1,13 @@
 <h1>StatTracker</h1>
-	<p>
-		Welcome!!!	
+        <li>
+            <% form_tag(search_path) do %>
+                <%= text_field_tag('query') %>
+                <%= submit_tag('Search') %>
+            <% end %>
+        </li>
+
+        <p>
+		Welcome!!!
 		I have no idea what i'm doing so please feel free to browse around.
 	</p>
 

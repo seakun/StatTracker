@@ -60,6 +60,9 @@ StatTracker::Application.routes.draw do
 
   match 'seasonfinder/batting' => 'batting_stats#season_finder'
   match 'seasonfinder/batting/results' => 'batting_stats#find_seasons'
+
+
+  match 'search' => 'home#search', :as => :search
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

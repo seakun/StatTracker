@@ -41,4 +41,6 @@ class TeamsController < ApplicationController
     flash[:notice] = "Successfully destroyed team."
     redirect_to teams_url
   end
+
+  
 end
