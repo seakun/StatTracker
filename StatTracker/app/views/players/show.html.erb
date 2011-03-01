@@ -1,103 +1,70 @@
-<% title "Player" %>
-
+<% if !@player.nickname.nil? %>
+<h1><%=@player.first_name+" \""+@player.nickname+"\" "+@player.last_name%></h1>
+<% end %>
+<% if @player.nickname.nil? %>
+<h1><%=@player.name%></h1>
+<% end %>
 <div class="player">
-<img src="../images/hank_aaron.jpg" id="player_show">
 </div>
 
 <div id="text">
+<%if @birthPlace.nil? %>
 <p>
-  <strong>First Name:</strong>
-  <%= @player.first_name %>
+  <strong>Place of Birth:</strong>
+  <%= @player.birthPlace %>
 </p>
+<% end %>
 <p>
-  <strong>Last Name:</strong>
-  <%= @player.last_name %>
+  <strong>Birthday:</strong>
+  <%= @player.birth_month.to_s+"\/"+@player.birth_day.to_s+"\/"+@player.birth_year.to_s %>
 </p>
+<% if !@player.death_year.nil? %>
 <p>
-  <strong>Nickname:</strong>
-  <%= @player.nickname %>
+  <strong>Deathday:</strong>
+  <%=@player.death_month.to_s+"\/"+@player.death_day.to_s+"\/"+@player.death_year.to_s %>
 </p>
+<% end %>
 <p>
-  <strong>Birth Year:</strong>
-  <%= @player.birth_year %>
-</p>
-<p>
-  <strong>Birth Month:</strong>
-  <%= @player.birth_month %>
-</p>
-<p>
-  <strong>Birth Day:</strong>
-  <%= @player.birth_day %>
-</p>
-<p>
-  <strong>Birth Country:</strong>
-  <%= @player.birth_country %>
-</p>
-<p>
-  <strong>Birth State:</strong>
-  <%= @player.birth_state %>
-</p>
-<p>
-  <strong>Birth City:</strong>
-  <%= @player.birth_city %>
-</p>
-<p>
-  <strong>Death Year:</strong>
-  <%= @player.death_year %>
-</p>
-<p>
-  <strong>Death Month:</strong>
-  <%= @player.death_month %>
-</p>
-<p>
-  <strong>Death Day:</strong>
-  <%= @player.death_day %>
-</p>
-<p>
-  <strong>Death Country:</strong>
-  <%= @player.death_country %>
-</p>
-<p>
-  <strong>Death State:</strong>
-  <%= @player.death_state %>
-</p>
-<p>
-  <strong>Death City:</strong>
-  <%= @player.death_city %>
+ <strong>Height:</strong>
+  <%= @player.heightFeet %>
 </p>
 <p>
   <strong>Weight:</strong>
-  <%= @player.weight %>
-</p>
-<p>
-  <strong>Height:</strong>
-  <%= @player.height %>
+  <%= @player.weight.to_s+" lbs" %>
 </p>
 <p>
   <strong>Bats:</strong>
   <%= @player.bats %>
 </p>
+<%if !@player.throws.nil?%>
 <p>
   <strong>Throws:</strong>
   <%= @player.throws %>
 </p>
+<% end %>
+<% if !@player.debut.nil?%>
 <p>
   <strong>Debut:</strong>
-  <%= @player.debut %>
+  <%= @player.debut.strftime("%m/%d/%Y") %>
 </p>
+<%end%>
+<% if !@player.final_game.nil?%>
 <p>
   <strong>Final Game:</strong>
-  <%= @player.final_game %>
+  <%= @player.final_game.strftime("%m/%d/%Y") %>
 </p>
+<%end%>
+<% if !@player.college.nil?%>
 <p>
   <strong>College:</strong>
   <%= @player.college %>
 </p>
+<% end %>
+<% if @player.hof %>
 <p>
-  <strong>Hof:</strong>
-  <%= @player.hof %>
+  <strong>Hall of Famer</strong>
 </p>
-
+<% end %>
 <p>
   <%= link_to "Edit", edit_player_path(@player) %> |
   <%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
