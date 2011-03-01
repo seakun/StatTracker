@@ -77,7 +77,7 @@ class BattingStat < ActiveRecord::Base
 	end
 	
 	def self.get_all_stats(player, stat)
-		BattingStat.find(:all, :select => [:home_runs], :conditions => ['player_id = ?', player])
+		BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
 	end
  
 	def year
