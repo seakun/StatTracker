@@ -124,7 +124,32 @@ class BattingStatsController < ApplicationController
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
 		}
-		puts @players
+		
+		@chart = GoogleVisualr::LineChart.new
+		@chart.add_column('string', 'Year')
+		@players.each { |play|
+		puts play.name
+			@chart.add_column('number', play.name)
+		}	
+		@chart.add_rows(22)
+		@players.each { |play|
+		puts play.name
+		x = 0
+		y = 1
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, :home_runs)
+			stats.each {|s|
+				@chart.set_value(x, 0, "Year " + year.to_s)
+				@chart.set_value(x, y, s.home_runs)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options = { :width => 400, :height => 240, :legend => 'bottom' }
+		options.each_pair do | key, value |
+			@chart.send "#{key}=", value
+		end
 	end
 
   def season_finder
