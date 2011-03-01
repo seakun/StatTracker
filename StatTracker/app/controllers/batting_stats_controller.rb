@@ -130,7 +130,7 @@ class BattingStatsController < ApplicationController
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(22)
+		@chart.add_rows(25)
 		y = 1
 		@players.each { |play|
 		x = 0
