@@ -21,8 +21,20 @@ class Player < ActiveRecord::Base
 		season_start = DateTime.new(y=year, m = 7, d = 1, h=0, m=0, s=0)
 		(season_start-birthday).to_i/365
 	end
+	
+	def heightFeet
+		(height/12).to_s+"\' "+(height%12).to_s+"\""
+	end
 
-
+	def birthPlace
+	if birth_state.nil?
+	return birth_city+ ", "+birth_country
+	elsif birth_city.nil? && birth_state.nil?
+	return birth_country
+	elsif !birth_city.nil? && !birth_state.nil? && !birth_country.nil?
+	return birth_city+ ", "+birth_state+ ", "+birth_country
+	end
+	end
   # search for all the players in the system by either first or last name
   def self.search(search)
     search_condition = "%" + search + "%"
