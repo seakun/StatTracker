@@ -125,7 +125,7 @@ class BattingStatsController < ApplicationController
 			@players.push(Player.find(p.to_i))
 		}
 		
-		@chart = GoogleVisualr::MotionChart.new
+		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
 			@chart.add_column('number', play.name)
