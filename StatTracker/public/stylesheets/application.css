@@ -1,18 +1,18 @@
 body {
-  background-color: #4B7399;
+  background-image: url('../images/background.jpg');
+  background-attachment:fixed;
   font-family: Helvetica;
   font-size: 14px;
 }
 
 p{
 
-	
-
-
-
-
 }
 
+h1{
+color:white;
+position:absolute;
+}
 
 
 #text{
@@ -21,9 +21,9 @@ p{
 
 img {
   border: none;
-  width: 400px;
-  height: 500px;
-  margin-left: 30%
+  width:450px;
+  height:275px;
+  
 }
 
 div.player  {
@@ -42,44 +42,87 @@ a {
   height: 0;
   overflow: hidden;
 }
+
 #nav {
-	float: top-left;
+	float: top;
 	margin: 0 0 3em 12em;
 	list-style: none;
 	padding: 2px 4px;
 	}
+	
 #nav li {
 	list-style: none;
 	border: solid 1px black;
 	float:left;
-	background-color:white;}
+	
+	}
+
+#cssdropdown, #cssdropdown * { 
+	list-style: none;
+	padding: 0; 
+	margin: 0; 
+	}
+	
+
+ li.dropdownmenu ul { 
+	display: none; 
+	border-top: 1px black solid; 
+	text-align: left;
+	width:200px;
+	}
+ li.dropdownmenu:hover ul { 
+	display: block; 
+	text-align:left;
+	position: absolute;
+	float:left;
+	background-color:black;
+	z-index:5;
+	}
+
 #nav li a {
 	display: block;
 	padding: 8px 15px;
 	text-decoration: none;
 	font-weight: bold;
-	color: black;
-	border-right: 1px solid #ccc; }
+	color: white;
+	border-right: none; 
+	}
+	
 #nav li a:hover {
-	color: #c00;
-	background-color: #fff; }
+	color: #66CCFF ; 
+	}
 	
 #sign{
-float:right;
-font-weight: bold;
-color: black;
-color: black;
-}
+	float:right;
+	font-weight: bold;
+	color: black;
+	color: black;
+	}
+	
+	
+div.transbox{
+  width: 500px;
+  height:300px;
+  margin: 80px 20px auto;
+  background-color:#ffffff;
+  opacity:0.8;
+  padding:20px;
+  position:absolute;
+  }
 
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+div.transbox p{
+  font-weight:bold;
+  color:#000000;
+  margin-top:0px;
+  }
+  
+#container{
+	background-color:white;
+	opacity:0.8;
+	height:auto;
+	width:600px;
+	margin:50px 150px;
 }
-
 
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
