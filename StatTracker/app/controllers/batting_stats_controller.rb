@@ -144,7 +144,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => 800, :height => 500, :legend => 'bottom'}
+		options = { :width => 600, :height => 300, :legend => 'bottom'}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end

@@ -11,7 +11,10 @@ p{
 
 h1{
 color:white;
-position:absolute;
+}
+
+#container h1 {
+color:black;
 }
 
 
@@ -120,8 +123,8 @@ div.transbox p{
 	background-color:white;
 	opacity:0.8;
 	height:auto;
-	width:600px;
-	margin:50px 150px;
+	width:70%;
+	margin:0 15% 0 15%;
 }
 
 #flash_notice, #flash_error, #flash_alert {

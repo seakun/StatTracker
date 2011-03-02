@@ -214,7 +214,7 @@ ActiveRecord::Schema.define(:version => 20110222030030) do
     t.integer  "weight"
     t.integer  "height"
     t.string   "bats"
-    t.integer  "throws"
+    t.string   "throws"
     t.datetime "debut"
     t.datetime "final_game"
     t.string   "college"
