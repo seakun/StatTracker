@@ -80,6 +80,15 @@ class BattingStat < ActiveRecord::Base
 		BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
 	end
  
+	def self.get_stat_total(player, stat)
+		stats = BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
+		count = 0
+		stats.each { |s|
+		count += s.send(stat)
+		}
+		count.to_s
+	end
+	
 	def year
 		team.year
 	end

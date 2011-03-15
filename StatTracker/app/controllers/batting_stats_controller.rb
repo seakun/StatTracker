@@ -148,6 +148,30 @@ class BattingStatsController < ApplicationController
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
+		
+		
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Home Runs')
+		@table.add_rows(@players.size)
+		i = 0
+			@players.each { |p|
+				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 1, p.bats)
+				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :home_runs))
+				i += 1
+			}
+
+		options = { :width => 600}
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
+	end
+	
+	def save
+		stats = params["home_runs"]
+		puts stats
 	end
 
   def season_finder
