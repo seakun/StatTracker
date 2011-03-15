@@ -9,4 +9,7 @@ class HomeController < ApplicationController
     @total_hits = @players.size + @teams.size
   end
 
+  def soundex
+
+  end
 end
