@@ -57,7 +57,7 @@ class PitchingStatsController < ApplicationController
 			# @table.set_cell(i, 1, b.player.throws)
 			@table.set_cell(i, 2, b.team.name)
 			@table.set_cell(i, 3, "#{b.year}")
-			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
+			@table.set_cell(i, 4, b.send(params[:stat]))
 		}
 		
 		options = { :width => 600, :showRowNumber => true }

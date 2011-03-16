@@ -1,12 +1,17 @@
 <% title "Batting Compare" %>
 
 
-
 	<div id = 'table'></div>
 	<%= raw @table.render('table') %>
 
 
-
 	<div id = 'chart'></div>
 	<%= raw @chart.render('chart') %>
+	
+	
+	<%= check_box_tag 'HR', "home_runs"%>
+	<%= check_box_tag 'RBI', "rbi"%>
+	
+	<%# link_to "Save", "batters/save", :remote => true%>
+	
 	

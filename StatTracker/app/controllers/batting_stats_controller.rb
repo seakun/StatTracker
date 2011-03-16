@@ -170,8 +170,7 @@ class BattingStatsController < ApplicationController
 	end
 	
 	def save
-		stats = params["home_runs"]
-		puts stats
+		puts "*******"
 	end
 
   def season_finder
