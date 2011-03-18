@@ -2,6 +2,9 @@ StatTracker::Application.routes.draw do
   
   
   match 'home/index' => 'home#index', :as => 'home#index'
+  match 'home/compare' => 'home#compare', :as => 'home#compare'
+
+  
 
   devise_for :users
   
