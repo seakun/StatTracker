@@ -124,7 +124,6 @@ class BattingStatsController < ApplicationController
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
 		}
-		
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
@@ -148,26 +147,30 @@ class BattingStatsController < ApplicationController
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
-		
-		
+
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Runs')
+		@table.add_column('string' , 'Hits')
 		@table.add_column('string' , 'Home Runs')
 		@table.add_column('string' , 'RBI')
-		@table.add_column('string' , 'Runs')
+		@table.add_column('string' , 'Stolen Bases')
+		
 		@table.add_rows(@players.size)
 		i = 0
 			@players.each { |p|
 				@table.set_cell(i, 0, p.name)
 				@table.set_cell(i, 1, p.bats)
-				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :home_runs))
-				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :rbi))
-				@table.set_cell(i, 4, BattingStat.get_stat_total(p, :runs))
+				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :runs))
+				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :hits))
+				@table.set_cell(i, 4, BattingStat.get_stat_total(p, :home_runs))
+				@table.set_cell(i, 5, BattingStat.get_stat_total(p, :rbi))
+				@table.set_cell(i, 6, BattingStat.get_stat_total(p, :stolen_bases))
 				i += 1
 			}
 
-		options = { :width => 600}
+		options = { :width => '80%'}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -214,8 +217,7 @@ class BattingStatsController < ApplicationController
     end
 	
 	def change_table
-		puts "****************"
-		puts params[:stats]
+		stats = params[:stat]
 		@player = params[:players]
 		@players = []
 		@player.each {|p|
@@ -224,20 +226,27 @@ class BattingStatsController < ApplicationController
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Bats')
-		@table.add_column('string' , 'Home Runs')
-		@table.add_column('string' , 'RBI')
+		stats.each {|s|
+			if s == 'rbi'
+				@table.add_column('string' , s.upcase)
+			else @table.add_column('string' , s.titleize)
+			end
+		}
 		@table.add_rows(@players.size)
 		i = 0
 		
 			@players.each { |p|
 				@table.set_cell(i, 0, p.name)
 				@table.set_cell(i, 1, p.bats)
-				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :home_runs))
-				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :rbi))
+				j = 2
+				stats.each { |s|
+					@table.set_cell(i, j, BattingStat.get_stat_total(p, s.to_sym))
+					j += 1
+				}
 				i += 1
 			}
 
-		options = { :width => 600}
+		options = { :width => '80%'}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
