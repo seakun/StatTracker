@@ -1,17 +1,30 @@
 <% title "Batting Compare" %>
 
 
-	<div id = 'table'></div>
-	<%= raw @table.render('table') %>
+	<div id = 'table_place'>
+		<%= render :partial => 'table'  %> 
+	</div>
+	
 
-
-	<div id = 'chart'></div>
-	<%= raw @chart.render('chart') %>
+	<br/>
+	<br/>
+	
+	<%= select("chart_type", "chart", raw("<option>Home Runs</option><option>RBI</option>"), options={:prompt=> 'Choose a Statistic...'}) %>
 	
 	
-	<%= check_box_tag 'HR', "home_runs"%>
-	<%= check_box_tag 'RBI', "rbi"%>
+	<br/>
+	<br/>
+	<div id = 'chart_place'>
+		<%= render :partial => 'chart'  %> 
+	</div>
 	
-	<%# link_to "Save", "batters/save", :remote => true%>
+	
+	<br/>
+	<br/>
 	
 	
+	<%= check_box_tag 'stats', 'HR', true %>HR
+	<%= check_box_tag 'stats', 'RBI', true %>RBI
+	<%= check_box_tag 'stats', 'R', true %>R
+	
+	<%= link_to "Update", change_table_path(:players => @players, :stats => stats), :remote => true %>

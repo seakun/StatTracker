@@ -154,12 +154,16 @@ class BattingStatsController < ApplicationController
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Bats')
 		@table.add_column('string' , 'Home Runs')
+		@table.add_column('string' , 'RBI')
+		@table.add_column('string' , 'Runs')
 		@table.add_rows(@players.size)
 		i = 0
 			@players.each { |p|
 				@table.set_cell(i, 0, p.name)
 				@table.set_cell(i, 1, p.bats)
 				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :home_runs))
+				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :rbi))
+				@table.set_cell(i, 4, BattingStat.get_stat_total(p, :runs))
 				i += 1
 			}
 
@@ -169,10 +173,80 @@ class BattingStatsController < ApplicationController
 		end
 	end
 	
-	def save
-		puts "*******"
-	end
+	def home_runs_chart
+		@chart.add_rows(25)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, :rbi)
+			stats.each {|s|
+				@chart.set_value(x, 0, year.to_s)
+				@chart.set_value(x, y, s.rbi)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		render :layout => false
+    end
+	
+	def rbis_chart
+		@chart.add_rows(25)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, :rbi)
+			stats.each {|s|
+				@chart.set_value(x, 0, year.to_s)
+				@chart.set_value(x, y, s.rbi)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		render :partial => :rbis_chart
+    end
+	
+	def change_chart
+		puts "**********"
+    end
+	
+	def change_table
+		puts "****************"
+		puts params[:stats]
+		@player = params[:players]
+		@players = []
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+		}
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Home Runs')
+		@table.add_column('string' , 'RBI')
+		@table.add_rows(@players.size)
+		i = 0
+		
+			@players.each { |p|
+				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 1, p.bats)
+				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :home_runs))
+				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :rbi))
+				i += 1
+			}
 
+		options = { :width => 600}
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
+		
+		respond_to do |format|
+			format.js { render :layout=>false }
+		end
+	end
+	
   def season_finder
     
   end

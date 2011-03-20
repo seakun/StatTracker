@@ -30,6 +30,7 @@ StatTracker::Application.routes.draw do
 
   resources :batting_stats
 
+
   resources :batting_post_stats
   
   match 'users/show' => 'users#show'
@@ -63,8 +64,9 @@ StatTracker::Application.routes.draw do
 
   match 'seasonfinder/batting' => 'batting_stats#season_finder'
   match 'seasonfinder/batting/results' => 'batting_stats#find_seasons'
-
-  match 'batters/save' => 'batting_stats#save'
+  
+  match 'change_chart' => 'batting_stats#change_chart'
+  match 'change_table' => 'batting_stats#change_table'
   
   match 'search' => 'home#search', :as => :search
   
