@@ -176,44 +176,40 @@ class BattingStatsController < ApplicationController
 		end
 	end
 	
-	def home_runs_chart
-		@chart.add_rows(25)
-		y = 1
-		@players.each { |play|
-		x = 0
-		year = 1
-		stats = BattingStat.get_all_stats(play.id, :rbi)
-			stats.each {|s|
-				@chart.set_value(x, 0, year.to_s)
-				@chart.set_value(x, y, s.rbi)
-				x += 1
-				year += 1
-			}
-			y += 1
-		}
-		render :layout => false
-    end
-	
-	def rbis_chart
-		@chart.add_rows(25)
-		y = 1
-		@players.each { |play|
-		x = 0
-		year = 1
-		stats = BattingStat.get_all_stats(play.id, :rbi)
-			stats.each {|s|
-				@chart.set_value(x, 0, year.to_s)
-				@chart.set_value(x, y, s.rbi)
-				x += 1
-				year += 1
-			}
-			y += 1
-		}
-		render :partial => :rbis_chart
-    end
-	
 	def change_chart
-		puts "**********"
+		stat = params[:chart_type].downcase.gsub(" ", "_")
+		@player = params[:players]
+		@players = []
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+		}
+		@chart = GoogleVisualr::LineChart.new
+		@chart.add_column('string', 'Year')
+		@players.each { |play|
+			@chart.add_column('number', play.name)
+		}	
+		@chart.add_rows(25)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, stat.to_sym)
+			stats.each {|s|
+				@chart.set_value(x, 0, year.to_s)
+				@chart.set_value(x, y, s.send(stat))
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options = { :width => 600, :height => 300, :legend => 'bottom'}
+		options.each_pair do | key, value |
+			@chart.send "#{key}=", value
+		end
+		
+		respond_to do |format|
+			format.js { render :layout=>false }
+		end
     end
 	
 	def change_table
