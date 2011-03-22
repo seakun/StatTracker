@@ -16,7 +16,7 @@
 	<br/>
 	<br/>
 	
-	<%= form_tag change_chart_path(:players => @players), :remote => true do %>
+	<%= form_tag change_chart_batting_path(:players => @players), :remote => true do %>
 		<%= select_tag "chart_type", 
 		raw("<option>Games</option>
 		<option>Plate Appearances</option>
@@ -46,7 +46,7 @@
 	<br/>
 	
 	
-	<%= form_tag change_table_path(:players => @players), :remote => true, :id => 'stats'  do %>
+	<%= form_tag change_table_batting_path(:players => @players), :remote => true, :id => 'stats'  do %>
 		<%= check_box_tag 'stat[]', 'games', false %>G
 		<%= check_box_tag 'stat[]', 'plate_appearances', false %>PA
 		<%= check_box_tag 'stat[]', 'at_bats', false %>AB

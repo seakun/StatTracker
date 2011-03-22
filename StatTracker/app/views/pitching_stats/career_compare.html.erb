@@ -1,0 +1,74 @@
+<% title "Batting Compare" %>
+
+
+	<div id = 'table_place'>
+		<%= render :partial => 'table'  %> 
+	</div>
+
+	
+	
+	<br/>
+	<br/>
+	<div id = 'chart_place'>
+		<%= render :partial => 'chart'  %> 
+	</div>
+	
+	<br/>
+	<br/>
+	
+	<%= form_tag change_chart_pitching_path(:players => @players), :remote => true do %>
+		<%= select_tag "chart_type", 
+		raw("
+		<option>Wins</option>
+		<option>Losses</option>
+		<option>Games</option>
+		<option>Games Started</option>
+		<option>Complete Games</option>
+		<option>Shutouts</option>
+		<option>Saves</option>
+		<option>Hits</option>
+		<option>Runs</option>
+		<option>Earned Runs</option>
+		<option>Home Runs</option>
+		<option>Walks</option>
+		<option>Strikeouts</option>
+		<option>Intentional Walks</option>
+		<option>Wild Pitches</option>
+		<option>Hit By Pitch</option>
+		<option>Balks</option>
+		<option>Batters Faced</option>
+		<option>Sacrifice Hits</option>
+		<option>Sacrifice Flies</option>
+		<option>Games Finished</option>
+		") %>
+		<%= submit_tag 'Update' %>
+	<% end %>
+	
+	<br/>
+	<br/>
+	
+	
+	<%= form_tag change_table_pitching_path(:players => @players), :remote => true, :id => 'stats'  do %>
+		<%= check_box_tag 'stat[]', 'wins', true %>W
+		<%= check_box_tag 'stat[]', 'losses', true %>L
+		<%= check_box_tag 'stat[]', 'games', false %>G
+		<%= check_box_tag 'stat[]', 'games_started', false %>GS
+		<%= check_box_tag 'stat[]', 'complete_games', false %>CG
+		<%= check_box_tag 'stat[]', 'shutouts', false %>SO
+		<%= check_box_tag 'stat[]', 'saves', true %>SV
+		<%= check_box_tag 'stat[]', 'hits', false %>H
+		<%= check_box_tag 'stat[]', 'runs', false %>R
+		<%= check_box_tag 'stat[]', 'earned_runs', true %>ER
+		<%= check_box_tag 'stat[]', 'home_runs', false %>HR
+		<%= check_box_tag 'stat[]', 'walks', false %>BB
+		<%= check_box_tag 'stat[]', 'strikeouts', true %>K
+		<%= check_box_tag 'stat[]', 'intentional_walks', false %>IBB
+		<%= check_box_tag 'stat[]', 'wild_pitches', false %>WP
+		<%= check_box_tag 'stat[]', 'hit_by_pitch', false %>HBP
+		<%= check_box_tag 'stat[]', 'balks', false %>BK
+		<%= check_box_tag 'stat[]', 'batters_faced', false %>BF
+		<%= check_box_tag 'stat[]', 'sacrifice_hits', false %>SAC
+		<%= check_box_tag 'stat[]', 'sacrifice_flies', false %>SF
+		<%= check_box_tag 'stat[]', 'games_finished', false %>GF
+		<%= submit_tag 'Update' %>
+	<% end %>

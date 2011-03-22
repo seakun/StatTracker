@@ -52,6 +52,43 @@ class PitchingStat < ActiveRecord::Base
 		return sorted.take(50)
 	end
 	
+	def self.season_compare(comp)
+		split_strings = comp.split("/")
+		players = []
+		split_strings.each { |s|
+			split = s.split(".")
+			player = split[0]
+			year = split[1]
+			players.push(PitchingStat.find(:all, :conditions => ['player_id = ? AND year = ?', s.to_i, year], :joins => [:team]))
+		}
+		players
+	end
+	
+	def self.career_compare(comp)
+		split_strings = comp.split("/")
+		players = {}
+		split_strings.each { |s|
+			stats = PitchingStat.find(:all, :conditions => ['player_id = ?', s.to_i])
+			stats.each { |st|
+				players.store(st, s.to_i)
+			}
+		}
+		players
+	end
+	
+	def self.get_all_stats(player, stat)
+		PitchingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
+	end
+ 
+	def self.get_stat_total(player, stat)
+		stats = PitchingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
+		count = 0
+		stats.each { |s|
+		count += s.send(stat)
+		}
+		count.to_s
+	end
+	
 	def year
 		team.year
 	end

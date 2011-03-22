@@ -57,7 +57,7 @@ StatTracker::Application.routes.draw do
   
   match 'compare/season/batting/*comp' => 'batting_stats#season_compare'
   match 'compare/career/batting/*comp' => 'batting_stats#career_compare'
-  match 'compare/multi/batting/*comp' => 'batting_stats#mutli_compare'
+  match 'compare/multi/batting/*comp' => 'batting_stats#multi_compare'
   match 'compare/season/pitching/*comp' => 'pitching_stats#season_compare'
   match 'compare/career/pitching/*comp' => 'pitching_stats#career_compare'
   match 'compare/multi/pitching/*comp' => 'pitching_stats#multi_compare'
@@ -65,8 +65,10 @@ StatTracker::Application.routes.draw do
   match 'seasonfinder/batting' => 'batting_stats#season_finder'
   match 'seasonfinder/batting/results' => 'batting_stats#find_seasons'
   
-  match 'change_chart' => 'batting_stats#change_chart'
-  match 'change_table' => 'batting_stats#change_table'
+  match 'change_chart_batting' => 'batting_stats#change_chart'
+  match 'change_table_batting' => 'batting_stats#change_table'
+  match 'change_chart_pitching' => 'pitching_stats#change_chart'
+  match 'change_table_pitching' => 'pitching_stats#change_table'
   
   match 'search' => 'home#search', :as => :search
   
