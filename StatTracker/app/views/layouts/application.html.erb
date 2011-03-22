@@ -30,7 +30,8 @@
 	<%= link_to "Sign in", new_user_session_path %>  
 <% end %>
 </div>
-    <h1>StatTracker</h1> 
+
+    <div id="hd"></div>
 
   <div id="nav">
       	<ul >
@@ -46,14 +47,12 @@
 			<li><%= link_to 'Teams', franchises_path %></li>  
 			<li class="dropdownmenu"><%= link_to 'Leaders'%>
 				<ul id="cssdropdown">
-					<li><%= link_to 'Batting Leaderboards', '/leaders/season/batting/home_runs' %></li>
-					<li><a href="http://yahoo.com/">Pitching Leaderboards</a></li>
-					<li><a href="http://live.com/">Fielding Leaderboards</a></li>
+					<li><%= link_to 'Batting Leaderboards', '/home/batting_leaderboards' %></li>
+					<li><a href="">Pitching Leaderboards</a></li>
+					<li><a href="">Fielding Leaderboards</a></li>
 				</ul>
 			</li> 
 			<li><%= link_to 'Season Finders', '/leaders/season/batting/home_runs' %> </li> 
-			<li><%= link_to 'Career Home Run Leaders', '/leaders/career/batting/home_runs' %> </li> 
-			<li><%= link_to 'Active Home Run Leaders', '/leaders/active/batting/home_runs' %> </li> 
 </ul>
 </div> 
 

@@ -12,4 +12,8 @@ class HomeController < ApplicationController
   def soundex
 
   end
+  
+  def leaders
+	redirect 
+  end
 end
