@@ -5,6 +5,7 @@ StatTracker::Application.routes.draw do
   match 'home/compare' => 'home#compare', :as => 'home#compare'
   match 'home/google' => 'search#google_images', :as => 'home#google'
   match 'home/batting_leaderboards' => 'home#batting_leaderboard'
+  match 'batting_leaders' => 'home#batting_leaders'
   
 
   devise_for :users

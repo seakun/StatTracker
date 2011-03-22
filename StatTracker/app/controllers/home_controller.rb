@@ -13,7 +13,14 @@ class HomeController < ApplicationController
 
   end
   
-  def leaders
-	redirect 
+  def batting_leaders
+	stat = params[:stat].downcase.gsub(" ", "_")
+	type = params[:type]
+	post =  params[:post]
+	if post.nil?
+		redirect_to '/leaders/' + type + '/batting/' + stat
+	else redirect_to '/leaders/' + type + '/batting_post/' + stat
+	end
   end
+  
 end
