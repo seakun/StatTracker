@@ -62,12 +62,42 @@
 <% end %>
 <% if @player.hof %>
 <p>
-  <strong>Hall of Famer</strong>
+  <strong>Hall of Famer: </strong>&#10003
 </p>
+<% end %>
+</div>
+<% if !@batting_stats.empty? %>
+<strong>Regular Season Batting Stats</strong>
+<div id='chart'></div>
+<%= raw @chart.render('chart') %>
+<% end %>
+<% if !@batting_stats_post.empty? %>
+<strong>Post Season Batting Stats</strong>
+<div id='chart2'></div>
+<%= raw @chart2.render('chart2') %>
+<% end %>
+<% if !@fielding_stats.empty? %>
+<strong>Regular Season Fielding Stats</strong>
+<div id='chart3'></div>
+<% end %>
+<%= raw @chart3.render('chart3') %>
+<% if !@fielding_stats_post.empty? %>
+<strong>Post Season Fielding Stats</strong>
+<div id='chart4'></div>
+<%= raw @chart4.render('chart4') %>
+<% end %>
+<% if !@pitching_stats.empty? %>
+<strong>Regular Season Pitching Stats</strong>
+<div id='chart5'></div>
+<%= raw @chart5.render('chart5') %>
+<% end %>
+<% if !@pitching_stats_post.empty? %>
+<strong>Post Season Pitching Stats</strong>
+<div id='chart6'></div>
+<%= raw @chart6.render('chart6') %>
 <% end %>
 <p>
   <%= link_to "Edit", edit_player_path(@player) %> |
   <%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", players_path %>
 </p>
-</div>
