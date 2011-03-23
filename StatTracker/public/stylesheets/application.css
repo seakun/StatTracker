@@ -186,7 +186,10 @@ div.button:hover a{
     border-radius: 15px;
 }
 
-
+td.years {
+	vertical-align: top;
+	padding-left: 10px;
+}
 
 
 #flash_notice, #flash_error, #flash_alert {

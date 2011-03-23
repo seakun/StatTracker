@@ -8,10 +8,6 @@ class Player < ActiveRecord::Base
 	has_many :fielding_stats
 	has_many :fielding_post_stats
 	
-	def self.get_career_total(stat)
-		BattingStat.find
-	end
-	
 	def name
 		first_name + " " + last_name
 	end
@@ -40,5 +36,5 @@ class Player < ActiveRecord::Base
     search_condition = "%" + search + "%"
     find(:all, :conditions => ['first_name LIKE ? OR last_name LIKE ?', search_condition, search_condition])
   end
-
+  
 end

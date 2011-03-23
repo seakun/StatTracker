@@ -1,0 +1,21 @@
+
+<%= form_tag years_path(:comp => @comp), :remote => true do %>
+		<table>
+			<tr><td><%= text_field_tag 'players[]' %></td></tr>
+			<tr><td><%= text_field_tag 'players[]' %></td></tr>
+			<tr><td><%= text_field_tag 'players[]' %></td></tr>
+			<tr><td><%= text_field_tag 'players[]' %></td></tr>
+			<tr><td><%= text_field_tag 'players[]' %></td></tr>
+		</table>
+		<br/>
+		<br/>
+		Season<%= radio_button_tag 'type', 'season' %>
+		<br/>
+		Career<%= radio_button_tag 'type', 'career' %>
+		<br/>
+		Multi-Year<%= radio_button_tag 'type', 'multi' %>
+		<br/>
+		<br/>
+		<%= submit_tag 'Compare' %>
+	<% end %>
+		

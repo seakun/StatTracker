@@ -147,6 +147,32 @@ class BattingStatsController < ApplicationController
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
+		
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(25)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, :home_runs)
+		total = 0
+			stats.each {|s|
+				total += s.home_runs
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => 550, :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
+		end
 
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
@@ -205,6 +231,32 @@ class BattingStatsController < ApplicationController
 		options = { :width => 600, :height => 300, :legend => 'bottom'}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
+		end
+		
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(25)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, stat.to_sym)
+		total = 0
+			stats.each {|s|
+				total += s.send(stat)
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => 550, :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
 		end
 		
 		respond_to do |format|

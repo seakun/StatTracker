@@ -1,119 +1,25 @@
-<html>
-	<head>
-	
-	<script type="text/javascript">
-	</script>
-	
-	</head>
-	
-	<body>
-	
-	<form name="myform">	
-	<table>
-	
-		<tr>
-			<td>
-				&nbsp;
-			</td>
-			
-			<td>
-				<ul style="width:auto;">
-					<% form_tag(search_path) do %>
-                	<%= text_field_tag('query') %>               
-                	<% end %>
-                </ul></li>
-            </td>
-         </tr>   
-         
-		<tr>
-			<td>
-				&nbsp;
-			</td>
-						
-			
-			<td>
-				<ul style="width:auto;">
-					<% form_tag(search_path) do %>
-                	<%= text_field_tag('query') %>               
-                	<% end %>
-                </ul></li>
-            </td>
-            
-			<td>										
-				<input type="radio" id = "radio1" onclick="
-					if(this.checked == '0') 
-					{
-						document.getElementById('textbox1').style.display='none'; //hide textbox
-						document.getElementById('radio2').style.display='none'; //hide checkbox
 
-					} 
-					else 
-					{
-						document.getElementById('textbox1').style.display='block'; //show textbox
-						document.getElementById('radio2').style.display='block'; //show checkbox
-					}
-					return true;">Add More			
-			</td>
-            
-            <td>
-            	<ul style="width:auto;">
-            		<%= submit_tag('Compare') %>
-            	</ul></li>
-            </td>            
-         </tr>  
-         					
-		<tr>							
 
-			<td>
-				<input type="text" id="textbox1" style="display:none">				
-			</td>
-			
-			<td>	
-				<input type="radio"  style="display:none" id = "radio2" onclick="
-					if(this.checked == '0') 
-					{
-						document.getElementById('textbox2').style.display='none'; //hide textbox
-					} 
-					else 
-					{
-						document.getElementById('radio3').style.display='block'; //hide textbox
-						document.getElementById('textbox2').style.display='block'; //show textbox
-					}
-					return true;">
-				
-			</td>
-			
-		</tr>
-		
-		<tr>
-			
-			<td>
-				<input type="text" id="textbox2"  style="display:none">				
-			</td>		
-		
-			<td>	
-				<input type="radio"  style="display:none" id = "radio3" onclick="
-					if(this.checked == '0') 
-					{
-						document.getElementById('textbox3').style.display='none'; //hide textbox
-					} 
-					else 
-					{
-						document.getElementById('radio3').style.display='block'; //hide textbox
-						document.getElementById('textbox3').style.display='block'; //show textbox
-					}
-					return true;">					
-				
-			</td>					
-		</tr>
-		
-		<tr>
-			<td>
-				<input type="text" id="textbox3"  style="display:none">				
-			</td>	
-		</tr>
-			
-	</form>
+<div id = 'comp'>
+
+	<%= form_tag (players_path), :remote => true do %>
+		Batting<%= radio_button_tag 'comp', 'batting' %>
+		Pitching<%= radio_button_tag 'comp', 'pitching' %>
+		<%= submit_tag 'Compare' %>
+	<% end %>
 	
-	</body>
-</html>
+</div>
+
+<table>
+	<tr>
+		<td>
+			<div id = 'players'>
+			</div>	
+		</td>
+		<td class = 'years' >
+			<div id = 'years'>
+			</div>	
+		</td>
+	</tr>
+</table>
+		
