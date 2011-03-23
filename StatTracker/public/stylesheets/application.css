@@ -87,8 +87,13 @@ a {
 
 #cssdropdown, #cssdropdown * { 
 	list-style: none;
-	padding: 0; 
+	padding: 4px 4px; 
 	margin: 0; 
+	width:auto;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	-o-border-radius:15px;
+	border-radius:15px;
 	}
 	
 
@@ -96,7 +101,6 @@ a {
 	display: none; 
 	border-top: 1px black solid; 
 	text-align: left;
-	width:250px;
 	}
  li.dropdownmenu:hover ul { 
 	display: block; 
@@ -123,11 +127,12 @@ a {
  }
 
 div.button a{
-		font-size:30px;
+		font-size:20px;
+		font-weight: bold;
 		color:#0033CC;
 		text-decoration:none;
 		display:block;
-		width:450px;
+		width:350px;
 		padding:10px;
 		text-align:center;
 		border:1px solid #DDD;
@@ -154,10 +159,13 @@ div.button:hover a{
 	font-weight: bold;
 	color: white;
 	border-right: none; 
+	font-size: 25px;
+	width:100%;
 	}
 	
 #nav li a:hover {
 	color: #66CCFF ; 
+	width:100%;
 	}
 	
 #sign{

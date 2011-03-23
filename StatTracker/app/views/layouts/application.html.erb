@@ -38,15 +38,15 @@
           	<!-- OPTIONS FOR EVERYONE -->
 		
 			<li><%= link_to 'Home', '/home/index' %></li>
-			<li class= "dropdownmenu"><%= link_to 'Players', '/home/compare' %>
-			<ul id="cssdropdown" style="width:auto;">
+			<li class= "dropdownmenu"><%= link_to 'Players'%>
+			<ul id="cssdropdown">
 				<%= form_tag(search_path) do %>
                 <%= text_field_tag('query') %>
                 <%= submit_tag('Search') %>
             <% end %></ul></li>
 			<li><%= link_to 'Teams', franchises_path %></li>  
 			<li class="dropdownmenu"><%= link_to 'Leaders'%>
-				<ul id="cssdropdown">
+				<ul id="cssdropdown" style="width:320px">
 					<li><%= link_to 'Batting Leaderboards', '/home/batting_leaderboards' %></li>
 					<li><a href="">Pitching Leaderboards</a></li>
 					<li><a href="">Fielding Leaderboards</a></li>

@@ -1,13 +1,12 @@
 
 
 <div id = 'comp'>
-
 	<%= form_tag (players_path), :remote => true do %>
 		Batting<%= radio_button_tag 'comp', 'batting' %>
 		Pitching<%= radio_button_tag 'comp', 'pitching' %>
 		<%= submit_tag 'Compare' %>
 	<% end %>
-	
+
 </div>
 
 <table>
