@@ -1,14 +1,9 @@
-<% title "Franchise" %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @franchise.name %>
-</p>
+<% title @franchise.name %>
 <p>
   <strong>Active:</strong>
   <%= @franchise.active %>
 </p>
-
+  <%=@teams %>
 <p>
   <%= link_to "Edit", edit_franchise_path(@franchise) %> |
   <%= link_to "Destroy", @franchise, :confirm => 'Are you sure?', :method => :delete %> |

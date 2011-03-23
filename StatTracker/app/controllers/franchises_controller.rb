@@ -5,6 +5,7 @@ class FranchisesController < ApplicationController
 
   def show
     @franchise = Franchise.find(params[:id])
+    @teams= Team.find(:all, :conditions => ['franchise_id = ?', params[:id]])
   end
 
   def new
