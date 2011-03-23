@@ -121,15 +121,17 @@ class BattingStatsController < ApplicationController
 			else @player.push(value)
 			end
 		}
+		@max = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
+			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(25)
+		@chart.add_rows(@max.max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -143,7 +145,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => 600, :height => 300, :legend => 'bottom'}
+		options = { :width => '100%', :height => 300, :legend => 'bottom'}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -153,7 +155,7 @@ class BattingStatsController < ApplicationController
 		@players.each { |play|
 			@chart2.add_column('number', play.name)
 		}	
-		@chart2.add_rows(25)
+		@chart2.add_rows(@max.max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -169,7 +171,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => 550, :height => 300, :legend => 'bottom'}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom'}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -196,7 +198,7 @@ class BattingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '80%'}
+		options = { :width => '100%'}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -206,15 +208,18 @@ class BattingStatsController < ApplicationController
 		stat = params[:chart_type].downcase.gsub(" ", "_")
 		@player = params[:players]
 		@players = []
+		@max = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
+			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
 		}
+		puts @max
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(25)
+		@chart.add_rows(@max.max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -228,7 +233,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => 600, :height => 300, :legend => 'bottom'}
+		options = { :width => '45%', :height => 300, :legend => 'bottom'}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -238,7 +243,7 @@ class BattingStatsController < ApplicationController
 		@players.each { |play|
 			@chart2.add_column('number', play.name)
 		}	
-		@chart2.add_rows(25)
+		@chart2.add_rows(@max.max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -254,7 +259,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => 550, :height => 300, :legend => 'bottom'}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom'}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end

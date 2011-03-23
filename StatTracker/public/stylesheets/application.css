@@ -199,6 +199,14 @@ td.years {
 	padding-left: 10px;
 }
 
+td.chart {
+width: 45%
+}
+
+table.chart {
+width: 100%
+}
+
 
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
