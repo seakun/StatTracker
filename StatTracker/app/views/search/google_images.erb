@@ -1,3 +1,4 @@
+
 <% for image in @google_images %>
  <%= link_to(image_tag(image.thumbnail, :style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:100px; float:left'), image.original) %>
 <% end %>
