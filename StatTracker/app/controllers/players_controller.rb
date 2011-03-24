@@ -31,7 +31,6 @@ class PlayersController < ApplicationController
     @chart.add_column('string' , 'OBP')
     @chart.add_column('string' , 'OPS')
     @chart.add_column('string' , 'ISO')
-    @chart.add_column('number' , 'RC')
 
     @chart.add_rows(@batting_stats.size)
     @batting_stats.each { |b|
@@ -59,7 +58,6 @@ class PlayersController < ApplicationController
     @chart.set_cell(i, 20, b.on_base_percentage.to_s)
     @chart.set_cell(i, 21, b.on_base_plus_slugging.to_s)
     @chart.set_cell(i, 22, b.isolated_power.to_s)
-	  @chart.set_cell(i, 23, b.runs_created)
 		}
 
   options = { :width => 900 }
