@@ -6,6 +6,13 @@ class FranchisesController < ApplicationController
   def show
     @franchise = Franchise.find(params[:id])
     @teams= Team.find(:all, :conditions => ['franchise_id = ?', params[:id]])
+    @chart = GoogleVisualr::Table.new
+		@chart.add_column('number' , 'Year')
+		@chart.add_column('string' , 'Team')
+		@chart.add_column('string' , 'League')
+		@chart.add_column('number' , 'Wins')
+		@chart.add_column('number' , 'Losses')
+    @chart.add_column('number' , 'AB')
   end
 
   def new

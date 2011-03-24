@@ -327,6 +327,7 @@ class BattingStatsController < ApplicationController
       operations.push(string)
     end
     @batting_stats = BattingStat.where(operations.join(" AND "))
+
   end
 
 end

@@ -4,7 +4,8 @@ class PlayersController < ApplicationController
   end
 
   def show
-  	@player = Player.find(params[:id])
+    @player = Player.find(params[:id])
+    @google_image = GoogleImage.all(@player.name+"baseball card", 0).first
     @batting_stats=BattingStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @chart = GoogleVisualr::Table.new
 		@chart.add_column('number' , 'Year')

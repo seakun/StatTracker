@@ -4,9 +4,9 @@
 <% if @player.nickname.nil? %>
 <h1><%=@player.name%></h1>
 <% end %>
+<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') %>
 <div class="player">
 </div>
-
 <div id="text">
 <%if @birthPlace.nil? %>
 <p>
@@ -96,8 +96,3 @@
 <%#*<div id='chart6'></div>%>
 <%#= raw @chart6.render('chart6') %>
 <%# end %>
-<p>
-  <%= link_to "Edit", edit_player_path(@player) %> |
-  <%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", players_path %>
-</p>
