@@ -3,9 +3,7 @@
   <strong>Active:</strong>
   <%= @franchise.active %>
 </p>
-  <%=@teams %>
-<p>
-  <%= link_to "Edit", edit_franchise_path(@franchise) %> |
-  <%= link_to "Destroy", @franchise, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", franchises_path %>
-</p>
+<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') %>
+
+<div id='chart'></div>
+<%= raw @chart.render('chart') %>
