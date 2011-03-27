@@ -327,6 +327,30 @@ class BattingStatsController < ApplicationController
       operations.push(string)
     end
     @batting_stats = BattingStat.where(operations.join(" AND "))
+    @chart2 = GoogleVisualr::Table.new
+		@chart2.add_column('string' , 'Name')
+		@chart2.add_column('string' , 'Team')
+		@chart2.add_column('number' , 'Year')
+    @stats.each do |i|
+     @chart2.add_column('number' , i.titleize)
+    end
+    @chart2.add_rows(@batting_stats.size)
+    @batting_stats.each { |b|
+			i = @batting_stats.index(b)
+			@chart2.set_cell(i, 0, b.player.name)
+			@chart2.set_cell(i, 1, b.team.name)
+      @chart2.set_cell(i, 2, b.team.year)
+      k=3
+    @stats.each do |j|
+     number= b.send(j)
+     @chart2.set_value(i, k, number)
+     k+=1
+    end
+    }
+    options = { :width => 600 }
+    options.each_pair do | key, value |
+    @chart2.send "#{key}=", value
+  end
 
   end
 
