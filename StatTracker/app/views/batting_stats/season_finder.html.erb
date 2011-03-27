@@ -1,7 +1,7 @@
 <% title "Batting Season Finder" %>
 <%= form_tag :controller => :batting_stats, :action => :find_seasons do |f| %>
-  <% number = 3 %>
-  <%= hidden_field "fields", "count", {:value => number} %>
+  <% number = 5 %>
+  <%= hidden_field "fields", "count", {:value => number, :id => "count"} %>
   <% (1..number).each do |i| %>
       <%= select_tag "#{i}[stat]", options_for_select(BattingStat.accessible_attributes), :include_blank => true %>
       <%= select_tag "#{i}[operator]", options_for_select(%w(= < <= > >=)) %>

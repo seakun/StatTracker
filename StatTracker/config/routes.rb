@@ -71,6 +71,12 @@ StatTracker::Application.routes.draw do
 
   match 'seasonfinder/batting' => 'batting_stats#season_finder'
   match 'seasonfinder/batting/results' => 'batting_stats#find_seasons'
+  match 'seasonfinder/pitching' => 'pitching_stats#season_finder'
+  match 'seasonfinder/pitching/results' => 'pitching_stats#find_seasons'
+  match 'seasonfinder/batting_post' => 'batting_post_stats#season_finder'
+  match 'seasonfinder/batting_post/results' => 'batting_post_stats#find_seasons'
+  match 'seasonfinder/pitching_post' => 'pitching_post_stats#season_finder'
+  match 'seasonfinder/pitching_post/results' => 'pitching_post_stats#find_seasons'
   
   match 'change_chart_batting' => 'batting_stats#change_chart'
   match 'change_table_batting' => 'batting_stats#change_table'

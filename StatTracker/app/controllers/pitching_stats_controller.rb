@@ -248,5 +248,26 @@ class PitchingStatsController < ApplicationController
 			format.js { render :layout=>false }
 		end
 	end
+
+  def season_finder
+
+  end
+
+  def find_seasons
+    number = params[:fields][:count].to_i
+    @stats = []
+    operations = []
+    (1..number).each do |i|
+      stat = params["#{i}"][:stat]
+      next if stat.blank?
+      operator = params["#{i}"][:operator]
+      number = params["#{i}"][:number]
+      string = stat + " " + operator + " " + number
+      @stats.push(stat)
+      operations.push(string)
+    end
+    @batting_stats = PitchingStat.where(operations.join(" AND "))
+
+  end
 	
 end
