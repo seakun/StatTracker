@@ -14,8 +14,12 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
     self.position = params[:position]
   end
 
-  def self.find (keyword, position = 0)
+  def self.find (keyword)
+    if keyword.include? "baseball"
+    url = "http://ajax.googleapis.com/ajax/services/search/images?rsz=large&start=#{position}&v=1.0&q=#{CGI.escape(keyword)}&imgtype=face"
+  else
     url = "http://ajax.googleapis.com/ajax/services/search/images?rsz=large&start=#{position}&v=1.0&q=#{CGI.escape(keyword)}"
+  end
     json_results = open(url) {|f| f.read };
     results = JSON.parse(json_results)
     image_array = results['responseData']['results']
