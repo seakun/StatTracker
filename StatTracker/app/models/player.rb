@@ -31,10 +31,11 @@ class Player < ActiveRecord::Base
 	return birth_city+ ", "+birth_state+ ", "+birth_country
 	end
 	end
+
   # search for all the players in the system by either first or last name
   def self.search(search)
     search_condition = "%" + search + "%"
     find(:all, :conditions => ['first_name LIKE ? OR last_name LIKE ? OR first_name || " " || last_name LIKE ?', search_condition, search_condition, search_condition])
   end
-  
+    
 end

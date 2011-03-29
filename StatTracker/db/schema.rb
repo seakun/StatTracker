@@ -221,6 +221,7 @@ ActiveRecord::Schema.define(:version => 20110222030030) do
     t.boolean  "hof"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name_soundex", :limit => nil
   end
 
   create_table "teams", :force => true do |t|
