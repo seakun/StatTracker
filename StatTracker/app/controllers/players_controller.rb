@@ -38,7 +38,7 @@ class PlayersController < ApplicationController
 			i = @batting_stats.index(b)
     @chart.set_cell(i, 0,	b.team.year.to_s)
     @chart.set_cell(i, 1, b.player.age(b.team.year).to_s)
-    @chart.set_cell(i, 2, b.team.name.to_s)
+    @chart.set_cell(i, 2, "<a href='/team/#{b.team.id}'>#{b.team.name}</a>")
     @chart.set_cell(i, 3, b.team.division.league.name.to_s)
     @chart.set_cell(i, 4, b.games.to_s)
     @chart.set_cell(i, 5, b.plate_appearances.to_s)
@@ -75,7 +75,7 @@ class PlayersController < ApplicationController
     @chart.set_cell(i, 14, BattingStat.get_stat_total(params[:id], :caught_stealing))
     @chart.set_cell(i, 15, BattingStat.get_stat_total(params[:id], :walks))
     @chart.set_cell(i, 16, BattingStat.get_stat_total(params[:id], :strikeouts))
-  options = { :width => 900 }
+  options = { :width => 900, :allowHtml =>true }
   options.each_pair do | key, value |
     @chart.send "#{key}=", value
   end
