@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20110222030030) do
     t.integer  "grounded_into_double_plays"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name_soundex",         :limit => nil
   end
 
   create_table "divisions", :force => true do |t|

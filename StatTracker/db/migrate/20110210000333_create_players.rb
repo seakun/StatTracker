@@ -25,6 +25,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :college
       t.boolean :hof
       t.timestamps
+      t.string :first_name_soundex
     end
 
   def self.down

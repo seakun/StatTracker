@@ -1,5 +1,12 @@
 <% title "Franchises" %>
-
+		<li>
+			<% form_tag(search_path) do %>
+				<%= text_field_tag('query') %>
+				<%= submit_tag('Search') %>
+			<% end %>
+		</li>
+                <br>
+                
 <table>
   <tr>
     <th>Name</th>
@@ -7,11 +14,11 @@
   </tr>
   <% for franchise in @franchises %>
     <tr>
-      <td><%= franchise.name %></td>
-      <td><%= franchise.active %></td>
-      <td><%= link_to "Show", franchise %></td>
-      <td><%= link_to "Edit", edit_franchise_path(franchise) %></td>
-      <td><%= link_to "Destroy", franchise, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td align="center"><%= link_to franchise.name, franchise_path(franchise) %></td>
+      <td align="center"><%= franchise.active %></td>
+      <!-- <td><%= link_to "Show", franchise %></td> -->
+      <!-- <td><%= link_to "Edit", edit_franchise_path(franchise) %></td> -->
+      <!-- <td><%= link_to "Destroy", franchise, :confirm => 'Are you sure?', :method => :delete %></td> -->
     </tr>
   <% end %>
 </table>

@@ -4,9 +4,19 @@
 <% unless @players.empty? %>
 	<p><em><strong>Players matching term '<%= @query %>'</strong></em></p>
 	<ul>
-		<% for player in @players do %>
-			<li><%= link_to player.name, player_path(player) %></li>
-		<% end %>
+            <table class="datagrid">
+              <thead class="datagrid">
+                  <th width="250">Name</th>
+                  <th>Birth Year</th>
+              </thead>
+              <% for player in @players do %>
+
+              <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+                  <td align ="center"><%= link_to player.name, player_path(player) %></td>
+                  <td align ="center"><%= player.birth_year %></td>
+              </tr>
+            <% end %>
+            </table>
 	</ul>
 	<p class="smtext">&nbsp;</p>
 <% end %>
@@ -14,9 +24,21 @@
 <% unless @teams.empty? %>
 	<p><em><strong>Teams matching term '<%= @query %>'</strong></em></p>
 	<ul>
-		<% for team in @teams do %>
-			<li><%= link_to team.name, team_path(team) %></li>
-		<% end %>
+            <table class="datagrid">
+              <thead class="datagrid">
+                  <th width="250">Name</th>
+                  <th width="250">Park</th>
+                  <th>Year</th>
+              </thead>
+              <% for team in @teams do %>
+
+              <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+                  <td align ="center"><%= link_to team.name, team_path(team) %></td>
+                  <td align ="center"><%= team.park %></td>
+                  <td align ="center"><%= team.year %></td>
+              </tr>
+            <% end %>
+            </table>
 	</ul>
 	<p class="supertiny">&nbsp;</p>
 <% end %>
