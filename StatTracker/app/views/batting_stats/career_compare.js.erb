@@ -38,11 +38,16 @@
 		<option>Sacrifice Hits</option>
 		<option>Sacrifice Flies</option>
 		<option>Grounded Into Double Plays</option>"), 
-
+		:class => 'submittable'
 		%>
 		<%= submit_tag 'Update' %>
 	<% end %>
 	
+	$('.submittable').live('change', function() {
+  $(this).parents('form:first').submit();
+});
+
+
 	<br/>
 	<br/>
 	

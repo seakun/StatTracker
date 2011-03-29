@@ -1,20 +1,32 @@
 
 
-<div id = 'comp'>
-	<%= form_tag (players_path), :remote => true do %>
-		Batting<%= radio_button_tag 'comp', 'batting' %>
-		Pitching<%= radio_button_tag 'comp', 'pitching' %>
-		<%= submit_tag 'Compare' %>
-	<% end %>
+	
+	<%= form_tag years_path, :remote => true do %>
+		<div id = "comp">			
+			Batting<%= radio_button_tag 'comp', 'batting' %>
+			Pitching<%= radio_button_tag 'comp', 'pitching' %>
+		</div>
+		<br/>
+		<div id = "players">
+			<table>
+				<tr><td><%= text_field_tag 'players[]', '', :autocomplete => home_autocomplete_player_last_name_path%></td>
+				<tr><td><div id = 'text2'><%= text_field_tag 'players[]' %></div></td></tr>
+				<tr><td><div id = 'text3'><%= text_field_tag 'players[]' %></div></td></tr>
+				<tr><td><div id = 'text4'><%= text_field_tag 'players[]' %></div></td></tr>
+				<tr><td><div id = 'text5'><%= text_field_tag 'players[]' %></div></td></tr>
+			</table>
+		</div>
+			<br/>
+			Season<%= radio_button_tag 'type', 'season' %>
+			<br/>
+			Career<%= radio_button_tag 'type', 'career' %>
+			<br/>
+			Multi-Year<%= radio_button_tag 'type', 'multi' %>
+			<br/>
+			<br/>
+			<%= submit_tag 'Compare' %>
+	<% end %>	
 
-</div>
-
-<table>
-	<tr>
-		<td>
-			<div id = 'players'>
-			</div>	
-		</td>
 		<td class = 'years' >
 			<div id = 'years'>
 			</div>	

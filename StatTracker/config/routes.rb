@@ -12,7 +12,8 @@ StatTracker::Application.routes.draw do
   match 'years' => 'home#years'
   match 'compare_players' => 'home#compare_players'
   
-
+  get 'home/autocomplete_player_last_name'
+  
   devise_for :users
   
   resources :users

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+autocomplete :player, :last_name, :display_value => :name
+
   def index
   end
 
@@ -17,13 +19,6 @@ class HomeController < ApplicationController
 	if post.nil?
 		redirect_to '/leaders/' + type + '/batting/' + stat
 	else redirect_to '/leaders/' + type + '/batting_post/' + stat
-	end
-  end
-  
-  def players
-	@comp = params[:comp]
-	respond_to do |format|
-		format.js { render :layout=>false }
 	end
   end
   
@@ -84,6 +79,9 @@ class HomeController < ApplicationController
 	else 
 	end
 	
+  end
+  
+  def compare
   end
   
 end
