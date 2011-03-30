@@ -9,65 +9,67 @@
 </div>
 <div id="text">
 <%if @birthPlace.nil? %>
-<p>
+<ul>
   <strong>Place of Birth:</strong>
   <%= @player.birthPlace %>
-</p>
+</ul>
 <% end %>
-<p>
+<ul>
   <strong>Birthday:</strong>
   <%= @player.birth_month.to_s+"\/"+@player.birth_day.to_s+"\/"+@player.birth_year.to_s %>
-</p>
+</ul>
 <% if !@player.death_year.nil? %>
-<p>
+<ul>
   <strong>Deathday:</strong>
   <%=@player.death_month.to_s+"\/"+@player.death_day.to_s+"\/"+@player.death_year.to_s %>
-</p>
+</ul>
 <% end %>
-<p>
+<ul>
  <strong>Height:</strong>
   <%= @player.heightFeet %>
-</p>
-<p>
+</ul>
+<ul>
   <strong>Weight:</strong>
   <%= @player.weight.to_s+" lbs" %>
-</p>
-<p>
+</ul>
+<ul>
   <strong>Bats:</strong>
   <%= @player.bats %>
-</p>
+</ul>
 <%if !@player.throws.nil?%>
-<p>
+<ul>
   <strong>Throws:</strong>
   <%= @player.throws %>
-</p>
+</ul>
 <% end %>
 <% if !@player.debut.nil?%>
-<p>
+<ul>
   <strong>Debut:</strong>
   <%= @player.debut.strftime("%m/%d/%Y") %>
-</p>
+</ul>
 <%end%>
 <% if !@player.final_game.nil?%>
-<p>
+<ul>
   <strong>Final Game:</strong>
   <%= @player.final_game.strftime("%m/%d/%Y") %>
-</p>
+</ul>
 <%end%>
 <% if !@player.college.nil?%>
-<p>
+<ul>
   <strong>College:</strong>
   <%= @player.college %>
-</p>
+</ul>
 <% end %>
 <% if @player.hof %>
-<p>
+<ul>
   <strong>Hall of Famer: </strong>&#10003
-</p>
+</ul>
 <% end %>
 </div>
 <% if !@batting_stats.empty? %>
 <strong>Regular Season Batting Stats</strong>
+<br>
+<br>
 <div id='chart'></div>
 <%= raw @chart.render('chart') %>
 <% end %>

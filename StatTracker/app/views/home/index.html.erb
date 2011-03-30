@@ -1,11 +1,39 @@
 
-<div>
-		<left><img src="../images/hideo_nomo.jpg"/ style="height:400px"></left>
-		
-		
+<script type="text/javascript">
+	$(window).load(function() {
+    $('#slider').nivoSlider( {
+	effect:'fade',
+		directionNav:true, // Next & Prev navigation
+    directionNavHide:true, // Only show on hover
+    controlNav:true,
+	}	);
+	});
+	</script>
+<div id="slider">
+<a href="http://dev7studios.com"><img src="../images/slide.jpg" alt=""/></a>
+    <img src="../images/slide1.jpg" alt="" />
+    <img src="../images/slide2.jpg" alt="" />
+	<img src="../images/slide 3.jpg" alt="" />
+	 <img src="../images/slide 4.jpg" alt="" />
+	  <img src="../images/slide 5.jpg" alt="" />
+	   <img src="../images/slide 6.jpg" alt="" />
+	    <img src="../images/slide 7.jpg" alt="" />
+		 <img src="../images/slide 9.jpg" alt="" />
+		  <img src="../images/slide 8.jpg" alt="" />
+		   <img src="../images/slide 10.jpg" alt="" />
+		    <img src="../images/slide 11.jpg" alt="" />
 </div>
 
+<div class="nivo-directionNav" style="display:none; ">
+	<a class="nivo-prevNav">Prev</a>
+	<a class="nivo-nextNav">Next</a>
+</div>
+
+
+
 <div class="button"><%= link_to 'Compare Players now > ', '/home/compare' %></div>
+	
+
 
 
 	
