@@ -12,8 +12,8 @@ class Team < ActiveRecord::Base
 
   # Search all teams that have a name or park like some term
   def self.search(search)
-    search_condition = "%" + search + "%"
-    find(:all, :conditions => ['name LIKE ? OR park LIKE ?', search_condition, search_condition])
+    search_condition = "%" + search.downcase + "%"
+    find(:all, :conditions => ['lower(name) LIKE ? OR lower(park) LIKE ?', search_condition, search_condition])
   end
 
 end
