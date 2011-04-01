@@ -5,7 +5,11 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    @google_image = GoogleImage.all(@player.name+" baseball player", 0).first
+	if @player.final_game.nil?
+    @google_image = GoogleImage.all(@player.name+" rotoworld headshot", 0).first
+	else
+	@google_image = GoogleImage.all(@player.name+" baseball player", 0).first
+	end
     @batting_stats=BattingStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @batting_stats.reverse!
     @chart = GoogleVisualr::Table.new
@@ -38,7 +42,7 @@ class PlayersController < ApplicationController
 			i = @batting_stats.index(b)
     @chart.set_cell(i, 0,	b.team.year.to_s)
     @chart.set_cell(i, 1, b.player.age(b.team.year).to_s)
-    @chart.set_cell(i, 2, "<a href='/team/#{b.team.id}'>#{b.team.name}</a>")
+    @chart.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
     @chart.set_cell(i, 3, b.team.division.league.name.to_s)
     @chart.set_cell(i, 4, b.games.to_s)
     @chart.set_cell(i, 5, b.plate_appearances.to_s)
