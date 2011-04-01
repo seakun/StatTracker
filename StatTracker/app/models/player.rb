@@ -8,7 +8,7 @@ class Player < ActiveRecord::Base
 	has_many :fielding_stats
 	has_many :fielding_post_stats
 	
-	 scope :search, lambda { |q|
+	 scope :name_search, lambda { |q|
 		(q ? where(["first_name LIKE ? or last_name LIKE ? or concat(first_name, ' ', last_name) like ?", '%'+ q + '%', '%'+ q + '%','%'+ q + '%' ])  : {})
 	}
 

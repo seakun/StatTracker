@@ -38,7 +38,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem "rails3-jquery-autocomplete"
 
 gem "heroku"
-gem "json_pure"
+gem "json"
 gem 'postgres-pr', :group => :production
 
 
