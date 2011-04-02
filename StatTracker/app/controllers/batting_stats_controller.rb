@@ -213,7 +213,6 @@ class BattingStatsController < ApplicationController
 			@players.push(Player.find(p.to_i))
 			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
 		}
-		puts @max
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
@@ -264,9 +263,8 @@ class BattingStatsController < ApplicationController
 			@chart2.send "#{key}=", value
 		end
 		
-		respond_to do |format|
-			format.js { render :layout=>false }
-		end
+		render :partial => "chart"
+		
     end
 	
 	def change_table
@@ -304,9 +302,7 @@ class BattingStatsController < ApplicationController
 			@table.send "#{key}=", value
 		end
 		
-		respond_to do |format|
-			format.js { render :layout=>false }
-		end
+		render :partial => "table"
 	end
 	
   def season_finder

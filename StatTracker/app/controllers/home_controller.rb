@@ -52,9 +52,8 @@ autocomplete :player, :last_name, :display_value => :name
 		@years_array.push(@years)
 	}
 	@type = params[:type]
-	respond_to do |format|
-		format.js { render :layout=>false }
-	end
+	
+	render :partial => 'years'
   end
   
   def compare_players
