@@ -140,7 +140,7 @@ div.button a{
 		-o-border-radius:15px;
 		border-radius:15px;
 		top:50%;
-		left:150%;
+		left:130%;
 		position: absolute;
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#B0B0B0'); /* for IE */
         background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#ccc)); /* for webkit browsers */
@@ -237,6 +237,7 @@ z-index:100;
 position: absolute;
 left: 150px;
 bottom: -40px;
+padding:10px;
 }
 
 .nivo-controlNav a.active {
