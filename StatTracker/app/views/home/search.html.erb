@@ -7,13 +7,20 @@
             <table class="datagrid">
               <thead class="datagrid">
                   <th width="250">Name</th>
-                  <th>Birth Year</th>
+                  <th>Play Year</th>
               </thead>
               <% for player in @players do %>
 
               <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
                   <td align ="center"><%= link_to player.name, player_path(player) %></td>
-                  <td align ="center"><%= player.birth_year %></td>
+                  <td align ="center">
+                      <% if player.final_game.nil? %>
+                          <%= player.debut.strftime("%Y") %> -
+                      <% end %>
+                      <% if !player.final_game.nil? %>
+                          <%= player.debut.strftime("%Y") %> - <%= player.final_game.strftime("%Y") %>
+                      <% end %>
+                  </td>
               </tr>
             <% end %>
             </table>
@@ -21,3 +28,29 @@
 	<p class="smtext">&nbsp;</p>
 <% end %>
 
+<% unless @franchises.empty? %>
+	<p><em><strong>Teams matching term '<%= @query %>'</strong></em></p>
+	<ul>
+            <table class="datagrid">
+              <thead class="datagrid">
+                  <th width="250">Name</th>
+                  <th>Activeness</th>
+              </thead>
+              <% for franchise in @franchises do %>
+
+              <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+                  <td align ="center"><%= link_to franchise.name, franchise_path(franchise) %></td>
+                  <td align ="center">
+                      <% if franchise.active %>
+                          <%= "Yes" %>
+                      <% end %>
+                      <% if !franchise.active %>
+                          <%= "No" %>
+                      <% end %>
+                  </td>
+              </tr>
+            <% end %>
+            </table>
+	</ul>
+	<p class="smtext">&nbsp;</p>
+<% end %>

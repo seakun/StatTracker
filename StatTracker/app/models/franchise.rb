@@ -4,9 +4,9 @@ class Franchise < ActiveRecord::Base
 	has_many :teams
 	scope :active, where('active = ?', true)
 
-  def show_active
-    return "not active" if !active
-    "active"
+  def self.search(search)
+    search_condition = "%" + search.downcase + "%"
+    find(:all, :conditions => ['lower(name) LIKE ?', search_condition])
   end
 
 end

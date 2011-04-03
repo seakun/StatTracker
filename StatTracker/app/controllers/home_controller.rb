@@ -7,9 +7,8 @@ autocomplete :player, :name, :full => true
   def search
     @query = params[:query]
     @players = Player.search(@query)
-    @players = Player.search(@query)
-    @teams = Team.search(@query)
-    @total_hits = @players.size + @teams.size
+    @franchises = Franchise.search(@query)
+    @total_hits = @players.size + @franchises.size
   end
   
   def batting_leaders
