@@ -8,10 +8,6 @@ class Player < ActiveRecord::Base
 	has_many :fielding_stats
 	has_many :fielding_post_stats
 	
-	def name
-		first_name + " " + last_name
-	end
-	
 	def age(year)
 		birthday = DateTime.new(y=birth_year, m = birth_month, d = birth_day)
 		season_start = DateTime.new(y=year, m = 7, d = 1, h=0, m=0, s=0)
