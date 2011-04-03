@@ -110,7 +110,6 @@ class BattingStatsController < ApplicationController
 	
 	def season_compare
 		@batters = BattingStat.season_compare(params[:comp])
-
 	end
 	
 	def career_compare
