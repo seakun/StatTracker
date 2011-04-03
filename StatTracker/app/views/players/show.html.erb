@@ -73,16 +73,16 @@
 <div id='chart'></div>
 <%= raw @chart.render('chart') %>
 <% end %>
-<%# if !@batting_stats_post.empty? %>
-<%#*<strong>Post Season Batting Stats</strong>%>
-<%#*<div id='chart2'></div>%>
-<%#= raw @chart2.render('chart2') %>
-<%# end %>
-<%# if !@fielding_stats.empty? %>
-<%#*<strong>Regular Season Fielding Stats</strong>%>
-<%#*<div id='chart3'></div>%>
-<%# end %>
-<%#= raw @chart3.render('chart3') %>
+<% if !@batting_stats_post.empty? %>
+<strong>Post Season Batting Stats</strong>
+<div id='chart2'></div>
+<%= raw @chart2.render('chart2') %>
+<% end %>
+<% if !@pitching_stats.empty? %>
+<strong>Regular Season Pitching Stats</strong>
+<div id='chart3'></div>
+<%= raw @chart3.render('chart3') %>
+<% end %>
 <%# if !@fielding_stats_post.empty? %>
 <%#*<strong>Post Season Fielding Stats</strong>%>
 <%#*<div id='chart4'></div>%>

@@ -21,24 +21,3 @@
 	<p class="smtext">&nbsp;</p>
 <% end %>
 
-<% unless @teams.empty? %>
-	<p><em><strong>Teams matching term '<%= @query %>'</strong></em></p>
-	<ul>
-            <table class="datagrid">
-              <thead class="datagrid">
-                  <th width="250">Name</th>
-                  <th width="250">Park</th>
-                  <th>Year</th>
-              </thead>
-              <% for team in @teams do %>
-
-              <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
-                  <td align ="center"><%= link_to team.name, team_path(team) %></td>
-                  <td align ="center"><%= team.park %></td>
-                  <td align ="center"><%= team.year %></td>
-              </tr>
-            <% end %>
-            </table>
-	</ul>
-	<p class="supertiny">&nbsp;</p>
-<% end %>

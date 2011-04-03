@@ -53,16 +53,6 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
   
   <body>
 
-  <div id="sign">
-<% if user_signed_in? %>  
-	Signed in as <%= current_user.email %>. Not you?  
-	<%= link_to "Sign out", destroy_user_session_path %>  
-	<%= link_to "Your Profile", :controller => "users", :action => "show" %>
-<% else %>  
-	<%= link_to "Sign up", new_user_registration_path %> or  
-	<%= link_to "Sign in", new_user_session_path %>  
-<% end %>
-</div>
 
     <div id="hd"></div>
 
