@@ -416,11 +416,16 @@ class BattingStatsController < ApplicationController
       next if stat.blank?
       operator = params["#{i}"][:operator]
       number = params["#{i}"][:number]
-      string = stat + " " + operator + " " + number
+      string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
       @stats.push(stat)
       operations.push(string)
+
     end
-    @batting_stats = BattingStat.where(operations.join(" AND "))
+    if params[:postseason].nil?
+      @batting_stats = BattingStat.where(operations.join(" AND "))
+    else
+      @batting_stats = BattingPostStat.where(operations.join(" AND "))
+    end
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Name')
 		@chart2.add_column('string' , 'Team')
@@ -436,7 +441,7 @@ class BattingStatsController < ApplicationController
       @chart2.set_cell(i, 2, b.team.year)
       k=3
     @stats.each do |j|
-     number= b.send(j)
+     number= b.send(j.downcase.gsub(" ", "_"))
      @chart2.set_value(i, k, number)
      k+=1
     end

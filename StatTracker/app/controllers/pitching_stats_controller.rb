@@ -254,7 +254,7 @@ class PitchingStatsController < ApplicationController
   end
 
   def find_seasons
-    number = params[:fields][:count].to_i
+     number = params[:fields][:count].to_i
     @stats = []
     operations = []
     (1..number).each do |i|
@@ -262,11 +262,40 @@ class PitchingStatsController < ApplicationController
       next if stat.blank?
       operator = params["#{i}"][:operator]
       number = params["#{i}"][:number]
-      string = stat + " " + operator + " " + number
+      string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
       @stats.push(stat)
       operations.push(string)
+
     end
-    @batting_stats = PitchingStat.where(operations.join(" AND "))
+    if params[:postseason].nil?
+      @batting_stats = PitchingStat.where(operations.join(" AND "))
+    else
+      @batting_stats = PitchingPostStat.where(operations.join(" AND "))
+    end
+    @chart2 = GoogleVisualr::Table.new
+		@chart2.add_column('string' , 'Name')
+		@chart2.add_column('string' , 'Team')
+		@chart2.add_column('number' , 'Year')
+    @stats.each do |i|
+     @chart2.add_column('number' , i.titleize)
+    end
+    @chart2.add_rows(@batting_stats.size)
+    @batting_stats.each { |b|
+			i = @batting_stats.index(b)
+			@chart2.set_cell(i, 0, b.player.name)
+			@chart2.set_cell(i, 1, b.team.name)
+      @chart2.set_cell(i, 2, b.team.year)
+      k=3
+    @stats.each do |j|
+     number= b.send(j.downcase.gsub(" ", "_"))
+     @chart2.set_value(i, k, number)
+     k+=1
+    end
+    }
+    options = { :width => 600 }
+    options.each_pair do | key, value |
+    @chart2.send "#{key}=", value
+  end
 
   end
 	
