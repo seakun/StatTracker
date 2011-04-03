@@ -83,8 +83,11 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 			<li><%= link_to 'Season Finders', '/seasonfinder/batting' %> </li>
 </ul>
 </div> 
-
+</br>
+</br>
+</br>
     <div id="container">
+	</br>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
