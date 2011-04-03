@@ -12,11 +12,7 @@ StatTracker::Application.routes.draw do
   match 'years' => 'home#years'
   match 'compare_players' => 'home#compare_players'
   
-  get 'home/autocomplete_player_last_name'
-  
-  devise_for :users
-  
-  resources :users
+  get 'home/autocomplete_player_name'
   
   resources :teams
 
@@ -41,7 +37,6 @@ StatTracker::Application.routes.draw do
 
   resources :batting_post_stats
   
-  match 'users/show' => 'users#show'
   match 'leaders/season/batting/:stat' => 'batting_stats#single_season'
   match 'leaders/season/batting_post/:stat' => 'batting_post_stats#single_season'
   match 'leaders/season/pitching/:stat' => 'pitching_stats#single_season'

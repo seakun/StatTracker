@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-    attr_accessible :first_name, :last_name, :nickname, :birth_year, :birth_month, :birth_day, :birth_country, :birth_state, :birth_city, :death_year, :death_month, :death_day, :death_country, :death_state, :death_city, :weight, :height, :bats, :throws, :debut, :final_game, :college, :hof
+    attr_accessible :first_name, :last_name, :name, :nickname, :birth_year, :birth_month, :birth_day, :birth_country, :birth_state, :birth_city, :death_year, :death_month, :death_day, :death_country, :death_state, :death_city, :weight, :height, :bats, :throws, :debut, :final_game, :college, :hof
 
   has_many :batting_stats
 	has_many :batting_post_stats
@@ -7,11 +7,6 @@ class Player < ActiveRecord::Base
 	has_many :pitching_post_stats
 	has_many :fielding_stats
 	has_many :fielding_post_stats
-	
-	 scope :name_search, lambda { |q|
-		(q ? where(["first_name LIKE ? or last_name LIKE ? or concat(first_name, ' ', last_name) like ?", '%'+ q + '%', '%'+ q + '%','%'+ q + '%' ])  : {})
-	}
-
 	
 	def name
 		first_name + " " + last_name

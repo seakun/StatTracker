@@ -24,3 +24,13 @@ jQuery(function($) {
       $("#years_place").html(data);
     });
 });
+
+// jQuery(function($) {
+
+  // $("#chart_type").change(function() {
+ /*    make a POST call and replace the content */
+    // $.post(<%= change_chart_batting_path(:players => @players) %>, function(data) {
+      // $("#chart_place").html(data);
+    // });
+  // });
+// })

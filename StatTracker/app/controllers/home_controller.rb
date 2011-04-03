@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-autocomplete :player, :last_name, :display_value => :name
+autocomplete :player, :name, :full => true
 
   def index
   end

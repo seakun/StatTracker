@@ -205,6 +205,104 @@ class BattingStatsController < ApplicationController
 		end
 	end
 	
+	def multi_compare
+		# returns hash of batting stats
+		@batters = BattingStat.multi_compare(params[:comp])
+		@player = []
+		@players = []
+		# gets individual player ids
+		@batters.each_value {|value|
+			if @player.include?(value)
+				else @player.push(value)
+			end
+		}
+		@batters.each_key { |key|
+			
+		}
+		@max = []
+		#gets players and # of years played
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
+		}
+		@chart = GoogleVisualr::LineChart.new
+		@chart.add_column('string', 'Year')
+		@players.each { |play|
+			@chart.add_column('number', play.name)
+		}	
+		@chart.add_rows(@max.max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		@stats = BattingStat.get_multi_stats(play.id, :home_runs)
+			stats.each {|s|
+				@chart.set_value(x, 0, year.to_s)
+				@chart.set_value(x, y, s.home_runs)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options.each_pair do | key, value |
+			@chart.send "#{key}=", value
+		end
+		
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(@max.max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = BattingStat.get_all_stats(play.id, :home_runs)
+		total = 0
+			stats.each {|s|
+				total += s.home_runs
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
+		end
+
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Runs')
+		@table.add_column('string' , 'Hits')
+		@table.add_column('string' , 'Home Runs')
+		@table.add_column('string' , 'RBI')
+		@table.add_column('string' , 'Stolen Bases')
+		
+		@table.add_rows(@players.size)
+		i = 0
+			@players.each { |p|
+				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 1, p.bats)
+				@table.set_cell(i, 2, BattingStat.get_multi_stat_total(p, :runs))
+				@table.set_cell(i, 3, BattingStat.get_multi_stat_total(p, :hits))
+				@table.set_cell(i, 4, BattingStat.get_multi_stat_total(p, :home_runs))
+				@table.set_cell(i, 5, BattingStat.get_multi_stat_total(p, :rbi))
+				@table.set_cell(i, 6, BattingStat.get_multi_stat_total(p, :stolen_bases))
+				i += 1
+			}
+
+		options = { :width => '100%'}
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
+	end
+	
 	def change_chart
 		stat = params[:chart_type].downcase.gsub(" ", "_")
 		@player = params[:players]

@@ -76,7 +76,29 @@ class BattingStat < ActiveRecord::Base
 		players
 	end
 	
+	def self.multi_compare(comp)
+		split_strings = comp.split("/")
+		players = {}
+		split_strings.each { |s|
+			split_player = s.split(".")
+			player = split_player[0]
+			years = split_player[1]
+			split_years = years.split(":")
+			year1 = split_years[0]
+			year2 = split_years[1]
+			stats = BattingStat.find(:all, :conditions => ['player_id = ? AND year >= ? AND year <= ?', s.to_i, year1, year2], :joins => [:team])
+			stats.each { |st|
+				players.store(st, s.to_i)
+			}
+		}
+		players
+	end
+	
 	def self.get_all_stats(player, stat)
+		BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
+	end
+	
+	def self.get_multi_stats(player, stat, year)
 		BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
 	end
  
