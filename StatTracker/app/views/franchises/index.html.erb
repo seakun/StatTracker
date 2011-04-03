@@ -1,26 +1,23 @@
-<% title "Franchises" %>
-		<tr>
-			<% form_tag(search_path) do %>
-				<%= text_field_tag('query') %>
-				<%= submit_tag('Search') %>
-			<% end %>
-		</tr>
-                <br>
-                
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Active</th>
-  </tr>
-  <% for franchise in @franchises %>
+<% title "Teams" %>
     <tr>
-      <td align="center"><%= link_to franchise.name, franchise_path(franchise) %></td>
-      <td align="center"><%= franchise.active %></td>
-      <!-- <td><%= link_to "Show", franchise %></td> -->
-      <!-- <td><%= link_to "Edit", edit_franchise_path(franchise) %></td> -->
-      <!-- <td><%= link_to "Destroy", franchise, :confirm => 'Are you sure?', :method => :delete %></td> -->
+            <%= form_tag(search_path) do %>
+                    <%= text_field_tag('query') %>
+                    <%= submit_tag('Search') %>
+            <% end %>
     </tr>
-  <% end %>
-</table>
+    <br>
 
-<p><%= link_to "New Franchise", new_franchise_path(franchise) %></p>
+          <table>
+             <% for franchise in @franchises %>
+                <% if franchise.active %>
+                      <tr>
+                        <td align="center"><%= link_to franchise.name, franchise_path(franchise) %></td>
+                        <!-- <td><%= link_to "Show", franchise %></td> -->
+                        <!-- <td><%= link_to "Edit", edit_franchise_path(franchise) %></td> -->
+                        <!-- <td><%= link_to "Destroy", franchise, :confirm => 'Are you sure?', :method => :delete %></td> -->
+                      </tr>
+              <% end %>
+              <% end %>
+
+          </table>
+

@@ -8,7 +8,7 @@ StatTracker::Application.routes.draw do
   match 'home/pitching_leaderboards' => 'home#pitching_leaderboard'
   match 'home/fielding_leaderboards' => 'home#fielding_leaderboard'
   match 'batting_leaders' => 'home#batting_leaders'
-  match 'players' => 'home#players'
+  #match 'players' => 'home#players'
   match 'years' => 'home#years'
   match 'compare_players' => 'home#compare_players'
   
