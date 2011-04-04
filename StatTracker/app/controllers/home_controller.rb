@@ -51,7 +51,7 @@ autocomplete :player, :name, :full => true
 		@years_array.push(@years)
 	}
 	@type = params[:type]
-	
+
 	render :partial => 'years'
   end
   
@@ -60,7 +60,6 @@ autocomplete :player, :name, :full => true
 	@comp = params[:comp]
 	@type = params[:type]
 	@players = params[:players]
-	
 	
 	if @type == 'career'
 		string = "/" + @players.join('/')
@@ -75,6 +74,14 @@ autocomplete :player, :name, :full => true
 		string = "/" + new.join("/")
 		redirect_to '/compare/season/' + @comp + string
 	else 
+		new = []
+		i = 0
+		@players.each { |p|
+			new.push(p + "." + @years[i] + ':' + @years[i+1])
+			i += 2
+		}
+		string = '/' + new.join('/')
+		redirect_to '/compare/multi/' + @comp + string
 	end
 	
   end

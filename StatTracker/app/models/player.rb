@@ -33,5 +33,15 @@ class Player < ActiveRecord::Base
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ["lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(first_name) || ' ' || lower(last_name) LIKE ?", search_condition, search_condition, search_condition])
   end
+  
+  def auto_search
+	if !debut.nil?
+		if final_game.nil?
+			name + ", " + debut.year.to_s + " - "
+		else 
+			name + ", " + debut.year.to_s + " - " + final_game.year.to_s
+		end
+	end
+  end
     
 end

@@ -79,6 +79,7 @@ class BattingStat < ActiveRecord::Base
 	def self.multi_compare(comp)
 		split_strings = comp.split("/")
 		players = {}
+		max = 0
 		split_strings.each { |s|
 			split_player = s.split(".")
 			player = split_player[0]
@@ -86,20 +87,63 @@ class BattingStat < ActiveRecord::Base
 			split_years = years.split(":")
 			year1 = split_years[0]
 			year2 = split_years[1]
+			newmax = year2.to_i - year1.to_i + 1
+			if newmax > max
+				max = newmax
+			end	
 			stats = BattingStat.find(:all, :conditions => ['player_id = ? AND year >= ? AND year <= ?', s.to_i, year1, year2], :joins => [:team])
 			stats.each { |st|
 				players.store(st, s.to_i)
 			}
 		}
-		players
+		return players, max
 	end
 	
 	def self.get_all_stats(player, stat)
 		BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
 	end
 	
-	def self.get_multi_stats(player, stat, year)
-		BattingStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
+	def self.get_multi_stat_total(player, stats, stat)
+		total = 0
+		stats.each_pair { |key, value|
+		
+			if value.to_i == player
+				total += key.send(stat)
+			end
+		}
+		total.to_s
+	end
+	
+	def self.get_change_multi_stat_total(player, stats, stat)
+		total = 0
+		stats.each { |s|	
+		b = BattingStat.find(s)
+			if b.player_id == player
+				total += b.send(stat)
+			end
+		}
+		total.to_s
+	end
+	
+	def self.get_multi_stats(player, stats, stat)
+		all_stats = []
+		stats.each_pair { |key, value|
+			if value == player
+				all_stats.push(key.send(stat))
+			end
+		}
+		all_stats
+	end
+	
+	def self.get_change_multi_stats(player, stats, stat)
+		all_stats = []
+		stats.each { |s|
+		b = BattingStat.find(s)
+			if b.player_id == player
+				all_stats.push(b.send(stat))
+			end
+		}
+		all_stats
 	end
  
 	def self.get_stat_total(player, stat)
