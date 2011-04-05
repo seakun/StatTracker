@@ -6,41 +6,6 @@ class PitchingStatsController < ApplicationController
   def show
     @pitching_stat = PitchingStat.find(params[:id])
   end
-
-  def new
-    @pitching_stat = PitchingStat.new
-  end
-
-  def create
-    @pitching_stat = PitchingStat.new(params[:pitching_stat])
-    if @pitching_stat.save
-      flash[:notice] = "Successfully created pitching stat."
-      redirect_to @pitching_stat
-    else
-      render :action => 'new'
-    end
-  end
-
-  def edit
-    @pitching_stat = PitchingStat.find(params[:id])
-  end
-
-  def update
-    @pitching_stat = PitchingStat.find(params[:id])
-    if @pitching_stat.update_attributes(params[:pitching_stat])
-      flash[:notice] = "Successfully updated pitching stat."
-      redirect_to pitching_stat_url
-    else
-      render :action => 'edit'
-    end
-  end
-
-  def destroy
-    @pitching_stat = PitchingStat.find(params[:id])
-    @pitching_stat.destroy
-    flash[:notice] = "Successfully destroyed pitching stat."
-    redirect_to pitching_stats_url
-  end
   
 	def single_season
 		@pitching_stats = PitchingStat.single_season_sort(params[:stat])
@@ -53,14 +18,14 @@ class PitchingStatsController < ApplicationController
 		@table.add_rows(50)
 		@pitching_stats.each { |b|
 			i = @pitching_stats.index(b)
-			@table.set_cell(i, 0, b.player.name)
-			# @table.set_cell(i, 1, b.player.throws)
-			@table.set_cell(i, 2, b.team.name)
+			@table.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
+      @table.set_cell(i, 1, b.player.throws)
+			@table.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
 			@table.set_cell(i, 3, "#{b.year}")
 			@table.set_cell(i, 4, b.send(params[:stat]))
 		}
 		
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml=>true  }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end	
@@ -75,13 +40,13 @@ class PitchingStatsController < ApplicationController
 		@table.add_rows(50)
 		i = 0
 			@pitching_stats.each { |k, v|
-				@table.set_cell(i, 0, k.name)
-				# @table.set_cell(i, 1, k.throws)
+				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
+				@table.set_cell(i, 1, k.throws)
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
 
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml=>true  }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -96,13 +61,13 @@ class PitchingStatsController < ApplicationController
 		@table.add_rows(50)
 		i = 0
 			@pitching_stats.each { |k, v|
-				@table.set_cell(i, 0, k.name)
-				# @table.set_cell(i, 1, k.throws)
+				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
+				@table.set_cell(i, 1, k.throws)
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
 
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml=>true  }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -160,7 +125,7 @@ class PitchingStatsController < ApplicationController
 		@table.add_rows(@players.size)
 		i = 0
 			@players.each { |p|
-				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
 				@table.set_cell(i, 1, p.bats)
 				@table.set_cell(i, 2, PitchingStat.get_stat_total(p, :wins))
 				@table.set_cell(i, 3, PitchingStat.get_stat_total(p, :losses))
@@ -170,7 +135,7 @@ class PitchingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '80%'}
+		options = { :width => '80%', :allowHtml=>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -229,7 +194,7 @@ class PitchingStatsController < ApplicationController
 		i = 0
 		
 			@players.each { |p|
-				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
 				@table.set_cell(i, 1, p.bats)
 				j = 2
 				stats.each { |s|
@@ -239,7 +204,7 @@ class PitchingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '80%'}
+		options = { :width => '80%', :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -274,6 +239,7 @@ class PitchingStatsController < ApplicationController
     end
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Name')
+    @chart2.add_column('number' , 'Throws')
 		@chart2.add_column('string' , 'Team')
 		@chart2.add_column('number' , 'Year')
     @stats.each do |i|
@@ -282,17 +248,18 @@ class PitchingStatsController < ApplicationController
     @chart2.add_rows(@batting_stats.size)
     @batting_stats.each { |b|
 			i = @batting_stats.index(b)
-			@chart2.set_cell(i, 0, b.player.name)
-			@chart2.set_cell(i, 1, b.team.name)
-      @chart2.set_cell(i, 2, b.team.year)
-      k=3
+			@chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
+      @chart2.set_cell(i, 1, b.player.throws)
+			@chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
+      @chart2.set_cell(i, 3, b.team.year)
+      k=4
     @stats.each do |j|
      number= b.send(j.downcase.gsub(" ", "_"))
      @chart2.set_value(i, k, number)
      k+=1
     end
     }
-    options = { :width => 600 }
+    options = { :width => 600, :allowHtml=>true  }
     options.each_pair do | key, value |
     @chart2.send "#{key}=", value
   end

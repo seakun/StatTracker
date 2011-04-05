@@ -7,41 +7,6 @@ class BattingStatsController < ApplicationController
     @batting_stat = BattingStat.find(params[:id])
   end
 
-  def new
-    @batting_stat = BattingStat.new
-  end
-
-  def create
-    @batting_stat = BattingStat.new(params[:batting_stat])
-    if @batting_stat.save
-      flash[:notice] = "Successfully created batting stat."
-      redirect_to @batting_stat
-    else
-      render :action => 'new'
-    end
-  end
-
-  def edit
-    @batting_stat = BattingStat.find(params[:id])
-  end
-
-  def update
-    @batting_stat = BattingStat.find(params[:id])
-    if @batting_stat.update_attributes(params[:batting_stat])
-      flash[:notice] = "Successfully updated batting stat."
-      redirect_to batting_stat_url
-    else
-      render :action => 'edit'
-    end
-  end
-
-  def destroy
-    @batting_stat = BattingStat.find(params[:id])
-    @batting_stat.destroy
-    flash[:notice] = "Successfully destroyed batting stat."
-    redirect_to batting_stats_url
-  end
-  
 	def single_season
 		@batting_stats = BattingStat.single_season_sort(params[:stat])
 		@table = GoogleVisualr::Table.new
@@ -53,14 +18,14 @@ class BattingStatsController < ApplicationController
 		@table.add_rows(50)
 		@batting_stats.each { |b|
 			i = @batting_stats.index(b)
-			@table.set_cell(i, 0, b.player.name)
+			@table.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
 			@table.set_cell(i, 1, b.player.bats)
-			@table.set_cell(i, 2, b.team.name)
+			@table.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
 			@table.set_cell(i, 3, "#{b.year}")
 			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
 		}
 		
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml => true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end	
@@ -75,13 +40,13 @@ class BattingStatsController < ApplicationController
 		@table.add_rows(50)
 		i = 0
 			@batting_stats.each { |k, v|
-				@table.set_cell(i, 0, k.name)
+				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
 				@table.set_cell(i, 1, k.bats)
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
 
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml =>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -96,13 +61,13 @@ class BattingStatsController < ApplicationController
 		@table.add_rows(50)
 		i = 0
 			@batting_stats.each { |k, v|
-				@table.set_cell(i, 0, k.name)
+				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
 				@table.set_cell(i, 1, k.bats)
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
 
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml=>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -524,25 +489,27 @@ class BattingStatsController < ApplicationController
     end
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Name')
+    @chart2.add_column('number' , 'Bats')
 		@chart2.add_column('string' , 'Team')
-		@chart2.add_column('number' , 'Year')
+    @chart2.add_column('number' , 'Year')
     @stats.each do |i|
      @chart2.add_column('number' , i.titleize)
     end
     @chart2.add_rows(@batting_stats.size)
     @batting_stats.each { |b|
 			i = @batting_stats.index(b)
-			@chart2.set_cell(i, 0, b.player.name)
-			@chart2.set_cell(i, 1, b.team.name)
-      @chart2.set_cell(i, 2, b.team.year)
-      k=3
+			@chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
+      @chart2.set_cell(i, 1, b.player.bats)
+			@chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
+      @chart2.set_cell(i, 3, b.team.year)
+      k=4
     @stats.each do |j|
      number= b.send(j.downcase.gsub(" ", "_"))
      @chart2.set_value(i, k, number)
      k+=1
     end
     }
-    options = { :width => 600 }
+    options = { :width => 600, :allowHtml=>true }
     options.each_pair do | key, value |
     @chart2.send "#{key}=", value
   end
