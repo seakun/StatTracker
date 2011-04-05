@@ -105,8 +105,7 @@ class BattingStat < ActiveRecord::Base
 	
 	def self.get_multi_stat_total(player, stats, stat)
 		total = 0
-		stats.each_pair { |key, value|
-		
+		stats.each_pair { |key, value|	
 			if value.to_i == player
 				total += key.send(stat)
 			end

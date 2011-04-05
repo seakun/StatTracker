@@ -170,17 +170,14 @@ class BattingStatsController < ApplicationController
 	end
 	
 	def multi_compare
-		# returns hash of batting stats
 		@batters, @max = BattingStat.multi_compare(params[:comp])
 		@player = []
 		@players = []
-		# gets individual player ids
 		@batters.each_value {|value|
 			if @player.include?(value)
 				else @player.push(value)
 			end
 		}
-		#gets players
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
 		}
@@ -324,7 +321,7 @@ class BattingStatsController < ApplicationController
 		render :partial => "chart"
     end
 	
-		def change_multi_chart
+	def change_multi_chart
 		stat = params[:chart_type].downcase.gsub(" ", "_")
 		@player = params[:players]
 		@batters= params[:batters]
@@ -425,7 +422,7 @@ class BattingStatsController < ApplicationController
 		render :partial => "table"
 	end
 	
-		def change_multi_table
+	def change_multi_table
 		stats = params[:stat]
 		@player = params[:players]
 		@batters= params[:batters]

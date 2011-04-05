@@ -7,7 +7,7 @@
 	<br/>
 	<br/>
 	
-	<%= form_tag change_career_table_pitching_path(:players => @players), :remote => true, :id => "change_table"   do %>
+	<%= form_tag change_multi_table_pitching_path(:players => @players, :pitchers => @pitchers.keys), :remote => true, :id => "change_table"  do %>
 		<%= check_box_tag 'stat[]', 'wins', true %>W
 		<%= check_box_tag 'stat[]', 'losses', true %>L
 		<%= check_box_tag 'stat[]', 'games', false %>G
@@ -31,11 +31,11 @@
 		<%= check_box_tag 'stat[]', 'games_finished', false %>GF
 		<%= submit_tag 'Update' %>
 	<% end %>
-
-	<br/>
-	<br/>
 	
-	<%= form_tag change_career_chart_pitching_path(:players => @players), :remote => true, :id => "change_chart"  do %>
+	<br/>
+	<br/>	
+
+	<%= form_tag change_multi_chart_pitching_path(:players => @players, :pitchers => @pitchers.keys), :remote => true, :id => "change_chart" do %>
 		<%= select_tag "chart_type", 
 		raw("
 		<option>Wins</option>

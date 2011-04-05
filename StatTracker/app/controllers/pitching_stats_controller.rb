@@ -86,15 +86,17 @@ class PitchingStatsController < ApplicationController
 			else @player.push(value)
 			end
 		}
+		@max = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
+			@max.push(PitchingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(25)
+		@chart.add_rows(@max.max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -108,9 +110,35 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => 600, :height => 300, :legend => 'bottom'}
+		options = { :width => '100%', :height => 300, :legend => 'bottom'}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
+		end
+		
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(@max.max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = PitchingStat.get_all_stats(play.id, :wins)
+		total = 0
+			stats.each {|s|
+				total += s.wins
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
 		end
 
 		@table = GoogleVisualr::Table.new
@@ -135,16 +163,21 @@ class PitchingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '80%', :allowHtml=>true }
+		options = { :width => '100%', :allowHtml=>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
 	end
 	
-	def change_chart
-		stat = params[:chart_type].downcase.gsub(" ", "_")
-		@player = params[:players]
+	def multi_compare
+		@pitchers, @max = PitchingStat.multi_compare(params[:comp])
+		@player = []
 		@players = []
+		@pitchers.each_value {|value|
+			if @player.include?(value)
+				else @player.push(value)
+			end
+		}
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
 		}
@@ -153,7 +186,94 @@ class PitchingStatsController < ApplicationController
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(25)
+		@chart.add_rows(@max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		@stats = PitchingStat.get_multi_stats(play.id, @pitchers, :wins)
+			@stats.each {|s|
+				@chart.set_value(x, 0, year.to_s)
+				@chart.set_value(x, y, s)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options.each_pair do | key, value |
+			@chart.send "#{key}=", value
+		end
+		
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(@max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = PitchingStat.get_multi_stats(play.id, @pitchers, :wins)
+		total = 0
+			stats.each {|s|
+				total += s
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
+		end
+		
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Wins')
+		@table.add_column('string' , 'Losses')
+		@table.add_column('string' , 'Earned Runs')
+		@table.add_column('string' , 'Strikeouts')
+		@table.add_column('string' , 'Saves')
+		
+		@table.add_rows(@players.size)
+		i = 0
+			@players.each { |p|
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
+				@table.set_cell(i, 1, p.bats)
+				@table.set_cell(i, 2, PitchingStat.get_stat_total(p, :wins))
+				@table.set_cell(i, 3, PitchingStat.get_stat_total(p, :losses))
+				@table.set_cell(i, 4, PitchingStat.get_stat_total(p, :earned_runs))
+				@table.set_cell(i, 5, PitchingStat.get_stat_total(p, :strikeouts))
+				@table.set_cell(i, 6, PitchingStat.get_stat_total(p, :saves))
+				i += 1
+			}
+
+		options = { :width => '100%', :allowHtml=>true }
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
+	end
+	
+	def change_career_chart
+		stat = params[:chart_type].downcase.gsub(" ", "_")
+		@player = params[:players]
+		@players = []
+		@max = []
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
+		}
+		@chart = GoogleVisualr::LineChart.new
+		@chart.add_column('string', 'Year')
+		@players.each { |play|
+			@chart.add_column('number', play.name)
+		}	
+		@chart.add_rows(@max.max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -167,17 +287,104 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => 600, :height => 300, :legend => 'bottom'}
+		options = { :width => '45%', :height => 300, :legend => 'bottom'}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
 		
-		respond_to do |format|
-			format.js { render :layout=>false }
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(@max.max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = PitchingStat.get_all_stats(play.id, stat.to_sym)
+		total = 0
+			stats.each {|s|
+				total += s.send(stat)
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
 		end
+		
+		render :partial => "chart"
     end
 	
-	def change_table
+	def change_multi_chart
+		stat = params[:chart_type].downcase.gsub(" ", "_")
+		@player = params[:players]
+		@pitchers= params[:pitchers]
+		@players = []
+		@max = []
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+			@max.push(PitchingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
+		}
+		@chart = GoogleVisualr::LineChart.new
+		@chart.add_column('string', 'Year')
+		@players.each { |play|
+			@chart.add_column('number', play.name)
+		}	
+		@chart.add_rows(@max.max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		stats = PitchingStat.get_change_multi_stats(play.id, @pitchers, stat.to_sym)
+			stats.each {|s|
+				@chart.set_value(x, 0, year.to_s)
+				@chart.set_value(x, y, s)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options.each_pair do | key, value |
+			@chart.send "#{key}=", value
+		end
+		
+		@chart2 = GoogleVisualr::LineChart.new
+		@chart2.add_column('string', 'Year')
+		@players.each { |play|
+			@chart2.add_column('number', play.name)
+		}	
+		@chart2.add_rows(@max.max)
+		y = 1
+		@players.each { |play|
+		x = 0
+		year = 1
+		total = 0
+		stats = PitchingStat.get_change_multi_stats(play.id, @pitchers, stat.to_sym)
+			stats.each {|s|
+				total += s
+				@chart2.set_value(x, 0, year.to_s)
+				@chart2.set_value(x, y, total)
+				x += 1
+				year += 1
+			}
+			y += 1
+		}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options2.each_pair do | key, value |
+			@chart2.send "#{key}=", value
+		end
+		
+		render :partial => "chart"
+    end
+	
+	def change_career_table
 		stats = params[:stat]
 		@player = params[:players]
 		@players = []
@@ -204,14 +411,51 @@ class PitchingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '80%', :allowHtml => true}
+		options = { :width => '100%', :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
 		
-		respond_to do |format|
-			format.js { render :layout=>false }
+		render :partial => "table"
+	end
+	
+	def change_multi_table
+		stats = params[:stat]
+		@player = params[:players]
+		@pitchers= params[:pitchers]
+		@players = []
+		@player.each {|p|
+			@players.push(Player.find(p.to_i))
+		}
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		stats.each {|s|
+			if s == 'rbi'
+				@table.add_column('string' , s.upcase)
+			else @table.add_column('string' , s.titleize)
+			end
+		}
+		@table.add_rows(@players.size)
+		i = 0
+		
+			@players.each { |p|
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
+				@table.set_cell(i, 1, p.bats)
+				j = 2
+				stats.each { |s|
+					@table.set_cell(i, j, PitchingStat.get_change_multi_stat_total(p.id, @pitchers, s.to_sym))
+					j += 1
+				}
+				i += 1
+			}
+
+		options = { :width => '100%', :allowHtml => true}
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
 		end
+		
+		render :partial => "table"
 	end
 
   def season_finder
@@ -219,7 +463,7 @@ class PitchingStatsController < ApplicationController
   end
 
   def find_seasons
-     number = params[:fields][:count].to_i
+    number = params[:fields][:count].to_i
     @stats = []
     operations = []
     (1..number).each do |i|
