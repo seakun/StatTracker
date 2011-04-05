@@ -153,7 +153,7 @@ class BattingStatsController < ApplicationController
 		@table.add_rows(@players.size)
 		i = 0
 			@players.each { |p|
-				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
 				@table.set_cell(i, 1, p.bats)
 				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :runs))
 				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :hits))
@@ -163,7 +163,7 @@ class BattingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '100%'}
+		options = { :width => '100%', :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -246,7 +246,7 @@ class BattingStatsController < ApplicationController
 		@table.add_rows(@players.size)
 		i = 0
 			@players.each { |play|
-				@table.set_cell(i, 0, play.name)
+				@table.set_cell(i, 0, "<a href='/players/#{play.id}'>#{play.name}</a>")
 				@table.set_cell(i, 1, play.bats)
 				@table.set_cell(i, 2, BattingStat.get_multi_stat_total(play.id, @batters, :runs))
 				@table.set_cell(i, 3, BattingStat.get_multi_stat_total(play.id, @batters, :hits))
@@ -256,7 +256,7 @@ class BattingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '100%'}
+		options = { :width => '100%', :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -407,7 +407,7 @@ class BattingStatsController < ApplicationController
 		i = 0
 		
 			@players.each { |p|
-				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
 				@table.set_cell(i, 1, p.bats)
 				j = 2
 				stats.each { |s|
@@ -417,7 +417,7 @@ class BattingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '100%'}
+		options = { :width => '100%', :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
@@ -446,7 +446,7 @@ class BattingStatsController < ApplicationController
 		i = 0
 		
 			@players.each { |p|
-				@table.set_cell(i, 0, p.name)
+				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
 				@table.set_cell(i, 1, p.bats)
 				j = 2
 				stats.each { |s|
@@ -456,7 +456,7 @@ class BattingStatsController < ApplicationController
 				i += 1
 			}
 
-		options = { :width => '100%'}
+		options = { :width => '100%', :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
