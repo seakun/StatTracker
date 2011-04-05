@@ -23,6 +23,7 @@
 			function() { $('ul', this).css('display', 'none'); });
 	});
 	</script>
+    <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script> 
 	<script type="text/javascript">
 var uservoiceOptions = {
   /* required */
@@ -97,3 +98,13 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 	
   </body>
 </html>
+<div id="tooltip" class="tooltip">
+	Christine is awesome!!!
+</div>
+<script>
+  $("#nav li").tooltip({
+		tip: '#tooltip',
+		position: 'center right',
+		delay: 0
+	});
+</script>
