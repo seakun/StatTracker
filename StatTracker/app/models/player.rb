@@ -43,5 +43,10 @@ class Player < ActiveRecord::Base
 		end
 	end
   end
-    
+
+  def filter
+    @players = Player.paginate :page => params[:page], :order => 'last_name',
+         :conditions=>["last_name LIKE ? or last_name LIKE ? or last_name LIKE ? last_name like ?",
+         'A%', 'B%', 'C%', 'D%']
+  end
 end

@@ -34,7 +34,8 @@
             <table class="datagrid">
               <thead class="datagrid">
                   <th width="250">Name</th>
-                  <th>Activeness</th>
+                  <th width="250">Active</th>
+                  <th>Year</th>
               </thead>
               <% for franchise in @franchises do %>
 
@@ -42,11 +43,14 @@
                   <td align ="center"><%= link_to franchise.name, franchise_path(franchise) %></td>
                   <td align ="center">
                       <% if franchise.active %>
-                          <%= "Yes" %>
+                          <strong></strong>&#10004
                       <% end %>
                       <% if !franchise.active %>
-                          <%= "No" %>
+                          <strong></strong>&#10008
                       <% end %>
+                  </td>
+                  <td align ="center">
+                      
                   </td>
               </tr>
             <% end %>
