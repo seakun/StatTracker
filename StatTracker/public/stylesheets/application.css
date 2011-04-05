@@ -30,7 +30,7 @@ color:#666;
 #hd {
 background-image: url('../images/logo.jpg');
 position: absolute;
-width:100%;
+width:2035px;
 height:170px;
 top: 0px;
 left: 0px;
@@ -71,7 +71,7 @@ a {
 	padding: 4px 8px;
 	position: absolute;
 	height:35px;
-    width: 100%;
+    width: 1000px;
     top: 140px;
     right: 0px;
 	font-size:20px;
@@ -159,12 +159,12 @@ div.button:hover a{
 	color: white;
 	border-right: none; 
 	font-size: 25px;
-	width:100%;
+	width:1000px;
 	}
 	
 #nav li a:hover {
 	color: #66CCFF ; 
-	width:100%;
+	width:1000px;
 	}
 	
 #sign{
