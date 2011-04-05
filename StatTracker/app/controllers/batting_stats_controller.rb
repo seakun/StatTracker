@@ -25,7 +25,7 @@ class BattingStatsController < ApplicationController
 			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
 		}
 		
-		options = { :width => 600, :showRowNumber => true, :allowHtml => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml => true, :page => 'enable', :pageSize => '25' }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end	
