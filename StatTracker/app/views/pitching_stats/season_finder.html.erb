@@ -3,29 +3,30 @@
   <% number = 5 %>
   <%= hidden_field "fields", "count", {:value => number, :id => "count"} %>
   <% (1..number).each do |i| %>
-      <%= select_tag "#{i}[stat]",
+      <%= select_tag "chart_type",
 		raw("<option></option>
-                <option>Games</option>
-		<option>Plate Appearances</option>
-		<option>At Bats</option>
-		<option>Runs</option>
+		<option>Wins</option>
+		<option>Losses</option>
+		<option>Games</option>
+		<option>Games Started</option>
+		<option>Complete Games</option>
+		<option>Shutouts</option>
+		<option>Saves</option>
 		<option>Hits</option>
-		<option>Doubles</option>
-		<option>Triples</option>
+		<option>Runs</option>
+		<option>Earned Runs</option>
 		<option>Home Runs</option>
-		<option>Total Bases</option>
-		<option>Extra Base Hits</option>
-		<option>RBI</option>
-		<option>Stolen Bases</option>
-		<option>Caught Stealing</option>
 		<option>Walks</option>
 		<option>Strikeouts</option>
 		<option>Intentional Walks</option>
+		<option>Wild Pitches</option>
 		<option>Hit By Pitch</option>
+		<option>Balks</option>
+		<option>Batters Faced</option>
 		<option>Sacrifice Hits</option>
 		<option>Sacrifice Flies</option>
-		<option>Grounded Into Double Plays</option>")
-		%>
+		<option>Games Finished</option>
+		") %>
       <%= select_tag "#{i}[operator]", options_for_select(%w(= < <= > >=)) %>
       <%= text_field "#{i}", "number", :size => 5 %><br />
   <% end %>
