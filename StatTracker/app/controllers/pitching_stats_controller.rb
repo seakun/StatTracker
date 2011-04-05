@@ -239,9 +239,9 @@ class PitchingStatsController < ApplicationController
     end
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Name')
-    @chart2.add_column('number' , 'Throws')
+    @chart2.add_column('string' , 'Throws')
 		@chart2.add_column('string' , 'Team')
-		@chart2.add_column('number' , 'Year')
+		@chart2.add_column('string' , 'Year')
     @stats.each do |i|
      @chart2.add_column('number' , i.titleize)
     end
@@ -249,9 +249,9 @@ class PitchingStatsController < ApplicationController
     @batting_stats.each { |b|
 			i = @batting_stats.index(b)
 			@chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
-      @chart2.set_cell(i, 1, b.player.throws)
+      @chart2.set_cell(i, 1, b.player.throws.to_s)
 			@chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
-      @chart2.set_cell(i, 3, b.team.year)
+      @chart2.set_cell(i, 3, b.team.year.to_s)
       k=4
     @stats.each do |j|
      number= b.send(j.downcase.gsub(" ", "_"))
