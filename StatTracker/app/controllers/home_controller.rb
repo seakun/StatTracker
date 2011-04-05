@@ -9,6 +9,14 @@ autocomplete :player, :name, :full => true
     @players = Player.search(@query)
     @franchises = Franchise.search(@query)
     @total_hits = @players.size + @franchises.size
+    if @total_hits == 1
+      if @players.first != nil
+        redirect_to @players.first
+      end
+      if @franchises.first != nil
+        redirect_to @franchises.first
+      end
+    end
   end
   
   def batting_leaders
