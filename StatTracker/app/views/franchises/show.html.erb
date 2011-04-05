@@ -6,18 +6,9 @@
   <strong>Active</strong>
 </p>
 <% end %>
-<% if @franchise.active %>
-<p>
-  <strong>Park:</strong>
-  <%= @current_team.park %>
-</p>
-<p>
-  <strong>Baseball Era:</strong>
-  <%= @current_team.baseball_era %>
-</p>
-<% end %>
 <% if @franchise.active%>
 <%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') %>
 <% end %>
 <div id='chart'></div>
 <%= raw @chart.render('chart') %>
+
