@@ -30,8 +30,8 @@ color:#666;
 #hd {
 background-image: url('../images/logo.jpg');
 position: relative;
-width:2035px;
-height:170px;
+width:1320px;
+height:114px;
 top: 0px;
 left: 0px;
 }
@@ -71,13 +71,12 @@ a {
 	position: relative;
 	height:35px;
 	font-size:20px;
-	width:1500px;
 	}
 	
 #nav li {
 	list-style: none;
 	float:left;
-	width:230px;
+	width:180px;
 	}
 	
 #nav li a {
@@ -86,7 +85,7 @@ a {
 	font-weight: bold;
 	color: white;
 	border-right: none; 
-	font-size: 25px;
+	font-size: 17px;
 	}
 	
 #nav li a:hover {
@@ -104,14 +103,14 @@ a {
 	}
 	
 #cssdropdown li {
-	width:300px;
+	width:250px;
 }
 	
  li.dropdownmenu ul { 
 	display: none; 
 	border-top: 1px black solid; 
 	text-align: left;
-	width:280px;
+	width:200px;
 	}
  li.dropdownmenu:hover ul { 
 	display: block; 
@@ -137,19 +136,19 @@ a {
  border-left:none;
  }
 div.button{
-width:350px;
+width:200px;
 position:relative;
-margin-top:-250px;
-margin-left: 650px;
+margin-top:-180px;
+margin-left: 600px;
 float:left;
 }
 div.button a{
-		font-size:20px;
+		font-size:15px;
 		font-weight: bold;
 		color:#0033CC;
 		text-decoration:none;
 		display:block;
-		width:350px;
+		width:200px;
 		padding:10px;
 		text-align:center;
 		border:1px solid #DDD;
@@ -183,9 +182,9 @@ div.button:hover a{
     background: -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#eee)); /* for webkit browsers */
     background: -moz-linear-gradient(top,  #bbb,  #eee); /* for firefox 3.6+ */ 
 	opacity: 0.8;
-	width:1100px;
-	margin-left:50px;
-	margin-top:50px;
+	margin-left:100px;
+	margin-top:0px;
+	margin-right:150px;
 	margin-bottom:0px;
 	position:relative;
 	padding: 40px;
@@ -198,10 +197,10 @@ div.button:hover a{
 
 #slider {
     position:relative;
-	width:550px; /* Change this to your images width */
-    height:500px; /* Change this to your images height */
+	width:330px; /* Change this to your images width */
+    height:301px; /* Change this to your images height */
 	margin-top:-20px;
-
+	margin-left:200px;
 }
 #slider img {
     position:absolute;
@@ -239,10 +238,10 @@ z-index:100;
 
 .nivo-controlNav {
 position: absolute;
-margin-top: 500px;
+margin-top: 300px;
 margin-left:auto;
 margin-right:auto;
-width:auto;
+width:400px;
 padding:10px;
 }
 
@@ -291,6 +290,10 @@ width: 100%
 #flash_error, #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
+}
+
+.field_style{
+
 }
 
 .fieldWithErrors {

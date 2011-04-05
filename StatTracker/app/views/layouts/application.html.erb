@@ -66,13 +66,13 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 			<li class= "dropdownmenu"><%= link_to 'Players', players_path%>
 			<ul id="cssdropdown">
 				<%= form_tag(search_path) do %>
-                                <%= text_field_tag('query') %>
+                                <%= text_field_tag('query','', :size => 15)%>
                                 <%= submit_tag('Search') %>
             <% end %></ul></li>
                         <li class= "dropdownmenu"><%= link_to 'Teams', franchises_path %>
                         <ul id="cssdropdown">
                                 <%= form_tag(search_path) do %>
-                                <%= text_field_tag('query') %>
+                                <%= text_field_tag('query','',:size => 15,:class => 'field_style') %>
                                 <%= submit_tag('Search') %>
                         <% end %></ul> </li>
 			<li class="dropdownmenu"><%= link_to 'Leaders'%>
