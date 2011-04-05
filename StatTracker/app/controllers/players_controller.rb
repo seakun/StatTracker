@@ -65,7 +65,7 @@ class PlayersController < ApplicationController
 		}
     i+=1
     @chart.set_cell(i, 0, "Totals")
-    @chart.set_cell(i, 4, BattingStat.get_stat_total(params[:id], :runs))
+    @chart.set_cell(i, 4, BattingStat.get_stat_total(params[:id], :games))
     @chart.set_cell(i, 5, BattingStat.get_stat_total(params[:id], :plate_appearances))
 	  @chart.set_cell(i, 6, BattingStat.get_stat_total(params[:id], :at_bats))
 	  @chart.set_cell(i, 7, BattingStat.get_stat_total(params[:id], :runs))
@@ -78,10 +78,13 @@ class PlayersController < ApplicationController
     @chart.set_cell(i, 14, BattingStat.get_stat_total(params[:id], :caught_stealing))
     @chart.set_cell(i, 15, BattingStat.get_stat_total(params[:id], :walks))
     @chart.set_cell(i, 16, BattingStat.get_stat_total(params[:id], :strikeouts))
-  options = { :width => 900, :allowHtml =>true }
-  options.each_pair do | key, value |
-    @chart.send "#{key}=", value
-  end
+	@chart.set_cell(i, 17, (sprintf("%.3f", (BattingStat.get_stat_total(params[:id], :hits).to_f / BattingStat.get_stat_total(params[:id], :at_bats).to_f))).to_s)
+	@chart.set_cell(i, 18, (sprintf("%.3f", (BattingStat.get_stat_total(params[:id], :total_bases).to_f / BattingStat.get_stat_total(params[:id], :at_bats).to_f))).to_s)
+	@chart.set_cell(i, 19,  BattingStat.get_stat_total(params[:id], :total_bases))
+	options = { :width => '100%', :allowHtml =>true }
+	options.each_pair do | key, value |
+		@chart.send "#{key}=", value
+	end
    @batting_stats_post=BattingPostStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Year')
@@ -137,7 +140,7 @@ class PlayersController < ApplicationController
 		}
     i+=1
     @chart2.set_cell(i, 0, "Totals")
-    @chart2.set_cell(i, 4, BattingPostStat.get_stat_total(params[:id], :runs))
+    @chart2.set_cell(i, 4, BattingPostStat.get_stat_total(params[:id], :games))
     @chart2.set_cell(i, 5, BattingPostStat.get_stat_total(params[:id], :plate_appearances))
 	  @chart2.set_cell(i, 6, BattingPostStat.get_stat_total(params[:id], :at_bats))
 	  @chart2.set_cell(i, 7, BattingPostStat.get_stat_total(params[:id], :runs))
@@ -150,7 +153,7 @@ class PlayersController < ApplicationController
     @chart2.set_cell(i, 14, BattingPostStat.get_stat_total(params[:id], :caught_stealing))
     @chart2.set_cell(i, 15, BattingPostStat.get_stat_total(params[:id], :walks))
     @chart2.set_cell(i, 16, BattingPostStat.get_stat_total(params[:id], :strikeouts))
-  options = { :width => 900, :allowHtml =>true }
+  options = { :width => '100%', :allowHtml =>true }
   options.each_pair do | key, value |
     @chart2.send "#{key}=", value
   end
@@ -225,7 +228,7 @@ class PlayersController < ApplicationController
       @chart3.set_cell(i, 31, b.strikeouts_walks.to_s )
 		}
 
-  options = { :width => 900, :allowHtml =>true }
+  options = { :width => '100%', :allowHtml =>true }
   options.each_pair do | key, value |
     @chart3.send "#{key}=", value
   end
@@ -302,7 +305,7 @@ class PlayersController < ApplicationController
       @chart4.set_cell(i, 31, b.strikeouts_innings.to_s )
       @chart4.set_cell(i, 32, b.strikeouts_walks.to_s )
 		}
-  options = { :width => 900, :allowHtml=>true }
+  options = { :width => '100%', :allowHtml=>true }
   options.each_pair do | key, value |
     @chart4.send "#{key}=", value
   end

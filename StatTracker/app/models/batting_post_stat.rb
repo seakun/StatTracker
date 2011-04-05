@@ -16,7 +16,7 @@ class BattingPostStat < ActiveRecord::Base
 	def self.single_season_sort(stat)
     s = accessible_attributes.include?(stat)? stat.to_s + " DESC" : send("str_" + stat)
     min_ab = accessible_attributes.include?(stat)? 0 : 20
-		BattingPostStat.find(:all, :conditions => ["at_bats > ?", min_ab], :order => s, :limit => 50)
+	BattingPostStat.find(:all, :conditions => ["at_bats > ?", min_ab], :order => s, :limit => 50)
 	end
 
 	def self.career_sort(stat)
