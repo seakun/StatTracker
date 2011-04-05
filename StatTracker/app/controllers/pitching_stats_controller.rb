@@ -110,7 +110,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Wins Each Year", :titleX => "Year in Player's Career", :titleY => "Number of Wins"}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -136,7 +136,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Win Totals", :titleX => "Year in Player's Career", :titleY => "Number of Wins"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -200,7 +200,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Wins Each Year", :titleX => "Year in Player's Span", :titleY => "Number of Wins"}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -226,7 +226,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom'}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Win Totals", :titleX => "Year in Player's Span", :titleY => "Number of Wins"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -287,7 +287,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options = { :width => '45%', :height => 300, :legend => 'bottom', :title => stat.titleize + " Each Year", :titleX => "Year in Player's Career", :titleY => "Number of " + stat.titleize}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -313,7 +313,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year in Player's Career", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -350,7 +350,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options = { :width => '45%', :height => 300, :legend => 'bottom', :title => stat.titleize + " Each Year", :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -376,7 +376,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom'}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
