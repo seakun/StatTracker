@@ -3,10 +3,12 @@
   <strong>Franchise:</strong>
   <%= Franchise.find(@team.franchise_id).name %>
 </p>
+ <% if !Division.find(@team.division_id).name.nil? %>
 <p>
   <strong>Division:</strong>
   <%= Division.find(@team.division_id).name %>
 </p>
+<% end %>
 <p>
   <strong>League:</strong>
   <%= League.find(Division.find(@team.division_id).league_id).name %>
