@@ -183,7 +183,7 @@ div.button:hover a{
     background: -moz-linear-gradient(top,  #bbb,  #eee); /* for firefox 3.6+ */ 
 	opacity: 0.8;
 	margin-left:100px;
-	margin-top:0px;
+	margin-top:10px;
 	margin-right:150px;
 	margin-bottom:0px;
 	position:relative;
@@ -253,7 +253,7 @@ font-weight: bold;
 display: block;
 width: 22px;
 height: 22px;
-background: url('../images/bullet.png') no-repeat;
+background: url('http://nivo.dev7studios.com/images/bullets.png') no-repeat;
 text-indent: -9999px;
 border: 0;
 margin-right: 3px;

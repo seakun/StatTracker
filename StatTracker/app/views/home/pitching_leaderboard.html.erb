@@ -3,25 +3,39 @@
 <%= form_tag (pitching_leaders_path) do %>
 		<%= select_tag "stat", 
 		raw("<option>Games</option>
-		<option>Win-Loss %</option>
+		<option>Win Loss Percentage</option>
 		<option>Innings Pitched</option>
-		<option>Runs</option>
+		<option>ERA</option>
+		<option>Opponents Batting Average</option>
+		<option>Walks and Hits Innings Pitched</option>
+		<option>Hits Innings</option>
+		<option>Home Runs Innings</option>
+		<option>Walks Innings</option>
+		<option>Strikeouts Innings</option>
+		<option>Strikeouts Walks</option>
+		<option>Adjusted ERA</option>
+		<option>Wins</option>
+		<option>Losses</option>
+		<option>Games Started</option>
+		<option>Complete Games</option>
+		<option>Shutouts</option>
+		<option>Saves</option>
 		<option>Hits</option>
-		<option>Doubles</option>
-		<option>Triples</option>
+		<option>Earned Runs</option>
 		<option>Home Runs</option>
-		<option>Total Bases</option>
-		<option>Extra Base Hits</option>
-		<option>RBI</option>
-		<option>Stolen Bases</option>
-		<option>Caught Stealing</option>
 		<option>Walks</option>
 		<option>Strikeouts</option>
 		<option>Intentional Walks</option>
+		<option>Wild Pitches</option>
 		<option>Hit By Pitch</option>
-		<option>Sacrifice Hits</option>
+		<option>Balks</option>
+		<option>Batters Faced</option>
+		<option>Games Finished</option>
+		<option>Runs</option>
 		<option>Sacrifice Flies</option>
-		<option>Grounded Into Double Plays</option>")
+		<option>Sacrifice Hits</option>
+		<option>Grounded into double plays</option>
+		")
 		%>
 		<%= radio_button_tag 'type', 'season' %>Season
 		<%= radio_button_tag 'type', 'career' %>Career
