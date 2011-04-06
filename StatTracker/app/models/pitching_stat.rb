@@ -178,23 +178,23 @@ class PitchingStat < ActiveRecord::Base
 		sprintf("%.4f", ((walks + hits) / innings_pitched.to_f))
 	end
 
-	def hits_innings
+	def hits_per_9_innings
 		sprintf("%.4f", ((hits * 9) / innings_pitched.to_f))
 	end
 
-	def home_runs_innings
+	def home_runs_per_9_innings
 		sprintf("%.4f", ((home_runs * 9) / innings_pitched.to_f))
 	end
   
-	def walks_innings
+	def walks_per_9_innings
 		sprintf("%.4f", ((walks * 9) / innings_pitched.to_f))
 	end
 
-	def strikeouts_innings
+	def strikeouts_per_9_innings
 		sprintf("%.4f", ((strikeouts * 9) / innings_pitched.to_f))
 	end
 
-	def strikeouts_walks
+	def strikeouts_per_walk
 		sprintf("%.4f", ((strikeouts / walks.to_f)))
 	end
 
@@ -229,23 +229,23 @@ class PitchingStat < ActiveRecord::Base
 		"(walks + hits) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_hits_innings
+	def self.str_hits_per_9_innings
 		"(hits * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_home_runs_innings
+	def self.str_home_runs_per_9_innings
 		"(home_runs * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_walks_innings
+	def self.str_walks_per_9_innings
 		"(walks * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_strikeouts_innings
+	def self.str_strikeouts_per_9_innings
 		"(strikeouts * 9) * #{multiplier} / (innings_pitched_outs / 3) DESC"
 	end
 
-	def self.str_strikeouts_walks
+	def self.str_strikeouts_per_walk
 		"(strikeouts * #{multiplier} / walks) DESC"
 	end
 

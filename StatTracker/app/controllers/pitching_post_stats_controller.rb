@@ -19,10 +19,13 @@ class PitchingPostStatsController < ApplicationController
 		@pitching_post_stats.each { |b|
 			i = @pitching_post_stats.index(b)
 			@table.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
-			@table.set_cell(i, 1, b.player.throws)
+			if !b.player.throws.nil?
+				@table.set_cell(i, 1, b.player.throws)
+			else @table.set_cell(i, 1, 'N/A')
+			end
 			@table.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
-			@table.set_cell(i, 3, b.year)
-			@table.set_cell(i, 4, b.send(params[:stat]))
+			@table.set_cell(i, 3, "#{b.year}")
+			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
 		}
 		
 		options = { :width => 600, :showRowNumber => true, :allowHtml=>true }

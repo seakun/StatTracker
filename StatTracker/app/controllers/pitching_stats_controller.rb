@@ -18,11 +18,15 @@ class PitchingStatsController < ApplicationController
 		@table.add_rows(50)
 		@pitching_stats.each { |b|
 			i = @pitching_stats.index(b)
+			puts b.send(params[:stat])
 			@table.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
-      @table.set_cell(i, 1, b.player.throws)
+			if !b.player.throws.nil?
+				@table.set_cell(i, 1, b.player.throws)
+			else @table.set_cell(i, 1, 'N/A')
+			end
 			@table.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
 			@table.set_cell(i, 3, "#{b.year}")
-			@table.set_cell(i, 4, b.send(params[:stat]))
+			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
 		}
 		
 		options = { :width => 600, :showRowNumber => true, :allowHtml=>true  }
@@ -41,7 +45,10 @@ class PitchingStatsController < ApplicationController
 		i = 0
 			@pitching_stats.each { |k, v|
 				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				@table.set_cell(i, 1, k.throws)
+				if !k.throws.nil?
+					@table.set_cell(i, 1, k.throws)
+				else @table.set_cell(i, 1, 'N/A')
+				end
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
@@ -62,7 +69,10 @@ class PitchingStatsController < ApplicationController
 		i = 0
 			@pitching_stats.each { |k, v|
 				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				@table.set_cell(i, 1, k.throws)
+				if !k.throws.nil?
+					@table.set_cell(i, 1, k.throws)
+				else @table.set_cell(i, 1, 'N/A')
+				end
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}

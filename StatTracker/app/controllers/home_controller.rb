@@ -39,16 +39,16 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 	else redirect_to '/leaders/' + type + '/pitching_post/' + stat
 	end
   end
-  
+
     def fielding_leaders
-	stat = params[:stat].downcase.gsub(" ", "_")
-	type = params[:type]
-	post =  params[:post]
-	if post.nil?
-		redirect_to '/leaders/' + type + '/fielding/' + stat
-	else redirect_to '/leaders/' + type + '/fielding_post/' + stat
+		stat = params[:stat].downcase.gsub(" ", "_")
+		type = params[:type]
+		post =  params[:post]
+		if post.nil?
+			redirect_to '/leaders/' + type + '/fielding/' + stat
+		else redirect_to '/leaders/' + type + '/fielding_post/' + stat
+		end
 	end
-  end
   
   def years_players
 	@comp = params[:comp]
