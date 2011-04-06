@@ -82,7 +82,12 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 					<li><%= link_to 'Fielding Leaderboards', '/home/fielding_leaderboards'%></li>
 				</ul>
 			</li> 
-			<li><%= link_to 'Season Finders', '/seasonfinder/batting' %> </li>
+			<li class="dropdownmenu"><%= link_to 'Season Finders'%>
+				<ul id="cssdropdown">
+					<li><%= link_to 'Batting Season Finders', '/seasonfinder/batting' %></li>
+					<li><%= link_to 'Pitching Season Finders', '/seasonfinder/pitching'%></li>
+					</ul>
+			</li>
 </ul>
 </div> 
 </br>
