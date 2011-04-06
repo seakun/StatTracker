@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-autocomplete :player, :name, :display_value => :auto_search
+autocomplete :player, :name, :display_value => :auto_search, :full => true
+autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 
   def index
   end
@@ -29,14 +30,17 @@ autocomplete :player, :name, :display_value => :auto_search
 	end
   end
   
-  def years
+  def years_players
 	@comp = params[:comp]
 	@players = params[:players]
 	@player = []
 	@player_ids = []
 	@players.each { |p|
-		first_name, last_name = p.split(" ")
-		@player.push(Player.find(:all, :select => [:id], :conditions => ['first_name = ? AND last_name = ?', first_name, last_name]))
+		if p != ""
+			first_name, last_name, year, dash = p.split(" ")
+			last_name.chomp!(",")
+			@player.push(Player.find(:all, :select => [:id], :conditions => ['first_name = ? AND last_name = ?', first_name, last_name]))
+		end
 	}
 	@player.each { |p|
 		if p[0].nil?
@@ -60,7 +64,7 @@ autocomplete :player, :name, :display_value => :auto_search
 	}
 	@type = params[:type]
 
-	render :partial => 'years'
+	render :partial => 'years_players'
   end
   
   def compare_players
@@ -95,6 +99,71 @@ autocomplete :player, :name, :display_value => :auto_search
   end
   
   def compare
+  end
+  
+  def franchise_compare
+  end
+  
+  def years_franchises
+	@franchises = params[:franchises]
+	@franchise= []
+	@franchise_ids = []
+	@franchises.each { |f|
+		@franchise.push(Franchise.find(:all, :select => [:id], :conditions => ['name = ?', f]))
+	}
+	@franchise.each { |f|
+		if f[0].nil?
+		else
+			id = f[0].id.to_s
+			@franchise_ids.push(id)
+		end
+	}
+	@years_array = []
+	@franchise_ids.each { |f|
+		@year = []
+		@years = []
+		if !f[0].nil?
+			@year = Team.find(:all, :select => [:year], :conditions => ['franchise_id =?', f])
+		end
+		@year.each { |y|
+			@years.push(y.year)
+		}
+		@years_array.push(@years)
+	}
+	@type = params[:type]
+	puts @years_array
+	puts @type
+	render :partial => 'years_franchises'
+  end
+  
+  def compare_franchises
+	@years = params[:years]
+	@type = params[:type]
+	@franchises = params[:franchises]
+	
+	if @type == 'career'
+		string = @franchises.join('/')
+		redirect_to '/franchise_compare/career/' + string
+	elsif @type == 'season'
+		new = []
+		i = 0
+		@franchises.each { |p|
+			new.push(p + "." + @years[i])
+			i += 1
+		}
+		string = new.join("/")
+		redirect_to '/franchise_compare/season/' + string
+	else 
+		new = []
+		i = 0
+		@franchises.each { |p|
+			new.push(p + "." + @years[i] + ':' + @years[i+1])
+			i += 2
+		}
+		string = new.join('/')
+		redirect_to '/franchise_compare/multi/' + string
+	end
+	
   end
   
 end

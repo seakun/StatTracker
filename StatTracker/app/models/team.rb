@@ -16,4 +16,106 @@ class Team < ActiveRecord::Base
     find(:all, :conditions => ['lower(name) LIKE ? OR lower(park) LIKE ?', search_condition, search_condition])
   end
 
+  def self.season_compare(comp)
+		split_strings = comp.split("/")
+		teams = []
+		split_strings.each { |s|
+			split = s.split(".")
+			team = split[0]
+			year = split[1]
+			teams.push(Team.find(:all, :conditions => ['franchise_id = ? AND year = ?', s.to_i, year]))
+		}
+		teams
+	end
+	
+	def self.career_compare(comp)
+		split_strings = comp.split("/")
+		franchises = {}
+		split_strings.each { |s|
+			stats = Team.find(:all, :conditions => ['franchise_id = ?', s.to_i])
+			stats.each { |st|
+				franchises.store(st, s.to_i)
+			}
+		}
+		franchises
+	end
+	
+	def self.multi_compare(comp)
+		split_strings = comp.split("/")
+		franchises = {}
+		max = 0
+		split_strings.each { |s|
+			split_franchise = s.split(".")
+			franchise = split_franchise[0]
+			years = split_franchise[1]
+			split_years = years.split(":")
+			year1 = split_years[0]
+			year2 = split_years[1]
+			newmax = year2.to_i - year1.to_i + 1
+			if newmax > max
+				max = newmax
+			end	
+			stats = Team.find(:all, :conditions => ['franchise_id = ? AND year >= ? AND year <= ?', s.to_i, year1, year2])
+			stats.each { |st|
+				franchises.store(st, s.to_i)
+			}
+		}
+		return franchises, max
+	end
+	
+	def self.get_all_stats(franchise, stat)
+		Team.find(:all, :select => [stat], :conditions => ['franchise_id = ?', franchise])
+	end
+	
+	def self.get_multi_stat_total(franchise, stats, stat)
+		total = 0
+		stats.each_pair { |key, value|	
+			if value.to_i == franchise
+				total += key.send(stat)
+			end
+		}
+		total.to_s
+	end
+	
+	def self.get_change_multi_stat_total(franchise, stats, stat)
+		total = 0
+		stats.each { |s|	
+		t = Team.find(s)
+			if t.franchise_id == franchise
+				total += t.send(stat)
+			end
+		}
+		total.to_s
+	end
+	
+	def self.get_multi_stats(franchise, stats, stat)
+		all_stats = []
+		stats.each_pair { |key, value|
+			if value == franchise
+				all_stats.push(key.send(stat))
+			end
+		}
+		all_stats
+	end
+	
+	def self.get_change_multi_stats(franchise, stats, stat)
+		all_stats = []
+		stats.each { |s|
+		t = Team.find(s)
+			if t.franchise_id == franchise
+				all_stats.push(t.send(stat))
+			end
+		}
+		all_stats
+	end
+ 
+	def self.get_stat_total(franchise, stat)
+		stats = Team.find(:all, :select => [stat], :conditions => ['franchise_id = ?', franchise])
+		count = 0
+		stats.each { |s|
+		count += s.send(stat)
+		}
+		count.to_s
+	end
+	
 end

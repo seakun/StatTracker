@@ -1,5 +1,5 @@
 
-	<%= form_tag years_path, :remote => true, :id => 'years' do %>
+	<%= form_tag years_players_path, :remote => true, :id => 'years' do %>
 		<div id = "comp">			
 			Batting<%= radio_button_tag 'comp', 'batting' %>
 			Pitching<%= radio_button_tag 'comp', 'pitching' %>
@@ -10,11 +10,11 @@
 		<td>
 		<div id = "players">
 			<table>
-				<%= text_field_tag 'players[]', '', :autocomplete => home_autocomplete_player_name_path%>
-				<div id = 'text2'><%= text_field_tag 'players[]', '', :autocomplete => home_autocomplete_player_name_path%></div>
-				<div id = 'text3'><%= text_field_tag 'players[]', '', :autocomplete => home_autocomplete_player_name_path%></div>
-				<div id = 'text4'><%= text_field_tag 'players[]', '', :autocomplete => home_autocomplete_player_name_path%></div>
-				<div id = 'text5'><%= text_field_tag 'players[]', '', :autocomplete => home_autocomplete_player_name_path%></div>
+				<%= text_field_tag 'players[]', '', :size => 32, :autocomplete => home_autocomplete_player_name_path%>
+				<div id = 'text2'><%= text_field_tag 'players[]', '', :size => 32, :autocomplete => home_autocomplete_player_name_path%></div>
+				<div id = 'text3'><%= text_field_tag 'players[]', '', :size => 32, :autocomplete => home_autocomplete_player_name_path%></div>
+				<div id = 'text4'><%= text_field_tag 'players[]', '', :size => 32, :autocomplete => home_autocomplete_player_name_path%></div>
+				<div id = 'text5'><%= text_field_tag 'players[]', '', :size => 32, :autocomplete => home_autocomplete_player_name_path%></div>
 			</table>
 		</div>
 			<br/>

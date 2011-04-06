@@ -3,16 +3,21 @@ StatTracker::Application.routes.draw do
   
   match 'home/index' => 'home#index', :as => 'home#index'
   match 'home/compare' => 'home#compare', :as => 'home#compare'
+  match 'home/franchise_compare' => 'home#franchise_compare'
   match 'home/google' => 'search#google_images', :as => 'home#google'
   match 'home/batting_leaderboards' => 'home#batting_leaderboard'
   match 'home/pitching_leaderboards' => 'home#pitching_leaderboard'
   match 'home/fielding_leaderboards' => 'home#fielding_leaderboard'
   match 'batting_leaders' => 'home#batting_leaders'
   #match 'players' => 'home#players'
-  match 'years' => 'home#years'
+  match 'years_players' => 'home#years_players'
   match 'compare_players' => 'home#compare_players'
   
+  match 'years_franchises' => 'home#years_franchises'
+  match 'compare_franchises' => 'home#compare_franchises'
+  
   get 'home/autocomplete_player_name'
+  get 'home/autocomplete_franchise_name'
   
   resources :teams
 
@@ -65,6 +70,10 @@ StatTracker::Application.routes.draw do
   match 'compare/career/pitching/*comp' => 'pitching_stats#career_compare'
   match 'compare/multi/pitching/*comp' => 'pitching_stats#multi_compare'
 
+  match 'franchise_compare/season/*comp' => 'teams#season_compare'
+  match 'franchise_compare/career/*comp' => 'teams#career_compare'
+  match 'franchise_compare/multi/*comp' => 'teams#multi_compare'
+  
   match 'seasonfinder/batting' => 'batting_stats#season_finder'
   match 'seasonfinder/batting/results' => 'batting_stats#find_seasons'
   match 'seasonfinder/pitching' => 'pitching_stats#season_finder'
@@ -78,11 +87,15 @@ StatTracker::Application.routes.draw do
   match 'change_career_table_batting' => 'batting_stats#change_career_table'
   match 'change_career_chart_pitching' => 'pitching_stats#change_career_chart'
   match 'change_career_table_pitching' => 'pitching_stats#change_career_table'
+  match 'change_career_chart_team' => 'teams#change_career_chart'
+  match 'change_career_table_team' => 'teams#change_career_table'
   
   match 'change_multi_chart_batting' => 'batting_stats#change_multi_chart'
   match 'change_multi_table_batting' => 'batting_stats#change_multi_table'
   match 'change_multi_chart_pitching' => 'pitching_stats#change_multi_chart'
   match 'change_multi_table_pitching' => 'pitching_stats#change_multi_table'
+  match 'change_multi_chart_team' => 'teams#change_multi_chart'
+  match 'change_multi_table_team' => 'teams#change_multi_table'
   
   match 'search' => 'home#search', :as => :search
   

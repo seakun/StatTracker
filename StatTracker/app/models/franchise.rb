@@ -9,4 +9,8 @@ class Franchise < ActiveRecord::Base
     find(:all, :conditions => ['lower(name) LIKE ?', search_condition])
   end
 
+  def auto_search
+	name
+  end
+  
 end
