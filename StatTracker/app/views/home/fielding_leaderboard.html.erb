@@ -1,27 +1,25 @@
 
+<h1> Fielding Leaderboards </h1>
         
-<%= form_tag (batting_leaders_path) do %>
+<%= form_tag (fielding_leaders_path) do %>
 		<%= select_tag "stat", 
 		raw("<option>Games</option>
-		<option>Plate Appearances</option>
-		<option>At Bats</option>
-		<option>Runs</option>
-		<option>Hits</option>
-		<option>Doubles</option>
-		<option>Triples</option>
-		<option>Home Runs</option>
-		<option>Total Bases</option>
-		<option>Extra Base Hits</option>
-		<option>RBI</option>
+		<option>Games Started</option>
+		<option>Innings Out</option>
+		<option>Chances</option>
+		<option>Put Outs</option>
+		<option>Assists</option>
+		<option>Errors Made</option>
+		<option>Double Plays</option>
+		<option>Passed Balls</option>
+		<option>Wild Pitches</option>
 		<option>Stolen Bases</option>
 		<option>Caught Stealing</option>
-		<option>Walks</option>
-		<option>Strikeouts</option>
-		<option>Intentional Walks</option>
-		<option>Hit By Pitch</option>
-		<option>Sacrifice Hits</option>
-		<option>Sacrifice Flies</option>
-		<option>Grounded Into Double Plays</option>")
+		<option>Zone Rating</option>
+		<option>Innings</option>
+		<option>Fielding Percentage</option>
+		<option>Range Factor Innings</option>
+		<option>Range Factor Game</option>")
 		%>
 		<%= radio_button_tag 'type', 'season' %>Season
 		<%= radio_button_tag 'type', 'career' %>Career
