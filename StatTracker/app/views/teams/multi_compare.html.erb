@@ -7,7 +7,7 @@
 	<br/>
 	<br/>
 	
-	<%= form_tag change_multi_table_team_path(:franchises => @franchises, :teams => @teams.keys), :remote => true, :id => "change_table" do %>
+	<%= form_tag change_multi_table_team_path(:franchises => @franchises, :comp => @comp), :remote => true, :id => "change_table" do %>
 		<%= check_box_tag 'stat[]', 'wins', true %>W
 		<%= check_box_tag 'stat[]', 'losses', true %>L
 		<%= check_box_tag 'stat[]', 'plate_appearances', false %>PA
@@ -39,7 +39,7 @@
 	<br/>
 	<br/>
 	
-	<%= form_tag change_multi_chart_team_path(:franchises => @franchises, :teams => @teams.keys), :id => "change_chart", :remote => true do %>
+	<%= form_tag change_multi_chart_team_path(:franchises => @franchises, :comp => @comp), :id => "change_chart", :remote => true do %>
 		<%= select_tag "chart_type", 
 		raw("<option>Wins</option>
 		<option>Losses</option>

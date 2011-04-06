@@ -329,7 +329,8 @@ class TeamsController < ApplicationController
 	end
 	
 	def multi_compare
-		@teams, @max = Team.multi_compare(params[:comp])
+		@comp = params[:comp]
+		@teams, @max = Team.multi_compare(@comp)
 		@franchise = []
 		@franchises = []
 		@teams.each_value {|value|
@@ -419,7 +420,8 @@ class TeamsController < ApplicationController
 	def change_multi_chart
 		stat = params[:chart_type].downcase.gsub(" ", "_")
 		@franchise = params[:franchises]
-		@teams = params[:teams]
+		@team, @max = Team.multi_compare(params[:comp])
+		@teams = @team.keys
 		@franchises = []
 		@max = []
 		@franchise.each {|f|
@@ -475,15 +477,16 @@ class TeamsController < ApplicationController
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
-		
+
 		render :partial => "chart"
     end
 	
 	def change_multi_table
 		stats = params[:stat]
 		@franchise = params[:franchises]
-		@teams= params[:teams]
-		@fracnhises = []
+		@team, @max = Team.multi_compare(params[:comp])
+		@teams = @team.keys
+		@franchises = []
 		@franchise.each {|f|
 			@franchises.push(Franchise.find(f.to_i))
 		}
@@ -492,7 +495,7 @@ class TeamsController < ApplicationController
 		stats.each {|s|
 			@table.add_column('string' , s.titleize)
 		}
-		@table.add_rows(@players.size)
+		@table.add_rows(@franchises.size)
 		i = 0
 		
 			@franchises.each { |f|
