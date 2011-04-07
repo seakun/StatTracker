@@ -6,19 +6,40 @@
                     <%= submit_tag('Search') %>
             <% end %>
     </tr>
-    </br>
-    </br>
+    <br />
+    <br />
      <tr>
       <th> Players by Last Name </th>
 
-          <%= form_tag (players_path) do %>
-                          <%= select_tag "player.last_name",
+          <%= form_tag (players_by_letter_path) do %>
+                          <%= select_tag "letter",
                           raw("<option>A</option>
                           <option>B</option>
                           <option>C</option>
-                          <option>D</option>")
+                          <option>D</option>
+                          <option>E</option>
+                          <option>F</option>
+                          <option>G</option>
+                          <option>H</option>
+                          <option>I</option>
+                          <option>J</option>
+                          <option>K</option>
+                          <option>L</option>
+                          <option>M</option>
+                          <option>N</option>
+                          <option>O</option>
+                          <option>P</option>
+                          <option>Q</option>
+                          <option>R</option>
+                          <option>S</option>
+                          <option>T</option>
+                          <option>U</option>
+                          <option>V</option>
+                          <option>W</option>
+                          <option>X</option>
+                          <option>Y</option>
+                          <option>Z</option>")
 		%>
           <%= submit_tag 'Submit' %>
           <% end %>
     </tr>
-*/

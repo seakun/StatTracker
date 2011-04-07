@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.all
+    #@players = Player.all
   end
 
   def show
@@ -344,6 +344,15 @@ class PlayersController < ApplicationController
     @player.destroy
     flash[:notice] = "Successfully destroyed player."
     redirect_to players_url
+  end
+
+  def by_letter
+    redirect_to players_letter_path(params[:letter])
+  end
+
+  def letter
+    letter = params[:letter].downcase + '%'
+    @players = Player.find(:all, :conditions => ["lower(last_name) like ?", letter])
   end
 
 end

@@ -17,6 +17,9 @@ StatTracker::Application.routes.draw do
   
   match 'years_franchises' => 'home#years_franchises'
   match 'compare_franchises' => 'home#compare_franchises'
+
+  match 'players/letter/' => 'players#by_letter', :as => :players_by_letter
+  match 'players/letter/:letter' => 'players#letter', :as => :players_letter
   
   get 'home/autocomplete_player_name'
   get 'home/autocomplete_franchise_name'
