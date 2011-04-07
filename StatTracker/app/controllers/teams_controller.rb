@@ -80,7 +80,7 @@ class TeamsController < ApplicationController
     @chart2.set_cell(0, 13, @team.caught_stealing.to_s)
 	  @chart2.set_cell(0, 14, @team.hit_by_pitch.to_s)
 	  @chart2.set_cell(0, 15, @team.sacrifice_flies.to_s)
-    @chart2.set_cell(0, 16, @team.teams_park_factor.to_s)
+    @chart2.set_cell(0, 16, @team.batters_park_factor.to_s)
 
     @chart3.set_cell(0, 0, @team.runs_allowed.to_s)
     @chart3.set_cell(0, 1, @team.earned_runs.to_s)
@@ -94,9 +94,9 @@ class TeamsController < ApplicationController
     @chart3.set_cell(0, 9, @team.strikeouts_allowed.to_s)
     @chart3.set_cell(0, 10, @team.pitchers_park_factor.to_s)
     @chart3.set_cell(0, 11, @team.errors_made.to_s)
-    @chart3.set_cell(0, 12, @team.double_fs.to_s)
+    @chart3.set_cell(0, 12, @team.double_plays.to_s)
     @chart3.set_cell(0, 13, @team.fielding_percentage.to_s)
-    options = { :width => 900}
+    options = { :width => 800}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
       @chart2.send "#{key}=", value
