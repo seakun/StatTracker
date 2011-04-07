@@ -89,12 +89,15 @@
 <%= raw @chart4.render('chart4') %>
 <% end %>
 <div id="tooltip" class="tooltip">
-	Christine is awesome!!!
+	
 </div>
 <script>
-  $("#chart span[title]").tooltip({
+  $("#chart").tooltip({
 		tip: '#tooltip',
-		position: 'center right',
+		position: 'top center',
+                offset:[-200,0],
 		delay: 0
 	});
+
+
 </script>
