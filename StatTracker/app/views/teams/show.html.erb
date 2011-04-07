@@ -5,14 +5,14 @@
 </p>
  <% if !Division.find(@team.division_id).name.nil? %>
 <p>
+  <strong>League:</strong>
+  <%= League.find(Division.find(@team.division_id).league_id).name %>
+</p>
+<p>
   <strong>Division:</strong>
   <%= Division.find(@team.division_id).name %>
 </p>
 <% end %>
-<p>
-  <strong>League:</strong>
-  <%= League.find(Division.find(@team.division_id).league_id).name %>
-</p>
 <p>
   <strong>Year:</strong>
   <%= @team.year %>
@@ -31,10 +31,15 @@
   <%= @team.attendance %>
   <% end %>
 </p>
-<br></br>
-<strong>Team Stats</strong>
-<div id = 'chart'></div>
-<%= raw @chart.render('chart') %>
+<p><strong>Rank: </strong><%= @team.rank %></p>
+<p><strong>Games: </strong><%= @team.games %></p>
+<%if !@team.home_games.nil?%><p><strong>Home Games: </strong><%= @team.home_games %></p><% end %>
+<p><strong>Wins-Losses: </strong><%= @team.wins %>-<%= @team.losses %></p>
+<p><strong>Percentage: </strong><%=@team.pct %></p>
+<p><%if @team.div_win%><%= image_tag("trophy.png")%>Division Win<% end %></p>
+<p><%if @team.wc_win%><%= image_tag("trophy.png")%>Wild Card Winner<% end %></p>
+<p><%if @team.lg_win%><%= image_tag("trophy.png")%>League Win<% end %></p>
+<p><%if @team.ws_win%><%= image_tag("trophy.png")%>World Series Win<% end %></p>
 <strong>Team Batting Stats</strong>
 <div id='chart2'></div>
 <%= raw @chart2.render('chart2') %>
