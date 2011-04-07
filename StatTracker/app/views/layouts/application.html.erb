@@ -48,6 +48,7 @@ function _loadUserVoice() {
 _loadSuper = window.onload;
 window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
 </script>
+    <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script> 
 	<link rel="stylesheet" href="../stylesheets/nivo-slider.css" type="text/css" media="screen" />
     <script src="../javascripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -103,13 +104,3 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
     </div>
   </body>
 </html>
-<div id="tooltip" class="tooltip">
-	Christine is awesome!!!
-</div>
-<script>
-  $("#nav li").tooltip({
-		tip: '#tooltip',
-		position: 'center right',
-		delay: 0
-	});
-</script>
