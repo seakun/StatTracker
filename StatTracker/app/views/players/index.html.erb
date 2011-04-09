@@ -43,3 +43,23 @@
           <%= submit_tag 'Submit' %>
           <% end %>
     </tr>
+        <br />
+    <br />
+     <tr>
+      <th> Players by Position </th>
+
+          <%= form_tag (players_by_position_path) do %>
+                          <%= select_tag "position",
+                          raw("<option>1B</option>
+                          <option>2B</option>
+                          <option>3B</option>
+                          <option>SS</option>
+                          <option>LF</option>
+                          <option>CF</option>
+                          <option>RF</option>
+                          <option>OH</option>
+                          <option>DH</option>")
+		%>
+          <%= submit_tag 'Submit' %>
+          <% end %>
+    </tr>

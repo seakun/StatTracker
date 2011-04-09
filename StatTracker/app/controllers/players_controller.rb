@@ -355,4 +355,15 @@ class PlayersController < ApplicationController
     @players = Player.find(:all, :conditions => ["lower(last_name) like ?", letter])
   end
 
+  def by_position
+    redirect_to players_position_path(params[:position])
+  end
+
+  def position
+    @players = Player.find(params[:id])
+    @fielding_stats = Fielding_stat.find(:all, :conditions => ['player_id = ?', params[:id]])
+    @fielding_stats.position.find(:all, :conditions => ["lower(position) like ?", position])
+  end
+
+
 end

@@ -20,6 +20,9 @@ StatTracker::Application.routes.draw do
 
   match 'players/letter/' => 'players#by_letter', :as => :players_by_letter
   match 'players/letter/:letter' => 'players#letter', :as => :players_letter
+
+  match 'players/position/' => 'players#by_position', :as => :players_by_position
+  match 'players/position/:position' => 'players#position', :as => :players_position
   
   get 'home/autocomplete_player_name'
   get 'home/autocomplete_franchise_name'
