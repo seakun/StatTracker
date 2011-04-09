@@ -1,3 +1,4 @@
 <% @players.each do |p| %>
-<p><%= p.name %></p>
+<p><%= link_to p.name, player_path(p) %></p>
 <% end %>
+
