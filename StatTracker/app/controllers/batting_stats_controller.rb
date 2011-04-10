@@ -509,6 +509,7 @@ class BattingStatsController < ApplicationController
     options = { :width => 600, :allowHtml=>true }
     options.each_pair do | key, value |
     @chart2.send "#{key}=", value
+    @operations = operations
   end
 
   end
