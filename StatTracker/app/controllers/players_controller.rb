@@ -43,7 +43,7 @@ class PlayersController < ApplicationController
     @chart.set_cell(i, 1, b.player.age(b.team.year).to_s)
     @chart.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
     @chart.set_cell(i, 3, b.team.division.league.name.to_s)
-    @chart.set_cell(i, 4, b.games.to_s)
+    @chart.set_cell(i, 4, "<span title='Games'>#{b.games}</span>")
     @chart.set_cell(i, 5, b.plate_appearances.to_s)
 	  @chart.set_cell(i, 6, b.at_bats.to_s)
 	  @chart.set_cell(i, 7, b.runs.to_s)
@@ -81,7 +81,7 @@ class PlayersController < ApplicationController
 	@chart.set_cell(i, 17, (sprintf("%.3f", (BattingStat.get_stat_total(params[:id], :hits).to_f / BattingStat.get_stat_total(params[:id], :at_bats).to_f))).to_s)
 	@chart.set_cell(i, 18, (sprintf("%.3f", (BattingStat.get_stat_total(params[:id], :total_bases).to_f / BattingStat.get_stat_total(params[:id], :at_bats).to_f))).to_s)
 	@chart.set_cell(i, 19,  BattingStat.get_stat_total(params[:id], :total_bases))
-	options = { :width => '100%', :allowHtml =>true }
+	options = { :allowHtml =>true }
 	options.each_pair do | key, value |
 		@chart.send "#{key}=", value
 	end
@@ -191,7 +191,7 @@ class PlayersController < ApplicationController
     @chart3.add_column('string' , 'BB/9')
     @chart3.add_column('string' , 'K/9')
     @chart3.add_column('string' , 'K/BB')
-    @chart3.add_rows(@pitching_stats.size)
+    @chart3.add_rows(@pitching_stats.size+1)
     @pitching_stats.each { |b|
 			i = @pitching_stats.index(b)
 			@chart3.set_cell(i, 0, b.team.year.to_s)
@@ -221,13 +221,36 @@ class PlayersController < ApplicationController
       @chart3.set_cell(i, 24, b.wild_pitches.to_s)
       @chart3.set_cell(i, 25, b.batters_faced.to_s )
       @chart3.set_cell(i, 26, b.walks_and_hits_innings_pitched.to_s )
-      @chart3.set_cell(i, 27, b.hits_innings.to_s )
-      @chart3.set_cell(i, 28, b.home_runs_innings.to_s )
-      @chart3.set_cell(i, 29, b.walks_innings.to_s )
-      @chart3.set_cell(i, 30, b.strikeouts_innings.to_s )
-      @chart3.set_cell(i, 31, b.strikeouts_walks.to_s )
+      @chart3.set_cell(i, 27, b.hits_per_9_innings.to_s )
+      @chart3.set_cell(i, 28, b.home_runs_per_9_innings.to_s )
+      @chart3.set_cell(i, 29, b.walks_per_9_innings.to_s )
+      @chart3.set_cell(i, 30, b.strikeouts_per_9_innings.to_s )
+      @chart3.set_cell(i, 31, b.strikeouts_per_walk.to_s )
 		}
-
+    i+=1
+    @chart3.set_cell(i, 0, "Totals")
+    @chart3.set_cell(i, 4, PitchingStat.get_stat_total(params[:id], :wins))
+    @chart3.set_cell(i, 5, PitchingStat.get_stat_total(params[:id], :losses))
+#    @chart3.set_cell(i, 6, PitchingStat.get_stat_total(params[:id], :win_loss_percentage))
+#    @chart3.set_cell(i, 7, PitchingStat.get_stat_total(params[:id], :era))
+    @chart3.set_cell(i, 8, PitchingStat.get_stat_total(params[:id], :games))
+    @chart3.set_cell(i, 9, PitchingStat.get_stat_total(params[:id], :games_started))
+    @chart3.set_cell(i, 10, PitchingStat.get_stat_total(params[:id], :games_finished))
+    @chart3.set_cell(i, 11, PitchingStat.get_stat_total(params[:id], :complete_games))
+    @chart3.set_cell(i, 12, PitchingStat.get_stat_total(params[:id], :shutouts))
+    @chart3.set_cell(i, 13, PitchingStat.get_stat_total(params[:id], :saves))
+#    @chart3.set_cell(i, 14, PitchingStat.get_stat_total(params[:id], :innings_pitched))
+    @chart3.set_cell(i, 15, PitchingStat.get_stat_total(params[:id], :hits))
+    @chart3.set_cell(i, 16, PitchingStat.get_stat_total(params[:id], :runs))
+    @chart3.set_cell(i, 17, PitchingStat.get_stat_total(params[:id], :earned_runs))
+    @chart3.set_cell(i, 18, PitchingStat.get_stat_total(params[:id], :home_runs))
+    @chart3.set_cell(i, 19, PitchingStat.get_stat_total(params[:id], :walks))
+    @chart3.set_cell(i, 20, PitchingStat.get_stat_total(params[:id], :intentional_walks))
+    @chart3.set_cell(i, 21, PitchingStat.get_stat_total(params[:id], :strikeouts))
+    @chart3.set_cell(i, 22, PitchingStat.get_stat_total(params[:id], :hit_by_pitch))
+    @chart3.set_cell(i, 23, PitchingStat.get_stat_total(params[:id], :balks))
+    @chart3.set_cell(i, 24, PitchingStat.get_stat_total(params[:id], :wild_pitches))
+    @chart3.set_cell(i, 25, PitchingStat.get_stat_total(params[:id], :batters_faced))
   options = { :width => '100%', :allowHtml =>true }
   options.each_pair do | key, value |
     @chart3.send "#{key}=", value
@@ -268,7 +291,7 @@ class PlayersController < ApplicationController
     @chart4.add_column('string' , 'BB/9')
     @chart4.add_column('string' , 'K/9')
     @chart4.add_column('string' , 'K/BB')
-    @chart4.add_rows(@pitching_stats_post.size)
+    @chart4.add_rows(@pitching_stats_post.size+1)
     @pitching_stats_post.each { |b|
 			i = @pitching_stats_post.index(b)
 			@chart4.set_cell(i, 0, b.team.year.to_s)
@@ -305,6 +328,30 @@ class PlayersController < ApplicationController
       @chart4.set_cell(i, 31, b.strikeouts_innings.to_s )
       @chart4.set_cell(i, 32, b.strikeouts_walks.to_s )
 		}
+     i+=1
+    @chart4.set_cell(i, 0, "Totals")
+    @chart4.set_cell(i, 5, PitchingStat.get_stat_total(params[:id], :wins))
+    @chart4.set_cell(i, 6, PitchingStat.get_stat_total(params[:id], :losses))
+#    @chart4.set_cell(i, 7, PitchingStat.get_stat_total(params[:id], :win_loss_percentage))
+#    @chart4.set_cell(i, 8, PitchingStat.get_stat_total(params[:id], :era))
+    @chart4.set_cell(i, 9, PitchingStat.get_stat_total(params[:id], :games))
+    @chart4.set_cell(i, 10, PitchingStat.get_stat_total(params[:id], :games_started))
+    @chart4.set_cell(i, 11, PitchingStat.get_stat_total(params[:id], :games_finished))
+    @chart4.set_cell(i, 12, PitchingStat.get_stat_total(params[:id], :complete_games))
+    @chart4.set_cell(i, 13, PitchingStat.get_stat_total(params[:id], :shutouts))
+    @chart4.set_cell(i, 14, PitchingStat.get_stat_total(params[:id], :saves))
+#    @chart4.set_cell(i, 15, PitchingStat.get_stat_total(params[:id], :innings_pitched))
+    @chart4.set_cell(i, 16, PitchingStat.get_stat_total(params[:id], :hits))
+    @chart4.set_cell(i, 17, PitchingStat.get_stat_total(params[:id], :runs))
+    @chart4.set_cell(i, 18, PitchingStat.get_stat_total(params[:id], :earned_runs))
+    @chart4.set_cell(i, 19, PitchingStat.get_stat_total(params[:id], :home_runs))
+    @chart4.set_cell(i, 20, PitchingStat.get_stat_total(params[:id], :walks))
+    @chart4.set_cell(i, 21, PitchingStat.get_stat_total(params[:id], :intentional_walks))
+    @chart4.set_cell(i, 22, PitchingStat.get_stat_total(params[:id], :strikeouts))
+    @chart4.set_cell(i, 23, PitchingStat.get_stat_total(params[:id], :hit_by_pitch))
+    @chart4.set_cell(i, 24, PitchingStat.get_stat_total(params[:id], :balks))
+    @chart4.set_cell(i, 25, PitchingStat.get_stat_total(params[:id], :wild_pitches))
+    @chart4.set_cell(i, 26, PitchingStat.get_stat_total(params[:id], :batters_faced))
   options = { :width => '100%', :allowHtml=>true }
   options.each_pair do | key, value |
     @chart4.send "#{key}=", value
