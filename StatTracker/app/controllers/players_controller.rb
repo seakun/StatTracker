@@ -403,9 +403,7 @@ class PlayersController < ApplicationController
   end
 
   def position
-    @players = Player.find(params[:id])
-    @fielding_stats = Fielding_stat.find(:all, :conditions => ['player_id = ?', params[:id]])
-    @fielding_stats.position.find(:all, :conditions => ["lower(position) like ?", position])
+    @players = FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}
   end
 
 
