@@ -11,24 +11,38 @@ class BattingStat < ActiveRecord::Base
 	end
 
 	def self.career_sort(stat)
-		stats = BattingStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
-		comb = {}
-		stats.each { |s| 
-			if comb.has_key?(s.player_id)
-					comb[s.player_id] += s.send(stat).to_i
-			else
-				if (s.send(stat) == 0 || s.send(stat).nil?)
-					comb.store(s.player_id, 0)
+		if accessible_attributes.include?(stat)
+			stats = BattingStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
+			comb = {}
+			stats.each { |s| 
+				if comb.has_key?(s.player_id)
+						comb[s.player_id] += s.send(stat).to_i
 				else
-					comb.store(s.player_id, s.send(stat))
+					if (s.send(stat) == 0 || s.send(stat).nil?)
+						comb.store(s.player_id, 0)
+					else
+						comb.store(s.player_id, s.send(stat))
+					end
 				end
-			end
-		} 
-		sorted = comb.sort{|a,b| b[1] <=> a[1]}
-		sorted.take(50).each { |a| 
-		a[0] = Player.find(a[0])
-		}
-		return sorted.take(50)
+			} 
+			sorted = comb.sort{|a,b| b[1] <=> a[1]}
+			sorted.take(50).each { |a| 
+			a[0] = Player.find(a[0])
+			}
+			return sorted.take(50)
+		else 
+			comb = {}
+			players = Player.find(:all, :select => [:id])
+			players.each {|p|
+				comb.store(p.id, BattingStat.career_batting_average(p.id))
+				puts comb[p.id]
+			}
+			sorted = comb.sort{|a,b| b[1] <=> a[1]}
+			sorted.take(50).each { |a| 
+				a[0] = Player.find(a[0])
+			}
+			return sorted.take(50)
+		end
 	end
 	
 	def self.active_sort(stat)
@@ -216,6 +230,12 @@ class BattingStat < ActiveRecord::Base
     sprintf("%.3f", baseruns)
   end
 
+  def self.career_batting_average(player)
+		hits = get_stat_total(player, :hits)
+		at_bats = get_stat_total(player, :at_bats)
+		sprintf("%.3f", hits.to_f / at_bats.to_f)
+  end
+  
   private
 
   def avg
@@ -300,7 +320,7 @@ class BattingStat < ActiveRecord::Base
   end
 
   def self.str_runs_created
-    "(hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
+    "((hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
   end
 
   def self.str_weighted_on_base_average

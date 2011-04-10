@@ -21,9 +21,22 @@
 		<option>Hit By Pitch</option>
 		<option>Sacrifice Hits</option>
 		<option>Sacrifice Flies</option>
-		<option>Grounded Into Double Plays</option>")
+		<option>Grounded Into Double Plays</option>
+		<option>Batting Average</option>
+		<option>On Base Percentage</option>
+		<option>Slugging Percentage</option>
+		<option>On Base Plus Slugging</option>
+		<option>Stolen Base Percentage</option>
+		<option>At Bats Per Strikeout</option>
+		<option>At Bats Per Home Run</option>
+		<option>Adjusted OPS</option>
+		<option>Isolated Power</option>
+		<option>Runs Created</option>
+		<option>Extrapolated Runs</option>
+		<option>Secondary Average</option>
+		<option>Base Runs</option>")
 		%>
-		<%= radio_button_tag 'type', 'season' %>Season
+		<%= radio_button_tag 'type', 'season', true %>Season
 		<%= radio_button_tag 'type', 'career' %>Career
 		<%= radio_button_tag 'type', 'active' %>Active
 		<%= check_box_tag 'post', 'post', false %>Postseason

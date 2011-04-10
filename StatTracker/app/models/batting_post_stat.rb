@@ -89,8 +89,8 @@ class BattingPostStat < ActiveRecord::Base
     sprintf("%.3f", ab_per_k)
   end
 
-  def home_runs_per_at_bat
-    sprintf("%.3f", hr_per_ab)
+  def at_bats_per_home_run
+    sprintf("%.3f", ab_per_hr)
   end
 
   def adjusted_ops
@@ -177,7 +177,7 @@ class BattingPostStat < ActiveRecord::Base
 	end
 
   def self.str_slugging_percentage
-    "total_bases * #{multiplier} / at_bats"
+    "total_bases * #{multiplier} / at_bats DESC"
   end
 
   def self.str_on_base_plus_slugging
@@ -207,7 +207,7 @@ class BattingPostStat < ActiveRecord::Base
   end
 
   def self.str_runs_created
-    "(hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
+    "((hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
   end
 
   def self.str_weighted_on_base_average

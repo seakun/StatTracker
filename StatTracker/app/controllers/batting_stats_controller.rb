@@ -14,12 +14,18 @@ class BattingStatsController < ApplicationController
 		@table.add_column('string' , 'Bats')
 		@table.add_column('string' , 'Team')
 		@table.add_column('string' , 'Year')
-		@table.add_column('string' , params[:stat].titleize)
+		if params[:stat] == 'rbi'
+			@table.add_column('string' , params[:stat].upcase)
+		else @table.add_column('string' , params[:stat].titleize)
+		end
 		@table.add_rows(50)
 		@batting_stats.each { |b|
 			i = @batting_stats.index(b)
 			@table.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
-			@table.set_cell(i, 1, b.player.bats)
+			if !b.player.bats.nil?
+				@table.set_cell(i, 1, b.player.bats)
+			else @table.set_cell(i, 1, 'N/A')
+			end
 			@table.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
 			@table.set_cell(i, 3, "#{b.year}")
 			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
@@ -41,7 +47,10 @@ class BattingStatsController < ApplicationController
 		i = 0
 			@batting_stats.each { |k, v|
 				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				@table.set_cell(i, 1, k.bats)
+				if !k.bats.nil?
+					@table.set_cell(i, 1, k.bats)
+				else @table.set_cell(i, 1, 'N/A')
+				end
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
@@ -62,7 +71,10 @@ class BattingStatsController < ApplicationController
 		i = 0
 			@batting_stats.each { |k, v|
 				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				@table.set_cell(i, 1, k.bats)
+				if !k.bats.nil?
+					@table.set_cell(i, 1, k.bats)
+				else @table.set_cell(i, 1, 'N/A')
+				end
 				@table.set_cell(i, 2, "#{v}")
 				i += 1
 			}
