@@ -1,4 +1,18 @@
-<% @players.each do |p| %>
-<p><%= link_to p.name, player_path(p) %></p>
-<% end %>
+	<p><em><strong>Players by last name: '<%= [:letter] %>'</strong></em></p>
+	<ul>
+            <table class="datagrid">
+              <thead class="datagrid">
+                  <th width="250">Name</th>
+                  <th width="250">Position</th>
+                  <th>Team</th>
+              </thead>
+                <% @players.each do |p| %>
 
+              <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+                  <td align ="center"><%= link_to p.name, player_path(p) %></td>
+                  <td align ="center"><%= "#{p.fielding_stat.position}" %></td>
+              </tr>
+            <% end %>
+            </table>
+	</ul>
+	<p class="smtext">&nbsp;</p>
