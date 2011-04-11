@@ -109,7 +109,7 @@ class Player < ActiveRecord::Base
   end
 	
 	def career_batting_average
-		sprintf("%.3f", (hits/at_bats.to_f))
+		sprintf("%.3f", avg)
 	end
 	
 	def career_on_base_percentage
@@ -122,10 +122,6 @@ class Player < ActiveRecord::Base
 
 	def career_on_base_plus_slugging
 		sprintf("%.3f", ops)
-	end
-
-	def career_stolen_base_percentage
-		sprintf("%.3f", sbp)
 	end
 
 	def career_at_bats_per_strikeout
@@ -162,4 +158,41 @@ class Player < ActiveRecord::Base
 		sprintf("%.3f", baseruns)
 	end
   
+	private
+
+	def avg
+		hits / at_bats.to_f
+	end
+
+	def obp
+		(hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_flies).to_f
+	end
+
+	def slg
+		total_bases / at_bats.to_f
+	end
+
+	def ops
+		obp + slg
+	end
+
+	def ab_per_k
+		at_bats / strikeouts.to_f
+	end
+
+	def ab_per_hr
+		at_bats / home_runs.to_f
+	end
+
+	def sec_avg
+		(total_bases - hits + walks + stolen_bases - caught_stealing) / at_bats.to_f
+	end
+
+	def baseruns
+		a = hits + walks - home_runs
+		b = (1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02
+		c = at_bats - hits
+		d = home_runs
+		(a * b)/(b + c) + d
+	end
 end
