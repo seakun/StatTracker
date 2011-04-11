@@ -42,19 +42,33 @@ class BattingStatsController < ApplicationController
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Bats')
-		@table.add_column('string' , params[:stat].titleize)
+		if params[:stat] == 'rbi'
+			@table.add_column('string' , params[:stat].upcase)
+		else @table.add_column('string' , params[:stat].titleize)
+		end
 		@table.add_rows(50)
 		i = 0
-			@batting_stats.each { |b|
-				@table.set_cell(i, 0, "<a href='/players/#{b.id}'>#{b.name}</a>")
-				if !b.bats.nil?
-					@table.set_cell(i, 1, b.bats)
-				else @table.set_cell(i, 1, 'N/A')
-				end
-				@table.set_cell(i, 2, "#{b.send("career_" + params[:stat])}")
-				i += 1
-			}
-
+			if BattingStat.accessible_attributes.include?(params[:stat])
+				@batting_stats.each { |k, v|
+					@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
+					if !k.bats.nil?
+						@table.set_cell(i, 1, k.bats)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{v}")
+					i += 1
+				}
+			else 
+				@batting_stats.each { |b|
+					@table.set_cell(i, 0, "<a href='/players/#{b.id}'>#{b.name}</a>")
+					if !b.bats.nil?
+						@table.set_cell(i, 1, b.bats)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{b.send("career_" + params[:stat])}")
+					i += 1
+				}
+			end
 		options = { :width => 600, :showRowNumber => true, :allowHtml =>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
@@ -66,18 +80,33 @@ class BattingStatsController < ApplicationController
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Bats')
-		@table.add_column('string' , params[:stat].titleize)
+		if params[:stat] == 'rbi'
+			@table.add_column('string' , params[:stat].upcase)
+		else @table.add_column('string' , params[:stat].titleize)
+		end
 		@table.add_rows(50)
 		i = 0
-			@batting_stats.each { |k, v|
-				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				if !k.bats.nil?
-					@table.set_cell(i, 1, k.bats)
-				else @table.set_cell(i, 1, 'N/A')
-				end
-				@table.set_cell(i, 2, "#{v}")
-				i += 1
-			}
+			if BattingStat.accessible_attributes.include?(params[:stat])
+				@batting_stats.each { |k, v|
+					@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
+					if !k.bats.nil?
+						@table.set_cell(i, 1, k.bats)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{v}")
+					i += 1
+				}
+			else 
+				@batting_stats.each { |b|
+					@table.set_cell(i, 0, "<a href='/players/#{b.id}'>#{b.name}</a>")
+					if !b.bats.nil?
+						@table.set_cell(i, 1, b.bats)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{b.send("career_" + params[:stat])}")
+					i += 1
+				}
+			end	
 
 		options = { :width => 600, :showRowNumber => true, :allowHtml=>true }
 		options.each_pair do | key, value |

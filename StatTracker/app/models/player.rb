@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-    attr_accessible :first_name, :last_name, :name, :nickname, :birth_year, :birth_month, :birth_day, :birth_country, :birth_state, :birth_city, :death_year, :death_month, :death_day, :death_country, :death_state, :death_city, :weight, :height, :bats, :throws, :debut, :final_game, :college, :hof
+    attr_accessible :first_name, :last_name, :name, :nickname, :birth_year, :birth_month, :birth_day, :birth_country, :birth_state, :birth_city, :death_year, :death_month, :death_day, :death_country, :death_state, :death_city, :weight, :height, :bats, :throws, :debut, :final_game, :college, :hof, :plate_appearances, :at_bats, :hits, :home_runs, :total_bases, :stolen_bases, :caught_stealing, :walks, :strikeouts, :walks, :hit_by_pitch, :sacrifice_flies, :plate_appearances_post, :at_bats_post, :hits_post, :home_runs_post, :total_bases_post, :stolen_bases_post, :caught_stealing_post, :walks_post, :strikeouts_post, :hit_by_pitch_post, :sacrifice_flies_post, :wins, :losses, :innings_pitched_outs, :earned_runs, :runs_allowed, :hits_allowed, :batters_faced, :walks_allowed, :hit_by_pitches_allowed, :home_runs_allowed, :strikeouts_allowed, :wins_post, :losses_post, :innings_pitched_outs_post, :earned_runs_post, :runs_allowed_post, :hits_allowed_post, :batters_faced_post, :walks_allowed_post, :hit_by_pitches_allowed_post, :home_runs_allowed_post, :strikeouts_allowed_post, :put_outs, :assists, :inning_outs, :games_played, :put_outs_post, :assists_post, :inning_outs_post, :games_played_post
 
     has_many :batting_stats
 	has_many :batting_post_stats
@@ -55,31 +55,31 @@ class Player < ActiveRecord::Base
 	end
   
 	def self.str_career_batting_average
-		"hits * #{multiplier} / at_bats DESC"
+		"career_hits * #{multiplier} / career_at_bats DESC"
 	end
 	
 	def self.str_career_on_base_percentage
-    "(hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_flies) DESC"
+    "(career_hits + career_walks + career_hit_by_pitch) * #{multiplier} / (career_at_bats + career_walks + career_hit_by_pitch + career_sacrifice_flies) DESC"
 	end
 
   def self.str_career_slugging_percentage
-    "total_bases * #{multiplier} / at_bats DESC"
+    "career_total_bases * #{multiplier} / career_at_bats DESC"
   end
 
   def self.str_career_on_base_plus_slugging
-    "((hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_flies)) + (total_bases * #{multiplier} / at_bats) DESC"
+    "((career_hits + career_walks + career_hit_by_pitch) * #{multiplier} / (career_at_bats + career_walks + career_hit_by_pitch + career_sacrifice_flies)) + (career_total_bases * #{multiplier} / career_at_bats) DESC"
   end
 
   def self.str_career_stolen_base_percentage
-    "stolen_bases * #{multiplier} / (stolen_bases + caught_stealing) DESC"
+    "career_stolen_bases * #{multiplier} / (career_stolen_bases + career_caught_stealing) DESC"
   end
 
   def self.str_career_at_bats_per_strikeout
-    "at_bats * #{multiplier} / strikeouts DESC"
+    "career_at_bats * #{multiplier} / career_strikeouts DESC"
   end
 
   def self.str_career_at_bats_per_home_run
-    "(at_bats * #{multiplier} / home_runs) ASC"
+    "(career_at_bats * #{multiplier} / career_home_runs) ASC"
   end
 
   def self.str_career_adjusted_ops
@@ -89,23 +89,19 @@ class Player < ActiveRecord::Base
   end
 
   def self.str_career_isolated_power
-    "#{str_slugging_percentage} - #{str_batting_average} DESC"
+    "#{str_career_slugging_percentage} - #{str_career_batting_average} DESC"
   end
 
   def self.str_career_runs_created
-    "((hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
-  end
-
-  def self.str_career_extrapolated_runs
-    "(0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits)) DESC"
+    "((career_hits + career_walks) * career_total_bases) * #{multiplier} / (career_at_bats + career_walks) DESC"
   end
 
   def self.str_career_secondary_average
-    "(total_bases - hits + walks + stolen_bases - caught_stealing) * #{multiplier} / at_bats DESC"
+    "(career_total_bases - career_hits + career_walks + career_stolen_bases - career_caught_stealing) * #{multiplier} / career_at_bats DESC"
   end
 
   def self.str_career_base_runs
-    "((hits + walks - home_runs) * ((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02)) * 10000/(((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02) + (at_bats - hits)) + home_runs * 10000 DESC"
+    "((career_hits + career_walks - career_home_runs) * ((1.4 * career_total_bases - 0.6 * career_hits - 3 * career_home_runs + 0.1 * career_walks) * 1.02)) * 10000/(((1.4 * career_total_bases - 0.6 * career_hits - 3 * career_home_runs + 0.1 * career_walks) * 1.02) + (career_at_bats - career_hits)) + career_home_runs * 10000 DESC"
   end
 	
 	def career_batting_average
@@ -143,33 +139,29 @@ class Player < ActiveRecord::Base
 	end
 
 	def career_runs_created
-		((hits + walks) * total_bases) / (at_bats + walks)
+		((career_hits + career_walks) * career_total_bases) / (career_at_bats + career_walks)
 	end
 
-	def extrapolated_runs
-		(0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits))
-	end
-
-	def secondary_average
+	def career_secondary_average
 		sprintf("%.3f", sec_avg)
 	end
 
-	def base_runs
+	def career_base_runs
 		sprintf("%.3f", baseruns)
 	end
   
 	private
 
 	def avg
-		hits / at_bats.to_f
+		career_hits / career_at_bats.to_f
 	end
 
 	def obp
-		(hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_flies).to_f
+		(career_hits + career_walks + career_hit_by_pitch) / (career_at_bats + career_walks + career_hit_by_pitch + career_sacrifice_flies).to_f
 	end
 
 	def slg
-		total_bases / at_bats.to_f
+		career_total_bases / career_at_bats.to_f
 	end
 
 	def ops
@@ -177,22 +169,22 @@ class Player < ActiveRecord::Base
 	end
 
 	def ab_per_k
-		at_bats / strikeouts.to_f
+		career_at_bats / career_strikeouts.to_f
 	end
 
 	def ab_per_hr
-		at_bats / home_runs.to_f
+		career_at_bats / career_home_runs.to_f
 	end
 
 	def sec_avg
-		(total_bases - hits + walks + stolen_bases - caught_stealing) / at_bats.to_f
+		(career_total_bases - career_hits + career_walks + career_stolen_bases - career_caught_stealing) / career_at_bats.to_f
 	end
 
 	def baseruns
-		a = hits + walks - home_runs
-		b = (1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02
-		c = at_bats - hits
-		d = home_runs
+		a = career_hits + career_walks - career_home_runs
+		b = (1.4 * career_total_bases - 0.6 * career_hits - 3 * career_home_runs + 0.1 * career_walks) * 1.02
+		c = career_at_bats - career_hits
+		d = career_home_runs
 		(a * b)/(b + c) + d
 	end
 end
