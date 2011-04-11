@@ -1,14 +1,26 @@
 <% title @franchise.name %>
+
+<% if @franchise.active%>
+<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') %>
+<% end %>
 <% if !@franchise.active %>
+<p>
 <strong>Inactive</strong>
+</p>
+<p>
+  <strong>Years:</strong>
+  <%= @first_team.year%>-<%= @last_team.year%>
+</p>
 <%  else %>
 <p>
   <strong>Active</strong>
 </p>
+<p>
+  <strong>Years:</strong>
+  <%= @first_team.year%>-
+</p>
 <% end %>
-<% if @franchise.active%>
-<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') %>
-<% end %>
+
 <div id='chart'></div>
 <%= raw @chart.render('chart') %>
 

@@ -1,11 +1,11 @@
-
+<%title 'Compare Teams'%>
 	<%= form_tag years_franchises_path, :remote => true, :id => 'years' do %>
 		<table>
 		<tr>
 		<td>
 		<div id = "franchises">
 			<table>
-				<%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%>
+				<%= text_field_tag 'franchises[]', '', :placeholder => 'Enter a team...', :autocomplete => home_autocomplete_franchise_name_path%>
 				<div id = 'text2'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
 				<div id = 'text3'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
 				<div id = 'text4'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
@@ -13,7 +13,7 @@
 			</table>
 		</div>
 			<br/>
-			Season<%= radio_button_tag 'type', 'season' %>
+			Season<%= radio_button_tag 'type', 'season', true %>
 			<br/>
 			Career<%= radio_button_tag 'type', 'career' %>
 			<br/>

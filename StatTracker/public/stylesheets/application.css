@@ -140,10 +140,19 @@ a {
 div.button{
 width:200px;
 position:relative;
-margin-top:-180px;
-margin-left: 600px;
 float:left;
 }
+
+#comparePlayers{
+margin-top:-180px;
+margin-left: 600px;
+}
+
+#compareTeams{
+margin-top:-100px;
+margin-left: 600px;
+}
+
 div.button a{
 		font-size:15px;
 		font-weight: bold;

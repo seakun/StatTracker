@@ -57,24 +57,29 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 
 
     <div id="hd"></div>
-
-  <div id="nav">
-      	<ul >
-          	<!-- OPTIONS FOR EVERYONE -->
-		
-			<li><%= link_to 'Home', '/home/index' %></li>
-			<li class= "dropdownmenu"><%= link_to 'Players', players_path%>
-			<ul id="cssdropdown">
-				<%= form_tag(search_path) do %>
-                                <%= text_field_tag('query','', :size => 15)%>
-                                <%= submit_tag('Search') %>
-            <% end %></ul></li>
-                        <li class= "dropdownmenu"><%= link_to 'Teams', franchises_path %>
-                        <ul id="cssdropdown">
+    
+                                <div id="cssdropdown" style="margin-left:1125px;">
+                                  
                                 <%= form_tag(search_path) do %>
                                 <%= text_field_tag('query','',:size => 15,:class => 'field_style') %>
                                 <%= submit_tag('Search') %>
-                        <% end %></ul> </li>
+                                <% end %>
+                             
+                                </div>
+  <div id="nav">
+      	<ul >
+          	
+		
+			<li><%= link_to 'Home', '/home/index' %></li>
+			<li class= "dropdownmenu"><%= link_to 'Players', players_path%>
+                             <ul id="cssdropdown">
+				<%= link_to 'Compare Players', '/home/compare' %>
+                             </ul>
+                        </li>
+                        <li class= "dropdownmenu"><%= link_to 'Teams', franchises_path %>
+                        <ul id="cssdropdown">
+                                <%= link_to 'Compare Teams', '/home/franchise_compare' %>
+                        </ul> </li>
 			<li class="dropdownmenu"><%= link_to 'Leaders'%>
 				<ul id="cssdropdown">
 					<li><%= link_to 'Batting Leaderboards', '/home/batting_leaderboards' %></li>
@@ -86,6 +91,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 				<ul id="cssdropdown">
 					<li><%= link_to 'Batting Season Finders', '/seasonfinder/batting' %></li>
 					<li><%= link_to 'Pitching Season Finders', '/seasonfinder/pitching'%></li>
+                                        <li><%= link_to 'Fielding Season Finders', '/seasonfinder/fielding'%></li>
 					</ul>
 			</li>
 </ul>

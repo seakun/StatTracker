@@ -1,7 +1,7 @@
 <% title @team.name%>
 <p>
   <strong>Franchise:</strong>
-  <%= Franchise.find(@team.franchise_id).name %>
+  <%=link_to h(@franchise.name), franchise_path(@franchise) %>
 </p>
 <p>
   <strong>League:</strong>
@@ -36,10 +36,10 @@
 <%if !@team.home_games.nil?%><p><strong>Home Games: </strong><%= @team.home_games %></p><% end %>
 <p><strong>Wins-Losses: </strong><%= @team.wins %>-<%= @team.losses %></p>
 <p><strong>Percentage: </strong><%=@team.pct %></p>
-<p><%if @team.div_win%><%= image_tag("trophy.png")%>Division Win<% end %></p>
-<p><%if @team.wc_win%><%= image_tag("trophy.png")%>Wild Card Winner<% end %></p>
-<p><%if @team.lg_win%><%= image_tag("trophy.png")%>League Win<% end %></p>
-<p><%if @team.ws_win%><%= image_tag("trophy.png")%>World Series Win<% end %></p>
+<p><%if @team.div_win%><%= image_tag("trophy.png")%> Division Win<% end %></p>
+<p><%if @team.wc_win%><%= image_tag("trophy.png")%> Wild Card Winner<% end %></p>
+<p><%if @team.lg_win%><%= image_tag("trophy.png")%> League Win<% end %></p>
+<p><%if @team.ws_win%><%= image_tag("trophy.png")%> World Series Win<% end %></p>
 <strong>Team Batting Stats</strong>
 <div id='chart2'></div>
 <%= raw @chart2.render('chart2') %>

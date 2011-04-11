@@ -7,10 +7,11 @@ class FranchisesController < ApplicationController
     @franchise = Franchise.find(params[:id])
     @google_image = GoogleImage.all(@franchise.name+" logo wiki", 0).first
     @teams= Team.find(:all, :conditions => ['franchise_id = ?', params[:id]])
-    @teams.reverse!
-    if @franchise.active?
-    @current_team=@teams.first
+    @first_team=@teams.first
+    if !@franchise.active
+    @last_team=@teams.last
     end
+    @teams.reverse!
     @chart = GoogleVisualr::Table.new
 		@chart.add_column('string' , 'Team')
     @chart.add_column('number' , 'Year')
