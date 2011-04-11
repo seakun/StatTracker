@@ -31,17 +31,8 @@ class BattingStat < ActiveRecord::Base
 			}
 			return sorted.take(50)
 		else 
-			comb = {}
-			players = Player.find(:all, :select => [:id])
-			players.each {|p|
-				comb.store(p.id, BattingStat.career_batting_average(p.id))
-				puts comb[p.id]
-			}
-			sorted = comb.sort{|a,b| b[1] <=> a[1]}
-			sorted.take(50).each { |a| 
-				a[0] = Player.find(a[0])
-			}
-			return sorted.take(50)
+			s = "str_career_" + stat
+			Player.find(:all, :conditions => ["plate_appearances > ?", 3000], :order => Player.send(s), :limit => 50)
 		end
 	end
 	
@@ -281,6 +272,7 @@ class BattingStat < ActiveRecord::Base
   def self.multiplier
     10000
   end
+  
   def self.str_batting_average
     "hits * #{multiplier} / at_bats DESC"
 	end

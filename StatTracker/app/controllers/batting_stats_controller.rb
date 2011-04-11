@@ -45,13 +45,13 @@ class BattingStatsController < ApplicationController
 		@table.add_column('string' , params[:stat].titleize)
 		@table.add_rows(50)
 		i = 0
-			@batting_stats.each { |k, v|
-				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				if !k.bats.nil?
-					@table.set_cell(i, 1, k.bats)
+			@batting_stats.each { |b|
+				@table.set_cell(i, 0, "<a href='/players/#{b.id}'>#{b.name}</a>")
+				if !b.bats.nil?
+					@table.set_cell(i, 1, b.bats)
 				else @table.set_cell(i, 1, 'N/A')
 				end
-				@table.set_cell(i, 2, "#{v}")
+				@table.set_cell(i, 2, "#{b.send("career_" + params[:stat])}")
 				i += 1
 			}
 

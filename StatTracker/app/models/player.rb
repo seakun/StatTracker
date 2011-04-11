@@ -49,4 +49,117 @@ class Player < ActiveRecord::Base
          :conditions=>["last_name LIKE ? or last_name LIKE ? or last_name LIKE ? last_name like ?",
          'A%', 'B%', 'C%', 'D%']
   end
+  
+	def self.multiplier
+		10000
+	end
+  
+	def self.str_career_batting_average
+		"hits * #{multiplier} / at_bats DESC"
+	end
+	
+	def self.str_career_on_base_percentage
+    "(hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_flies) DESC"
+	end
+
+  def self.str_career_slugging_percentage
+    "total_bases * #{multiplier} / at_bats DESC"
+  end
+
+  def self.str_career_on_base_plus_slugging
+    "((hits + walks + hit_by_pitch) * #{multiplier} / (at_bats + walks + hit_by_pitch + sacrifice_flies)) + (total_bases * #{multiplier} / at_bats) DESC"
+  end
+
+  def self.str_career_stolen_base_percentage
+    "stolen_bases * #{multiplier} / (stolen_bases + caught_stealing) DESC"
+  end
+
+  def self.str_career_at_bats_per_strikeout
+    "at_bats * #{multiplier} / strikeouts DESC"
+  end
+
+  def self.str_career_at_bats_per_home_run
+    "(at_bats * #{multiplier} / home_runs) ASC"
+  end
+
+  def self.str_career_adjusted_ops
+    league_obp = BattingStat.where(year => self.year).average(on_base_percentage)
+    league_slg = BattingStat.where(year => self.year).average(slugging_percentage)
+    100 * ((obp / league_obp) + (slg / league_slg) - 1)
+  end
+
+  def self.str_career_isolated_power
+    "#{str_slugging_percentage} - #{str_batting_average} DESC"
+  end
+
+  def self.str_career_runs_created
+    "((hits + walks) * total_bases) * #{multiplier} / (at_bats + walks) DESC"
+  end
+
+  def self.str_career_extrapolated_runs
+    "(0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits)) DESC"
+  end
+
+  def self.str_career_secondary_average
+    "(total_bases - hits + walks + stolen_bases - caught_stealing) * #{multiplier} / at_bats DESC"
+  end
+
+  def self.str_career_base_runs
+    "((hits + walks - home_runs) * ((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02)) * 10000/(((1.4 * total_bases - 0.6 * hits - 3 * home_runs + 0.1 * walks) * 1.02) + (at_bats - hits)) + home_runs * 10000 DESC"
+  end
+	
+	def career_batting_average
+		sprintf("%.3f", (hits/at_bats.to_f))
+	end
+	
+	def career_on_base_percentage
+		sprintf("%.3f", obp)
+	end
+  
+	def career_slugging_percentage
+		sprintf("%.3f", slg)
+	end
+
+	def career_on_base_plus_slugging
+		sprintf("%.3f", ops)
+	end
+
+	def career_stolen_base_percentage
+		sprintf("%.3f", sbp)
+	end
+
+	def career_at_bats_per_strikeout
+		sprintf("%.2f", ab_per_k)
+	end
+
+	def career_at_bats_per_home_run
+		sprintf("%.2f", ab_per_hr)
+	end
+
+	def career_adjusted_ops
+		league_obp = BattingStat.where(year => self.year).average(on_base_percentage)
+		league_slg = BattingStat.where(year => self.year).average(slugging_percentage)
+		100 * ((obp / league_obp) + (slg / league_slg) - 1)
+	end
+
+	def career_isolated_power
+		sprintf("%.3f", slg - avg)
+	end
+
+	def career_runs_created
+		((hits + walks) * total_bases) / (at_bats + walks)
+	end
+
+	def extrapolated_runs
+		(0.50 * (hits - doubles - triples - home_runs)) + (0.72 * doubles) + (1.04 * triples) + (1.44 * home_runs) + (0.34 * (walks)) + (0.18 * stolen_bases) + (-0.32 * caught_stealing) + (-0.096 * (at_bats - hits))
+	end
+
+	def secondary_average
+		sprintf("%.3f", sec_avg)
+	end
+
+	def base_runs
+		sprintf("%.3f", baseruns)
+	end
+  
 end

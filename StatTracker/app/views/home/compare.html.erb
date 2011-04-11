@@ -1,7 +1,7 @@
 
 	<%= form_tag years_players_path, :remote => true, :id => 'years' do %>
 		<div id = "comp">			
-			Batting<%= radio_button_tag 'comp', 'batting' %>
+			Batting<%= radio_button_tag 'comp', 'batting', true %>
 			Pitching<%= radio_button_tag 'comp', 'pitching' %>
 		</div>
 		<br/>
@@ -18,7 +18,7 @@
 			</table>
 		</div>
 			<br/>
-			Season<%= radio_button_tag 'type', 'season' %>
+			Season<%= radio_button_tag 'type', 'season', true %>
 			<br/>
 			Career<%= radio_button_tag 'type', 'career' %>
 			<br/>
