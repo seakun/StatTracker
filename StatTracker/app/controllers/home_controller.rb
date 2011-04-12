@@ -7,8 +7,8 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 
   def search
     @query = params[:query]
-    @players = Player.search(@query)
-    @franchises = Franchise.search(@query)
+    @players = Player.player_search(@query)
+    @franchises = Franchise.team_search(@query)
     @total_hits = @players.size + @franchises.size
     if @total_hits == 1
       if @players.first != nil

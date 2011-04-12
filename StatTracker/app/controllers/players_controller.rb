@@ -408,7 +408,7 @@ class PlayersController < ApplicationController
 
   def player_search
     @query = params[:query]
-    @players = Player.search(@query)
+    @players = Player.player_search(@query)
     @total_hits = @players.size
     if @total_hits == 1
       if @players.first != nil
