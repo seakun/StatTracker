@@ -49,7 +49,7 @@
                       <% end %>
                   </td>
                   <td align ="center">
-                      <%=  "#{franchise.teams.first.year}" %>-<%=  "#{franchise.teams.last.year}" if franchise.active? %>
+                      <%=  "#{franchise.teams.first.year}" %>-<%=  "#{franchise.teams.last.year}" if !franchise.active? %>
                   </td>
               </tr>
             <% end %>
