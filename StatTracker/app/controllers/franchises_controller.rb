@@ -35,5 +35,16 @@ class FranchisesController < ApplicationController
   end
   end
 
+    def team_search
+    @query = params[:query]
+    @franchises = Franchise.search(@query)
+    @total_hits = @franchises.size
+    if @total_hits == 1
+      if @franchises.first != nil
+        redirect_to @franchises.first
+      end
+    end
+  end
+
 
 end

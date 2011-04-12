@@ -104,6 +104,8 @@ StatTracker::Application.routes.draw do
   match 'change_multi_table_team' => 'teams#change_multi_table'
   
   match 'search' => 'home#search', :as => :search
+
+  match 'team_search' => 'franchises#team_search', :as => :team_search
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

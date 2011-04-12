@@ -1,7 +1,7 @@
 <% title "Teams" %>
     <tr>
       <th><b> Search by Team Name </b></th>
-            <%= form_tag(search_path) do %>
+            <%= form_tag(team_search_path) do %>
                     <%= text_field_tag('query') %>
                     <%= submit_tag('Search') %>
             <% end %>

@@ -12,5 +12,10 @@ class Franchise < ActiveRecord::Base
   def auto_search
 	name
   end
+
+    def self.team_search(search)
+    search_condition = "%" + search.downcase + "%"
+    find(:all, :conditions => ['lower(name) LIKE ?', search_condition])
+  end
   
 end
