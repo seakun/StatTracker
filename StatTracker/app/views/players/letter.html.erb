@@ -1,19 +1,21 @@
-	<p><em><strong>Players by last name: '<%= [:letter] %>'</strong></em></p>
+	<p><em><strong>Players by last name: <%= @letter %> </strong></em></p>
 	<ul>
             <table class="datagrid">
               <thead class="datagrid">
                   <th width="250">Name</th>
                   <th width="250">Position</th>
+                  <th width="250">Team</th>
               </thead>
                 <% @players.each do |p| %>
-
               <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
                   <td align ="center"><%= link_to p.name, player_path(p) %></td>
-                  <td align ="center"><%= "#{p.fielding_stats.first.position}" %></td>
-                  franchise.teams.first.year
-
+                  <!--td align ="center"><!--%= "#{p.fielding_stats.first.position}" %></td-->
               </tr>
             <% end %>
             </table>
 	</ul>
 	<p class="smtext">&nbsp;</p>
+
+<span class="smtext">
+<%= will_paginate @players, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

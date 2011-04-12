@@ -395,7 +395,7 @@ class PlayersController < ApplicationController
 
   def letter
     letter = params[:letter].downcase + '%'
-    @players = Player.find(:all, :conditions => ["lower(last_name) like ?", letter])
+    @players = Player.find(:all, :conditions => ["lower(last_name) like ?", letter]).paginate :page => params[:page], :per_page => 20
   end
 
   def by_position
@@ -403,7 +403,7 @@ class PlayersController < ApplicationController
   end
 
   def position
-    @players = FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}
+    @players = FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}.paginate :page => params[:page], :per_page => 20
   end
 
 
