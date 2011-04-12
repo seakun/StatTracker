@@ -92,9 +92,9 @@ class FieldingStatsController < ApplicationController
 
     end
     if params[:postseason].nil?
-      @batting_stats = BattingStat.where(operations.join(" AND "))
+      @batting_stats = FieldingStat.where(operations.join(" AND "))
     else
-      @batting_stats = BattingPostStat.where(operations.join(" AND "))
+      @batting_stats = FieldingPostStat.where(operations.join(" AND "))
     end
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Name')
