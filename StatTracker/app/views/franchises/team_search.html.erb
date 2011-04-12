@@ -1,4 +1,8 @@
-<h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
+<h1> Search Result </h1>
+<% if @franchises.empty? %>
+<br />
+<h2>No teams found</h2>
+<% end %>
 <p class="supertiny">&nbsp;</p>
 
 <% unless @franchises.empty? %>
