@@ -1,7 +1,7 @@
 <% title "Players" %>
     <tr>
       <th> Search by Name </th>
-            <%= form_tag(search_path) do %>
+            <%= form_tag(player_search_path) do %>
                     <%= text_field_tag('query') %>
                     <%= submit_tag('Search') %>
             <% end %>
@@ -50,7 +50,8 @@
 
           <%= form_tag (players_by_position_path) do %>
                           <%= select_tag "position",
-                          raw("<option>1B</option>
+                          raw("<option>C</option>
+                          <option>1B</option>
                           <option>2B</option>
                           <option>3B</option>
                           <option>SS</option>

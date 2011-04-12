@@ -13,7 +13,7 @@ class Franchise < ActiveRecord::Base
 	name
   end
 
-    def self.team_search(search)
+  def self.team_search(search)
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ['lower(name) LIKE ?', search_condition])
   end

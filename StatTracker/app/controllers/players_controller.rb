@@ -406,5 +406,15 @@ class PlayersController < ApplicationController
     @players = FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}.paginate :page => params[:page], :per_page => 20
   end
 
+  def player_search
+    @query = params[:query]
+    @players = Player.search(@query)
+    @total_hits = @players.size
+    if @total_hits == 1
+      if @players.first != nil
+        redirect_to @players.first
+      end
+    end
+  end
 
 end

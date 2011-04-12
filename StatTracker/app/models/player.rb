@@ -29,7 +29,7 @@ class Player < ActiveRecord::Base
 	end
 
   # search for all the players in the system by either first or last name
-  def self.search(search)
+  def self.player_search(search)
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ["lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(first_name) || ' ' || lower(last_name) LIKE ?", search_condition, search_condition, search_condition])
   end
@@ -367,4 +367,5 @@ class Player < ActiveRecord::Base
 		d = career_home_runs_post
 		(a * b)/(b + c) + d
 	end
+
 end

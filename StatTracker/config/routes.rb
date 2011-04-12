@@ -106,7 +106,7 @@ StatTracker::Application.routes.draw do
   match 'search' => 'home#search', :as => :search
 
   match 'team_search' => 'franchises#team_search', :as => :team_search
-  
+  match 'player_search' => 'players#player_search', :as => :player_search
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
