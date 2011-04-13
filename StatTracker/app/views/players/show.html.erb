@@ -73,31 +73,31 @@
 <div id='chart'></div>
 <%= raw @chart.render('chart') %>
 <% end %>
+<br>
 <% if !@batting_stats_post.empty? %>
-<strong>Post Season Batting Stats</strong>
+<strong>Post Season Batting Stats</strong><%= image_tag("question.gif")%>
+<br>
+<br>
 <div id='chart2'></div>
 <%= raw @chart2.render('chart2') %>
 <% end %>
+<br>
+
 <% if !@pitching_stats.empty? %>
 <strong>Regular Season Pitching Stats</strong>
+<br>
+<br>
 <div id='chart3'></div>
 <%= raw @chart3.render('chart3') %>
 <% end %>
+<br>
 <% if !@pitching_stats_post.empty? %>
 <strong>Post Season Pitching Stats</strong>
+<br>
+<br>
 <div id='chart4'></div>
 <%= raw @chart4.render('chart4') %>
 <% end %>
-<div id="tooltip" class="tooltip">
-	
-</div>
 <script>
-  $("#chart").tooltip({
-		tip: '#tooltip',
-		position: 'top center',
-                offset:[-200,0],
-		delay: 0
-	});
-
-
+$("#chart").simpletip();
 </script>
