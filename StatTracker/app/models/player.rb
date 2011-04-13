@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-    attr_accessible :first_name, :last_name, :name, :nickname, :birth_year, :birth_month, :birth_day, :birth_country, :birth_state, :birth_city, :death_year, :death_month, :death_day, :death_country, :death_state, :death_city, :weight, :height, :bats, :throws, :debut, :final_game, :college, :hof, :career_plate_appearances, :career_at_bats, :career_hits, :career_home_runs, :career_total_bases, :career_stolen_bases, :career_caught_stealing, :career_walks, :career_strikeouts, :career_walks, :career_hit_by_pitch, :career_sacrifice_flies, :career_plate_appearances_post, :career_at_bats_post, :career_hits_post, :career_home_runs_post, :career_total_bases_post, :career_stolen_bases_post, :career_caught_stealing_post, :career_walks_post, :career_strikeouts_post, :career_hit_by_pitch_post, :career_sacrifice_flies_post, :career_wins, :career_losses, :career_innings_pitched_outs, :career_earned_runs, :career_runs_allowed, :career_hits_allowed, :career_batters_faced, :career_walks_allowed, :career_hit_by_pitches_allowed, :career_home_runs_allowed, :career_strikeouts_allowed, :career_wins_post, :career_losses_post, :career_innings_pitched_outs_post, :career_earned_runs_post, :career_runs_allowed_post, :career_hits_allowed_post, :career_batters_faced_post, :career_walks_allowed_post, :career_hit_by_pitches_allowed_post, :career_home_runs_allowed_post, :career_strikeouts_allowed_post, :career_put_outs, :career_assists, :career_inning_outs, :career_games_played, :career_put_outs_post, :career_assists_post, :career_inning_outs_post, :career_games_played_post
+    attr_accessible :first_name, :last_name, :name, :nickname, :birth_year, :birth_month, :birth_day, :birth_country, :birth_state, :birth_city, :death_year, :death_month, :death_day, :death_country, :death_state, :death_city, :weight, :height, :bats, :throws, :debut, :final_game, :college, :hof, :career_plate_appearances, :career_at_bats, :career_hits, :career_home_runs, :career_total_bases, :career_stolen_bases, :career_caught_stealing, :career_walks, :career_strikeouts, :career_walks, :career_hit_by_pitch, :career_sacrifice_flies, :career_plate_appearances_post, :career_at_bats_post, :career_hits_post, :career_home_runs_post, :career_total_bases_post, :career_stolen_bases_post, :career_caught_stealing_post, :career_walks_post, :career_strikeouts_post, :career_hit_by_pitch_post, :career_sacrifice_flies_post, :career_wins, :career_losses, :career_innings_pitched_outs, :career_earned_runs, :career_runs_allowed, :career_hits_allowed, :career_batters_faced, :career_walks_allowed, :career_hit_by_pitches_allowed, :career_home_runs_allowed, :career_strikeouts_allowed, :career_wins_post, :career_losses_post, :career_innings_pitched_outs_post, :career_earned_runs_post, :career_runs_allowed_post, :career_hits_allowed_post, :career_batters_faced_post, :career_walks_allowed_post, :career_hit_by_pitches_allowed_post, :career_home_runs_allowed_post, :career_strikeouts_allowed_post, :career_put_outs, :career_assists, :career_inning_outs, :career_games, :career_put_outs_post, :career_assists_post, :career_inning_outs_post, :career_games_post
 
     has_many :batting_stats
 	has_many :batting_post_stats
@@ -294,6 +294,252 @@ class Player < ActiveRecord::Base
 		sprintf("%.3f", baseruns_post)
 	end
   
+	#Pitching
+	
+	def career_win_loss_percentage
+		sprintf("%.4f", (career_wins / (career_wins + career_losses).to_f))
+	end
+
+	def career_innings_pitched
+		sprintf("%.1f", career_innings_pitched_outs / 3.to_f)
+	end
+
+	def career_era
+		sprintf("%.4f", (career_earned_runs * 9) / career_innings_pitched.to_f)
+	end
+
+	def career_opponents_batting_average
+		sprintf("%.4f", ((career_hits_allowed) / (career_batters_faced - career_walks_allowed - career_hit_by_pitch).to_f))
+	end
+
+	def career_walks_and_hits_innings_pitched
+		sprintf("%.4f", ((career_walks_allowed + career_hits_allowed) / career_innings_pitched.to_f))
+	end
+
+	def career_hits_per_9_innings
+		sprintf("%.4f", ((career_hits_allowed * 9) / (career_innings_pitched.to_f)))
+	end
+
+	def career_home_runs_per_9_innings
+		sprintf("%.4f", ((career_home_runs_allowed * 9) / career_innings_pitched.to_f))
+	end
+  
+	def career_walks_per_9_innings
+		sprintf("%.4f", ((career_walks_allowed * 9) / career_innings_pitched.to_f))
+	end
+
+	def career_strikeouts_per_9_innings
+		sprintf("%.4f", ((career_strikeouts_allowed * 9) / career_innings_pitched.to_f))
+	end
+
+	def career_strikeouts_per_walk
+		sprintf("%.4f", ((career_strikeouts_allowed / career_walks_allowed.to_f)))
+	end
+
+	def career_adjusted_era
+		league_era = PitchingStat.where(year => self.year).average(era)
+		100 * (league_era / era)
+	end
+	
+	def self.str_career_win_loss_percentage()
+		"((career_wins * #{multiplier}) / (career_wins + career_losses)) DESC"
+	end
+
+	def self.str_career_innings_pitched
+		"career_innings_pitched_outs * #{multiplier} / 3 DESC"
+	end
+
+	def self.str_career_era
+		"((career_earned_runs * 9) * #{multiplier}) / (career_innings_pitched_outs / 3) ASC"
+	end
+
+	def self.str_career_opponents_batting_average
+		"((career_hits_allowed * #{multiplier}) / (career_batters_faced - career_walks_allowed - career_hit_by_pitch)) ASC"
+	end
+
+	def self.str_career_walks_and_hits_innings_pitched
+		"(career_walks_allowed + career_hits_allowed) * #{multiplier} / (career_innings_pitched_outs / 3) ASC"
+	end
+
+	def self.str_career_hits_per_9_innings
+		"(career_hits_allowed * 9) * #{multiplier} / (career_innings_pitched_outs / 3) ASC"
+	end
+
+	def self.str_career_home_runs_per_9_innings
+		"(career_home_runs_allowed * 9) * #{multiplier} / (career_innings_pitched_outs / 3) ASC"
+	end
+
+	def self.str_career_walks_per_9_innings
+		"(career_walks_allowed * 9) * #{multiplier} / (career_innings_pitched_outs / 3) ASC"
+	end
+
+	def self.str_career_strikeouts_per_9_innings
+		"(career_strikeouts_allowed * 9) * #{multiplier} / (career_innings_pitched_outs / 3) DESC"
+	end
+
+	def self.str_career_strikeouts_per_walk
+		"(career_strikeouts_allowed * #{multiplier} / career_walks_allowed) DESC"
+	end
+
+	def self.str_career_adjusted_era
+		league_era = PitchingStat.where(year => self.year).average(era)
+		"100 * #{multiplier} * (#{league_era} / career_era) DESC"
+	end
+	
+	#Pitching Post
+	
+	def career_post_win_loss_percentage
+		sprintf("%.4f", (career_wins_post / (career_wins_post + career_losses_post).to_f))
+	end
+
+	def career_post_innings_pitched
+		sprintf("%.1f", career_innings_pitched_outs_post / 3.to_f)
+	end
+
+	def career_post_era
+		puts (career_earned_runs_post * 9) 
+		puts career_post_innings_pitched.to_f
+		sprintf("%.4f", (career_earned_runs_post * 9) / career_post_innings_pitched.to_f)
+	end
+
+	def career_post_opponents_batting_average
+		sprintf("%.4f", ((career_hits_allowed_post) / (career_batters_faced_post - career_walks_allowed_post - career_hit_by_pitch_post).to_f))
+	end
+
+	def career_post_walks_and_hits_innings_pitched
+		sprintf("%.4f", ((career_walks_allowed_post + career_hits_allowed_post) / career_post_innings_pitched.to_f))
+	end
+
+	def career_post_hits_per_9_innings
+		sprintf("%.4f", ((career_hits_allowed_post * 9) / (career_post_innings_pitched.to_f)))
+	end
+
+	def career_post_home_runs_per_9_innings
+		sprintf("%.4f", ((career_home_runs_allowed_post * 9) / career_post_innings_pitched.to_f))
+	end
+  
+	def career_post_walks_per_9_innings
+		sprintf("%.4f", ((career_walks_allowed_post * 9) / career_post_innings_pitched.to_f))
+	end
+
+	def career_post_strikeouts_per_9_innings
+		sprintf("%.4f", ((career_strikeouts_allowed_post * 9) / career_post_innings_pitched.to_f))
+	end
+
+	def career_post_strikeouts_per_walk
+		sprintf("%.4f", ((career_strikeouts_allowed_post / career_walks_allowed_post.to_f)))
+	end
+
+	def career_post_adjusted_era
+		league_era = PitchingStat.where(year => self.year).average(era)
+		100 * (league_era / era)
+	end
+	
+	def self.str_career_post_win_loss_percentage()
+		"((career_wins_post * #{multiplier}) / (career_wins_post + career_losses_post)) DESC"
+	end
+
+	def self.str_career_post_innings_pitched
+		"career_innings_pitched_outs_post * #{multiplier} / 3 DESC"
+	end
+
+	def self.str_career_post_era
+		"(((career_earned_runs_post * 9) * #{multiplier}) / (career_innings_pitched_outs_post / 3)) ASC"
+	end
+
+	def self.str_career_post_opponents_batting_average
+		"((career_hits_allowed_post * #{multiplier}) / (career_batters_faced_post - career_walks_allowed_post - career_hit_by_pitch_post)) ASC"
+	end
+
+	def self.str_career_post_walks_and_hits_innings_pitched
+		"(career_walks_allowed_post + career_hits_allowed_post) * #{multiplier} / (career_innings_pitched_outs_post / 3) ASC"
+	end
+
+	def self.str_career_post_hits_per_9_innings
+		"(career_hits_allowed_post * 9) * #{multiplier} / (career_innings_pitched_outs_post / 3) ASC"
+	end
+
+	def self.str_career_post_home_runs_per_9_innings
+		"(career_home_runs_allowed_post * 9) * #{multiplier} / (career_innings_pitched_outs_post / 3) ASC"
+	end
+
+	def self.str_career_post_walks_per_9_innings
+		"(career_walks_allowed_post * 9) * #{multiplier} / (career_innings_pitched_outs_post / 3) ASC"
+	end
+
+	def self.str_career_post_strikeouts_per_9_innings
+		"(career_strikeouts_allowed_post * 9) * #{multiplier} / (career_innings_pitched_outs_post / 3) DESC"
+	end
+
+	def self.str_career_post_strikeouts_per_walk
+		"(career_strikeouts_allowed_post * #{multiplier} / career_walks_allowed_post) DESC"
+	end
+
+	def self.str_career_post_adjusted_era
+		league_era = PitchingStat.where(year => self.year).average(era)
+		"100 * #{multiplier} * (#{league_era} / career_post_era) DESC"
+	end
+	
+	#Fielding
+	
+	def career_innings
+		career_inning_outs / 3
+	end
+
+	def career_fielding_percentage
+		sprintf("%.3f", ((career_put_outs + career_assists) / career_chances) )
+	end
+
+	def career_range_factor_innings
+		sprintf("%.3f", rfi)
+	end
+
+	def career_range_factor_game
+		sprintf("%.3f", rfg)
+	end
+	
+	def self.str_career_fielding_percentage
+		"(career_put_outs + career_assists) * #{multiplier} / career_chances "
+	end
+	
+	def self.str_career_range_factor_innings
+		"(9* (career_put_outs + career_assists)) * #{multiplier} / (career_inning_outs / 3) "
+	end
+	
+	def self.str_career_range_factor_game
+		"(career_put_outs + career_assists) * #{multiplier} / career_games "
+	end
+	
+	#Fielding_Post
+	
+	def career_post_innings
+		career_inning_outs_post / 3
+	end
+
+	def career_post_fielding_percentage
+		sprintf("%.3f", ((career_put_outs_post + career_assists_post) / career_chances_post) )
+	end
+
+	def career_post_range_factor_innings
+		sprintf("%.3f", rfi_post)
+	end
+
+	def career_range_factor_game
+		sprintf("%.3f", rfg_post)
+	end
+	
+	def self.str_career_post_fielding_percentage
+		"(career_put_outs_post + career_assists_post) * #{multiplier} / career_chances_post"
+	end
+	
+	def self.str_career_post_range_factor_innings
+		"(9* (career_put_outs_post + career_assists_post)) * #{multiplier} / (career_inning_outs_post / 3) "
+	end
+	
+	def self.str_career_post_range_factor_game
+		"(career_put_outs_post + career_assists_post) * #{multiplier} / career_games_post "
+	end
+	
 	private
 
 	def avg
@@ -366,6 +612,22 @@ class Player < ActiveRecord::Base
 		c = career_at_bats_post - career_hits_post
 		d = career_home_runs_post
 		(a * b)/(b + c) + d
+	end
+	
+	def rfi
+		(9 * (career_put_outs + career_assists) / career_innings.to_f)
+	end
+	
+	def rfg
+		(career_put_outs + career_assists) / career_games.to_f
+	end
+	
+	def rfi_post
+		(9 * (career_put_outs_post + career_assists_post) / career_post_innings_post.to_f)
+	end
+	
+	def rfg_post
+		(career_put_outs_post + career_assists_post) / career_games_post.to_f
 	end
 
 end
