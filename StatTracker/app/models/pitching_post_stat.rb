@@ -4,7 +4,16 @@ class PitchingPostStat < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :team
 	
-	def self.single_season_sort(stat)
+	def self.get_stat_total(player, stat)
+		stats = PitchingPostStat.find(:all, :select => [stat], :conditions => ['player_id = ?', player])
+		count = 0
+		stats.each { |s|
+		count += s.send(stat)
+		}
+		count.to_s
+	end
+
+  def self.single_season_sort(stat)
 		s = accessible_attributes.include?(stat)? stat.to_s + " DESC": send("str_" + stat)
 		min_ip = accessible_attributes.include?(stat)? 0 : 45
 		PitchingPostStat.find(:all, :conditions => ["innings_pitched_outs > ?", min_ip], :order => s, :limit => 50)
