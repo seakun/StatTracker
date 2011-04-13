@@ -13,10 +13,14 @@ class PitchingPostStatsController < ApplicationController
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Throws')
 		@table.add_column('string' , 'Team')
-		@table.add_column('number' , 'Year')
-		@table.add_column('number' , params[:stat].titleize)
+		@table.add_column('string' , 'Year')
+		if params[:stat] == 'era'
+			@table.add_column('string' , params[:stat].upcase)
+		else @table.add_column('string' , params[:stat].titleize)
+		end
 		@table.add_rows(50)
 		@pitching_post_stats.each { |b|
+			
 			i = @pitching_post_stats.index(b)
 			@table.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
 			if !b.player.throws.nil?
@@ -39,16 +43,34 @@ class PitchingPostStatsController < ApplicationController
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Throws')
-		@table.add_column('string' , params[:stat].titleize)
+		if params[:stat] == 'era'
+			@table.add_column('string' , params[:stat].upcase)
+		else @table.add_column('string' , params[:stat].titleize)
+		end
 		@table.add_rows(50)
 		i = 0
-			@pitching_post_stats.each { |k, v|
-				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				@table.set_cell(i, 1, k.throws)
-				@table.set_cell(i, 2, "#{v}")
-				i += 1
-			}
-
+			if PitchingPostStat.accessible_attributes.include?(params[:stat])
+				@pitching_post_stats.each { |k, v|
+					@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
+					if !k.throws.nil?
+						@table.set_cell(i, 1, k.throws)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{v}")
+					i += 1
+				}
+			else 
+				@pitching_post_stats.each { |b|
+					@table.set_cell(i, 0, "<a href='/players/#{b.id}'>#{b.name}</a>")
+					if !b.bats.nil?
+						@table.set_cell(i, 1, b.bats)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{b.send("career_post_" + params[:stat])}")
+					i += 1
+				}
+			end
+			
 		options = { :width => 600, :showRowNumber => true, :allowHtml=>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
@@ -60,16 +82,33 @@ class PitchingPostStatsController < ApplicationController
 		@table = GoogleVisualr::Table.new
 		@table.add_column('string' , 'Name')
 		@table.add_column('string' , 'Throws')
-		@table.add_column('string' , params[:stat].titleize)
+		if params[:stat] == 'era'
+			@table.add_column('string' , params[:stat].upcase)
+		else @table.add_column('string' , params[:stat].titleize)
+		end
 		@table.add_rows(50)
 		i = 0
-			@pitching_post_stats.each { |k, v|
-				@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
-				@table.set_cell(i, 1, k.throws)
-				@table.set_cell(i, 2, "#{v}")
-				i += 1
-			}
-
+			if PitchingPostStat.accessible_attributes.include?(params[:stat])
+				@pitching_post_stats.each { |k, v|
+					@table.set_cell(i, 0, "<a href='/players/#{k.id}'>#{k.name}</a>")
+					if !k.throws.nil?
+						@table.set_cell(i, 1, k.throws)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{v}")
+					i += 1
+				}
+			else 
+				@pitching_post_stats.each { |b|
+					@table.set_cell(i, 0, "<a href='/players/#{b.id}'>#{b.name}</a>")
+					if !b.bats.nil?
+						@table.set_cell(i, 1, b.bats)
+					else @table.set_cell(i, 1, 'N/A')
+					end
+					@table.set_cell(i, 2, "#{b.send("career_post_" + params[:stat])}")
+					i += 1
+				}
+			end	
 		options = { :width => 600, :showRowNumber => true, :allowHtml=>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value

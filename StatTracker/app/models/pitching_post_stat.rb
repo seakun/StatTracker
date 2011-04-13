@@ -5,51 +5,62 @@ class PitchingPostStat < ActiveRecord::Base
 	belongs_to :team
 	
 	def self.single_season_sort(stat)
-    s = accessible_attributes.include?(stat)? stat.to_s + " DESC": send("str_" + stat)
-    min_ip = accessible_attributes.include?(stat)? 0 : 300
+		s = accessible_attributes.include?(stat)? stat.to_s + " DESC": send("str_" + stat)
+		min_ip = accessible_attributes.include?(stat)? 0 : 45
 		PitchingPostStat.find(:all, :conditions => ["innings_pitched_outs > ?", min_ip], :order => s, :limit => 50)
 	end
 
 	def self.career_sort(stat)
-		stats = PitchingPostStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
-		comb = {}
-		stats.each { |s|
-			if comb.has_key?(s.player_id)
-					comb[s.player_id] += s.send(stat).to_i
-			else
-				if (s.send(stat) == 0 || s.send(stat).nil?)
-					comb.store(s.player_id, 0)
+		if accessible_attributes.include?(stat)
+			stats = PitchingPostStat.find(:all, :select => [:player_id, stat.to_sym], :joins => [:player])
+			comb = {}
+			stats.each { |s|
+				if comb.has_key?(s.player_id)
+						comb[s.player_id] += s.send(stat).to_i
 				else
-					comb.store(s.player_id, s.send(stat))
+					if (s.send(stat) == 0 || s.send(stat).nil?)
+						comb.store(s.player_id, 0)
+					else
+						comb.store(s.player_id, s.send(stat))
+					end
 				end
-			end
-		}
-		sorted = comb.sort{|a,b| b[1] <=> a[1]}
-		sorted.take(50).each { |a|
-		a[0] = Player.find(a[0])
-		}
-		return sorted.take(50)
+			}
+			sorted = comb.sort{|a,b| b[1] <=> a[1]}
+			sorted.take(50).each { |a|
+			a[0] = Player.find(a[0])
+			}
+			return sorted.take(50)
+		else 
+			s = "str_career_post_" + stat
+			Player.find(:all, :conditions => ["career_innings_pitched_outs_post > ?", 45], :order => Player.send(s), :limit => 50)
+		end
 	end
 
 	def self.active_sort(stat)
-		stats = PitchingPostStat.find(:all, :select => [:player_id, stat.to_sym], :conditions => ["final_game is NULL"], :joins => [:player])
-		comb = {}
-		stats.each { |s|
-			if comb.has_key?(s.player_id)
-					comb[s.player_id] += s.send(stat).to_i
-			else
-				if (s.send(stat) == 0 || s.send(stat).nil?)
-					comb.store(s.player_id, 0)
+		if accessible_attributes.include?(stat)
+			stats = PitchingPostStat.find(:all, :select => [:player_id, stat.to_sym], :conditions => ["final_game is NULL"], :joins => [:player])
+			puts stats
+			comb = {}
+			stats.each { |s|
+				if comb.has_key?(s.player_id)
+						comb[s.player_id] += s.send(stat).to_i
 				else
-					comb.store(s.player_id, s.send(stat))
+					if (s.send(stat) == 0 || s.send(stat).nil?)
+						comb.store(s.player_id, 0)
+					else
+						comb.store(s.player_id, s.send(stat))
+					end
 				end
-			end
-		}
-		sorted = comb.sort{|a,b| b[1] <=> a[1]}
-		sorted.take(50).each { |a|
-		a[0] = Player.find(a[0])
-		}
-		return sorted.take(50)
+			}
+			sorted = comb.sort{|a,b| b[1] <=> a[1]}
+			sorted.take(50).each { |a|
+			a[0] = Player.find(a[0])
+			}
+			return sorted.take(50)
+		else 
+			s = "str_career_post_" + stat
+			Player.find(:all, :conditions => ["career_innings_pitched_outs_post > ? AND final_game is NULL", 45], :order => Player.send(s), :limit => 50)
+		end
 	end
 
 	def year
@@ -76,23 +87,23 @@ class PitchingPostStat < ActiveRecord::Base
 		sprintf("%.4f", ((walks + hits) / innings_pitched.to_f))
 	end
 
-	def hits_innings
+	def hits_per_9_innings
 		sprintf("%.4f", ((hits * 9) / innings_pitched.to_f))
 	end
 
-	def home_runs_innings
+	def home_runs_per_9_innings
 		sprintf("%.4f", ((home_runs * 9) / innings_pitched.to_f))
 	end
 
-	def walks_innings
+	def walks_per_9_innings
 		sprintf("%.4f", ((walks * 9) / innings_pitched.to_f))
 	end
 
-	def strikeouts_innings
+	def strikeouts_per_9_innings
 		sprintf("%.4f", ((strikeouts * 9) / innings_pitched.to_f))
 	end
 
-	def strikeouts_walks
+	def strikeouts_per_walk
 		sprintf("%.4f", ((strikeouts / walks.to_f)))
 	end
 
@@ -127,23 +138,23 @@ class PitchingPostStat < ActiveRecord::Base
 		"(walks + hits) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_hits_innings
+	def self.str_hits_per_9_innings
 		"(hits * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_home_runs_innings
+	def self.str_home_runs_per_9_innings
 		"(home_runs * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_walks_innings
+	def self.str_walks_per_9_innings
 		"(walks * 9) * #{multiplier} / (innings_pitched_outs / 3) ASC"
 	end
 
-	def self.str_strikeouts_innings
+	def self.str_strikeouts_per_9_innings
 		"(strikeouts * 9) * #{multiplier} / (innings_pitched_outs / 3) DESC"
 	end
 
-	def self.str_strikeouts_walks
+	def self.str_strikeouts_per_walk
 		"(strikeouts * #{multiplier} / walks) DESC"
 	end
 
