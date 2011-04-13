@@ -81,6 +81,9 @@ class TeamsController < ApplicationController
       @chart2.send "#{key}=", value
       @chart3.send "#{key}=", value
 		end
+
+    @roster = @team.batting_stats.map{|s| s.player} + @team.pitching_stats.map{|s| s.player} + @team.fielding_stats.map{|s| s.player}
+    @roster.uniq!
   end
 
   def new

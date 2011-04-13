@@ -1,4 +1,4 @@
-<% title @team.name%>
+<% title @team.year.to_s + " " + @team.name%>
 <p>
   <strong>Franchise:</strong>
   <%=link_to h(@franchise.name), franchise_path(@franchise) %>
@@ -13,10 +13,6 @@
   <%= Division.find(@team.division_id).name %>
 </p>
 <% end %>
-<p>
-  <strong>Year:</strong>
-  <%= @team.year %>
-</p>
 <p>
   <strong>Baseball Era:</strong>
   <%= @team.baseball_era %>
