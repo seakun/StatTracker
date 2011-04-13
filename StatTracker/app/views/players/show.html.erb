@@ -30,7 +30,7 @@
 </ul>
 <ul>
   <strong>Weight:</strong>
-  <%= @player.weight.to_s+" lbs" %>
+  <%= @player.weight.nil?? "N/A" : @player.weight.to_s+" lbs" %>
 </ul>
 <ul>
   <strong>Bats:</strong>

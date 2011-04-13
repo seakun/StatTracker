@@ -15,6 +15,7 @@ class Player < ActiveRecord::Base
 	end
 	
 	def heightFeet
+    return "N/A" if height.nil?
 		(height/12).to_s+"\' "+(height%12).to_s+"\""
 	end
 
