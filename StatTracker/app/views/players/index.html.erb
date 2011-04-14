@@ -2,7 +2,7 @@
     <tr>
       <th> Search by Name </th>
             <%= form_tag(player_search_path) do %>
-                    <%= text_field_tag('query') %>
+                    <%= text_field_tag('query','',:size => 15,:placeholder => 'Enter a player..', :class => 'field_style') %>
                     <%= submit_tag('Search') %>
             <% end %>
     </tr>
@@ -58,7 +58,7 @@
                           <option>LF</option>
                           <option>CF</option>
                           <option>RF</option>
-                          <option>OH</option>
+                          <option>OF</option>
                           <option>DH</option>")
 		%>
           <%= submit_tag 'Submit' %>

@@ -61,10 +61,10 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
                                 <div id="cssdropdown" style="margin-left:1125px;">
                                   
                                 <%= form_tag(search_path) do %>
-                                <%= text_field_tag('query','',:size => 15,:class => 'field_style') %>
+                                <%= text_field_tag('query','',:size => 20,:placeholder => 'Enter a player or team..', :class => 'field_style') %>
                                 <%= submit_tag('Search') %>
                                 <% end %>
-                             
+
                                 </div>
   <div id="nav">
       	<ul >
