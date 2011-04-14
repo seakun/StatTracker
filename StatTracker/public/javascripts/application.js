@@ -19,8 +19,8 @@ jQuery(function($) {
 
 jQuery(function($) {
 
-  $("#years")
-    .bind("ajax:success", function(event, data, status, xhr) {
-      $("#years_place").html(data);
-    });
-});
+	  $("#years")
+		.bind("ajax:success", function(event, data, status, xhr) {
+		  $("#years_place").html(data);
+		});
+	});

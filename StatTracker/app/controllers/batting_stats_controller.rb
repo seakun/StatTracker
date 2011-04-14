@@ -116,6 +116,68 @@ class BattingStatsController < ApplicationController
 	
 	def season_compare
 		@batters = BattingStat.season_compare(params[:comp])
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Bats')
+		@table.add_column('string' , 'Year')
+		@table.add_column('string' , 'Age')
+		@table.add_column('string' , 'Team')
+		@table.add_column('string' , 'League')
+		@table.add_column('string' , 'G')
+		@table.add_column('string' , 'PA')
+		@table.add_column('string' , 'AB')
+		@table.add_column('string' , 'R')
+		@table.add_column('string' , 'H')
+		@table.add_column('string' , '2B')
+		@table.add_column('string' , '3B')
+		@table.add_column('string' , 'HR')
+		@table.add_column('string' , 'RBI')
+		@table.add_column('string' , 'TB')
+		@table.add_column('string' , 'SB')
+		@table.add_column('string' , 'CS')
+		@table.add_column('string' , 'BB')
+		@table.add_column('string' , 'K')
+		@table.add_column('string' , 'AVG')
+		@table.add_column('string' , 'OBP')
+		@table.add_column('string' , 'SLG')
+		@table.add_column('string' , 'OPS')
+		@table.add_rows(@batters.size)
+		i = 0
+		@batters.each {|b|
+			@table.set_cell(i, 0, "<a href='/players/#{b[0].player_id}'>#{b[0].player.name}</a>")
+			if !b[0].player.bats.nil?
+				@table.set_cell(i, 1, b[0].player.bats.to_s)
+			else @table.set_cell(i, 1, 'N/A')
+			end
+			@table.set_cell(i, 2, b[0].team.year.to_s)
+			@table.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
+			@table.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
+			@table.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
+			@table.set_cell(i, 6, b[0].games.to_s)
+			@table.set_cell(i, 7, b[0].plate_appearances.to_s)
+			@table.set_cell(i, 8, b[0].at_bats.to_s)
+			@table.set_cell(i, 9, b[0].runs.to_s)
+			@table.set_cell(i, 10, b[0].hits.to_s)
+			@table.set_cell(i, 11, b[0].doubles.to_s)
+			@table.set_cell(i, 12, b[0].triples.to_s)
+			@table.set_cell(i, 13, b[0].home_runs.to_s)
+			@table.set_cell(i, 14, b[0].rbi.to_s)
+			@table.set_cell(i, 15, b[0].total_bases.to_s)
+			@table.set_cell(i, 16, b[0].stolen_bases.to_s)
+			@table.set_cell(i, 17, b[0].caught_stealing.to_s)
+			@table.set_cell(i, 18, b[0].walks.to_s)
+			@table.set_cell(i, 19, b[0].strikeouts.to_s)
+			@table.set_cell(i, 20, b[0].batting_average.to_s)
+			@table.set_cell(i, 21, b[0].on_base_percentage.to_s)
+			@table.set_cell(i, 22, b[0].slugging_percentage.to_s)
+			@table.set_cell(i, 23, b[0].on_base_plus_slugging.to_s)
+			i += 1
+		}
+		
+		options = { :width => '100%', :allowHtml=>true }
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
 	end
 	
 	def career_compare
