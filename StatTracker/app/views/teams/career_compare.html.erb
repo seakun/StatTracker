@@ -8,31 +8,31 @@
 	<br/>
 	
 	<%= form_tag change_career_table_team_path(:franchises => @franchises), :remote => true, :id => "change_table" do %>
-		<%= check_box_tag 'stat[]', 'wins', true %>W
-		<%= check_box_tag 'stat[]', 'losses', true %>L
-		<%= check_box_tag 'stat[]', 'plate_appearances', false %>PA
-		<%= check_box_tag 'stat[]', 'at_bats', false %>AB
-		<%= check_box_tag 'stat[]', 'runs', true %>R
-		<%= check_box_tag 'stat[]', 'hits',  false %>H
-		<%= check_box_tag 'stat[]', 'doubles', false %>2B
-		<%= check_box_tag 'stat[]', 'triples', false %>3B
-		<%= check_box_tag 'stat[]', 'home_runs', false %>HR
-		<%= check_box_tag 'stat[]', 'total_bases', false %>TB
-		<%= check_box_tag 'stat[]', 'extra_base_hits', false %>XBH
-		<%= check_box_tag 'stat[]', 'stolen_bases', false %>SB
-		<%= check_box_tag 'stat[]', 'caught_stealing', false %>CS
-		<%= check_box_tag 'stat[]', 'walks', false %>BB
-		<%= check_box_tag 'stat[]', 'strikeouts', false %>K
-		<%= check_box_tag 'stat[]', 'runs_allowed', true %>RA
-		<%= check_box_tag 'stat[]', 'earned_runs', false %>ER
-		<%= check_box_tag 'stat[]', 'complete_games', false %>CG
-		<%= check_box_tag 'stat[]', 'shutouts', false %>SO
-		<%= check_box_tag 'stat[]', 'saves', false %>SV
-		<%= check_box_tag 'stat[]', 'hits_allowed', false %>HA
-		<%= check_box_tag 'stat[]', 'home_runs_allowed', false %>HRA
-		<%= check_box_tag 'stat[]', 'walks_allowed', false %>BBA
-		<%= check_box_tag 'stat[]', 'strikeouts_allowed', false %>KA
-		<%= check_box_tag 'stat[]', 'errors_made', true %>E
+		<span title="Wins"><%= check_box_tag 'stat[]', 'wins', true %>W</span>
+		<span title="Losses"><%= check_box_tag 'stat[]', 'losses', true %>L</span>
+		<span title="Plate Appearances"><%= check_box_tag 'stat[]', 'plate_appearances', false %>PA</span>
+		<span title="At Bats"><%= check_box_tag 'stat[]', 'at_bats', false %>AB</span>
+		<span title="Runs"><%= check_box_tag 'stat[]', 'runs', true %>R</span>
+		<span title="Hits"><%= check_box_tag 'stat[]', 'hits',  false %>H</span>
+		<span title="Doubles"><%= check_box_tag 'stat[]', 'doubles', false %>2B</span>
+		<span title="Triples"><%= check_box_tag 'stat[]', 'triples', false %>3B</span>
+		<span title="Home Runs"><%= check_box_tag 'stat[]', 'home_runs', false %>HR</span>
+		<span title="Total Bases"><%= check_box_tag 'stat[]', 'total_bases', false %>TB</span>
+		<span title="Extra Base Hits"><%= check_box_tag 'stat[]', 'extra_base_hits', false %>XBH</span>
+		<span title="Stolen Bases"><%= check_box_tag 'stat[]', 'stolen_bases', false %>SB</span>
+		<span title="Caught Stealing"><%= check_box_tag 'stat[]', 'caught_stealing', false %>CS</span>
+		<span title="Walks"><%= check_box_tag 'stat[]', 'walks', false %>BB</span>
+		<span title="Strikeouts"><%= check_box_tag 'stat[]', 'strikeouts', false %>K</span>
+		<span title="Runs Allowed"><%= check_box_tag 'stat[]', 'runs_allowed', true %>RA</span>
+		<span title="Earned Runs"><%= check_box_tag 'stat[]', 'earned_runs', false %>ER</span>
+		<span title="Complete Games"><%= check_box_tag 'stat[]', 'complete_games', false %>CG</span>
+		<span title="Shutouts"><%= check_box_tag 'stat[]', 'shutouts', false %>SO</span>
+		<span title="Saves"><%= check_box_tag 'stat[]', 'saves', false %>SV</span>
+		<span title="Hits Allowed"><%= check_box_tag 'stat[]', 'hits_allowed', false %>HA</span>
+		<span title="Home Runs Allowed"><%= check_box_tag 'stat[]', 'home_runs_allowed', false %>HRA</span>
+		<span title="Walks Allowed"><%= check_box_tag 'stat[]', 'walks_allowed', false %>BBA</span>
+		<span title="Strikeouts Allowed"><%= check_box_tag 'stat[]', 'strikeouts_allowed', false %>KA</span>
+		<span title="Errors Made"><%= check_box_tag 'stat[]', 'errors_made', true %>E</span>
 		<%= submit_tag 'Update' %>
 	<% end %>
 	

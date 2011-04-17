@@ -8,27 +8,27 @@
 	<br/>
 	
 	<%= form_tag change_multi_table_pitching_path(:players => @players, :pitchers => @pitchers.keys), :remote => true, :id => "change_table"  do %>
-		<%= check_box_tag 'stat[]', 'wins', true %>W
-		<%= check_box_tag 'stat[]', 'losses', true %>L
-		<%= check_box_tag 'stat[]', 'games', false %>G
-		<%= check_box_tag 'stat[]', 'games_started', false %>GS
-		<%= check_box_tag 'stat[]', 'complete_games', false %>CG
-		<%= check_box_tag 'stat[]', 'shutouts', false %>SO
-		<%= check_box_tag 'stat[]', 'saves', true %>SV
-		<%= check_box_tag 'stat[]', 'hits', false %>H
-		<%= check_box_tag 'stat[]', 'runs', false %>R
-		<%= check_box_tag 'stat[]', 'earned_runs', true %>ER
-		<%= check_box_tag 'stat[]', 'home_runs', false %>HR
-		<%= check_box_tag 'stat[]', 'walks', false %>BB
-		<%= check_box_tag 'stat[]', 'strikeouts', true %>K
-		<%= check_box_tag 'stat[]', 'intentional_walks', false %>IBB
-		<%= check_box_tag 'stat[]', 'wild_pitches', false %>WP
-		<%= check_box_tag 'stat[]', 'hit_by_pitch', false %>HBP
-		<%= check_box_tag 'stat[]', 'balks', false %>BK
-		<%= check_box_tag 'stat[]', 'batters_faced', false %>BF
-		<%= check_box_tag 'stat[]', 'sacrifice_hits', false %>SAC
-		<%= check_box_tag 'stat[]', 'sacrifice_flies', false %>SF
-		<%= check_box_tag 'stat[]', 'games_finished', false %>GF
+		<span title="Wins"><%= check_box_tag 'stat[]', 'wins', true %>W</span>
+		<span title="Losses"><%= check_box_tag 'stat[]', 'losses', true %>L</span>
+		<span title="Games"><%= check_box_tag 'stat[]', 'games', false %>G</span>
+		<span title="Games Started"><%= check_box_tag 'stat[]', 'games_started', false %>GS</span>
+		<span title="Complete Games"><%= check_box_tag 'stat[]', 'complete_games', false %>CG</span>
+		<span title="Shutouts"><%= check_box_tag 'stat[]', 'shutouts', false %>SO</span>
+		<span title="Saves"><%= check_box_tag 'stat[]', 'saves', true %>SV</span>
+		<span title="Hits"><%= check_box_tag 'stat[]', 'hits', false %>H</span>
+		<span title="Runs"><%= check_box_tag 'stat[]', 'runs', false %>R</span>
+		<span title="Earned Runs"><%= check_box_tag 'stat[]', 'earned_runs', true %>ER</span>
+		<span title="Home Runs"><%= check_box_tag 'stat[]', 'home_runs', false %>HR</span>
+		<span title="Walks"><%= check_box_tag 'stat[]', 'walks', false %>BB</span>
+		<span title="Strikeouts"><%= check_box_tag 'stat[]', 'strikeouts', true %>K</span>
+		<span title="Intentional Walks"><%= check_box_tag 'stat[]', 'intentional_walks', false %>IBB</span>
+		<span title="Wild Pitches"><%= check_box_tag 'stat[]', 'wild_pitches', false %>WP</span>
+		<span title="Hit by Pitch"><%= check_box_tag 'stat[]', 'hit_by_pitch', false %>HBP</span>
+		<span title="Balks"><%= check_box_tag 'stat[]', 'balks', false %>BK</span>
+		<span title="Batters Faced"><%= check_box_tag 'stat[]', 'batters_faced', false %>BF</span>
+		<span title="Sacrifice Hits"><%= check_box_tag 'stat[]', 'sacrifice_hits', false %>SAC</span>
+		<span title="Sacrifice Flies"><%= check_box_tag 'stat[]', 'sacrifice_flies', false %>SF</span>
+		<span title="Games Finished"><%= check_box_tag 'stat[]', 'games_finished', false %>GF</span>
 		<%= submit_tag 'Update' %>
 	<% end %>
 	

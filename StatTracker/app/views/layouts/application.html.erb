@@ -15,15 +15,42 @@
 	<%= javascript_include_tag 'effects.js'  %>
 	<%= javascript_include_tag 'autocomplete-rails.js' %>
 	<%= javascript_include_tag 'rails.js'  %>
+        <%= javascript_include_tag 'jquery.simpletip-1.3.1.js'  %>
+        <%= javascript_include_tag 'jquery.tabSlideOut.v1.3'  %>
+     <script type="text/javascript">
+    $(function(){
+        $('.slide-out-div').tabSlideOut({
+            tabHandle: '.handle',                     //class of the element that will become your tab
+            pathToTabImage: '../../images/glossary.gif', //path to the image for the tab //Optionally can be set using css
+            imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+            imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
+            tabLocation: 'right',                      //side of screen where tab lives, top, right, bottom, or left
+            speed: 300,                               //speed of animation
+            action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+            topPos: '100px',                          //position from the top/ use if tabLocation is left or right
+            leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
+            fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+        });
 
-	<script>
+    });
+
+    </script>
+     <style type="text/css">
+
+      .slide-out-div {
+          padding: 20px;
+          width: 500px;
+          background: #ccc;
+          border: 1px solid #29216d;
+      }
+      </style>
+    <script>
 	$(document).ready(function(){
 		$('li.dropdownmenu').hover(
 			function() { $('ul', this).css('display', 'block'); },
 			function() { $('ul', this).css('display', 'none'); });
 	});
 	</script>
-
 	<script type="text/javascript">
 var uservoiceOptions = {
   /* required */
@@ -107,5 +134,418 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>
+    <div class="slide-out-div">
+            <a class="handle" href="http://link-for-non-js-users.html">Content</a>
+            <h2 class="header">Statistics List</h2>
+        <table id="greentable">
+            <tr>
+                <td>Hitting</td>
+                <td>Pitching</td>
+                <td>Fielding</td>
+            </tr>
+            <tr>
+                <td valign="top">
+                <a href="#G">Games Played (G)</a><br />
+                <a href="#PA">Plate Appearances (PA)</a><br />
+                <a href="#AB">At Bats (AB)</a> <br />
+                <a href="#BB">Walks (BB)</a><br />
+                <a href="#K">Strikeouts (K)</a><br />
+                <a href="#H">Hits (H)</a><br />
+                <a href="#1B">Singles (1B)</a><br />
+                <a href="#2B">Doubles (2B)</a><br />
+                <a href="#3B">Triples (3B)</a><br />
+                <a href="#HR">Home Runs (HR)</a><br />
+                <a href="#R">Runs (R)</a><br />
+                <a href="#RBI">Runs Batted In (RBI)</a><br />
+                <a href="#HBP">Hit By Pitch (HBP)</a><br />
+                <a href="#ROE">Reached on Error (ROE)</a><br />
+                <a href="#FC">Fielder's Choice (FC)</a> <br />
+                <a href="#SB">Stolen Bases (SB)</a> <br />
+                <a href="#CS">Caught Stealing (CS)</a><br />
+                <a href="#LOB">Left On Base (LOB)</a><br />
+                <a href="#SAC">Sacrifice Hit (SAC)</a> <br />
+                <a href="#GIDP">Ground Into Double Play (GIDP)</a><br />
+                <a href="#OB">Times on Base (OB)</a> <br />
+                <a href="#TB">Total Bases (TB)</a> <br />
+                <a href="#XB">Extra Base Hits (XB)</a> <br />
+                <a href="#AVG">Batting Average (AVG)</a> <br />
+                <a href="#OBP">On-Base Percentage (OBP)</a> <br />
+                <a href="#SLG">Slugging Percentage (SLG)</a> <br />
+                <a href="#SBP">Stolen Base Percentage (SBP)</a> <br />
+                <a href="#OPS">On Base Percentage Plus Slugging (OPS)</a>
+
+                </td>
+
+              <td valign="top">
+                <a href="#P_App">Appearances (App)</a> <br />
+                <a href="#P_IP">Innings Pitched (IP)</a> <br />
+                <a href="#P_BF">Batters Faced (BF)</a><br />
+                <a href="#P_R">Runs Allowed (R)</a><br />
+                <a href="#P_ER">Earned Runs Allowed (ER)</a><br />
+                <a href="#P_K">Strikeouts (K)</a><br />
+                <a href="#P_BB">Walks (BB)</a><br />
+                <a href="#P_1B">Singles Allowed (1B)</a><br />
+                <a href="#P_2B">Doubles Allowed (2B)</a><br />
+                <a href="#P_3B">Triples Allowed (3B)</a><br />
+                <a href="#P_HR">Home Runs Allowed (HR)</a><br />
+                <a href="#P_FB">Fly Balls (FB)</a><br />
+                <a href="#P_GB">Ground Balls (GB)</a><br />
+                <a href="#P_GFRatio">Ground Ball/Fly Ball Ratio (G/F)</a><br />
+                <a href="#P_HBP">Batters Hit By Pitch (HBP)</a><br />
+                <a href="#P_Balls">Balls</a><br />
+                <a href="#P_Strikes">Strikes</a><br />
+                <a href="#P_WP">Wild Pitches (WP)</a><br />
+                <a href="#P_BK">Balks (BK)</a><br />
+                <a href="#P_W">Wins (W)</a><br />
+                <a href="#P_L">Losses (L)</a><br />
+                <a href="#P_S">Saves (S)</a><br />
+                <a href="#P_BS">Blown Saves (BS)</a><br />
+                <a href="#P_HLD">Hold (HLD)</a><br />
+                <a href="#P_CG">Complete Games (CG)</a><br />
+                <a href="#P_ERA">Earned Run Average (ERA)</a><br />
+                <a href="#P_WHIP">Walks and Hits Per Inning Pitched - WHIP</a><br />
+              </td>
+                <td valign="top">
+                <a href="#F_G">Games Played (G)</a><br />
+                <a href="#F_Inn">Innings Played (Inn)</a><br />
+                <a href="#F_TC">Total Chances (TC)</a><br />
+                <a href="#F_PO">Put Outs (PO)</a><br />
+                <a href="#F_A">Assists (A)</a><br />
+                <a href="#F_DP">Double Plays (DP)</a><br />
+                <a href="#F_E">Errors (E)</a><br />
+                <a href="#F_SB">Stolen Bases Allowed (SB)</a><br />
+                <a href="#F_CS">Runners Caught Stealing (CS)</a><br />
+                <a href="#F_PB">Passed Balls (PB)</a><br />
+                <a href="#F_FLDP">Fielding Percentage(FLDP)</a><br />
+                <a href="#F_Range">Range Factor (Range)</a><br />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <a name="G"><h3>Games Played - G</h3></a>
+        <p>The number of games a player has participated in. A player has played in a game when
+        they have met at least one of the following conditions: making a plate appearance, making
+        a pitching appearance or being placed in the lineup as a defensive fielder.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="PA"><h3>Plate Appearances - PA</h3></a>
+       <p>The number of times the player has appeared at the plate.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="AB"><h3>At Bats - AB</h3></a>
+       <p>The number of official at bats the player has had.  This is defined as the number of
+       plate appearances minus sacrifice hits, walks, and when the batter was hit by a pitch</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="BB"><h3>Walks - BB</h3></a>
+       <p>The number of walks, or base on balls. It is achieved by taking four balls during an at bat.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="K"><h3>Strikeouts - K</h3></a>
+       <p>The number of strikeouts the batter has, either by taking a third strike, swinging
+       and missing the third strike, or bunting foul for the third strike.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="H"><h3>Hits - H</h3></a>
+       <p>The number of times the batter hit the ball and safely reached base without error or fielder's choice.
+       This is defined as the total number of the singles, doubles, triples and home runs.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="1B"><h3>Singles - 1B</h3></a>
+       <p>The number of times the batter hit the ball and safely reached first base without
+       error or fielder's choice.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="2B"><h3>Doubles - 2B</h3></a>
+       <p>The number of times the batter hit the ball and safely reached second base without
+       error or fielder's choice.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="3B"><h3>Triples - 3B</h3></a>
+       <p>The number of times the batter hit the ball and safely reached third base without error
+       or fielder's choice.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="HR"><h3>Home Runs - HR</h3></a>
+       <p>The number of times the batter hit the ball and safely reached home plate to score a run.
+       This can be accomplished by hitting the ball out of the field of play in fair territory or
+       by reaching home plate without the aid of fielder's error.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="R"><h3>Runs - R</h3></a>
+       <p>The number of times a player scored a run by safely reaching home plate.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="RBI"><h3>Runs Batted In - RBI</h3></a>
+       <p>The number of runs that the player caused to be scored by hitting the ball or drawing a
+       base on balls.  The player does not need to reach base safely to be credited for an RBI.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="HBP"><h3>Hit By Pitch - HBP</h3></a>
+       <p>The number of times the batter safely reached first base by being hit by a pitch.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="ROE"><h3>Reached on Error - ROE</h3></a>
+       <p>The number of times the batter safely reached base by fielder's error.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="FC"><h3>Fielder's Choice - FC</h3></a>
+       <p>The number of times the batter safely reached base because a fielder chose to get another
+       baserunner out.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="SB"><h3>Stolen Bases - SB</h3></a>
+       <p>The number of times a player steals a base.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="CS"><h3>Caught Stealing - CS</h3></a>
+       <p>The number of times a player is tagged out while attempting to steal a base or is tagged
+       out while taking a lead from a base.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+	   <a name="LOB"><h3>Left On Base</h3></a>
+       <p>The number of times a player has been stranded on base when the half-inning ends.  The player
+	   must successfully reach base, not cause an out and not score a run when the inning ends.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="SAC"><h3>Sacrifice Hits - SAC</h3></a>
+       <p>The number of times a batter bunts and does not safely reach base, but allows a baserunner to advance.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="GIDP"><h3>Ground Into Double Play - GIDP</h3></a>
+       <p>The number of times a batter has grounded into a double play.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="OB"><h3>Times on Base - OB</h3></a>
+       <p>The number of times a batter safely reached base by a hit, walk or hit by pitch.  If the player reaches
+	   base by fielder error or a fielder's choice, it is not counted as a time on base.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="TB"><h3>Total Bases - TB</h3></a>
+       <p>The total number of bases a player obtains by a hit.  It is a weighted statistic - a batter
+       gets 1 for a single, 2 for a double, 3 for a triple and 4 for a home run.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="XB"><h3>Extra Base Hits - XB</h3></a>
+       <p>The total number of doubles, triples and home runs the player hits.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="AVG"><h3>Batting Average - AVG</h3></a>
+       <p>The average number of hits that the batter has.  This is defined as the number of hits
+       divided by the number of at bats.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="OBP"><h3>On Base Percentage - OBP</h3></a>
+       <p>The percentage of time that the batter reached base safely.  This is the number of times
+       on base (OB) divided by the number of at bats, walks, times hit by pitch.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="SLG"><h3>Slugging Percentage - SLG</h3></a>
+       <p>A weighted statistic to determine the amount of slugging power of a batter.  It is the
+       number of total base (TB) divided by the number of at bats (AB).</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="SBP"><h3>Stolen Base Percentage - SBP</h3></a>
+       <p>The percentage of attempts xthat a base runner successfully steals a base.  It is the number of
+       stolen bases (SB) divided by the total attempts to steal a base (SB+CS).</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+        <a name="OPS"><h3>On Base Percentage Plus Slugging - OPS</h3></a>
+        <p>The summation of the On Base Percentage (OBP) and Slugging Percentage (SLG).</p>
+        <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="P_App"><h3>Appearances - App</h3></a>
+       <p>The total number of games that pitcher has appeared in.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="P_IP"><h3>Innings Pitched - IP</h3></a>
+       <p>The total number of innings that a pitcher has successfully completed.  Fractional innings
+       are expressed as .1 for 1 out and .2 for 2 outs.  If a pitcher pitches in an inning, but does
+       not retire a batter, the pitcher is not given credit for any innings pitched.</p>
+       <img src="../../images/sep.png" class="sepimgstat" />
+
+       <a name="P_BF"><h3>Batters Faced - BF</h3></a>
+       <p>The total numbers of batters that a pitcher faced.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_R"><h3>Runs Allowed - R</h3></a>
+       <p>The total number of runs scored from batters that reached base while a pitcher was pitching.
+       If a pitcher leaves the game in the middle of an inning while opposing players are on base, the
+       pitcher is charged for each run that these baserunners score.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_ER"><h3>Earned Runs Allowed - ER</h3></a>
+       <p>The total number of runs scored from batters that reached base without error while a pitcher was pitching.
+       If a pitcher leaves the game in the middle of an inning while opposing players are on base, the
+       pitcher is charged for each run that these baserunners score.  If an error occurs to allow
+       the runner to reach base, advance base or extend the inning, the run is not counted as earned for
+       the pitcher.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_K"><h3>Strikeouts - K</h3></a>
+       <p>The number of batters that a pitcher strikes out by the batter taking or swinging and missing
+       at a third strike in an at bat.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_BB"><h3>Walks - BB</h3></a>
+       <p>The number of walks, or base on balls, that pitcher allows by pitching four balls in a plate
+       appearance.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_1B"><h3>Singles Allowed - 1B</h3></a>
+       <p>The number of times the opposing batter safely reaches first base by hitting the ball and
+       no error or fielder's choice occurs.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_2B"><h3>Doubles Allowed - 2B</h3></a>
+       <p>The number of times the opposing batter safely reaches second base by hitting the ball and
+       no error or fielder's choice occurs.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_3B"><h3>Triples Allowed - 3B</h3></a>
+       <p>The number of times the opposing batter safely reaches third base by hitting the ball and
+       no error or fielder's choice occurs.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_HR"><h3>Home Runs Allowed - HR</h3></a>
+       <p>The number of times an opposing batter safely reaches home plate by hitting the ball
+       without an error or fielder's choice.  This can happen if the opposing batter hits the ball
+       out of the field of play in fair territory or if the batter safely reaches home plate after
+       hitting the ball.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_FB"><h3>Fly Balls - FB</h3></a>
+       <p>The number of times a pitcher allows a batter to hit a fly ball.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_GB"><h3>Ground Balls - GB</h3></a>
+       <p>The number of times a pitcher allows a batter to hit a ground ball.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_GFRatio"><h3>Ground Ball/Fly Ball Ratio - G/F</h3></a>
+       <p>The ratio of ground balls allowed to the number of fly balls allowed.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_HBP"><h3>Batters Hit By Pitch - HBP</h3></a>
+       <p>The number of opposing batters that a pitcher allows to reach base by hitting the
+       batter with a pitch.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_Balls"><h3>Balls</h3></a>
+       <p>The number pitches thrown by a pitcher that are not in the strike zone and not swung
+       at by the opposing batter.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_Strikes"><h3>Strikes</h3></a>
+       <p>The number of pitches thrown by a pitcher that are in the strike zone and/or swung at
+       by the opposing batter.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_WP"><h3>Wild Pitches - WP</h3></a>
+       <p>The number of pitches thrown that cannot be fielded by a catcher and allows a baserunner to
+       advance.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_BK"><h3>Balks - BK</h3></a>
+       <p>The number of times a pitcher allows a baserunner to advance by performing an illegal move on the pitching mound.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+
+       <a name="P_W"><h3>Wins - W</h3></a>
+       <p>The number of wins that are credited to a pitcher.  A win is when the pitcher's team obtains
+       the lead while the player is the active pitcher and the team does not give up the lead to win the game.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_L"><h3>Losses - L</h3></a>
+       <p>The number of losses that are credited to a pitcher.  A loss is when the pitcher's team falls
+       behind in score while player is the active pitcher, does not tie or take the lead and loses the game.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_S"><h3>Saves - S</h3></a>
+       <p>The number of times a pitcher "saves" the game by pitching in relief and not surrendering the lead.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_BS"><h3>Blown Saves - BS</h3></a>
+       <p>The number of times a pitcher makes a relief appearances in a save situation, and gives up at least
+       one run and allows the opponent or tie the game or take the lead.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_HLD"><h3>Hold - HLD</h3></a>
+       <p>The number of times a relief pitcher enters the game in a save situation, gets at least one out, does
+       not surrender the lead, but did not finish pitching the game. The pitcher is credited for "holding" the lead.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_CG"><h3>Complete Games - CG</h3></a>
+       <p>The number of times a pitcher throws every pitch for their team in a completed game.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_ERA"><h3>Earned Run Average - ERA</h3></a>
+       <p>The average number of earned runs in a game that the pitcher allows.  It is the total number of earned runs allowed
+       multiplied by the normal number of innings in a game (9 in Major League Baseball) and divided by the number
+       of innings pitched.  Stat Manager allows you to pick the normal number of innings in a game
+       to get a true ERA for a specific league.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="P_WHIP"><h3>Walks and Hits Per Inning Pitched - WHIP</h3></a>
+       <p>The average number of walks and hits allowed per inning a pitcher has pitched. Calculated by taking the sum of
+       hits and walks allowed and dividing by the number of innings pitched.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_G"><h3>Games Played - G</h3></a>
+       <p>The number of games a player has participated in. A player has played in a game when they have met at least one
+       of the following conditions: making a plate appearance, making a pitching appearance or being placed in the lineup
+       as a defensive fielder.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_Inn"><h3>Innings Played - Inn</h3></a>
+       <p>The total number of innings that a player is in the field.  Fractional innings
+       are expressed as .1 for 1 out and .2 for 2 outs.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_TC"><h3>Total Chances - TC</h3></a>
+       <p>The total number of chances a player has to make a play.  This is the total number of
+       assists, put outs and errors.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_PO"><h3>Put Outs - PO</h3></a>
+       <p>The total number of times a fielder causes a baserunner to be out.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_A"><h3>Assists - A</h3></a>
+       <p>The total number of times a fielder assists another player in obtaining a put out.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_DP"><h3>Double Plays - DP</h3></a>
+       <p>The total number of double plays that a player is part of.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_E"><h3>Errors - E</h3></a>
+       <p>The number of fielding errors committed by a fielder.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_SB"><h3>Stolen Bases Allowed - SB</h3></a>
+       <p>The total number of base runners that steal a base for a catcher.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_CS"><h3>Runners Caught Stealing - CS</h3></a>
+       <p>The number of base runners that a catcher gets out while attempting to steal a base.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_PB"><h3>Passed Balls - PB</h3></a>
+       <p>The number of fieldable pitches that a catcher misses and allows a base runner to advance.</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_FLDP"><h3>Fielding Percentage - FLDP</h3></a>
+       <p>The percentage of plays that a fielder successfully makes a play.  This is the total chances
+       minus the error divided by total chances ((TC-E)/TC)</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+
+       <a name="F_Range"><h3>Range Factor - Range</h3></a>
+       <p>A calculated stat used to determine how far of a range that a fielder has. Calculated by taking
+        the sum of putouts and assists multiplied by the number of innings per game divided by the number of innings played. ((PO+A)*[Innings per game])/Inn</p>
+       <img src="../images/sep.png" class="sepimgstat" />
+        </div>
   </body>
 </html>
