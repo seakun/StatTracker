@@ -67,7 +67,7 @@
 <% end %>
 </div>
 <% if !@batting_stats.empty? %>
-<strong>Regular Season Batting Stats</strong>
+<strong>Regular Season Batting Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"<%= image_tag("question.gif")%></span>
 <br>
 <br>
 <div id='chart'></div>
@@ -75,7 +75,7 @@
 <% end %>
 <br>
 <% if !@batting_stats_post.empty? %>
-<strong>Post Season Batting Stats</strong><%= image_tag("question.gif")%>
+<strong>Post Season Batting Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"<%= image_tag("question.gif")%></span>
 <br>
 <br>
 <div id='chart2'></div>
@@ -84,7 +84,7 @@
 <br>
 
 <% if !@pitching_stats.empty? %>
-<strong>Regular Season Pitching Stats</strong>
+<strong>Regular Season Pitching Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"<%= image_tag("question.gif")%></span>
 <br>
 <br>
 <div id='chart3'></div>
@@ -92,7 +92,7 @@
 <% end %>
 <br>
 <% if !@pitching_stats_post.empty? %>
-<strong>Post Season Pitching Stats</strong>
+<strong>Post Season Pitching Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"<%= image_tag("question.gif")%></span>
 <br>
 <br>
 <div id='chart4'></div>
