@@ -390,7 +390,11 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '45%', :height => 300, :legend => 'bottom', :title => stat.titleize + " Each Year", :titleX => "Year in Player's Career", :titleY => "Number of " + stat.titleize}
+		if stat.titleize == 'Rbi'
+			str_stat = stat.titleize.upcase
+		else str_stat = stat.titleize
+		end
+		options = { :width => '45%', :height => 300, :legend => 'bottom', :title => str_stat + " Each Year", :titleX => "Year in Player's Career", :titleY => "Number of " + str_stat}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
@@ -416,7 +420,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year in Player's Career", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + str_stat + " Totals", :titleX => "Year in Player's Career", :titleY => "Number of " + str_stat}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end

@@ -8,6 +8,14 @@ class Player < ActiveRecord::Base
 	has_many :fielding_stats
 	has_many :fielding_post_stats
 	
+	 if Rails.env.development?
+		scope :year, lambda { |year| where("strftime('%Y', debut) == '#{year}'")}
+	elsif Rails.env.production?
+		scope :year, lambda { |year| where("debut_part('year', debut)::integer = #{year}") }
+	else
+		scope :year, lambda { |year| }
+	end
+	
 	def age(year)
 		birthday = DateTime.new(y=birth_year, m = birth_month, d = birth_day)
 		season_start = DateTime.new(y=year, m = 7, d = 1, h=0, m=0, s=0)
@@ -44,7 +52,7 @@ class Player < ActiveRecord::Base
 		end
 	end
   end
-
+  
   def filter
     @players = Player.paginate :page => params[:page], :order => 'last_name',
          :conditions=>["last_name LIKE ? or last_name LIKE ? or last_name LIKE ? last_name like ?",

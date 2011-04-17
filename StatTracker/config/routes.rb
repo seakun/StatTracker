@@ -1,13 +1,13 @@
 StatTracker::Application.routes.draw do
   
   
-  match 'home/index' => 'home#index', :as => 'home#index'
-  match 'home/compare' => 'home#compare', :as => 'home#compare'
-  match 'home/franchise_compare' => 'home#franchise_compare'
+  match 'index' => 'home#index', :as => 'home#index'
+  match 'compare' => 'home#compare', :as => 'home#compare'
+  match 'franchise_compare' => 'home#franchise_compare'
   match 'home/google' => 'search#google_images', :as => 'home#google'
-  match 'home/batting_leaderboards' => 'home#batting_leaderboard'
-  match 'home/pitching_leaderboards' => 'home#pitching_leaderboard'
-  match 'home/fielding_leaderboards' => 'home#fielding_leaderboard'
+  match 'batting_leaderboards' => 'home#batting_leaderboard'
+  match 'pitching_leaderboards' => 'home#pitching_leaderboard'
+  match 'fielding_leaderboards' => 'home#fielding_leaderboard'
   match 'batting_leaders' => 'home#batting_leaders'
   match 'pitching_leaders' => 'home#pitching_leaders'
   match 'fielding_leaders' => 'home#fielding_leaders'

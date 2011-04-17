@@ -97,21 +97,21 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
       	<ul >
           	
 		
-			<li><%= link_to 'Home', '/home/index' %></li>
+			<li><%= link_to 'Home', 'index' %></li>
 			<li class= "dropdownmenu"><%= link_to 'Players', players_path%>
                              <ul id="cssdropdown">
-				<%= link_to 'Compare Players', '/home/compare' %>
+				<%= link_to 'Compare Players', '/compare' %>
                              </ul>
                         </li>
                         <li class= "dropdownmenu"><%= link_to 'Teams', franchises_path %>
                         <ul id="cssdropdown">
-                                <%= link_to 'Compare Teams', '/home/franchise_compare' %>
+                                <%= link_to 'Compare Teams', '/franchise_compare' %>
                         </ul> </li>
-			<li class="dropdownmenu"><%= link_to 'Leaders'%>
+			<li class="dropdownmenu"><%= link_to 'Leaderboards'%>
 				<ul id="cssdropdown">
-					<li><%= link_to 'Batting', '/home/batting_leaderboards' %></li>
-					<li><%= link_to 'Pitching', '/home/pitching_leaderboards'%></li>
-					<li><%= link_to 'Fielding', '/home/fielding_leaderboards'%></li>
+					<li><%= link_to 'Batting', '/batting_leaderboards' %></li>
+					<li><%= link_to 'Pitching', '/pitching_leaderboards'%></li>
+					<li><%= link_to 'Fielding', '/fielding_leaderboards'%></li>
 				</ul>
 			</li> 
 			<li class="dropdownmenu"><%= link_to 'Season Finders'%>
