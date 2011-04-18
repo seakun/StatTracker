@@ -2,6 +2,10 @@ StatTracker::Application.routes.draw do
   
   
   match 'index' => 'home#index', :as => 'home#index'
+  match 'about' => 'home#about', :as => :about
+  match 'contact' => 'home#contact', :as => :contact
+  match 'privacy' => 'home#privacy', :as => :privacy
+  
   match 'compare' => 'home#compare', :as => 'home#compare'
   match 'franchise_compare' => 'home#franchise_compare'
   match 'home/google' => 'search#google_images', :as => 'home#google'
