@@ -13,14 +13,14 @@
 			</table>
 		</div>
 			<br/>
-			Season<%= radio_button_tag 'type', 'season', true %>
+			Season<%= radio_button_tag 'type', 'season' %>
 			<br/>
 			Franchise<%= radio_button_tag 'type', 'career' %>
 			<br/>
 			Multi-Year<%= radio_button_tag 'type', 'multi' %>
 			<br/>
 			<br/>
-			<%= submit_tag 'Compare' %>
+			<%#= submit_tag 'Compare' %>
 		</td>
 	<% end %>	
 
@@ -30,4 +30,8 @@
 		</td>
 	</tr>
 </table>
-		
+<script type="text/javascript">
+  $('input[name="type"]').change(function(){
+    $(this).parents('form:first').submit();
+  });
+</script>

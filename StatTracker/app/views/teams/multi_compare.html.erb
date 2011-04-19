@@ -67,7 +67,7 @@
 		<option>Strikeouts Allowed</option>
 		<option>Errors Made</option>")
 		%>
-		<%= submit_tag 'Update' %>
+		<%#= submit_tag 'Update' %>
 	<% end %>
 
 	<br/>
@@ -76,5 +76,11 @@
 	<div id = 'chart_place'>
 		<%= render :partial => 'chart'  %> 
 	</div>
+
+        <script type="text/javascript">
+          $('#chart_type').change(function(){
+            $(this).parents('form:first').submit();
+          });
+        </script>
 	
 	

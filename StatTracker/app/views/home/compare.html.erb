@@ -11,7 +11,7 @@
 		<td>
 		<div id = "players">
 			<table>
-				<div id = 'text1'><%= text_field_tag 'players[]', '', :size => 32, :id => "player1", :placeholder => 'Enter a player...', :autocomplete => home_autocomplete_player_name_path%></div>
+				<div id = 'text1'><%= text_field_tag 'players[]', '', :size => 32, :id => "player1", :placeholder => 'Enter a player..', :autocomplete => home_autocomplete_player_name_path%></div>
 				<div id = 'text2'><%= text_field_tag 'players[]', '', :size => 32, :id => "player2", :autocomplete => home_autocomplete_player_name_path%></div>
 				<div id = 'text3'><%= text_field_tag 'players[]', '', :size => 32, :id => "player3", :autocomplete => home_autocomplete_player_name_path%></div>
 				<div id = 'text4'><%= text_field_tag 'players[]', '', :size => 32, :id => "player4", :autocomplete => home_autocomplete_player_name_path%></div>
@@ -19,9 +19,9 @@
 			</table>
 		</div>
 			<br/>
-			Season<%= radio_button_tag 'type', 'season' %>
+                        Career<%= radio_button_tag 'type', 'career' %>
 			<br/>
-			Career<%= radio_button_tag 'type', 'career' %>
+			Season<%= radio_button_tag 'type', 'season' %>
 			<br/>
 			Multi-Year<%= radio_button_tag 'type', 'multi' %>
 			<br/>
@@ -32,8 +32,6 @@
 
 		<td class = 'years' >
 			<div id = 'years_place'>
-			</div>
-                        <div id = 'years_place2'>
 			</div>
 		</td>
 	</tr>
