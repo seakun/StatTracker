@@ -8,21 +8,16 @@
 <div class="player">
 </div>
 <div id="text">
-<%if @birthPlace.nil? %>
+<%if !@player.birthPlace.nil? %>
 <ul>
   <strong>Place of Birth:</strong>
   <%= @player.birthPlace %>
 </ul>
 <% end %>
-<% if @birth_day.nil?%>
+<% if !@player.birthday.nil?%>
 <ul>
   <strong>Birthday:</strong>
-  <%= @player.birth_month.to_s+"\/"+@player.birth_year.to_s %>
-</ul>
-<% else%>
-<ul>
-  <strong>Birthday:</strong>
-  <%= @player.birth_month.to_s+"\/"+@player.birth_day.to_s+"\/"+@player.birth_year.to_s %>
+  <%= @player.birthday %>
 </ul>
 <% end %>
 <% if !@player.death_year.nil? %>
@@ -43,7 +38,7 @@
   <%= @player.weight.to_s+" lbs" %>
 </ul>
 <% end %>
-<%if !@player.throws.nil?%>
+<%if !@player.bats.nil?%>
 <ul>
   <strong>Bats:</strong>
   <%= @player.bats %>

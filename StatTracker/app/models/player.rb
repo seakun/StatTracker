@@ -16,11 +16,27 @@ class Player < ActiveRecord::Base
 		scope :year, lambda { |year| }
 	end
 	
-	def age(year)
-		if birth_day.nil?
-		birthday = DateTime.new(y=birth_year, m = birth_month, d = 1)
+	def birthday
+		if birth_year.nil?
+			return nil
+		elsif birth_month.nil?
+		birth_year.to_s 
+		elsif birth_day.nil?
+		birth_month.to_s+"\/"+birth_year.to_s
 		else
-		birthday = DateTime.new(y=birth_year, m = birth_month, d = birth_day)
+		birth_month.to_s+"\/"+birth_day.to_s+"\/"+birth_year.to_s
+		end
+	end
+	
+	def age(year)
+		if birth_year.nil?
+			return "NA"
+		elsif birth_month.nil?
+			birthday = DateTime.new(y=birth_year, m = 1, d = 1)
+		elsif birth_day.nil?
+			birthday = DateTime.new(y=birth_year, m = birth_month, d = 1)
+		else
+			birthday = DateTime.new(y=birth_year, m = birth_month, d = birth_day)
 		end
 		season_start = DateTime.new(y=year, m = 7, d = 1, h=0, m=0, s=0)
 		(season_start-birthday).to_i/365
@@ -31,12 +47,12 @@ class Player < ActiveRecord::Base
 	end
 
 	def birthPlace
-	if birth_state.nil?
-	return birth_city+ ", "+birth_country
-	elsif birth_city.nil? && birth_state.nil?
-	return birth_country
-	elsif !birth_city.nil? && !birth_state.nil? && !birth_country.nil?
-	return birth_city+ ", "+birth_state+ ", "+birth_country
+	if birth_country.nil?
+		return nil
+	elsif birth_state.nil?
+		return birth_city+ ", "+birth_country
+	else
+		return birth_city+ ", "+birth_state+ ", "+birth_country
 	end
 	end
 
