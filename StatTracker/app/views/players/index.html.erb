@@ -2,7 +2,7 @@
     <tr>
       <th> Search by Name </th>
             <%= form_tag(player_search_path) do %>
-                    <%= text_field_tag('query','',:size => 15,:placeholder => 'Enter a player..', :class => 'field_style') %>
+                    <%= text_field_tag('query','',:size => 15,:placeholder => 'Enter a player..', :class => 'field_style', :autocomplete => players_autocomplete_player_name_path)%>
                     <%= submit_tag('Search') %>
             <% end %>
     </tr>

@@ -30,7 +30,9 @@ StatTracker::Application.routes.draw do
   
   get 'home/autocomplete_player_name'
   get 'home/autocomplete_franchise_name'
-  
+  get 'players/autocomplete_player_name'
+  get 'franchises/autocomplete_franchise_name'
+
   resources :teams
 
   resources :players

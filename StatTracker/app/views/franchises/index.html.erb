@@ -2,7 +2,7 @@
     <tr>
       <th><b> Search by Team Name </b></th>
             <%= form_tag(team_search_path) do %>
-                    <%= text_field_tag('query','',:size => 15,:placeholder => 'Enter a team..', :class => 'field_style') %>
+                    <%= text_field_tag('query','',:size => 15,:placeholder => 'Enter a team..', :class => 'field_style', :autocomplete => franchises_autocomplete_franchise_name_path) %>
                     <%= submit_tag('Search') %>
             <% end %>
     </tr>

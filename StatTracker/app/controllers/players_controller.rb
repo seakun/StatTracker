@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+autocomplete :player, :name, :full => true
   def index
     #@players = Player.all
   end
@@ -409,6 +410,9 @@ class PlayersController < ApplicationController
 
   def player_search
     @query = params[:query]
+	# first_name, last_name, year, dash = @query.split(" ")
+	# last_name.chomp!(",")
+	# name = first_name + " " + last_name
     @players = Player.player_search(@query)
     @total_hits = @players.size
     if @total_hits == 1

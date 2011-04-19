@@ -7,6 +7,11 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 
   def search
     @query = params[:query]
+	puts @query.length
+	if @query.length < 3
+		flash[:notice] = 'Please be more specific with your search'
+		redirect_to :back
+	 end
     @players = Player.player_search(@query)
     @franchises = Franchise.team_search(@query)
     @total_hits = @players.size + @franchises.size

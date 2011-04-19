@@ -1,4 +1,6 @@
 class FranchisesController < ApplicationController
+autocomplete :franchise, :name, :full => true
+
   def index
     @franchises = Franchise.all
   end
