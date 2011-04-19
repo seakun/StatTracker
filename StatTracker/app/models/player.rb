@@ -17,13 +17,16 @@ class Player < ActiveRecord::Base
 	end
 	
 	def age(year)
+		if birth_day.nil?
+		birthday = DateTime.new(y=birth_year, m = birth_month, d = 1)
+		else
 		birthday = DateTime.new(y=birth_year, m = birth_month, d = birth_day)
+		end
 		season_start = DateTime.new(y=year, m = 7, d = 1, h=0, m=0, s=0)
 		(season_start-birthday).to_i/365
 	end
 	
 	def heightFeet
-    return "N/A" if height.nil?
 		(height/12).to_s+"\' "+(height%12).to_s+"\""
 	end
 

@@ -14,28 +14,41 @@
   <%= @player.birthPlace %>
 </ul>
 <% end %>
+<% if @birth_day.nil?%>
+<ul>
+  <strong>Birthday:</strong>
+  <%= @player.birth_month.to_s+"\/"+@player.birth_year.to_s %>
+</ul>
+<% else%>
 <ul>
   <strong>Birthday:</strong>
   <%= @player.birth_month.to_s+"\/"+@player.birth_day.to_s+"\/"+@player.birth_year.to_s %>
 </ul>
+<% end %>
 <% if !@player.death_year.nil? %>
 <ul>
   <strong>Deathday:</strong>
   <%=@player.death_month.to_s+"\/"+@player.death_day.to_s+"\/"+@player.death_year.to_s %>
 </ul>
 <% end %>
+<%if !@player.height.nil?%>
 <ul>
  <strong>Height:</strong>
   <%= @player.heightFeet %>
 </ul>
+<% end %>
+<%if !@player.weight.nil?%>
 <ul>
   <strong>Weight:</strong>
-  <%= @player.weight.nil?? "N/A" : @player.weight.to_s+" lbs" %>
+  <%= @player.weight.to_s+" lbs" %>
 </ul>
+<% end %>
+<%if !@player.throws.nil?%>
 <ul>
   <strong>Bats:</strong>
   <%= @player.bats %>
 </ul>
+<% end %>
 <%if !@player.throws.nil?%>
 <ul>
   <strong>Throws:</strong>
