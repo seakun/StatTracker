@@ -30,15 +30,17 @@ text-align: center;
 }
 
 #hd {
-background-image: url('../images/logo.jpg');
-position: relative;
-width:1320px;
-height:114px;
+background:black;
+background-position: relative;
 top: 0px;
 left: 0px;
 }
 
-
+#hd img{
+width:1100px;
+margin-top:10px;
+position:relative;
+}
 
 
 #text{
@@ -73,12 +75,15 @@ a {
 	position: relative;
 	height:35px;
 	font-size:20px;
+	text-align:center;
+	margin-left:80px;
 	}
 	
 #nav li {
 	list-style: none;
 	float:left;
-	width:180px;
+	width:100px;
+	
 	}
 	
 #nav li a {
@@ -92,7 +97,12 @@ a {
 	
 #nav li a:hover {
 	color: #66CCFF ; 
+	border-bottom:5px solid #66CCFF;
 	}
+	
+ul #cssdropdown li a:hover{
+border-bottom:none;
+}
 
 #cssdropdown, #cssdropdown * { 
 	list-style: none;
@@ -102,25 +112,40 @@ a {
 	-webkit-border-radius:15px;
 	-o-border-radius:15px;
 	border-radius:15px;
+	z-index:50;
+	margin-top:8px;
 	}
 	
 #cssdropdown li {
 	width:250px;
+	z-index:50;
+	margin-top:-15px;
 }
-	
+ .dropdownmenu{
+	color:white;
+	font-family: Helvetica;
+	font-size: 17px;
+	font-weight:bold;
+	text-align:center;
+ }
+
+ .dropdownmenu:hover{
+ border-bottom:5px solid #66CCFF;
+ 
+ }
+ 
  li.dropdownmenu ul { 
 	display: none; 
-	border-top: 1px black solid; 
 	text-align: left;
-	width:210px;
+	width:150px;
+	z-index:50;
 	}
  li.dropdownmenu:hover ul { 
 	display: block; 
-	text-align:left;
 	position: absolute;
 	float:left;
 	background-color:black;
-	z-index:5;
+	z-index:50;
 	}
 	
  ul.tablerow li{
@@ -188,11 +213,7 @@ div.button:hover a{
 	
 
 #container{
-	background-color:#B0B0B0;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#B0B0B0'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#eee)); /* for webkit browsers */
-    background: -moz-linear-gradient(top,  #bbb,  #eee); /* for firefox 3.6+ */ 
-	opacity: 0.8;
+	background-color:#E8E8E8;
 	margin-left:100px;
 	margin-top:10px;
 	margin-right:150px;
@@ -214,11 +235,12 @@ div.button:hover a{
 	margin-left:200px;
 }
 #slider img {
-    position:absolute;
-    top:0px;
+    position:relative;
+    margin-top:20px;
     left:0px;
     display:none;
-
+	width:330px;
+	height:400px;
 }
 #slider a {
     border:0;
@@ -249,7 +271,7 @@ z-index:100;
 
 .nivo-controlNav {
 position: absolute;
-margin-top: 300px;
+margin-top: 400px;
 margin-left:auto;
 margin-right:auto;
 width:400px;

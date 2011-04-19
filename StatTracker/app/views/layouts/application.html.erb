@@ -99,38 +99,33 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
   <body>
 
 
-    <div id="hd"></div>
-    
-                                <div id="cssdropdown" style="margin-left:1125px;">
-                                  
-                                <%= form_tag(search_path) do %>
-                                <%= text_field_tag('query','',:size => 20,:placeholder => 'Enter a player or team..', :class => 'field_style') %>
-                                <%= submit_tag('Search') %>
-                                <% end %>
-
-                                </div>
+    <div id="hd">
+	<img src="../images/logo.jpg">
+	</div>     
   <div id="nav">
       	<ul >
-          	
-		
 			<li><%= link_to 'Home', '/index' %></li>
-			<li class= "dropdownmenu"><%= link_to 'Players', players_path%>
-                             <ul id="cssdropdown">
-				<%= link_to 'Compare Players', '/compare' %>
-                             </ul>
-                        </li>
-                        <li class= "dropdownmenu"><%= link_to 'Teams', franchises_path %>
-                        <ul id="cssdropdown">
-                                <%= link_to 'Compare Teams', '/franchise_compare' %>
-                        </ul> </li>
-			<li class="dropdownmenu"><%= link_to 'Leaderboards'%>
+			
+			<li class="dropdownmenu">Compare
+			<ul id="cssdropdown">
+			<li><%= link_to 'Compare Players', '/compare' %></li>
+			<li><%= link_to 'Compare Teams', '/franchise_compare' %></li>
+			</ul>
+			</li>
+			
+			<li><%= link_to 'Players', players_path%></li>
+            
+			<li><%= link_to 'Teams', franchises_path %></li>
+                        
+			<li class="dropdownmenu" style="width:110px;">Leaderboards
 				<ul id="cssdropdown">
 					<li><%= link_to 'Batting', '/batting_leaderboards' %></li>
 					<li><%= link_to 'Pitching', '/pitching_leaderboards'%></li>
 					<li><%= link_to 'Fielding', '/fielding_leaderboards'%></li>
 				</ul>
 			</li> 
-			<li class="dropdownmenu"><%= link_to 'Season Finders'%>
+			
+			<li class="dropdownmenu" style="width:180px; margin-left:10px;">Season Finders
 				<ul id="cssdropdown">
 					<li><%= link_to 'Batting', '/seasonfinder/batting' %></li>
 					<li><%= link_to 'Pitching', '/seasonfinder/pitching'%></li>
@@ -138,6 +133,12 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 					</ul>
 			</li>
 </ul>
+<li style="width:250px; margin-top:-5px;">
+<%= form_tag(search_path) do %>
+                                <%= text_field_tag('query','',:size => 20,:placeholder => 'Enter a player or team..', :class => 'field_style') %>
+                                <%= submit_tag('Search') %>
+                                <% end %>
+								</li>
 </div> 
 </br>
 </br>
@@ -150,6 +151,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>
+	
     <div class="slide-out-div">
             <a class="handle" href="http://link-for-non-js-users.html">Content</a>
             <h2 class="header">Statistics List</h2>
