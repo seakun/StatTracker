@@ -338,8 +338,7 @@ width: 100%
 .error_messages ul {
   margin: 0;
 }
-#chart a, #chart2 a, #chart3 a, #chart4 a{ text-decoration: underline;
-
+#chart a, #chart2 a, #chart3 a, #chart4 a{ text-decoration: underline
 }
 .tooltip {
 		display:none;

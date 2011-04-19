@@ -90,7 +90,6 @@
 <%= raw @chart2.render('chart2') %>
 <% end %>
 <br>
-
 <% if !@pitching_stats.empty? %>
 <strong>Regular Season Pitching Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"<%= image_tag("question.gif")%></span>
 <br>
@@ -106,6 +105,4 @@
 <div id='chart4'></div>
 <%= raw @chart4.render('chart4') %>
 <% end %>
-<script>
-$("#chart").simpletip();
-</script>
+

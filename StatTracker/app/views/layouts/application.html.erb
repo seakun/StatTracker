@@ -212,7 +212,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
                 <a href="#" onclick="toggleVisibility('F_SB');return false;">Stolen Bases Allowed (SB)</a><br />
                 <a href="#" onclick="toggleVisibility('F_CS');return false;">Runners Caught Stealing (CS)</a><br />
                 <a href="#" onclick="toggleVisibility('F_PB');return false;">Passed Balls (PB)</a><br />
-                <a href="#" onclick="toggleVisibility('F_FDLP');return false;">Fielding Percentage(FLDP)</a><br />
+                <a href="#" onclick="toggleVisibility('F_FLDP');return false;">Fielding Percentage(FLDP)</a><br />
                 <a href="#" onclick="toggleVisibility('F_Range');return false;">Range Factor (Range)</a><br />
                 </td>
             </tr>
@@ -439,7 +439,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        <a name="F_E"><h3>Errors - E</h3></a>
        <p>The number of fielding errors committed by a fielder.</p>
        </div>
-		<div id="F_G" class="section">
+		<div id="F_SB" class="section">
        <a name="F_SB"><h3>Stolen Bases Allowed - SB</h3></a>
        <p>The total number of base runners that steal a base for a catcher.</p>
        </div>
@@ -451,7 +451,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        <a name="F_PB"><h3>Passed Balls - PB</h3></a>
        <p>The number of fieldable pitches that a catcher misses and allows a base runner to advance.</p>
        </div>
-		<div id="F_FLDP" class="section">
+          <div id="F_FLDP" class="section">
        <a name="F_FLDP"><h3>Fielding Percentage - FLDP</h3></a>
        <p>The percentage of plays that a fielder successfully makes a play.  This is the total chances
        minus the error divided by total chances ((TC-E)/TC)</p>
