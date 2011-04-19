@@ -27,7 +27,7 @@
             tabLocation: 'right',                      //side of screen where tab lives, top, right, bottom, or left
             speed: 300,                               //speed of animation
             action: 'click',                          //options: 'click' or 'hover', action to trigger animation
-            topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+            topPos: '100px',                          //position from the top/ use if tabLocation is left or right
             leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
             fixedPosition: true                    //options: true makes it stick(fixed position) on scroll
         });
@@ -83,6 +83,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 	<style type="text/css">
     .section {
         display: none;
+
     }
 </style>
 <script type="text/javascript">
@@ -160,26 +161,35 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
             </tr>
             <tr>
                 <td valign="top">
-				<a href="#" onclick="toggleVisibility('G');return false;">Games Played (G)</a><br />
-                <a href="#" onclick="toggleVisibility('PA');return false;">Plate Appearances (PA)</a><br />
-                <a href="#" onclick="toggleVisibility('AB');return false;">At Bats (AB)</a> <br />
-                <a href="#" onclick="toggleVisibility('BB');return false;">Walks (BB)</a><br />
-                <a href="#" onclick="toggleVisibility('K');return false;">Strikeouts (K)</a><br />
-                <a href="#" onclick="toggleVisibility('H');return false;">Hits (H)</a><br />
-                <a href="#" onclick="toggleVisibility('1B');return false;">Singles (1B)</a><br />
-                <a href="#" onclick="toggleVisibility('2B');return false;">Doubles (2B)</a><br />
-                <a href="#" onclick="toggleVisibility('3B');return false;">Triples (3B)</a><br />
-                <a href="#" onclick="toggleVisibility('HR');return false;">Home Runs (HR)</a><br />
-                <a href="#" onclick="toggleVisibility('R');return false;">Runs (R)</a><br />
-                <a href="#" onclick="toggleVisibility('RBI');return false;">Runs Batted In (RBI)</a><br />
-                <a href="#" onclick="toggleVisibility('SB');return false;">Stolen Bases (SB)</a> <br />
-                <a href="#" onclick="toggleVisibility('CS');return false;">Caught Stealing (CS)</a><br />
-                <a href="#" onclick="toggleVisibility('OB');return false;">Times on Base (OB)</a> <br />
-                <a href="#" onclick="toggleVisibility('TB');return false;">Total Bases (TB)</a> <br />
-                <a href="#" onclick="toggleVisibility('AVG');return false;">Batting Average (AVG)</a> <br />
-                <a href="#" onclick="toggleVisibility('OBP');return false;">On-Base Percentage (OBP)</a> <br />
-                <a href="#" onclick="toggleVisibility('SLG');return false;">Slugging Percentage (SLG)</a> <br />
-                <a href="#" onclick="toggleVisibility('OPS');return false;">On Base Percentage Plus Slugging (OPS)</a>
+				
+                <a href="#" onclick="toggleVisibility('1B');return false;"><strong>(1B)</strong>Singles</a><br />
+                <a href="#" onclick="toggleVisibility('2B');return false;"><strong>(2B)</strong>Doubles </a><br />
+                <a href="#" onclick="toggleVisibility('3B');return false;"><strong>(3B)</strong>Triples</a><br />
+                <a href="#" onclick="toggleVisibility('AB');return false;"><strong>(AB)</strong>At Bats</a> <br />
+                 <a href="#" onclick="toggleVisibility('BA');return false;"><strong>(BA)</strong>Batting Average</a> <br />
+                <a href="#" onclick="toggleVisibility('BB');return false;"> <strong>(BB)</strong>Walks</a><br />
+                <a href="#" onclick="toggleVisibility('BPF');return false;"> <strong>(BPF)</strong>Batters Park Factor</a><br />
+                <a href="#" onclick="toggleVisibility('CS');return false;"><strong>(CS)</strong>Caught Stealing</a><br />
+                <a href="#" onclick="toggleVisibility('G');return false;"><strong>(G)</strong>Games Played</a><br />
+                 <a href="#" onclick="toggleVisibility('H');return false;"><strong>(H)</strong>Hits</a><br />
+                 <a href="#" onclick="toggleVisibility('HBP');return false;"><strong>(HBP)</strong>Hit by Pitch</a><br />
+                <a href="#" onclick="toggleVisibility('HR');return false;"><strong>(HR)</strong>Home Runs</a><br />
+                <a href="#" onclick="toggleVisibility('ISO');return false;"><strong>(IPO)</strong>Isolated Power</a><br />
+                <a href="#" onclick="toggleVisibility('K');return false;"><strong>(K)</strong>Strikeouts</a><br />
+                  <a href="#" onclick="toggleVisibility('OB');return false;"><strong>(OB)</strong>Times on Base</a> <br />
+                  <a href="#" onclick="toggleVisibility('OBP');return false;"><strong>(OBP)</strong>On-Base Percentage</a> <br />
+                  <a href="#" onclick="toggleVisibility('OPS');return false;"><strong>(OPS)</strong>On Base Percentage Plus Slugging</a><br />
+                <a href="#" onclick="toggleVisibility('PA');return false;"><strong>(PA)</strong>Plate Appearances</a><br />
+                <a href="#" onclick="toggleVisibility('R');return false;"><strong>(R)</strong>Runs</a><br />
+                <a href="#" onclick="toggleVisibility('RBI');return false;"><strong>(RBI)</strong>Runs Batted In</a><br />
+                <a href="#" onclick="toggleVisibility('SB');return false;"><strong>(SB)</strong>Stolen Bases</a> <br />
+                <a href="#" onclick="toggleVisibility('SF');return false;"><strong>(SF)</strong>Sacrifice Flies</a> <br />
+                 <a href="#" onclick="toggleVisibility('SLG');return false;"><strong>(SLG)</strong>Slugging Percentage</a> <br />
+                <a href="#" onclick="toggleVisibility('TB');return false;"><strong>(TB)</strong>Total Bases</a> <br />
+               
+                
+               
+                
                 </td>
 
               <td valign="top">
@@ -241,6 +251,10 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        <p>The number of strikeouts the batter has, either by taking a third strike, swinging
        and missing the third strike, or bunting foul for the third strike.</p>
        </div>
+            <div id="HBP" class="section">
+                 <a name="HBP"><h3>Hit By Pitch - HBP</h3></a>
+       <p>The number of times the batter safely reached first base by being hit by a pitch.</p>
+       </div>
 		 <div id="H" class="section">
        <a name="H"><h3>Hits - H</h3></a>
        <p>The number of times the batter hit the ball and safely reached base without error or fielder's choice.
@@ -295,8 +309,8 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        <p>The total number of bases a player obtains by a hit.  It is a weighted statistic - a batter
        gets 1 for a single, 2 for a double, 3 for a triple and 4 for a home run.</p>
        </div>
-		 <div id="AVG" class="section">
-       <a name="AVG"><h3>Batting Average - AVG</h3></a>
+		 <div id="BA" class="section">
+       <a name="BA"><h3>Batting Average - BA</h3></a>
        <p>The average number of hits that the batter has.  This is defined as the number of hits
        divided by the number of at bats.</p>
        </div>

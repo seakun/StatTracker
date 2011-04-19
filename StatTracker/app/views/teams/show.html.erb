@@ -24,7 +24,7 @@
 <%  if !@team.attendance.nil?%>
 <p>
   <strong>Attendance:</strong>
-  <%= @team.attendance %>
+  <%= number_with_delimiter(@team.attendance, :delimiter => ',') %>
   <% end %>
 </p>
 <p><strong>Rank: </strong><%= @team.rank %></p>
@@ -36,12 +36,20 @@
 <p><%if @team.wc_win%><%= image_tag("trophy.png")%> Wild Card Winner<% end %></p>
 <p><%if @team.lg_win%><%= image_tag("trophy.png")%> League Win<% end %></p>
 <p><%if @team.ws_win%><%= image_tag("trophy.png")%> World Series Win<% end %></p>
+<br/>
 <strong>Team Batting Stats</strong>
+<br/>
 <div id='chart2'></div>
 <%= raw @chart2.render('chart2') %>
+<br/>
+<br/>
 <strong>Team Pitching and Fielding Stats</strong>
+<br/>
 <div id='chart3'></div>
 <%= raw @chart3.render('chart3') %>
+<br/>
+<br/>
 <strong>Team Roster</strong>
+<br/>
 <div id='chart4'></div>
 <%= raw @chart4.render('chart4') %>
