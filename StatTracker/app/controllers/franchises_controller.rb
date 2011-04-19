@@ -30,7 +30,7 @@ autocomplete :franchise, :name, :full => true
       @chart.set_cell(i, 2, b.division.league.name)
       @chart.set_cell(i, 3, b.wins)
       @chart.set_cell(i, 4, b.losses)
-      @chart.set_cell(1, 5, b.pct.to_s)
+      @chart.set_cell(i, 5, b.pct.to_s)
       @chart.set_cell(i, 6, b.rank)
     }
     options = { :width => 600, :allowHtml => true }

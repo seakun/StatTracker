@@ -93,8 +93,7 @@ class TeamsController < ApplicationController
 			i = @roster.index(b)
        @chart4.set_cell(i, 0, "<span title='Name'><a href=/players/#{b.id}>#{b.name}</a></span>")
        @chart4.set_cell(i, 1, "<span title='Age'>#{b.age(@team.year)}</span>")
-       position = b.fielding_stats.where("team_id = ?", @team.id).sort_by{|s| s.games}.first.position
-       @chart4.set_cell(i, 2, "<span title='Position'>#{position}</span>")
+       position = b.fielding_stats.where("team_id = ?", @team.id).sort_by{|s| s.games}.last.position
       }
       options = { :width => '50%', :allowHtml => true}
       options.each_pair do | key, value |

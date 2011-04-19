@@ -13,6 +13,7 @@ class Team < ActiveRecord::Base
   def pct
     wins.quo(wins+losses).to_f.round(3)
   end
+  
   # Search all teams that have a name or park like some term
   def self.search(search)
     search_condition = "%" + search.downcase + "%"
