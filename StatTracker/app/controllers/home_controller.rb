@@ -64,7 +64,12 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 		if p != ""
 			first_name, last_name, year, dash = p.split(" ")
 			last_name.chomp!(",")
-			@player.push(Player.find(:all, :select => [:id], :conditions => ['first_name = ? AND last_name = ?', first_name, last_name]))
+			if Rails.env.development?
+				@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND strftime('%Y', debut) = ?", first_name, last_name, year]))
+			elsif Rails.env.production?
+				@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND date_part('year', debut)::string = ?", first_name, last_name, year]))
+			else
+				@player.push("")
 		end
 	}
 	@player.each { |p|

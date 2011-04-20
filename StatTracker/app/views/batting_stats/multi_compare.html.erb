@@ -38,7 +38,7 @@ You are comparing <%= @strings.join(", ") %>
 	<br/>
 	<br/>
 	
-	<%= form_tag change_multi_chart_batting_path(:players => @players, :batters => @batters.keys), :id => "change_chart", :remote => true do %>
+	<%= form_tag change_multi_chart_batting_path(:players => @players, :batters => @batters.keys, :max => @max), :id => "change_chart", :remote => true do %>
 		<%= select_tag "chart_type", 
 		raw("<option>Home Runs</option>
 		<option>Games</option>

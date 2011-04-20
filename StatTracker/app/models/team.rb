@@ -48,6 +48,7 @@ class Team < ActiveRecord::Base
 		split_strings = comp.split("/")
 		franchises = {}
 		max = 0
+		years_array = []
 		split_strings.each { |s|
 			split_franchise = s.split(".")
 			franchise = split_franchise[0]
@@ -63,8 +64,9 @@ class Team < ActiveRecord::Base
 			stats.each { |st|
 				franchises.store(st, s.to_i)
 			}
+			years_array.push(year1 + ' - ' + year2)
 		}
-		return franchises, max
+		return franchises, max, years_array
 	end
 	
 	def self.get_all_stats(franchise, stat)

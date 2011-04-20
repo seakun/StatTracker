@@ -81,11 +81,18 @@ class PitchingPostStat < ActiveRecord::Base
 	end
 
 	def innings_pitched
-		sprintf("%.1f", innings_pitched_outs / 3.to_f)
+		ip = sprintf("%.1f", innings_pitched_outs / 3.to_f)
+		if ip[ip.size-1] == '3'
+			ip[ip.size-1] = '1'
+		elsif ip[ip.size-1] == '7'
+			ip[ip.size-1] = '2'
+		else
+		end
+		ip
 	end
 
 	def era
-		sprintf("%.3f", (earned_runs * 9) / innings_pitched.to_f)
+		sprintf("%.2f", (earned_runs * 9) / innings_pitched.to_f)
 	end
 
 	def opponents_batting_average

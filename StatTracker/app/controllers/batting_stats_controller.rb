@@ -437,19 +437,18 @@ class BattingStatsController < ApplicationController
 	def change_multi_chart
 		stat = params[:chart_type].downcase.gsub(" ", "_")
 		@player = params[:players]
+		@max = params[:max]
 		@batters= params[:batters]
 		@players = []
-		@max = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
-			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(@max.max)
+		@chart.add_rows(@max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -473,7 +472,7 @@ class BattingStatsController < ApplicationController
 		@players.each { |play|
 			@chart2.add_column('number', play.name)
 		}	
-		@chart2.add_rows(@max.max)
+		@chart2.add_rows(@max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -587,8 +586,8 @@ class BattingStatsController < ApplicationController
       next if stat.blank?
       operator = params["#{i}"][:operator]
       number = params["#{i}"][:number]
-	  if number.to_i < 0
-		flash[:notice] = 'At least one of your values is negative. Please try again.'
+	  if number.to_i < 1
+		flash[:notice] = 'At least one of your values was invalid. Please try again.'
 		redirect_to :back
 	  end
       string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number

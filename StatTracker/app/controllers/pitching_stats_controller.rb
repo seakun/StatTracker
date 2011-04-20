@@ -290,7 +290,7 @@ class PitchingStatsController < ApplicationController
 	end
 	
 	def multi_compare
-		@pitchers, @max = PitchingStat.multi_compare(params[:comp])
+		@pitchers, @max, @years = PitchingStat.multi_compare(params[:comp])
 		@player = []
 		@players = []
 		@pitchers.each_value {|value|
@@ -300,6 +300,12 @@ class PitchingStatsController < ApplicationController
 		}
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
+		}
+		@strings = []
+		l = 0
+		@players.each { |p|
+			@strings.push(p.name + " from " + @years[l])
+			l += 1
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
@@ -445,18 +451,17 @@ class PitchingStatsController < ApplicationController
 		stat = params[:chart_type].downcase.gsub(" ", "_")
 		@player = params[:players]
 		@pitchers= params[:pitchers]
+		@max = params[:max]
 		@players = []
-		@max = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
-			@max.push(PitchingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@players.each { |play|
 			@chart.add_column('number', play.name)
 		}	
-		@chart.add_rows(@max.max)
+		@chart.add_rows(@max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -480,7 +485,7 @@ class PitchingStatsController < ApplicationController
 		@players.each { |play|
 			@chart2.add_column('number', play.name)
 		}	
-		@chart2.add_rows(@max.max)
+		@chart2.add_rows(@max)
 		y = 1
 		@players.each { |play|
 		x = 0
@@ -592,7 +597,7 @@ class PitchingStatsController < ApplicationController
       operator = params["#{i}"][:operator]
       number = params["#{i}"][:number]
 	  if number.to_i < 0
-		flash[:notice] = 'At least one of your values is negative. Please try again.'
+		flash[:notice] = 'At least one of your values was invalid. Please try again.'
 		redirect_to :back
 	  end
       string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number

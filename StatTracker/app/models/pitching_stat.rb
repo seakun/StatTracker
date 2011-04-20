@@ -90,6 +90,7 @@ class PitchingStat < ActiveRecord::Base
 		split_strings = comp.split("/")
 		players = {}
 		max = 0
+		years_array = []
 		split_strings.each { |s|
 			split_player = s.split(".")
 			player = split_player[0]
@@ -105,8 +106,9 @@ class PitchingStat < ActiveRecord::Base
 			stats.each { |st|
 				players.store(st, s.to_i)
 			}
+			years_array.push(year1 + ' - ' + year2)
 		}
-		return players, max
+		return players, max, years_array
 	end
 	
 	def self.get_all_stats(player, stat)
@@ -184,7 +186,7 @@ class PitchingStat < ActiveRecord::Base
 	end
 
 	def era
-		sprintf("%.3f", (earned_runs * 9) / innings_pitched.to_f)
+		sprintf("%.2f", (earned_runs * 9) / innings_pitched.to_f)
 	end
 
 	def opponents_batting_average

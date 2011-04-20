@@ -329,7 +329,7 @@ class TeamsController < ApplicationController
 	
 	def multi_compare
 		@comp = params[:comp]
-		@teams, @max = Team.multi_compare(@comp)
+		@teams, @max, @years = Team.multi_compare(@comp)
 		@franchise = []
 		@franchises = []
 		@teams.each_value {|value|
@@ -339,6 +339,12 @@ class TeamsController < ApplicationController
 		}
 		@franchise.each {|f|
 			@franchises.push(Franchise.find(f.to_i))
+		}
+		@strings = []
+		l = 0
+		@franchises.each { |p|
+			@strings.push(p.name + " from " + @years[l])
+			l += 1
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
@@ -422,17 +428,15 @@ class TeamsController < ApplicationController
 		@team, @max = Team.multi_compare(params[:comp])
 		@teams = @team.keys
 		@franchises = []
-		@max = []
 		@franchise.each {|f|
 			@franchises.push(Franchise.find(f.to_i))
-			@max.push(Team.find(:all, :select => [:id], :conditions => ['franchise_id =?', f]).size)
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
 		@franchises.each { |f|
 			@chart.add_column('number', f.name)
 		}	
-		@chart.add_rows(@max.max)
+		@chart.add_rows(@max)
 		y = 1
 		@franchises.each { |f|
 		x = 0
@@ -456,7 +460,7 @@ class TeamsController < ApplicationController
 		@franchises.each { |f|
 			@chart2.add_column('number', f.name)
 		}	
-		@chart2.add_rows(@max.max)
+		@chart2.add_rows(@max)
 		y = 1
 		@franchises.each { |f|
 		x = 0

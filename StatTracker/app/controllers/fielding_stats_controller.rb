@@ -119,7 +119,7 @@ class FieldingStatsController < ApplicationController
       operator = params["#{i}"][:operator]
       number = params["#{i}"][:number]
 	  if number.to_i < 0
-		flash[:notice] = 'At least one of your values is negative. Please try again.'
+		flash[:notice] = 'At least one of your values was invalid. Please try again.'
 		redirect_to :back
 	  end
       string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
