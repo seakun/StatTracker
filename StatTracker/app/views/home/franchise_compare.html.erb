@@ -5,17 +5,17 @@
 		<td>
 		<div id = "franchises">
 			<table>
-				<%= text_field_tag 'franchises[]', '', :placeholder => 'Enter a team...', :autocomplete => home_autocomplete_franchise_name_path%>
+				<div id = 'text1'><%= text_field_tag 'franchises[]', '', :placeholder => 'Enter a team...', :autocomplete => home_autocomplete_franchise_name_path%></div>
 				<div id = 'text2'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
 				<div id = 'text3'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
 				<div id = 'text4'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
 				<div id = 'text5'><%= text_field_tag 'franchises[]', '', :autocomplete => home_autocomplete_franchise_name_path%></div>
 			</table>
 		</div>
+                        <br/>
+			Franchise<%= radio_button_tag 'type', 'career' %>
 			<br/>
 			Season<%= radio_button_tag 'type', 'season' %>
-			<br/>
-			Franchise<%= radio_button_tag 'type', 'career' %>
 			<br/>
 			Multi-Year<%= radio_button_tag 'type', 'multi' %>
 			<br/>
