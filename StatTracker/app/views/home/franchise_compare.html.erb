@@ -34,4 +34,8 @@
   $('input[name="type"]').change(function(){
     $(this).parents('form:first').submit();
   });
+  $('input[name="franchises[]"]').live('keyup focusout', function(){
+    if ($('input[name="type"]:checked').val() != null)
+      $('input[name="type"]').parents('form:first').submit();
+  });
 </script>

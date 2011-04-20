@@ -1,4 +1,4 @@
-<%title 'Player Comparison'%>
+<%title 'Compare Players'%>
 
 	<%= form_tag years_players_path, :remote => true, :id => 'years' do %>
 		<div id = "comp">			
@@ -39,5 +39,13 @@
 <script type="text/javascript">
   $('input[name="type"]').change(function(){
     $(this).parents('form:first').submit();
+  });
+  $('input[name="comp"]').change(function(){
+    if ($('input[name="type"]:checked').val() != null)
+      $('input[name="type"]').parents('form:first').submit();
+  });
+  $('input[name="players[]"]').live('keyup focusout', function(){
+    if ($('input[name="type"]:checked').val() != null)
+      $('input[name="type"]:first').parents('form:first').submit();
   });
 </script>
