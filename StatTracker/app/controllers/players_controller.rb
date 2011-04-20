@@ -6,6 +6,7 @@ autocomplete :player, :name, :full => true
 
   def show
     @player = Player.find(params[:id])
+	@position = FieldingStat.where("player_id = ?", @player.id).sort_by{|s| s.games}.last.position
 	if @player.final_game.nil?
     @google_image = GoogleImage.all(@player.name+" rotoworld headshot", 0).first
 	else
@@ -116,7 +117,7 @@ autocomplete :player, :name, :full => true
     @chart2.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
     @chart2.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
     @chart2.set_cell(i, 2, "<span title='Team'><a href='/teams/#{b.team.id}'>#{b.team.name}</a></span>")
-    @chart2.set_cell(i, 3, "<span title='Round'>#{b.round}</span>")
+    @chart2.set_cell(i, 3, "<span title='Round'>#{b.round.to_s[0,4]}</span>")
     @chart2.set_cell(i, 4, "<span title='Games'>#{b.games}</span>")
     @chart2.set_cell(i, 5, "<span title='Plate Appearances'>#{b.plate_appearances.to_s}</span>")
 	  @chart2.set_cell(i, 6, "<span title='At Bats'>#{b.at_bats.to_s}</span>")
@@ -159,7 +160,7 @@ autocomplete :player, :name, :full => true
   options.each_pair do | key, value |
     @chart2.send "#{key}=", value
   end
-@pitching_stats=PitchingPostStat.find(:all, :conditions => ['player_id = ?', params[:id]])
+@pitching_stats=PitchingStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @chart3 = GoogleVisualr::Table.new
     @chart3.add_column('string' , 'Year')
 		@chart3.add_column('string' , 'Age')
@@ -256,7 +257,6 @@ autocomplete :player, :name, :full => true
     @chart3.send "#{key}=", value
   end
   @pitching_stats_post=PitchingPostStat.find(:all, :conditions => ['player_id = ?', params[:id]])
-   @pitching_stats_post=PitchingPostStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @chart4 = GoogleVisualr::Table.new
     @chart4.add_column('string' , 'Year')
 		@chart4.add_column('string' , 'Age')
@@ -296,7 +296,7 @@ autocomplete :player, :name, :full => true
 			@chart4.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
       @chart4.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
       @chart4.set_cell(i, 2, "<span title='Team'>#{"<a href='/teams/#{b.team.id}'>#{b.team.name}</a>"}</span>")
-      @chart4.set_cell(i, 3, "<span title='Round'>#{b.round.to_s}</span>")
+      @chart4.set_cell(i, 3, "<span title='Round'>#{b.round.to_s[0,4]}</span>")
 			@chart4.set_cell(i, 4, "<span title='Wins'>#{b.wins.to_s}</span>")
       @chart4.set_cell(i, 5, "<span title='Losses'>#{b.losses.to_s}</span>")
       @chart4.set_cell(i, 6, "<span title='Win Loss Percentage'>#{b.win_loss_percentage.to_s}</span>" )

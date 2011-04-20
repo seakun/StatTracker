@@ -90,6 +90,7 @@ class BattingStat < ActiveRecord::Base
 		split_strings = comp.split("/")
 		players = {}
 		max = 0
+		years_array = []
 		split_strings.each { |s|
 			split_player = s.split(".")
 			player = split_player[0]
@@ -105,8 +106,9 @@ class BattingStat < ActiveRecord::Base
 			stats.each { |st|
 				players.store(st, s.to_i)
 			}
+			years_array.push(year1 + ' - ' + year2)
 		}
-		return players, max
+		return players, max, years_array
 	end
 	
 	def self.get_all_stats(player, stat)

@@ -77,7 +77,7 @@ class PitchingPostStat < ActiveRecord::Base
 	end
 
 	def win_loss_percentage()
-		sprintf("%.4f", (wins / (wins + losses).to_f))
+		sprintf("%.3f", (wins / (wins + losses).to_f))
 	end
 
 	def innings_pitched
@@ -85,35 +85,35 @@ class PitchingPostStat < ActiveRecord::Base
 	end
 
 	def era
-		sprintf("%.4f", (earned_runs * 9) / innings_pitched.to_f)
+		sprintf("%.3f", (earned_runs * 9) / innings_pitched.to_f)
 	end
 
 	def opponents_batting_average
-		sprintf("%.4f", ((hits) / (batters_faced - walks - hit_by_pitch - intentional_walks).to_f))
+		sprintf("%.3f", ((hits) / (batters_faced - walks - hit_by_pitch - intentional_walks).to_f))
 	end
 
 	def walks_and_hits_innings_pitched
-		sprintf("%.4f", ((walks + hits) / innings_pitched.to_f))
+		sprintf("%.3f", ((walks + hits) / innings_pitched.to_f))
 	end
 
 	def hits_per_9_innings
-		sprintf("%.4f", ((hits * 9) / innings_pitched.to_f))
+		sprintf("%.3f", ((hits * 9) / innings_pitched.to_f))
 	end
 
 	def home_runs_per_9_innings
-		sprintf("%.4f", ((home_runs * 9) / innings_pitched.to_f))
+		sprintf("%.3f", ((home_runs * 9) / innings_pitched.to_f))
 	end
 
 	def walks_per_9_innings
-		sprintf("%.4f", ((walks * 9) / innings_pitched.to_f))
+		sprintf("%.3f", ((walks * 9) / innings_pitched.to_f))
 	end
 
 	def strikeouts_per_9_innings
-		sprintf("%.4f", ((strikeouts * 9) / innings_pitched.to_f))
+		sprintf("%.3f", ((strikeouts * 9) / innings_pitched.to_f))
 	end
 
 	def strikeouts_per_walk
-		sprintf("%.4f", ((strikeouts / walks.to_f)))
+		sprintf("%.3f", ((strikeouts / walks.to_f)))
 	end
 
 	def adjusted_era

@@ -273,7 +273,7 @@ class BattingStatsController < ApplicationController
 	end
 	
 	def multi_compare
-		@batters, @max = BattingStat.multi_compare(params[:comp])
+		@batters, @max, @years = BattingStat.multi_compare(params[:comp])
 		@player = []
 		@players = []
 		@batters.each_value {|value|
@@ -283,6 +283,12 @@ class BattingStatsController < ApplicationController
 		}
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
+		}
+		@strings = []
+		l = 0
+		@players.each { |p|
+			@strings.push(p.name + " from " + @years[l])
+			l += 1
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
@@ -620,7 +626,7 @@ class BattingStatsController < ApplicationController
     options = { :width => 600, :allowHtml=>true }
     options.each_pair do | key, value |
     @chart2.send "#{key}=", value
-    @operations = operations
+    @operations = operations.join(", ").titleize
   end
 
   end
