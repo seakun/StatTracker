@@ -70,6 +70,7 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 				@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND date_part('year', debut)::string = ?", first_name, last_name, year]))
 			else
 				@player.push("")
+			end
 		end
 	}
 	@player.each { |p|
