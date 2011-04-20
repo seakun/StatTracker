@@ -88,14 +88,7 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 		@years_array.push(@years)
 	}
 	@type = params[:type]
-	# if @type == 'career'
-		# string = "/" + @player_ids.join('/')
-		# respond_to do |format|
-			# format.html { redirect_to '/compare/career/' + @comp + string}
-		# end
-	# else
 	render :partial => 'years_players'
-	# end
   end
   
   def compare_players
