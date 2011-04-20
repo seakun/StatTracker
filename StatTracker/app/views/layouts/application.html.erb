@@ -194,37 +194,55 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
                 </td>
 
               <td valign="top">
-                <a href="#" onclick="toggleVisibility('P_App');return false;">Appearances (App)</a> <br />
-                <a href="#" onclick="toggleVisibility('P_IP');return false;">Innings Pitched (IP)</a> <br />
-                <a href="#" onclick="toggleVisibility('P_BF');return false;">Batters Faced (BF)</a><br />
-                <a href="#" onclick="toggleVisibility('P_R');return false;">Runs Allowed (R)</a><br />
-                <a href="#" onclick="toggleVisibility('P_ER');return false;">Earned Runs Allowed (ER)</a><br />
-                <a href="#" onclick="toggleVisibility('P_K');return false;">Strikeouts (K)</a><br />
-                <a href="#" onclick="toggleVisibility('P_BB');return false;">Walks (BB)</a><br />
-                <a href="#" onclick="toggleVisibility('P_HR');return false;">Home Runs Allowed (HR)</a><br />
-                <a href="#" onclick="toggleVisibility('P_HBP');return false;">Batters Hit By Pitch (HBP)</a><br />
-                <a href="#" onclick="toggleVisibility('P_WP');return false;">Wild Pitches (WP)</a><br />
-                <a href="#" onclick="toggleVisibility('P_BK');return false;">Balks (BK)</a><br />
-                <a href="#" onclick="toggleVisibility('P_W');return false;">Wins (W)</a><br />
-                <a href="#" onclick="toggleVisibility('P_L');return false;">Losses (L)</a><br />
-                <a href="#" onclick="toggleVisibility('P_S');return false;">Saves (S)</a><br />
-                <a href="#" onclick="toggleVisibility('P_CG');return false;">Complete Games (CG)</a><br />
-                <a href="#" onclick="toggleVisibility('P_ERA');return false;">Earned Run Average (ERA)</a><br />
-                <a href="#" onclick="toggleVisibility('P_WHIP');return false;">Walks and Hits Per Inning Pitched - WHIP</a><br />
+                <a href="#" onclick="toggleVisibility('P_BB');return false;"><strong>(BB)</strong>Walks </a><br />
+                <a href="#" onclick="toggleVisibility('P_BF');return false;"><strong>(BF)</strong>Batters Faced</a><br />
+                <a href="#" onclick="toggleVisibility('P_BK');return false;"><strong>(BK)</strong>Balks</a><br />
+                 <a href="#" onclick="toggleVisibility('P_CG');return false;"><strong>(CG)</strong>Complete Games</a><br />
+                <a href="#" onclick="toggleVisibility('P_ER');return false;"><strong>(ER)</strong>Earned Runs Allowed</a><br />
+                <a href="#" onclick="toggleVisibility('P_ERA');return false;"><strong>(ERA)</strong>Earned Runs Average</a><br />
+                <a href="#" onclick="toggleVisibility('P_App');return false;"><strong>(G)</strong>Games</a> <br />
+                <a href="#" onclick="toggleVisibility('P_App');return false;"><strong>(GF)</strong>Games Finished</a> <br />
+                <a href="#" onclick="toggleVisibility('P_App');return false;"><strong>(GS)</strong>Games Started</a> <br />
+                 <a href="#" onclick="toggleVisibility('P_H');return false;"><strong>(H)</strong>Hits Allowed</a><br />
+                <a href="#" onclick="toggleVisibility('P_HR');return false;"><strong>(HR)</strong> Home Runs Allowed</a><br />
+                <a href="#" onclick="toggleVisibility('P_HBP');return false;"><strong>(HBP)</strong>Batters Hit By Pitch</a><br />
+                <a href="#" onclick="toggleVisibility('P_IBB');return false;"><strong>(IBB)</strong>Intentional Walks</a><br />
+                <a href="#" onclick="toggleVisibility('P_IP');return false;"><strong>(IP)</strong>Innings Pitched </a> <br />
+                  <a href="#" onclick="toggleVisibility('P_IP');return false;"><strong>(IPO)</strong>Innings Pitched Outs </a> <br />
+                 <a href="#" onclick="toggleVisibility('P_K');return false;"><strong>(K)</strong>Strikeouts</a><br />
+                <a href="#" onclick="toggleVisibility('P_L');return false;"><strong>(L)</strong>Losses</a><br />
+                <a href="#" onclick="toggleVisibility('P_R');return false;"><strong>(R)</strong>Runs Allowed</a><br />
+               <a href="#" onclick="toggleVisibility('P_SHO');return false;"><strong>(SHO)</strong>Shutouts</a> <br />
+                <a href="#" onclick="toggleVisibility('P_S');return false;"><strong>(SV)</strong>Saves</a><br />
+               <a href="#" onclick="toggleVisibility('P_W');return false;"><strong>(W)</strong>Wins</a><br />
+                <a href="#" onclick="toggleVisibility('P_WHIP');return false;"><strong>(WHIP)</strong>Walks and Hits Per Inning Pitched</a><br />
+                <a href="#" onclick="toggleVisibility('P_WP');return false;"><strong>(WP)</strong>Wild Pitches</a><br />
+             
+                
+                
+               
+               
+                
               </td>
                 <td valign="top">
-                <a href="#" onclick="toggleVisibility('F_G');return false;">Games Played (G)</a><br />
-                <a href="#" onclick="toggleVisibility('F_Inn');return false;">Innings Played (Inn)</a><br />
-                <a href="#" onclick="toggleVisibility('F_TC');return false;">Total Chances (TC)</a><br />
-                <a href="#" onclick="toggleVisibility('F_PO');return false;">Put Outs (PO)</a><br />
-                <a href="#" onclick="toggleVisibility('F_A');return false;">Assists (A)</a><br />
-                <a href="#" onclick="toggleVisibility('F_DP');return false;">Double Plays (DP)</a><br />
-                <a href="#" onclick="toggleVisibility('F_E');return false;">Errors (E)</a><br />
-                <a href="#" onclick="toggleVisibility('F_SB');return false;">Stolen Bases Allowed (SB)</a><br />
-                <a href="#" onclick="toggleVisibility('F_CS');return false;">Runners Caught Stealing (CS)</a><br />
-                <a href="#" onclick="toggleVisibility('F_PB');return false;">Passed Balls (PB)</a><br />
-                <a href="#" onclick="toggleVisibility('F_FLDP');return false;">Fielding Percentage(FLDP)</a><br />
-                <a href="#" onclick="toggleVisibility('F_Range');return false;">Range Factor (Range)</a><br />
+                
+               
+                
+                <a href="#" onclick="toggleVisibility('F_A');return false;"><strong>(A)Assists</strong></a><br />
+                <a href="#" onclick="toggleVisibility('F_TC');return false;">Chances</a><br />
+                <a href="#" onclick="toggleVisibility('F_DP');return false;"><strong>(DP</strong>)Double Plays</a><br />
+                <a href="#" onclick="toggleVisibility('F_E');return false;"><strong>(E)</strong>Errors</a><br />
+                <a href="#" onclick="toggleVisibility('F_FLDP');return false;"><strong>(FPCT)</strong>Fielding Percentage</a><br />
+                <a href="#" onclick="toggleVisibility('F_G');return false;"><strong>(G)</strong>Games</a><br />
+                <a href="#" onclick="toggleVisibility('F_GS');return false;"><strong>(GS)</strong>Games Started</a><br />
+                <a href="#" onclick="toggleVisibility('F_SB');return false;"><strong>(SB)</strong>Stolen Bases Allowed</a><br />
+                <a href="#" onclick="toggleVisibility('F_CS');return false;">Runners Caught Stealing</a><br />
+                <a href="#" onclick="toggleVisibility('F_PB');return false;">Passed Balls</a><br />
+                <a href="#" onclick="toggleVisibility('F_PO');return false;">Put Outs</a><br />
+                <a href="#" onclick="toggleVisibility('F_Range');return false;">Range Factor</a><br />
+                <a href="#" onclick="toggleVisibility('F_Inn');return false;">Innings</a><br />
+                 <a href="#" onclick="toggleVisibility('F_IO');return false;">Innings Out</a><br />
+                  <a href="#" onclick="toggleVisibility('F_Zone');return false;">Zone Rating</a><br />
                 </td>
             </tr>
         </table>
@@ -330,7 +348,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
         <p>The summation of the On Base Percentage (OBP) and Slugging Percentage (SLG).</p>
         </div>
 		 <div id="P_App" class="section">
-       <a name="P_App"><h3>Appearances - App</h3></a>
+       <a name="P_App"><h3>Games - G</h3></a>
        <p>The total number of games that pitcher has appeared in.</p>
        </div>
 		 <div id="P_IP" class="section">
@@ -399,7 +417,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        behind in score while player is the active pitcher, does not tie or take the lead and loses the game.</p>
        </div>
 	   <div id="P_S" class="section">
-       <a name="P_S"><h3>Saves - S</h3></a>
+       <a name="P_S"><h3>Saves - SV</h3></a>
        <p>The number of times a pitcher "saves" the game by pitching in relief and not surrendering the lead.</p>
        </div>
 	   <div id="P_WP" class="section">
