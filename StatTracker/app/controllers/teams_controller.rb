@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
     @chart2.add_column('string' , 'BB')
     @chart2.add_column('string' , 'K')
     @chart2.add_column('string' , 'SB')
-    @chart2.add_column('string' , 'SB')
+    @chart2.add_column('string' , 'CS')
     @chart2.add_column('string' , 'HBP')
     @chart2.add_column('string' , 'SF')
     @chart2.add_column('string' , 'BPF')
@@ -173,7 +173,7 @@ class TeamsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '100%', :height => 300, :legend => 'bottom', :title => "WIns Each Year", :titleX => "Year for Team", :titleY => "Number of Wins"}
+		options = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Wins Each Year", :titleX => "Year for Team", :titleY => "Number of Wins"}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
