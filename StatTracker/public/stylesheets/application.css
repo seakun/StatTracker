@@ -304,6 +304,9 @@ table.chart {
 width: 100%
 }
 
+#table_checkbox {
+text-align:center;
+}
 
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;

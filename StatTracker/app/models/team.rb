@@ -11,7 +11,7 @@ class Team < ActiveRecord::Base
 	belongs_to :franchise
 
   def pct
-    wins.quo(wins+losses).to_f.round(3)
+	sprintf("%.3f", wins.quo(wins+losses).to_f.round(3))
   end
   
   # Search all teams that have a name or park like some term

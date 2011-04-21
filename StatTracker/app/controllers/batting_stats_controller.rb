@@ -239,7 +239,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Home Run Totals", :titleX => "Year in Player's Career", :titleY => "Number of Home Runs"}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Home Runs", :titleX => "Year in Player's Career", :titleY => "Number of Home Runs"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -335,7 +335,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Home Run Totals", :titleX => "Year in Player's Span", :titleY => "Number of Home Runs"}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Home Runs", :titleX => "Year in Player's Span", :titleY => "Number of Home Runs"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -426,7 +426,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + str_stat + " Totals", :titleX => "Year in Player's Career", :titleY => "Number of " + str_stat}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Cumulative " + str_stat, :titleX => "Year in Player's Career", :titleY => "Number of " + str_stat}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -488,7 +488,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Cumulative " + stat.titleize, :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -582,18 +582,17 @@ class BattingStatsController < ApplicationController
     @stats = []
     operations = []
     (1..number).each do |i|
-      stat = params["#{i}"][:stat]
-      next if stat.blank?
-      operator = params["#{i}"][:operator]
-      number = params["#{i}"][:number]
-	  if number.to_i < 1
-		flash[:notice] = 'At least one of your values was invalid. Please try again.'
-		redirect_to :back
-	  end
-      string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
-      @stats.push(stat)
-      operations.push(string)
-
+    stat = params["#{i}"][:stat]
+    next if stat.blank?
+		operator = params["#{i}"][:operator]
+		number = params["#{i}"][:number]
+		if number.to_i < 1 || number == ""
+			flash[:notice] = 'At least one of your values was invalid. Please try again.'
+			redirect_to :back
+		end
+		string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
+		@stats.push(stat)
+		operations.push(string)
     end
     if params[:postseason].nil?
       @batting_stats = BattingStat.where(operations.join(" AND "))
@@ -601,25 +600,25 @@ class BattingStatsController < ApplicationController
       @batting_stats = BattingPostStat.where(operations.join(" AND "))
     end
     @chart2 = GoogleVisualr::Table.new
-		@chart2.add_column('string' , 'Name')
+	@chart2.add_column('string' , 'Name')
     @chart2.add_column('string' , 'Bats')
-		@chart2.add_column('string' , 'Team')
+	@chart2.add_column('string' , 'Team')
     @chart2.add_column('string' , 'Year')
     @stats.each do |i|
-     @chart2.add_column('number' , i.titleize)
+		@chart2.add_column('number' , i.titleize)
     end
     @chart2.add_rows(@batting_stats.size)
     @batting_stats.each { |b|
-			i = @batting_stats.index(b)
-			@chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
-      @chart2.set_cell(i, 1, b.player.bats.to_s)
-			@chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
-      @chart2.set_cell(i, 3, b.team.year.to_s)
-      k=4
+		i = @batting_stats.index(b)
+		@chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
+		@chart2.set_cell(i, 1, b.player.bats.to_s)
+		@chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
+		@chart2.set_cell(i, 3, b.team.year.to_s)
+		k=4
     @stats.each do |j|
-     number= b.send(j.downcase.gsub(" ", "_"))
-     @chart2.set_value(i, k, number)
-     k+=1
+		number= b.send(j.downcase.gsub(" ", "_"))
+		@chart2.set_value(i, k, number)
+		k+=1
     end
     }
     options = { :width => 600, :allowHtml=>true }
@@ -629,5 +628,4 @@ class BattingStatsController < ApplicationController
   end
 
   end
-
 end

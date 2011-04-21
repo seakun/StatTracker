@@ -140,6 +140,79 @@ class TeamsController < ApplicationController
 
 	def season_compare
 		@teams = Team.season_compare(params[:comp])
+		@table = GoogleVisualr::Table.new
+		@table.add_column('string' , 'Name')
+		@table.add_column('string' , 'Year')
+		@table.add_column('string' , 'League')
+		@table.add_column('string' , 'W')
+		@table.add_column('string' , 'L')
+		@table.add_column('string' , 'WL%')
+		@table.add_column('string' , 'R')
+		@table.add_column('string' , 'PA')
+		@table.add_column('string' , 'AB')
+		@table.add_column('string' , 'H')
+		@table.add_column('string' , '2B')
+		@table.add_column('string' , '3B')
+		@table.add_column('string' , 'HR')
+		@table.add_column('string' , 'TB')
+		@table.add_column('string' , 'XBH')
+		@table.add_column('string' , 'BB')
+		@table.add_column('string' , 'K')
+		@table.add_column('string', 'SB')
+		@table.add_column('string' , 'CS')
+		@table.add_column('string' , 'HBP')
+		@table.add_column('string' , 'SF')
+		@table.add_column('string' , 'RA')
+		@table.add_column('string' , 'ER')
+		@table.add_column('string' , 'CG')
+		@table.add_column('string' , 'SHO')
+		@table.add_column('string' , 'SV')
+		@table.add_column('string' , 'HA')
+		@table.add_column('string' , 'HRA')
+		@table.add_column('string' , 'BBA')
+		@table.add_column('string' , 'KA')
+		@table.add_column('string' , 'E')
+		@table.add_rows(@teams.size)
+		i = 0
+		@teams.each {|b|
+			@table.set_cell(i, 0, "<a href='/teams/#{b[0].id}'>#{b[0].name}</a>")
+			@table.set_cell(i, 1, b[0].year.to_s)
+			@table.set_cell(i, 2, b[0].division.league.abbrev.to_s)
+			@table.set_cell(i, 3, b[0].wins.to_s)
+			@table.set_cell(i, 4, b[0].losses.to_s)
+			@table.set_cell(i, 5, b[0].pct.to_s)
+			@table.set_cell(i, 6, b[0].runs.to_s)
+			@table.set_cell(i, 7, b[0].plate_appearances.to_s)
+			@table.set_cell(i, 8, b[0].at_bats.to_s)
+			@table.set_cell(i, 9, b[0].hits.to_s)
+			@table.set_cell(i, 10, b[0].doubles.to_s)
+			@table.set_cell(i, 11, b[0].triples.to_s)
+			@table.set_cell(i, 12, b[0].home_runs.to_s)
+			@table.set_cell(i, 13, b[0].total_bases.to_s)
+			@table.set_cell(i, 14, b[0].extra_base_hits.to_s)
+			@table.set_cell(i, 15, b[0].walks.to_s)
+			@table.set_cell(i, 16, b[0].strikeouts.to_s)
+			@table.set_cell(i, 17, b[0].stolen_bases.to_s)
+			@table.set_cell(i, 18, b[0].caught_stealing.to_s)
+			@table.set_cell(i, 19, b[0].hit_by_pitch.to_s)
+			@table.set_cell(i, 20, b[0].sacrifice_flies.to_s)
+			@table.set_cell(i, 21, b[0].runs_allowed.to_s)
+			@table.set_cell(i, 22, b[0].earned_runs.to_s)
+			@table.set_cell(i, 23, b[0].complete_games.to_s)
+			@table.set_cell(i, 24, b[0].shutouts.to_s)
+			@table.set_cell(i, 25, b[0].saves.to_s)
+			@table.set_cell(i, 26, b[0].hits_allowed.to_s)
+			@table.set_cell(i, 27, b[0].home_runs_allowed.to_s)
+			@table.set_cell(i, 28, b[0].walks_allowed.to_s)
+			@table.set_cell(i, 29, b[0].strikeouts_allowed.to_s)
+			@table.set_cell(i, 30, b[0].errors_made.to_s)
+			i += 1
+		}
+		
+		options = { :width => '100%', :allowHtml=>true }
+		options.each_pair do | key, value |
+			@table.send "#{key}=", value
+		end
 	end
   
 	def career_compare
@@ -201,7 +274,7 @@ class TeamsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Win Totals", :titleX => "Year for Team", :titleY => "Number of Wins"}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Wins", :titleX => "Year for Team", :titleY => "Number of Wins"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -286,7 +359,7 @@ class TeamsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year for Team", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative " + stat.titleize, :titleX => "Year for Team", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -391,7 +464,7 @@ class TeamsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Win Totals", :titleX => "Year for Team", :titleY => "Number of Wins"}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Wins", :titleX => "Year for Team", :titleY => "Number of Wins"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -476,7 +549,7 @@ class TeamsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year for Team", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative " + stat.titleize, :titleX => "Year for Team", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end

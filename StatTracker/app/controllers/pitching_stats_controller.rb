@@ -256,7 +256,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Win Totals", :titleX => "Year in Player's Career", :titleY => "Number of Wins"}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Wins", :titleX => "Year in Player's Career", :titleY => "Number of Wins"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -352,7 +352,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Progressive Win Totals", :titleX => "Year in Player's Span", :titleY => "Number of Wins"}
+		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Wins", :titleX => "Year in Player's Span", :titleY => "Number of Wins"}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -371,11 +371,11 @@ class PitchingStatsController < ApplicationController
 			@players.each { |p|
 				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
 				@table.set_cell(i, 1, p.bats)
-				@table.set_cell(i, 2, PitchingStat.get_stat_total(p, :wins))
-				@table.set_cell(i, 3, PitchingStat.get_stat_total(p, :losses))
-				@table.set_cell(i, 4, PitchingStat.get_stat_total(p, :earned_runs))
-				@table.set_cell(i, 5, PitchingStat.get_stat_total(p, :strikeouts))
-				@table.set_cell(i, 6, PitchingStat.get_stat_total(p, :saves))
+				@table.set_cell(i, 2, PitchingStat.get_multi_stat_total(p.id, @pitchers, :wins))
+				@table.set_cell(i, 3, PitchingStat.get_multi_stat_total(p.id, @pitchers, :losses))
+				@table.set_cell(i, 4, PitchingStat.get_multi_stat_total(p.id, @pitchers, :earned_runs))
+				@table.set_cell(i, 5, PitchingStat.get_multi_stat_total(p.id, @pitchers, :strikeouts))
+				@table.set_cell(i, 6, PitchingStat.get_multi_stat_total(p.id, @pitchers, :saves))
 				i += 1
 			}
 
@@ -439,7 +439,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year in Player's Career", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Cumulative " + stat.titleize, :titleX => "Year in Player's Career", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -501,7 +501,7 @@ class PitchingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Progressive " + stat.titleize + " Totals", :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Cumulative " + stat.titleize, :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end

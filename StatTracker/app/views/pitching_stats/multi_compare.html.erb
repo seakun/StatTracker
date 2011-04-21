@@ -1,4 +1,4 @@
-<% title "Multi-Season Comparison" %>
+<% title "Multi-Season Pitching Comparison" %>
 
 You are comparing <%= @strings.join(", ") %>
 <br/>
@@ -11,30 +11,34 @@ You are comparing <%= @strings.join(", ") %>
 	<br/>
 	<br/>
 	
+	<div id = "table_checkbox">
 	<%= form_tag change_multi_table_pitching_path(:players => @players, :pitchers => @pitchers.keys), :remote => true, :id => "change_table"  do %>
-		<span title="Wins"><%= check_box_tag 'stat[]', 'wins', true %>W</span>
-		<span title="Losses"><%= check_box_tag 'stat[]', 'losses', true %>L</span>
-		<span title="Games"><%= check_box_tag 'stat[]', 'games', false %>G</span>
-		<span title="Games Started"><%= check_box_tag 'stat[]', 'games_started', false %>GS</span>
-		<span title="Complete Games"><%= check_box_tag 'stat[]', 'complete_games', false %>CG</span>
-		<span title="Shutouts"><%= check_box_tag 'stat[]', 'shutouts', false %>SO</span>
-		<span title="Saves"><%= check_box_tag 'stat[]', 'saves', true %>SV</span>
-		<span title="Hits"><%= check_box_tag 'stat[]', 'hits', false %>H</span>
-		<span title="Runs"><%= check_box_tag 'stat[]', 'runs', false %>R</span>
-		<span title="Earned Runs"><%= check_box_tag 'stat[]', 'earned_runs', true %>ER</span>
-		<span title="Home Runs"><%= check_box_tag 'stat[]', 'home_runs', false %>HR</span>
-		<span title="Walks"><%= check_box_tag 'stat[]', 'walks', false %>BB</span>
-		<span title="Strikeouts"><%= check_box_tag 'stat[]', 'strikeouts', true %>K</span>
-		<span title="Intentional Walks"><%= check_box_tag 'stat[]', 'intentional_walks', false %>IBB</span>
-		<span title="Wild Pitches"><%= check_box_tag 'stat[]', 'wild_pitches', false %>WP</span>
-		<span title="Hit by Pitch"><%= check_box_tag 'stat[]', 'hit_by_pitch', false %>HBP</span>
-		<span title="Balks"><%= check_box_tag 'stat[]', 'balks', false %>BK</span>
-		<span title="Batters Faced"><%= check_box_tag 'stat[]', 'batters_faced', false %>BF</span>
-		<span title="Sacrifice Hits"><%= check_box_tag 'stat[]', 'sacrifice_hits', false %>SAC</span>
-		<span title="Sacrifice Flies"><%= check_box_tag 'stat[]', 'sacrifice_flies', false %>SF</span>
-		<span title="Games Finished"><%= check_box_tag 'stat[]', 'games_finished', false %>GF</span>
+		<span title="Wins"><%= check_box_tag 'stat[]', 'wins', true %>W</span>&nbsp;
+		<span title="Losses"><%= check_box_tag 'stat[]', 'losses', true %>L</span>&nbsp;
+		<span title="Games"><%= check_box_tag 'stat[]', 'games', false %>G</span>&nbsp;
+		<span title="Games Started"><%= check_box_tag 'stat[]', 'games_started', false %>GS</span>&nbsp;
+		<span title="Complete Games"><%= check_box_tag 'stat[]', 'complete_games', false %>CG</span>&nbsp;
+		<span title="Shutouts"><%= check_box_tag 'stat[]', 'shutouts', false %>SO</span>&nbsp;
+		<span title="Saves"><%= check_box_tag 'stat[]', 'saves', true %>SV</span>&nbsp;
+		<span title="Hits"><%= check_box_tag 'stat[]', 'hits', false %>H</span>&nbsp;
+		<span title="Runs"><%= check_box_tag 'stat[]', 'runs', false %>R</span>&nbsp;
+		<span title="Earned Runs"><%= check_box_tag 'stat[]', 'earned_runs', true %>ER</span>&nbsp;
+		<span title="Home Runs"><%= check_box_tag 'stat[]', 'home_runs', false %>HR</span>&nbsp;
+		<br/>
+		<span title="Walks"><%= check_box_tag 'stat[]', 'walks', false %>BB</span>&nbsp;
+		<span title="Strikeouts"><%= check_box_tag 'stat[]', 'strikeouts', true %>K</span>&nbsp;
+		<span title="Intentional Walks"><%= check_box_tag 'stat[]', 'intentional_walks', false %>IBB</span>&nbsp;
+		<span title="Wild Pitches"><%= check_box_tag 'stat[]', 'wild_pitches', false %>WP</span>&nbsp;
+		<span title="Hit by Pitch"><%= check_box_tag 'stat[]', 'hit_by_pitch', false %>HBP</span>&nbsp;
+		<span title="Balks"><%= check_box_tag 'stat[]', 'balks', false %>BK</span>&nbsp;
+		<span title="Batters Faced"><%= check_box_tag 'stat[]', 'batters_faced', false %>BF</span>&nbsp;
+		<span title="Sacrifice Hits"><%= check_box_tag 'stat[]', 'sacrifice_hits', false %>SAC</span>&nbsp;
+		<span title="Sacrifice Flies"><%= check_box_tag 'stat[]', 'sacrifice_flies', false %>SF</span>&nbsp;
+		<span title="Games Finished"><%= check_box_tag 'stat[]', 'games_finished', false %>GF</span>&nbsp;
+		</br>
 		<%= submit_tag 'Update' %>
 	<% end %>
+	</div>
 	
 	<br/>
 	<br/>	
