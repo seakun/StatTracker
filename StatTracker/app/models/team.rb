@@ -96,9 +96,15 @@ class Team < ActiveRecord::Base
 	
 	def self.get_multi_stats(franchise, stats, stat)
 		all_stats = []
+		years = []
 		stats.each_pair { |key, value|
 			if value == franchise
-				all_stats.push(key.send(stat))
+				if years.index(key.year).nil?
+					all_stats.push(key.send(stat))
+					years.push(key.year)
+				else
+					all_stats[all_stats.size-1] += key.send(stat)
+				end
 			end
 		}
 		all_stats
@@ -106,10 +112,16 @@ class Team < ActiveRecord::Base
 	
 	def self.get_change_multi_stats(franchise, stats, stat)
 		all_stats = []
+		years = []
 		stats.each { |s|
 		t = Team.find(s)
 			if t.franchise_id == franchise
-				all_stats.push(t.send(stat))
+				if years.index(t.year).nil?
+					all_stats.push(t.send(stat))
+					years.push(t.year)
+				else
+					all_stats[all_stats.size-1] += t.send(stat)
+				end
 			end
 		}
 		all_stats

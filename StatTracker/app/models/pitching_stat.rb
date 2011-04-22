@@ -138,9 +138,15 @@ class PitchingStat < ActiveRecord::Base
 	
 	def self.get_multi_stats(player, stats, stat)
 		all_stats = []
+		years = []
 		stats.each_pair { |key, value|
 			if value == player
-				all_stats.push(key.send(stat))
+				if years.index(key.year).nil?
+					all_stats.push(key.send(stat))
+					years.push(key.year)
+				else
+					all_stats[all_stats.size-1] += key.send(stat)
+				end
 			end
 		}
 		all_stats
@@ -148,10 +154,16 @@ class PitchingStat < ActiveRecord::Base
 	
 	def self.get_change_multi_stats(player, stats, stat)
 		all_stats = []
+		years = []
 		stats.each { |s|
 		b = PitchingStat.find(s)
 			if b.player_id == player
-				all_stats.push(b.send(stat))
+				if years.index(b.year).nil?
+					all_stats.push(b.send(stat))
+					years.push(b.year)
+				else
+					all_stats[all_stats.size-1] += b.send(stat)
+				end
 			end
 		}
 		all_stats
