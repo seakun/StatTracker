@@ -249,7 +249,7 @@ class BattingStat < ActiveRecord::Base
   private
 
   def avg
-    hits / at_bats.to_f
+	hits / at_bats.to_f
   end
 
   def obp

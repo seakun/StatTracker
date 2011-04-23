@@ -325,43 +325,53 @@ class Player < ActiveRecord::Base
 	#Pitching
 	
 	def career_win_loss_percentage
-		sprintf("%.4f", (career_wins / (career_wins + career_losses).to_f))
+		if (career_wins + career_losses) == 0
+			sprintf("%.3f", 0)
+		else sprintf("%.3f", (career_wins / (career_wins + career_losses).to_f))
+		end
 	end
 
 	def career_innings_pitched
-		sprintf("%.1f", career_innings_pitched_outs / 3.to_f)
+		ip = sprintf("%.1f", career_innings_pitched_outs / 3.to_f)
+		if ip[ip.size-1] == '3'
+			ip[ip.size-1] = '1'
+		elsif ip[ip.size-1] == '7'
+			ip[ip.size-1] = '2'
+		else
+		end
+		ip
 	end
 
 	def career_era
-		sprintf("%.4f", (career_earned_runs * 9) / career_innings_pitched.to_f)
+		sprintf("%.2f", (career_earned_runs * 9) / career_innings_pitched.to_f)
 	end
 
 	def career_opponents_batting_average
-		sprintf("%.4f", ((career_hits_allowed) / (career_batters_faced - career_walks_allowed - career_hit_by_pitch).to_f))
+		sprintf("%.2f", ((career_hits_allowed) / (career_batters_faced - career_walks_allowed - career_hit_by_pitch).to_f))
 	end
 
 	def career_walks_and_hits_innings_pitched
-		sprintf("%.4f", ((career_walks_allowed + career_hits_allowed) / career_innings_pitched.to_f))
+		sprintf("%.2f", ((career_walks_allowed + career_hits_allowed) / career_innings_pitched.to_f))
 	end
 
 	def career_hits_per_9_innings
-		sprintf("%.4f", ((career_hits_allowed * 9) / (career_innings_pitched.to_f)))
+		sprintf("%.2f", ((career_hits_allowed * 9) / (career_innings_pitched.to_f)))
 	end
 
 	def career_home_runs_per_9_innings
-		sprintf("%.4f", ((career_home_runs_allowed * 9) / career_innings_pitched.to_f))
+		sprintf("%.2f", ((career_home_runs_allowed * 9) / career_innings_pitched.to_f))
 	end
   
 	def career_walks_per_9_innings
-		sprintf("%.4f", ((career_walks_allowed * 9) / career_innings_pitched.to_f))
+		sprintf("%.2f", ((career_walks_allowed * 9) / career_innings_pitched.to_f))
 	end
 
 	def career_strikeouts_per_9_innings
-		sprintf("%.4f", ((career_strikeouts_allowed * 9) / career_innings_pitched.to_f))
+		sprintf("%.2f", ((career_strikeouts_allowed * 9) / career_innings_pitched.to_f))
 	end
 
 	def career_strikeouts_per_walk
-		sprintf("%.4f", ((career_strikeouts_allowed / career_walks_allowed.to_f)))
+		sprintf("%.2f", ((career_strikeouts_allowed / career_walks_allowed.to_f)))
 	end
 
 	def career_adjusted_era
@@ -417,45 +427,55 @@ class Player < ActiveRecord::Base
 	#Pitching Post
 	
 	def career_post_win_loss_percentage
-		sprintf("%.4f", (career_wins_post / (career_wins_post + career_losses_post).to_f))
+		if (career_wins_post + career_losses_post) == 0
+			sprintf("%.3f", 0)
+		else sprintf("%.3f", (career_wins_post / (career_wins_post + career_losses_post).to_f))
+		end
 	end
 
 	def career_post_innings_pitched
-		sprintf("%.1f", career_innings_pitched_outs_post / 3.to_f)
+		ip = sprintf("%.1f", career_innings_pitched_outs_post / 3.to_f)
+		if ip[ip.size-1] == '3'
+			ip[ip.size-1] = '1'
+		elsif ip[ip.size-1] == '7'
+			ip[ip.size-1] = '2'
+		else
+		end
+		ip
 	end
 
 	def career_post_era
 		puts (career_earned_runs_post * 9) 
 		puts career_post_innings_pitched.to_f
-		sprintf("%.4f", (career_earned_runs_post * 9) / career_post_innings_pitched.to_f)
+		sprintf("%.2f", (career_earned_runs_post * 9) / career_post_innings_pitched.to_f)
 	end
 
 	def career_post_opponents_batting_average
-		sprintf("%.4f", ((career_hits_allowed_post) / (career_batters_faced_post - career_walks_allowed_post - career_hit_by_pitch_post).to_f))
+		sprintf("%.3f", ((career_hits_allowed_post) / (career_batters_faced_post - career_walks_allowed_post - career_hit_by_pitch_post).to_f))
 	end
 
 	def career_post_walks_and_hits_innings_pitched
-		sprintf("%.4f", ((career_walks_allowed_post + career_hits_allowed_post) / career_post_innings_pitched.to_f))
+		sprintf("%.2f", ((career_walks_allowed_post + career_hits_allowed_post) / career_post_innings_pitched.to_f))
 	end
 
 	def career_post_hits_per_9_innings
-		sprintf("%.4f", ((career_hits_allowed_post * 9) / (career_post_innings_pitched.to_f)))
+		sprintf("%.2f", ((career_hits_allowed_post * 9) / (career_post_innings_pitched.to_f)))
 	end
 
 	def career_post_home_runs_per_9_innings
-		sprintf("%.4f", ((career_home_runs_allowed_post * 9) / career_post_innings_pitched.to_f))
+		sprintf("%.2f", ((career_home_runs_allowed_post * 9) / career_post_innings_pitched.to_f))
 	end
   
 	def career_post_walks_per_9_innings
-		sprintf("%.4f", ((career_walks_allowed_post * 9) / career_post_innings_pitched.to_f))
+		sprintf("%.2f", ((career_walks_allowed_post * 9) / career_post_innings_pitched.to_f))
 	end
 
 	def career_post_strikeouts_per_9_innings
-		sprintf("%.4f", ((career_strikeouts_allowed_post * 9) / career_post_innings_pitched.to_f))
+		sprintf("%.2f", ((career_strikeouts_allowed_post * 9) / career_post_innings_pitched.to_f))
 	end
 
 	def career_post_strikeouts_per_walk
-		sprintf("%.4f", ((career_strikeouts_allowed_post / career_walks_allowed_post.to_f)))
+		sprintf("%.2f", ((career_strikeouts_allowed_post / career_walks_allowed_post.to_f)))
 	end
 
 	def career_post_adjusted_era
