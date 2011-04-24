@@ -476,6 +476,7 @@ autocomplete :player, :name, :full => true
         redirect_to @players.first
       end
     end
+    @players = @players.paginate :page => params[:page], :per_page => 20
     @arr = Array.new
     @arr << "Name: " + @query unless @query.blank?
     @arr << "Position: " + params[:position] unless params[:position].blank?
