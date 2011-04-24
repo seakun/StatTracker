@@ -10636,3 +10636,1302 @@ Rendered partials/_footer.html.erb (1.0ms)
 Rendered pitching_stats/career_compare.html.erb within layouts/application (45.0ms)
 Completed 200 OK in 322ms (Views: 225.0ms | ActiveRecord: 45.0ms)
 >>>>>>> .r242
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:20:44 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.4ms)
+Rendered home/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 79ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:31:18 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.6ms)
+Rendered home/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:31:22 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:34:46 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:38:00 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:40:01 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.4ms)
+Rendered home/about.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 15ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:40:16 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/about.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:44:43 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:45:03 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/about.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 16ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:45:06 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/contact.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/marker_from.png" for 127.0.0.1 at 2011-04-24 13:45:45 -0400
+
+ActionController::RoutingError (No route matches "/images/marker_from.png"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/images/marker_from.png" for 127.0.0.1 at 2011-04-24 13:45:45 -0400
+
+ActionController::RoutingError (No route matches "/images/marker_from.png"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:47:30 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:48:28 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/contact.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:48:48 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:48:57 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:49:05 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/contact.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:49:17 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:50:02 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/contact.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:50:57 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 15ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:53:49 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (50.8ms)
+Completed 200 OK in 57ms (Views: 56.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:53:56 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:54:22 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:54:31 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.8ms)
+Rendered home/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:54:38 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.8ms)
+Rendered home/index.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 53ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:55:10 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:55:21 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.4ms)
+Rendered home/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 13:55:26 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 13:55:30 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.4ms)
+Rendered home/about.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 21ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 13:55:34 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 14ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:01:04 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (84.0ms)
+Rendered home/contact.html.erb within layouts/application (92.7ms)
+Completed   in 99ms
+
+ActionView::Template::Error (undefined local variable or method `terms_path' for #<#<Class:0x00000102edc260>:0x00000102ed9df8>):
+    8: 	
+    9: 	<%= link_to 'Privacy Policy', privacy_path %>  &#10070;
+    10: 
+    11: 	<%= link_to 'Terms of Use', terms_path %>  &#10070;
+    12: 	
+    13: 	&copy 2011
+    14: 	
+  app/views/partials/_footer.html.erb:11:in `_app_views_partials__footer_html_erb___823301467933009385_2171899860_1390685155412673881'
+  app/views/layouts/application.html.erb:544:in `_app_views_layouts_application_html_erb__4066374107581586476_2172042120_4086428395805109610'
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:02:06 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (66.6ms)
+Completed 200 OK in 74ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:02:09 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (2.1ms)
+Rendered home/contact.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:02:12 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:02:35 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:04:32 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:04:33 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:06:17 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (49.7ms)
+Completed 200 OK in 56ms (Views: 55.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 14:06:19 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:06:21 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/contact.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:06:26 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:07:40 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<%# encoding: utf-8 %>
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:07:41 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<%# encoding: utf-8 %>
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (48.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (55.4ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:07:42 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<%# encoding: utf-8 %>
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 14:08:09 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 14:08:12 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/about.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:08:15 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:08:17 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (17.9ms)
+Completed   in 24ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:08:41 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.5ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid utf-8. Please either specify utf-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:08:44 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid utf-8. Please either specify utf-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:08:57 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (3.3ms)
+Completed   in 10ms
+
+ActionView::Template::Error (unknown encoding name - utf-8;):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.7ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:09:03 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 8ms
+
+ActionView::Template::Error (Your template was not saved as valid utf-8. Please either specify utf-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:09:25 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid utf-8. Please either specify utf-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:11:28 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.4ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:15:39 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (53.3ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:15:54 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/contact.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:15:55 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/contact.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:16:46 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:16:50 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:16:57 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/contact.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:16:59 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:17:01 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:17:04 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:17:04 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:17:08 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (57.2ms)
+Rendered home/index.html.erb within layouts/application (66.6ms)
+Completed 200 OK in 75ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:17:13 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.4ms)
+Rendered home/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:18:07 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:18:14 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:18:19 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:18:25 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:18:39 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.5ms)
+Rendered home/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 14:19:40 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 14:19:56 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 59ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:20:03 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:20:09 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (16.1ms)
+Completed   in 23ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 14:20:25 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 14:20:37 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/terms.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:20:40 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 14:20:42 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/terms.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 14:21:00 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/terms.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:21:38 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.6ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 14:22:44 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/terms.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:22:45 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 45ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:23:27 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:23:28 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.3ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (56.6ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 14:23:30 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:23:33 -0400
+  Processing by HomeController#privacy as HTML
+Rendered home/privacy.html.erb within layouts/application (0.4ms)
+Completed   in 6ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:24:46 -0400
+
+ActionController::RoutingError (No route matches "/privacy"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/privacy" for 127.0.0.1 at 2011-04-24 14:24:49 -0400
+
+ActionController::RoutingError (No route matches "/privacy"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 14:25:03 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 14:25:05 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/policy" for 127.0.0.1 at 2011-04-24 14:25:07 -0400
+  Processing by HomeController#policy as HTML
+Rendered home/policy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
