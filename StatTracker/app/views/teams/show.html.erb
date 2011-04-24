@@ -37,13 +37,13 @@
 <p><%if @team.lg_win%><%= image_tag("trophy.png")%> League Win<% end %></p>
 <p><%if @team.ws_win%><%= image_tag("trophy.png")%> World Series Win<% end %></p>
 <br/>
-<strong>Team Batting Stats</strong>
+<strong>Team Batting Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"><%= image_tag("question.gif")%></span>
 <br/>
 <div id='chart2'></div>
 <%= raw @chart2.render('chart2') %>
 <br/>
 <br/>
-<strong>Team Pitching and Fielding Stats</strong>
+<strong>Team Pitching and Fielding Stats</strong><span title="Hover over numbers for full name of stat and click on the side tab to learn more"><%= image_tag("question.gif")%></span>
 <br/>
 <div id='chart3'></div>
 <%= raw @chart3.render('chart3') %>
