@@ -17,22 +17,22 @@ autocomplete :player, :name, :full => true
 		@chart.add_column('string' , 'Year')
 		@chart.add_column('string' , 'Age')
 		@chart.add_column('string' , 'Team')
-		@chart.add_column('string' , 'G')
-		@chart.add_column('string' , 'PA')
-    @chart.add_column('string' , 'AB')
-    @chart.add_column('string' , 'R')
-    @chart.add_column('string' , 'H')
-    @chart.add_column('string' , '2B')
-    @chart.add_column('string' , '3B')
-    @chart.add_column('string' , 'HR')
-    @chart.add_column('string' , 'RBI')
-    @chart.add_column('string' , 'SB')
-    @chart.add_column('string' , 'CS')
-    @chart.add_column('string' , 'BB')
+		@chart.add_column('number' , 'G')
+		@chart.add_column('number' , 'PA')
+    @chart.add_column('number' , 'AB')
+    @chart.add_column('number' , 'R')
+    @chart.add_column('number' , 'H')
+    @chart.add_column('number' , '2B')
+    @chart.add_column('number' , '3B')
+    @chart.add_column('number' , 'HR')
+    @chart.add_column('number' , 'RBI')
+    @chart.add_column('number' , 'SB')
+    @chart.add_column('number' , 'CS')
+    @chart.add_column('number' , 'BB')
     @chart.add_column('string' , 'K')
     @chart.add_column('string' , 'BA')
     @chart.add_column('string' , 'SLG')
-    @chart.add_column('string' , 'TB')
+    @chart.add_column('number' , 'TB')
     @chart.add_column('string' , 'OBP')
     @chart.add_column('string' , 'OPS')
     @chart.add_column('string' , 'ISO')
@@ -40,50 +40,77 @@ autocomplete :player, :name, :full => true
     i=0
     @batting_stats.each { |b|
 			i = @batting_stats.index(b)
-    @chart.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
+    games="Games"
+	runs="Runs"
+	bats="At Bats"
+	plates="Plate Appearances"
+	hits="Hits"
+	doubles="Doubles"
+	triples="Triples"
+	home="Home Runs"
+	rbi="RBI"
+	stolen="Stolen Bases"
+	caught="Caught Stealing"
+	walks="Walks"
+	strikes="Strikeouts"
+	bases="Total Bases"
+	totalgames="Total Games"
+	totalruns="Total Runs"
+	totalbats="Total At Bats"
+	totalplates="Total Plate Appearances"
+	totalhits="Total Hits"
+	totaldoubles="Total Doubles"
+	totaltriples="Total Triples"
+	totalhome="Total Home Runs"
+	totalrbi="Total RBI"
+	totalstolen="Total Stolen Bases"
+	totalcaught="Total Caught Stealing"
+	totalwalks="Total Walks"
+	totalstrikes="Total Strikeouts"
+	@chart.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
     @chart.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
     @chart.set_cell(i, 2, "<span title='Team'><a href='/teams/#{b.team.id}'>#{b.team.name}</a></span>")
-    @chart.set_cell(i, 3, "<span title='Games'>#{b.games}</span>")
-    @chart.set_cell(i, 4, "<span title='Plate Appearances'>#{b.plate_appearances.to_s}</span>")
-	  @chart.set_cell(i, 5, "<span title='At Bats'>#{b.at_bats.to_s}</span>")
-	  @chart.set_cell(i, 6, "<span title='Runs'>#{b.runs.to_s}</span>")
-	  @chart.set_cell(i, 7, "<span title='Hits'>#{b.hits.to_s}</span>")
-    @chart.set_cell(i, 8, "<span title='Doubles'>#{b.doubles.to_s}</span>")
-    @chart.set_cell(i, 9, "<span title='Triples'>#{b.triples.to_s}</span>")
-    @chart.set_cell(i, 10, "<span title='Home Runs'>#{b.home_runs.to_s}</span>")
-    @chart.set_cell(i, 11, "<span title='RBI'>#{b.rbi.to_s}</span>")
-    @chart.set_cell(i, 12, "<span title='Stolen Bases'>#{b.stolen_bases.to_s}</span>")
-    @chart.set_cell(i, 13, "<span title='Caught Stealing'>#{b.caught_stealing.to_s}</span>")
-    @chart.set_cell(i, 14, "<span title='Walks'>#{b.walks.to_s}</span>")
-    @chart.set_cell(i, 15, "<span title='Strikeouts'>#{b.strikeouts.to_s}</span>")
+    @chart.set_cell(i, 3, b.games, "<span title=#{games}>#{b.games.to_s}</span>")
+    @chart.set_cell(i, 4, b.plate_appearances, "<span title=#{plates}>#{b.plate_appearances.to_s}</span>")
+	  @chart.set_cell(i, 5, b.at_bats, "<span title=#{bats}>#{b.at_bats.to_s}</span>")
+	  @chart.set_cell(i, 6, b.runs, "<span title=#{runs}>#{b.runs.to_s}</span>")
+	  @chart.set_cell(i, 7, b.hits, "<span title=#{hits}>#{b.hits.to_s}</span>")
+    @chart.set_cell(i, 8, b.doubles, "<span title=#{doubles}>#{b.doubles.to_s}</span>")
+    @chart.set_cell(i, 9, b.triples, "<span title=#{triples}>#{b.triples.to_s}</span>")
+    @chart.set_cell(i, 10, b.home_runs, "<span title=#{home}>#{b.home_runs.to_s}</span>")
+    @chart.set_cell(i, 11, b.rbi, "<span title=#{rbi}>#{b.rbi.to_s}</span>")
+    @chart.set_cell(i, 12, b.stolen_bases, "<span title=#{stolen}>#{b.stolen_bases.to_s}</span>")
+    @chart.set_cell(i, 13, b.caught_stealing, "<span title=#{caught}>#{b.caught_stealing.to_s}</span>")
+    @chart.set_cell(i, 14, b.walks, "<span title=#{walks}>#{b.walks.to_s}</span>")
+    @chart.set_cell(i, 15, "<span title='#{strikes}>#{b.strikeouts.to_s}</span>")
     @chart.set_cell(i, 16, "<span title='Batting Average'>#{b.batting_average.to_s}</span>")
     @chart.set_cell(i, 17, "<span title='Slugging Percentage'>#{b.slugging_percentage.to_s}</span>")
-    @chart.set_cell(i, 18, "<span title='Total Bases'>#{b.total_bases.to_s}</span>")
+    @chart.set_cell(i, 18, b.total_bases, "<span title=#{bases}>#{b.total_bases.to_s}</span>")
     @chart.set_cell(i, 19, "<span title='On Base Percentage'>#{b.on_base_percentage.to_s}</span>")
     @chart.set_cell(i, 20, "<span title='On Base+Slugging'>#{b.on_base_plus_slugging.to_s}</span>")
     @chart.set_cell(i, 21, "<span title='Isolated Power'>#{b.isolated_power.to_s}</span>")
 	}
-    i+=1
-    @chart.set_cell(i, 0, "Totals")
-    @chart.set_cell(i, 3, "<s@playeran title='Total Games'>#{BattingStat.get_stat_total(params[:id], :games)}</span>")
-    @chart.set_cell(i, 4, "<span title='Total Plate Appearances'>#{@player.career_plate_appearances}</span>")
-	  @chart.set_cell(i, 5, "<span title='Total At Bats'>#{@player.career_at_bats}</span>")
-	  @chart.set_cell(i, 6, "<span title='Total Runs'>#{BattingStat.get_stat_total(params[:id], :runs)}</span>")
-	  @chart.set_cell(i, 7, "<span title='Total Hits'>#{@player.career_hits}</span>")
-    @chart.set_cell(i, 8, "<span title='Total Doubles'>#{BattingStat.get_stat_total(params[:id], :doubles)}</span>")
-    @chart.set_cell(i, 9, "<span title='Total Triples'>#{BattingStat.get_stat_total(params[:id], :triples)}</span>")
-    @chart.set_cell(i, 10, "<span title='Total Home Runs'>#{@player.career_home_runs}</span>")
-    @chart.set_cell(i, 11, "<span title='Total RBI'>#{BattingStat.get_stat_total(params[:id], :rbi)}</span>")
-    @chart.set_cell(i, 12, "<span title='Total Stolen Bases'>#{@player.career_stolen_bases}</span>")
-    @chart.set_cell(i, 13, "<span title='Total Caught Stealing'>#{@player.career_caught_stealing}</span>")
-    @chart.set_cell(i, 14, "<span title='Total Walks'>#{@player.career_walks}</span>")
-    @chart.set_cell(i, 15, "<span title='Total Strikeouts'>#{@player.career_strikeouts}</span>")
-	@chart.set_cell(i, 16, "<span title='Batting Average'>#{@player.career_batting_average}</span>")
-	@chart.set_cell(i, 17, "<span title='Slugging Percentage'>#{@player.career_slugging_percentage}</span>")
-	@chart.set_cell(i, 18,  "<span title='Total Bases'>#{@player.career_total_bases}</span>")
-	@chart.set_cell(i, 19,  "<span title='On Base Percentage'>#{@player.career_on_base_percentage}</span>")
-	@chart.set_cell(i, 20,  "<span title='On Base Plus Slugging'>#{@player.career_on_base_plus_slugging}</span>")
-	@chart.set_cell(i, 21,  "<span title='Isolated Power'>#{@player.career_isolated_power}</span>")
+    # i+=1
+    # @chart.set_cell(i, 0, "Totals")
+    # @chart.set_cell(i, 3, BattingStat.get_stat_total(params[:id], :games), "<span title='Total Games'>#{BattingStat.get_stat_total(params[:id], :games)}</span>")
+    # @chart.set_cell(i, 4, @player.career_plate_appearances, "<span title='Total Plate Appearances'>#{@player.career_plate_appearances}</span>")
+	  # @chart.set_cell(i, 5, @player.career_at_bats, "<span title='Total At Bats'>#{@player.career_at_bats}</span>")
+	  # @chart.set_cell(i, 6, "<span title='Total Runs'>#{BattingStat.get_stat_total(params[:id], :runs)}</span>")
+	  # @chart.set_cell(i, 7, "<span title='Total Hits'>#{@player.career_hits}</span>")
+    # @chart.set_cell(i, 8, "<span title='Total Doubles'>#{BattingStat.get_stat_total(params[:id], :doubles)}</span>")
+    # @chart.set_cell(i, 9, "<span title='Total Triples'>#{BattingStat.get_stat_total(params[:id], :triples)}</span>")
+    # @chart.set_cell(i, 10, "<span title='Total Home Runs'>#{@player.career_home_runs}</span>")
+    # @chart.set_cell(i, 11, "<span title='Total RBI'>#{BattingStat.get_stat_total(params[:id], :rbi)}</span>")
+    # @chart.set_cell(i, 12, "<span title='Total Stolen Bases'>#{@player.career_stolen_bases}</span>")
+    # @chart.set_cell(i, 13, "<span title='Total Caught Stealing'>#{@player.career_caught_stealing}</span>")
+    # @chart.set_cell(i, 14, "<span title='Total Walks'>#{@player.career_walks}</span>")
+    # @chart.set_cell(i, 15, "<span title='Total Strikeouts'>#{@player.career_strikeouts}</span>")
+	# @chart.set_cell(i, 16, "<span title='Batting Average'>#{@player.career_batting_average}</span>")
+	# @chart.set_cell(i, 17, "<span title='Slugging Percentage'>#{@player.career_slugging_percentage}</span>")
+	# @chart.set_cell(i, 18,  "<span title='Total Bases'>#{@player.career_total_bases}</span>")
+	# @chart.set_cell(i, 19,  "<span title='On Base Percentage'>#{@player.career_on_base_percentage}</span>")
+	# @chart.set_cell(i, 20,  "<span title='On Base Plus Slugging'>#{@player.career_on_base_plus_slugging}</span>")
+	# @chart.set_cell(i, 21,  "<span title='Isolated Power'>#{@player.career_isolated_power}</span>")
 	options = { :width => '100%', :allowHtml =>true }
 	options.each_pair do | key, value |
 		@chart.send "#{key}=", value
