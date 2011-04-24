@@ -37,14 +37,8 @@
     </script>
      <style type="text/css">
 
-      .slide-out-div {
-          padding: 10px;
-		  padding-bottom:10px;
-          width: 500px;
-		  height:520px;
-          background: #ccc;
-          border: 1px solid #29216d;
-      }
+  
+	  
       </style>
     <script>
 	$(document).ready(function(){
@@ -100,7 +94,11 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 
 
     <div id="hd">
+	<%= link_to image_tag("/images/logo.png"), '/index' %>
+
 	</div>     
+	
+	<div id = "stitches"></div>
   <div id="nav">
       	<ul >
 			<li><%= link_to 'Home', '/index' %></li>
@@ -132,18 +130,15 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 					</ul>
 			</li>
 </ul>
-<li style="width:250px; margin-top:-5px;">
+<li style="width:250px;margin-top:4px;">
 <%= form_tag(search_path) do %>
                                 <%= text_field_tag('query','',:size => 20,:placeholder => 'Enter a player or team..', :class => 'field_style') %>
                                 <%= submit_tag('Search') %>
                                 <% end %>
 								</li>
 </div> 
-</br>
-</br>
-</br>
+
     <div id="container">
-	</br>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
@@ -151,7 +146,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
       <%= yield %>
     </div>
 	
-    <div class="slide-out-div">
+<div class="slide-out-div">
             <a class="handle" href="http://link-for-non-js-users.html">Content</a>
             <h2 class="header">Statistics List</h2>
         <table id="greentable">
@@ -543,3 +538,5 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
   </body>
       			<%= render :partial => "partials/footer" %>
 </html>
+
+
