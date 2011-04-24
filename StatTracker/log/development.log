@@ -12050,3 +12050,419 @@ Started GET "/index" for 127.0.0.1 at 2011-04-24 15:09:35 -0400
 Rendered partials/_footer.html.erb (0.9ms)
 Rendered home/index.html.erb within layouts/application (8.5ms)
 Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:19:28 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:19:29 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (4.2ms)
+Rendered home/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:19:32 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.9ms)
+Rendered home/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:19:34 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2011-04-24 15:19:38 -0400
+  Processing by HomeController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETGYTxZFHOW65n7nCHx5vh6dPo470Rvh8P85ygwsFIA=", "query"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/index
+  [1m[36mPlayer Load (143203.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE (lower(first_name) LIKE '%%' OR lower(last_name) LIKE '%%' OR lower(first_name) || ' ' || lower(last_name) LIKE '%%')[0m
+  [1m[35mFranchise Load (608.1ms)[0m  SELECT "franchises".* FROM "franchises" WHERE (lower(name) LIKE '%%')
+Completed 302 Found in 159929ms
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:22:18 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (3.0ms)
+Rendered home/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 143811.2ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2011-04-24 15:23:37 -0400
+  Processing by HomeController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETGYTxZFHOW65n7nCHx5vh6dPo470Rvh8P85ygwsFIA=", "query"=>"~!@\#$%^&*()", "commit"=>"Search"}
+  [1m[36mPlayer Load (101.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE (lower(first_name) LIKE '%~!@#$%^&*()%' OR lower(last_name) LIKE '%~!@#$%^&*()%' OR lower(first_name) || ' ' || lower(last_name) LIKE '%~!@#$%^&*()%')[0m
+  [1m[35mFranchise Load (0.3ms)[0m  SELECT "franchises".* FROM "franchises" WHERE (lower(name) LIKE '%~!@#$%^&*()%')
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/search.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 331ms (Views: 45.1ms | ActiveRecord: 101.7ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2011-04-24 15:23:43 -0400
+  Processing by HomeController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETGYTxZFHOW65n7nCHx5vh6dPo470Rvh8P85ygwsFIA=", "query"=>" ", "commit"=>"Search"}
+Redirected to http://localhost:3000/search
+  [1m[36mPlayer Load (125010.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE (lower(first_name) LIKE '% %' OR lower(last_name) LIKE '% %' OR lower(first_name) || ' ' || lower(last_name) LIKE '% %')[0m
+  [1m[35mFranchise Load (474.8ms)[0m  SELECT "franchises".* FROM "franchises" WHERE (lower(name) LIKE '% %')
+Completed 302 Found in 139104ms
+
+
+Started GET "/batting_leaderboards" for 127.0.0.1 at 2011-04-24 15:26:02 -0400
+  Processing by HomeController#batting_leaderboard as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/batting_leaderboard.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:26:02 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (3.7ms)
+Rendered home/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:26:03 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.9ms)
+Rendered home/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:26:20 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (3.2ms)
+Rendered home/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 22ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/batting_leaderboards" for 127.0.0.1 at 2011-04-24 15:26:23 -0400
+  Processing by HomeController#batting_leaderboard as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/batting_leaderboard.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/batting_leaders" for 127.0.0.1 at 2011-04-24 15:26:27 -0400
+  Processing by HomeController#batting_leaders as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETGYTxZFHOW65n7nCHx5vh6dPo470Rvh8P85ygwsFIA=", "stat"=>"At Bats", "type"=>"season", "commit"=>"Submit"}
+Redirected to http://localhost:3000/leaders/season/batting/at_bats
+Completed 302 Found in 1ms
+
+
+Started GET "/leaders/season/batting/at_bats" for 127.0.0.1 at 2011-04-24 15:26:27 -0400
+  Processing by BattingStatsController#single_season as HTML
+  Parameters: {"stat"=>"at_bats"}
+  [1m[36mBattingStat Load (10163.2ms)[0m  [1mSELECT "batting_stats".* FROM "batting_stats" WHERE (plate_appearances > 0) ORDER BY at_bats DESC LIMIT 50[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12177) LIMIT 1[0m
+  [1m[35mTeam Load (1.5ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2582) LIMIT 1
+  [1m[36mPlayer Load (1.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15374) LIMIT 1[0m
+  [1m[35mTeam Load (18.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 790) LIMIT 1
+  [1m[36mPlayer Load (2.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1130) LIMIT 1
+  [1m[36mPlayer Load (3.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12430) LIMIT 1[0m
+  [1m[35mTeam Load (1.5ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2257) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2226) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2149) LIMIT 1
+  [1m[36mPlayer Load (2.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11254) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2558) LIMIT 1
+  [1m[36mPlayer Load (1.7ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 201) LIMIT 1[0m
+  [1m[35mTeam Load (4.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2078) LIMIT 1
+  [1m[36mPlayer Load (1.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 6950) LIMIT 1[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1798) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 16750) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2549) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13373) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1100) LIMIT 1
+  [1m[36mPlayer Load (2.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9960) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2198) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1158) LIMIT 1
+  [1m[36mPlayer Load (3.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15305) LIMIT 1[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2003) LIMIT 1
+  [1m[36mPlayer Load (70.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11891) LIMIT 1[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 584) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1088) LIMIT 1
+  [1m[36mPlayer Load (0.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11497) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 861) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15670) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1160) LIMIT 1
+  [1m[36mPlayer Load (1.7ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11080) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2448) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15670) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1132) LIMIT 1
+  [1m[36mPlayer Load (2.2ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 198) LIMIT 1[0m
+  [1m[35mTeam Load (2.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 672) LIMIT 1
+  [1m[36mPlayer Load (6.8ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 1592) LIMIT 1[0m
+  [1m[35mTeam Load (2.5ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2059) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12177) LIMIT 1[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2566) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 16750) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2597) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2226) LIMIT 1[0m
+  [1m[35mTeam Load (1.4ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2137) LIMIT 1
+  [1m[36mPlayer Load (1.7ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4354) LIMIT 1[0m
+  [1m[35mTeam Load (1.4ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 881) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 2517) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 667) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12106) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1046) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1186) LIMIT 1
+  [1m[36mPlayer Load (3.1ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4910) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1024) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17498) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1203) LIMIT 1
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7035) LIMIT 1[0m
+  [1m[35mTeam Load (1.1ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2408) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13373) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1114) LIMIT 1
+  [1m[36mPlayer Load (71.7ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 9906) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1788) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 16750) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2581) LIMIT 1
+  [1m[36mPlayer Load (0.9ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 14813) LIMIT 1[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1758) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11497) LIMIT 1[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 875) LIMIT 1
+  [1m[36mPlayer Load (1.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 12223) LIMIT 1[0m
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2120) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1214) LIMIT 1
+  [1m[36mPlayer Load (8.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 4529) LIMIT 1[0m
+  [1m[35mTeam Load (1.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2029) LIMIT 1
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 7815) LIMIT 1[0m
+  [1m[35mTeam Load (2.9ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 505) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11891) LIMIT 1[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 604) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1116) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1144) LIMIT 1
+  [1m[36mPlayer Load (1.4ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5172) LIMIT 1[0m
+  [1m[35mTeam Load (1.5ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2439) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 5521) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2007) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 11254) LIMIT 1[0m
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2529) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 13875) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1172) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 15002) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1119) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 201) LIMIT 1[0m
+  [1m[35mTeam Load (1.2ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 2090) LIMIT 1
+  [1m[36mPlayer Load (1.6ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 8984) LIMIT 1[0m
+  [1m[35mTeam Load (1.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 877) LIMIT 1
+Rendered partials/_footer.html.erb (2.6ms)
+Rendered batting_stats/single_season.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 11394ms (Views: 42.7ms | ActiveRecord: 10454.0ms)
+
+
+Started GET "/leaders/season/stylesheets/nivo-slider.css" for 127.0.0.1 at 2011-04-24 15:26:39 -0400
+
+ActionController::RoutingError (No route matches "/leaders/season/stylesheets/nivo-slider.css"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/leaders/season/javascripts/jquery.nivo.slider.pack.js" for 127.0.0.1 at 2011-04-24 15:26:39 -0400
+
+ActionController::RoutingError (No route matches "/leaders/season/javascripts/jquery.nivo.slider.pack.js"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:34:21 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.7ms)
+Rendered home/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:40:27 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:41:37 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:45:19 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:47:40 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (102.0ms)
+Completed 200 OK in 108ms (Views: 107.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:51:28 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (96.1ms)
+Completed 200 OK in 107ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:51:55 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 23ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:52:14 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (2.3ms)
+Rendered home/index.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 86ms (Views: 85.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:52:35 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.5ms)
+Rendered home/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:57:44 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 28ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 16:15:16 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.4ms)
+Rendered home/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2011-04-24 16:16:01 -0400
+  Processing by HomeController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETGYTxZFHOW65n7nCHx5vh6dPo470Rvh8P85ygwsFIA=", "query"=>"Wang", "commit"=>"Search"}
+  [1m[36mPlayer Load (97.5ms)[0m  [1mSELECT "players".* FROM "players" WHERE (lower(first_name) LIKE '%wang%' OR lower(last_name) LIKE '%wang%' OR lower(first_name) || ' ' || lower(last_name) LIKE '%wang%')[0m
+  [1m[35mFranchise Load (0.5ms)[0m  SELECT "franchises".* FROM "franchises" WHERE (lower(name) LIKE '%wang%')
+Redirected to http://localhost:3000/players/17564
+Completed 302 Found in 434ms
+
+
+Started GET "/players/17564" for 127.0.0.1 at 2011-04-24 16:16:02 -0400
+  Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"17564"}
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (1.9ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1
+  [1m[36mFieldingStat Load (11343.3ms)[0m  [1mSELECT "fielding_stats".* FROM "fielding_stats" WHERE (player_id = 17564)[0m
+  [1m[35mBattingStat Load (60.3ms)[0m  SELECT "batting_stats".* FROM "batting_stats" WHERE (player_id = '17564')
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1142) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1156) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1
+  [1m[36mTeam Load (1.0ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1170) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1184) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1
+  [1m[36mTeam Load (3.8ms)[0m  [1mSELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1198) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1
+  [1m[36mBattingPostStat Load (69.6ms)[0m  [1mSELECT "batting_post_stats".* FROM "batting_post_stats" WHERE (player_id = '17564')[0m
+  [1m[35mBattingPostStat Load (2.8ms)[0m  SELECT games FROM "batting_post_stats" WHERE (player_id = '17564')
+  [1m[36mBattingPostStat Load (2.6ms)[0m  [1mSELECT runs FROM "batting_post_stats" WHERE (player_id = '17564')[0m
+  [1m[35mBattingPostStat Load (2.4ms)[0m  SELECT doubles FROM "batting_post_stats" WHERE (player_id = '17564')
+  [1m[36mBattingPostStat Load (5.9ms)[0m  [1mSELECT triples FROM "batting_post_stats" WHERE (player_id = '17564')[0m
+  [1m[35mBattingPostStat Load (2.7ms)[0m  SELECT rbi FROM "batting_post_stats" WHERE (player_id = '17564')
+  [1m[36mPitchingStat Load (340.8ms)[0m  [1mSELECT "pitching_stats".* FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1142) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1156) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1170) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1184) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1198) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mPitchingStat Load (27.5ms)[0m  SELECT games FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mPitchingStat Load (39.2ms)[0m  [1mSELECT games_started FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mPitchingStat Load (49.6ms)[0m  SELECT games_finished FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mPitchingStat Load (28.5ms)[0m  [1mSELECT complete_games FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mPitchingStat Load (26.2ms)[0m  SELECT shutouts FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mPitchingStat Load (29.5ms)[0m  [1mSELECT saves FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mPitchingStat Load (34.8ms)[0m  SELECT intentional_walks FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mPitchingStat Load (27.6ms)[0m  [1mSELECT balks FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mPitchingStat Load (27.2ms)[0m  SELECT wild_pitches FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mPitchingPostStat Load (17.9ms)[0m  [1mSELECT "pitching_post_stats".* FROM "pitching_post_stats" WHERE (player_id = '17564')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1142) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1156) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "teams".* FROM "teams" WHERE ("teams"."id" = 1170) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE ("players"."id" = 17564) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT games FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT games_started FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT games_finished FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT complete_games FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT shutouts FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT saves FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT intentional_walks FROM "pitching_stats" WHERE (player_id = '17564')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT balks FROM "pitching_stats" WHERE (player_id = '17564')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT wild_pitches FROM "pitching_stats" WHERE (player_id = '17564')
+Rendered partials/_footer.html.erb (1.8ms)
+Rendered players/show.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 13808ms (Views: 71.6ms | ActiveRecord: 12246.9ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 16:18:05 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.7ms)
+Rendered home/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/marker_from.png" for 127.0.0.1 at 2011-04-24 16:18:50 -0400
+
+ActionController::RoutingError (No route matches "/images/marker_from.png"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/marker_from.png" for 127.0.0.1 at 2011-04-24 16:18:51 -0400
+
+ActionController::RoutingError (No route matches "/images/marker_from.png"):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 16:25:42 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.5ms)
+Rendered home/index.html.erb within layouts/application (128.8ms)
+Completed 200 OK in 138ms (Views: 137.5ms | ActiveRecord: 0.0ms)
