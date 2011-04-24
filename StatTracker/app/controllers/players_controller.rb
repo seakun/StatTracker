@@ -431,7 +431,10 @@ autocomplete :player, :name, :full => true
 	# first_name, last_name, year, dash = @query.split(" ")
 	# last_name.chomp!(",")
 	# name = first_name + " " + last_name
-    @players = Player.player_search(@query)
+    @players = @query.blank?? Array.new : Player.player_search(@query)
+    field = params[:position].blank?? Array.new : FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}
+    letter = params[:letter].blank?? Array.new : Player.find(:all, :conditions => ["lower(last_name) like ?", params[:letter] + '%'])
+    @players.keep_if{|p| field.include?(p) && letter.include?(p)}
     @total_hits = @players.size
     if @total_hits == 1
       if @players.first != nil

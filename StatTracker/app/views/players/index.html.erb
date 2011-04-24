@@ -1,19 +1,16 @@
 <% title "Players" %>
+    <%= form_tag(player_search_path) do %>
     <tr>
-      <th> Search by Name </th>
-            <%= form_tag(player_search_path) do %>
+      <th> Search by Name </th>       
                     <%= text_field_tag('query','',:size => 15,:placeholder => 'Enter a player..', :class => 'field_style', :autocomplete => players_autocomplete_player_name_path)%>
-                    <%= submit_tag('Search') %>
-            <% end %>
     </tr>
     <br />
     <br />
      <tr>
       <th> Players by Last Name </th>
-
-          <%= form_tag (players_by_letter_path) do %>
                           <%= select_tag "letter",
-                          raw("<option>A</option>
+                          raw("<option></option>
+                          <option>A</option>
                           <option>B</option>
                           <option>C</option>
                           <option>D</option>
@@ -40,17 +37,14 @@
                           <option>Y</option>
                           <option>Z</option>")
 		%>
-          <%= submit_tag 'Submit' %>
-          <% end %>
     </tr>
         <br />
     <br />
      <tr>
       <th> Players by Position </th>
-
-          <%= form_tag (players_by_position_path) do %>
                           <%= select_tag "position",
-                          raw("<option>C</option>
+                          raw("<option></option>
+                          <option>C</option>
                           <option>1B</option>
                           <option>2B</option>
                           <option>3B</option>
@@ -60,7 +54,7 @@
                           <option>RF</option>
                           <option>OF</option>
                           <option>DH</option>")
-		%>
-          <%= submit_tag 'Submit' %>
-          <% end %>
+		%>      
     </tr>
+    <br /><br /><%= submit_tag('Search') %>
+    <% end %>
