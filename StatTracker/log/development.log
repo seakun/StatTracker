@@ -12466,3 +12466,101 @@ Started GET "/index" for 127.0.0.1 at 2011-04-24 16:25:42 -0400
 Rendered partials/_footer.html.erb (1.5ms)
 Rendered home/index.html.erb within layouts/application (128.8ms)
 Completed 200 OK in 138ms (Views: 137.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 16:36:00 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 26ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:36:05 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/terms.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 16:36:39 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/contact.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:41:56 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/terms.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:42:03 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/terms.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:43:41 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/terms.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:43:47 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/terms.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 63ms (Views: 62.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:44:53 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (2.6ms)
+Rendered home/terms.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:45:20 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/terms.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:47:28 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/terms.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 17ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 16:47:31 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/contact.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 14ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-24 16:47:34 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/about.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:47:36 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/terms.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 16:47:48 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/terms.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
