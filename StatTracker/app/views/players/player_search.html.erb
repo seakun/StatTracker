@@ -27,10 +27,10 @@
                       <% end %>
                   </td>
                   <td align ="center">
-                      <% if player.final_game.nil? %>
+                      <% if player.final_game.nil? && !player.debut.nil? %>
                           <%= player.debut.strftime("%Y") %> -
                       <% end %>
-                      <% if !player.final_game.nil? %>
+                      <% if !player.final_game.nil? && !player.debut.nil? %>
                           <%= player.debut.strftime("%Y") %> - <%= player.final_game.strftime("%Y") %>
                       <% end %>
                   </td>
