@@ -1,6 +1,6 @@
 <%= form_tag compare_players_path(:comp => @comp, :type => @type, :players => @player_ids) do %>
 		<table>
-			<% if @type == 'multi' or @type == 'season' %>
+			<% if @type == 'multi' || @type == 'season' %>
 				<% for year in @years_array %>
 					<tr>
 						<td><%= select_tag 'years[]', options_for_select(year) %></td>
