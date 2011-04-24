@@ -11935,3 +11935,118 @@ has changed.
 Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
 Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
 Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 15:07:05 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 16ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 15:07:08 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/contact.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/policy" for 127.0.0.1 at 2011-04-24 15:07:11 -0400
+  Processing by HomeController#policy as HTML
+Rendered home/policy.html.erb within layouts/application (19.5ms)
+Completed   in 27ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+StatTracker offers comparison and analysis tools for fantasy baseball fans. Through various functionalities and a graphical interface, build a better fantasy team right here. 
+</p>
+
+<p>
+StatTracker was developed by Andrew Caniglia, Chris Lebowitz, Christine Zhao, Won Ku Kim, Amy Tsai, and Sean Kung as part of their Information Systems software development course in Spring 2011.  
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/terms" for 127.0.0.1 at 2011-04-24 15:07:16 -0400
+  Processing by HomeController#terms as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/terms.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/policy" for 127.0.0.1 at 2011-04-24 15:07:32 -0400
+  Processing by HomeController#policy as HTML
+Rendered home/policy.html.erb within layouts/application (0.4ms)
+Completed   in 7ms
+
+ActionView::Template::Error (Your template was not saved as valid UTF-8. Please either specify UTF-8 as the encoding for your template in your text editor, or mark the template with its encoding by inserting the following as the first line of the template:
+
+# encoding: <name of correct encoding>.
+
+The source of your template was:
+
+<h1>Privacy Policy</h1>
+
+<p>	
+stuff
+</p>
+
+<h5>CHANGES TO THIS PRIVACY POLICY</h5>
+
+<p>
+This Privacy Policy may be revised and updated at any time. Please review the most recent version of this policy frequently by 
+clicking "Privacy Policy" on any page on the Caravan web site.  The “Last Updated” date above will change whenever the Privacy Policy
+has changed.
+</p>):
+  
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.3ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2011-04-24 15:09:06 -0400
+  Processing by HomeController#contact as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/contact.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:09:09 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:09:23 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2011-04-24 15:09:35 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)

@@ -4,7 +4,6 @@ StatTracker::Application.routes.draw do
   match 'index' => 'home#index', :as => 'home#index'
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
-  match 'policy' => 'home#policy', :as => :policy
   match 'terms' => 'home#terms', :as => :terms
   
   match 'compare' => 'home#compare', :as => 'home#compare'
