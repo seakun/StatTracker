@@ -432,15 +432,27 @@ autocomplete :player, :name, :full => true
 	# last_name.chomp!(",")
 	# name = first_name + " " + last_name
     @players = @query.blank?? Array.new : Player.player_search(@query)
-    field = params[:position].blank?? Array.new : FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}
-    letter = params[:letter].blank?? Array.new : Player.find(:all, :conditions => ["lower(last_name) like ?", params[:letter] + '%'])
-    @players.keep_if{|p| field.include?(p) && letter.include?(p)}
+    if @query.blank?
+      if params[:letter].blank?
+        @players = FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}
+      else
+        @players = Player.find(:all, :conditions => ["lower(last_name) like ?", params[:letter].downcase + '%'])
+        @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
+      end
+    else
+      @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
+      @players.delete_if{|p| p.last_name[0].downcase != params[:letter].downcase} unless params[:letter].blank?
+    end
     @total_hits = @players.size
     if @total_hits == 1
       if @players.first != nil
         redirect_to @players.first
       end
     end
+    @arr = Array.new
+    @arr << "Name: " + @query unless @query.blank?
+    @arr << "Position: " + params[:position] unless params[:position].blank?
+    @arr << "Last Name Begins With: " + params[:letter] unless params[:letter].blank?
   end
 
 end
