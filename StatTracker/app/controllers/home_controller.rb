@@ -23,6 +23,7 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
         redirect_to @franchises.first
       end
     end
+    
   end
   
   def batting_leaders
