@@ -74,7 +74,7 @@ autocomplete :player, :name, :full => true
     @chart.set_cell(i, 4, b.plate_appearances, "<span title=#{plates}>#{b.plate_appearances.to_s}</span>")
 	  @chart.set_cell(i, 5, b.at_bats, "<span title=#{bats}>#{b.at_bats.to_s}</span>")
 	  @chart.set_cell(i, 6, b.runs, "<span title=#{runs}>#{b.runs.to_s}</span>")
-	  @chart.set_cell(i, 7, b.hits, "<span title=#{hits}>#{b.hits.to_s}</span>")
+	  @chart.set_cell(i, 7, b.hits, "<span title='Hits'>#{b.hits.to_s}</span>")
     @chart.set_cell(i, 8, b.doubles, "<span title=#{doubles}>#{b.doubles.to_s}</span>")
     @chart.set_cell(i, 9, b.triples, "<span title=#{triples}>#{b.triples.to_s}</span>")
     @chart.set_cell(i, 10, b.home_runs, "<span title=#{home}>#{b.home_runs.to_s}</span>")
@@ -111,7 +111,7 @@ autocomplete :player, :name, :full => true
 	# @chart.set_cell(i, 19,  "<span title='On Base Percentage'>#{@player.career_on_base_percentage}</span>")
 	# @chart.set_cell(i, 20,  "<span title='On Base Plus Slugging'>#{@player.career_on_base_plus_slugging}</span>")
 	# @chart.set_cell(i, 21,  "<span title='Isolated Power'>#{@player.career_isolated_power}</span>")
-	options = { :width => '100%', :allowHtml =>true }
+	options = { :width => '100%', :allowHtml =>true, :cssClassNames => {:headerRow => 'google_table'}}
 	options.each_pair do | key, value |
 		@chart.send "#{key}=", value
 	end
