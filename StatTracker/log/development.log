@@ -491,3 +491,357 @@ Started GET "/players" for 127.0.0.1 at 2011-04-25 18:27:46 -0400
 Rendered partials/_footer.html.erb (1.0ms)
 Rendered players/index.html.erb within layouts/application (18.0ms)
 Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:36:45 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 79ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:37:49 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:38:44 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:40:29 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:40:43 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:40:51 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.5ms)
+Rendered home/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 44ms (Views: 43.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:41:06 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:42:19 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 38ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:43:15 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:44:10 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered home/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:45:22 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:45:29 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:45:38 -0400
+  Processing by HomeController#index as HTML
+ERROR: compiling _app_views_partials__footer_html_erb___3102355714602452620_2181914040__1297945395385914337 RAISED /Users/seakun/Desktop/trunk/StatTracker/app/views/partials/_footer.html.erb:5: syntax error, unexpected ')', expecting '='
+...append= ( link_to, about_path );@output_buffer.safe_concat('...
+...                               ^
+/Users/seakun/Desktop/trunk/StatTracker/app/views/partials/_footer.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/seakun/Desktop/trunk/StatTracker/app/views/partials/_footer.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_partials__footer_html_erb___3102355714602452620_2181914040__1297945395385914337(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "partials/_footer";_old_output_buffer = @output_buffer;footer = local_assigns[:footer];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('
+
+<div align="center" id="footercontent">
+
+   About');@output_buffer.append= ( link_to, about_path );@output_buffer.safe_concat(' &#10070;
+	
+	');@output_buffer.append= ( link_to 'Contact Us', contact_path );@output_buffer.safe_concat(' &#10070;
+	
+	');@output_buffer.append= ( link_to 'Terms of Use', terms_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	
+	<br>
+	&copy 2011
+	</br>
+	
+
+</div>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `module_eval'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `compile'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `block in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:333:in `render_partial'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:262:in `block in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:260:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/partials.rb:378:in `_render_partial'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:22:in `render'
+/Users/seakun/Desktop/trunk/StatTracker/app/views/layouts/application.html.erb:542:in `_app_views_layouts_application_html_erb__363754064841334373_2182038400_1116173282155483575'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:135:in `block in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/layouts.rb:80:in `_render_layout'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:62:in `block in _render_template'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__2840069763032918553__process_action__2873685326255351873__callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `block in action'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/seakun/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered partials/_footer.html.erb (82.0ms)
+Rendered home/index.html.erb within layouts/application (90.7ms)
+Completed   in 97ms
+
+ActionView::Template::Error (/Users/seakun/Desktop/trunk/StatTracker/app/views/partials/_footer.html.erb:5: syntax error, unexpected ')', expecting '='
+...append= ( link_to, about_path );@output_buffer.safe_concat('...
+...                               ^
+/Users/seakun/Desktop/trunk/StatTracker/app/views/partials/_footer.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/seakun/Desktop/trunk/StatTracker/app/views/partials/_footer.html.erb:19: syntax error, unexpected keyword_end, expecting ')'):
+    2: 
+    3: <div align="center" id="footercontent">
+    4: 
+    5:    About<%= link_to, about_path %> &#10070;
+    6: 	
+    7: 	<%= link_to 'Contact Us', contact_path %> &#10070;
+    8: 	
+  app/views/layouts/application.html.erb:542:in `_app_views_layouts_application_html_erb__363754064841334373_2182038400_1116173282155483575'
+
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/seakun/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:45:44 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.3ms)
+Rendered home/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:45:58 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:47:31 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (3.0ms)
+Rendered home/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:47:44 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/index.html.erb within layouts/application (58.2ms)
+Completed 200 OK in 67ms (Views: 66.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:48:01 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:48:30 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.5ms)
+Rendered home/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:51:31 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.8ms)
+Rendered home/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:51:44 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:51:50 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.9ms)
+Rendered home/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:52:02 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.8ms)
+Rendered home/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 26ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:52:08 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:52:20 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:52:28 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:53:25 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.2ms)
+Rendered home/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:53:38 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (2.4ms)
+Rendered home/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 26ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-04-25 18:53:40 -0400
+  Processing by HomeController#about as HTML
+Rendered partials/_footer.html.erb (1.1ms)
+Rendered home/about.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:54:01 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.0ms)
