@@ -175,7 +175,7 @@ class BattingStat < ActiveRecord::Base
 		stats.each { |s|
 		count += s.send(stat)
 		}
-		count
+		count.to_s
 	end
 	
 	def year

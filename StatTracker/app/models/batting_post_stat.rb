@@ -10,7 +10,7 @@ class BattingPostStat < ActiveRecord::Base
 		stats.each { |s|
 		count += s.send(stat)
 		}
-		count
+		count.to_s
 	end
 	
 	def self.single_season_sort(stat)
