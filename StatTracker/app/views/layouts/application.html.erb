@@ -98,7 +98,6 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 
 	</div>     
 	
-	<div id = "stitches"></div>
   <div id="nav">
       	<ul >
 			<li><%= link_to 'Home', '/index' %></li>
@@ -112,9 +111,9 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 			
 			<li><%= link_to 'Players', players_path%></li>
             
-			<li><%= link_to 'Teams', franchises_path %></li>
+			<li style="margin-left:-10px;"><%= link_to 'Teams', franchises_path %></li>
                         
-			<li class="dropdownmenu" style="width:110px;">Leaderboards
+			<li class="dropdownmenu" style="width:110px; margin-left:15px;">Leaderboards
 				<ul id="cssdropdown">
 					<li><%= link_to 'Batting', '/batting_leaderboards' %></li>
 					<li><%= link_to 'Pitching', '/pitching_leaderboards'%></li>
@@ -122,8 +121,8 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
 				</ul>
 			</li> 
 			
-			<li class="dropdownmenu" style="width:180px; margin-left:10px;">Season Finders
-				<ul id="cssdropdown">
+			<li class="dropdownmenu" style="width:180px; margin-left:5px;">Season Finders
+				<ul id="cssdropdown" style="margin-left:20px;">
 					<li><%= link_to 'Batting', '/seasonfinder/batting' %></li>
 					<li><%= link_to 'Pitching', '/seasonfinder/pitching'%></li>
                      <li><%= link_to 'Fielding', '/seasonfinder/fielding'%></li>
@@ -137,13 +136,15 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
                                 <% end %>
 								</li>
 </div> 
-
+	<div id = "stitches"></div>
     <div id="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
+	  
+      	
     </div>
 	
 <div class="slide-out-div">
@@ -534,9 +535,13 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        <p>A calculated stat used to determine how far of a range that a fielder has. Calculated by taking
         the sum of putouts and assists multiplied by the number of innings per game divided by the number of innings played. ((PO+A)*[Innings per game])/Inn</p>
        </div>
+	   
         </div>
+		
+
   </body>
-      			<%= render :partial => "partials/footer" %>
+  
+  		<%= render :partial => "partials/footer" %>
 </html>
 
 
