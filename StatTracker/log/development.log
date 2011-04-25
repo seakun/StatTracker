@@ -845,3 +845,10 @@ Started GET "/" for 127.0.0.1 at 2011-04-25 18:54:01 -0400
 Rendered partials/_footer.html.erb (1.0ms)
 Rendered home/index.html.erb within layouts/application (12.5ms)
 Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:54:43 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.5ms)
+Rendered home/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
