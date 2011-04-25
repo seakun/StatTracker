@@ -7,7 +7,7 @@ class PitchingStat < ActiveRecord::Base
 	def self.single_season_sort(stat)
 		s = accessible_attributes.include?(stat)? stat.to_s + " DESC" : send("str_" + stat)
 		min_ip = accessible_attributes.include?(stat)? 0 : 300
-		PitchingStat.find(:all, :conditions => ["innings_pitched_outs > ?", min_ip], :order => s, :limit => 50)
+		PitchingStat.find(:all, :conditions => ["innings_pitched_outs > ? AND batters_faced > ?", min_ip, 0], :order => s, :limit => 50)
 	end
 
 	def self.career_sort(stat)
@@ -32,7 +32,7 @@ class PitchingStat < ActiveRecord::Base
 			return sorted.take(50)
 		else 
 			s = "str_career_" + stat
-			Player.find(:all, :conditions => ["career_innings_pitched_outs > ?", 3000], :order => Player.send(s), :limit => 50)
+			Player.find(:all, :conditions => ["career_innings_pitched_outs > ? AND career_batters_faced > ?", 3000, 6000], :order => Player.send(s), :limit => 50)
 		end
 	end
 	
@@ -205,7 +205,9 @@ class PitchingStat < ActiveRecord::Base
 	end
 
 	def opponents_batting_average
-		sprintf("%.3f", ((hits) / (batters_faced - walks - hit_by_pitch).to_f))
+		if !batters_faced != 0
+			sprintf("%.3f", ((hits) / (batters_faced - walks - hit_by_pitch).to_f))
+		end
 	end
 
 	def walks_and_hits_innings_pitched

@@ -16,7 +16,7 @@ class PitchingPostStat < ActiveRecord::Base
   def self.single_season_sort(stat)
 		s = accessible_attributes.include?(stat)? stat.to_s + " DESC": send("str_" + stat)
 		min_ip = accessible_attributes.include?(stat)? 0 : 45
-		PitchingPostStat.find(:all, :conditions => ["innings_pitched_outs > ?", min_ip], :order => s, :limit => 50)
+		PitchingPostStat.find(:all, :conditions => ["innings_pitched_outs > ? AND batters_faced > ?", min_ip, 0], :order => s, :limit => 50)
 	end
 
 	def self.career_sort(stat)
@@ -41,7 +41,7 @@ class PitchingPostStat < ActiveRecord::Base
 			return sorted.take(50)
 		else 
 			s = "str_career_post_" + stat
-			Player.find(:all, :conditions => ["career_innings_pitched_outs_post > ?", 45], :order => Player.send(s), :limit => 50)
+			Player.find(:all, :conditions => ["career_innings_pitched_outs_post > ? AND career_batters_faced_post > ?", 45, 75], :order => Player.send(s), :limit => 50)
 		end
 	end
 
@@ -68,7 +68,7 @@ class PitchingPostStat < ActiveRecord::Base
 			return sorted.take(50)
 		else 
 			s = "str_career_post_" + stat
-			Player.find(:all, :conditions => ["career_innings_pitched_outs_post > ? AND final_game is NULL", 45], :order => Player.send(s), :limit => 50)
+			Player.find(:all, :conditions => ["career_innings_pitched_outs_post > ? AND career_batters_faced_post > ? AND final_game is NULL", 45, 75], :order => Player.send(s), :limit => 50)
 		end
 	end
 

@@ -309,8 +309,10 @@ class PitchingStatsController < ApplicationController
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
+		i = 0
 		@players.each { |play|
-			@chart.add_column('number', play.name)
+			@chart.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart.add_rows(@max)
 		y = 1
@@ -333,8 +335,10 @@ class PitchingStatsController < ApplicationController
 		
 		@chart2 = GoogleVisualr::LineChart.new
 		@chart2.add_column('string', 'Year')
+		i = 0
 		@players.each { |play|
-			@chart2.add_column('number', play.name)
+			@chart2.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart2.add_rows(@max)
 		y = 1
@@ -452,14 +456,17 @@ class PitchingStatsController < ApplicationController
 		@player = params[:players]
 		@pitchers= params[:pitchers]
 		@max = params[:max]
+		@years = params[:years]
 		@players = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
+		i = 0
 		@players.each { |play|
-			@chart.add_column('number', play.name)
+			@chart.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart.add_rows(@max)
 		y = 1

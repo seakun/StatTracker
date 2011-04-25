@@ -1,4 +1,6 @@
 class BattingStatsController < ApplicationController
+include ApplicationHelper
+
   def index
     @batting_stats = BattingStat.all
   end
@@ -297,8 +299,10 @@ class BattingStatsController < ApplicationController
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
+		i = 0
 		@players.each { |play|
-			@chart.add_column('number', play.name)
+			@chart.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart.add_rows(@max)
 		y = 1
@@ -321,8 +325,10 @@ class BattingStatsController < ApplicationController
 		
 		@chart2 = GoogleVisualr::LineChart.new
 		@chart2.add_column('string', 'Year')
+		i = 0 
 		@players.each { |play|
-			@chart2.add_column('number', play.name)
+			@chart2.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart2.add_rows(@max)
 		y = 1
@@ -444,14 +450,17 @@ class BattingStatsController < ApplicationController
 		@player = params[:players]
 		@max = params[:max]
 		@batters= params[:batters]
+		@years = params[:years]
 		@players = []
 		@player.each {|p|
 			@players.push(Player.find(p.to_i))
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
+		i = 0
 		@players.each { |play|
-			@chart.add_column('number', play.name)
+			@chart.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart.add_rows(@max)
 		y = 1
@@ -467,15 +476,21 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options = { :width => '45%', :height => 300, :legend => 'bottom', :title => stat.titleize + " Each Year", :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
+		if stat.titleize == 'Rbi'
+			str_stat = stat.titleize.upcase
+		else str_stat = stat.titleize
+		end
+		options = { :width => '45%', :height => 300, :legend => 'bottom', :title => str_stat + " Each Year", :titleX => "Year in Player's Span", :titleY => "Number of " + str_stat}
 		options.each_pair do | key, value |
 			@chart.send "#{key}=", value
 		end
 		
 		@chart2 = GoogleVisualr::LineChart.new
 		@chart2.add_column('string', 'Year')
+		i = 0
 		@players.each { |play|
-			@chart2.add_column('number', play.name)
+			@chart2.add_column('number', play.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart2.add_rows(@max)
 		y = 1
@@ -493,7 +508,7 @@ class BattingStatsController < ApplicationController
 			}
 			y += 1
 		}
-		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Cumulative " + stat.titleize, :titleX => "Year in Player's Span", :titleY => "Number of " + stat.titleize}
+		options2 = { :width => '45%', :height => 300, :legend => 'bottom', :title => "Cumulative " + str_stat, :titleX => "Year in Player's Span", :titleY => "Number of " + str_stat}
 		options2.each_pair do | key, value |
 			@chart2.send "#{key}=", value
 		end
@@ -591,7 +606,7 @@ class BattingStatsController < ApplicationController
     next if stat.blank?
 		operator = params["#{i}"][:operator]
 		number = params["#{i}"][:number]
-		if number.to_i < 1 || number == ""
+		if valid_finder?(number)
 			flash[:notice] = 'At least one of your values was invalid. Please try again.'
 			redirect_to :back
 		end

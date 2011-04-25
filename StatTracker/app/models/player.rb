@@ -347,7 +347,7 @@ class Player < ActiveRecord::Base
 	end
 
 	def career_opponents_batting_average
-		sprintf("%.2f", ((career_hits_allowed) / (career_batters_faced - career_walks_allowed - career_hit_by_pitch).to_f))
+		sprintf("%.3f", ((career_hits_allowed) / (career_batters_faced - career_walks_allowed - career_hit_by_pitch).to_f))
 	end
 
 	def career_walks_and_hits_innings_pitched

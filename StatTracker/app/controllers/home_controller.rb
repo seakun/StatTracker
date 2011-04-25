@@ -64,13 +64,15 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 	@players.each { |p|
 		if p != ""
 			first_name, last_name, year, dash = p.split(" ")
-			last_name.chomp!(",")
-			if Rails.env.development?
-				@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND strftime('%Y', debut) = ?", first_name, last_name, year]))
-			elsif Rails.env.production?
-				@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND date_part('year', debut)::integer= ?", first_name, last_name, year.to_i]))
-			else
-				@player.push("")
+			if !last_name.nil?
+				last_name.chomp!(",")
+				if Rails.env.development?
+					@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND strftime('%Y', debut) = ?", first_name, last_name, year]))
+				elsif Rails.env.production?
+					@player.push(Player.find(:all, :select => [:id], :conditions => ["first_name = ? AND last_name = ? AND date_part('year', debut)::integer= ?", first_name, last_name, year.to_i]))
+				else
+					@player.push("")
+				end
 			end
 		end
 	}
@@ -85,12 +87,15 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 	@player_ids.each { |p|
 		@year = []
 		@years = []
-		if p[0].nil?
+		if p[0].nil?		
 		else
 			@year = BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p])
 		end
 		@year.each { |y|
-			@years.push(y.year)
+			if @years.index(y.year).nil?
+				@years.push(y.year)
+			else
+			end
 		}
 		@years_array.push(@years)
 	}
@@ -103,30 +108,33 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 	@comp = params[:comp]
 	@type = params[:type]
 	@players = params[:players]
-
-	if @type == 'career'
-		string = "/" + @players.join('/')
-		redirect_to '/compare/career/' + @comp + string
-	elsif @type == 'season'
-		new = []
-		i = 0
-		@players.each { |p|
-			new.push(p + "." + @years[i])
-			i += 1
-		}
-		string = "/" + new.join("/")
-		redirect_to '/compare/season/' + @comp + string
-	else 
-		new = []
-		i = 0
-		@players.each { |p|
-			new.push(p + "." + @years[i] + ':' + @years[i+1])
-			i += 2
-		}
-		string = '/' + new.join('/')
-		redirect_to '/compare/multi/' + @comp + string
+	if @players.nil?
+		flash[:notice] = "Please enter a valid player's name using the autocomplete"
+		redirect_to :back
+	else
+		if @type == 'career'
+			string = "/" + @players.join('/')
+			redirect_to '/compare/career/' + @comp + string
+		elsif @type == 'season'
+			new = []
+			i = 0
+			@players.each { |p|
+				new.push(p + "." + @years[i])
+				i += 1
+			}
+			string = "/" + new.join("/")
+			redirect_to '/compare/season/' + @comp + string
+		else 
+			new = []
+			i = 0
+			@players.each { |p|
+				new.push(p + "." + @years[i] + ':' + @years[i+1])
+				i += 2
+			}
+			string = '/' + new.join('/')
+			redirect_to '/compare/multi/' + @comp + string
+		end
 	end
-	
   end
   
   def compare
@@ -169,30 +177,33 @@ autocomplete :franchise, :name, :display_value => :auto_search, :full => true
 	@years = params[:years]
 	@type = params[:type]
 	@franchises = params[:franchises]
-	
-	if @type == 'career'
-		string = @franchises.join('/')
-		redirect_to '/franchise_compare/career/' + string
-	elsif @type == 'season'
-		new = []
-		i = 0
-		@franchises.each { |p|
-			new.push(p + "." + @years[i])
-			i += 1
-		}
-		string = new.join("/")
-		redirect_to '/franchise_compare/season/' + string
-	else 
-		new = []
-		i = 0
-		@franchises.each { |p|
-			new.push(p + "." + @years[i] + ':' + @years[i+1])
-			i += 2
-		}
-		string = new.join('/')
-		redirect_to '/franchise_compare/multi/' + string
+	if @franchises.nil?
+		flash[:notice] = "Please enter a valid team's name using the autocomplete"
+		redirect_to :back
+	else
+		if @type == 'career'
+			string = @franchises.join('/')
+			redirect_to '/franchise_compare/career/' + string
+		elsif @type == 'season'
+			new = []
+			i = 0
+			@franchises.each { |p|
+				new.push(p + "." + @years[i])
+				i += 1
+			}
+			string = new.join("/")
+			redirect_to '/franchise_compare/season/' + string
+		else 
+			new = []
+			i = 0
+			@franchises.each { |p|
+				new.push(p + "." + @years[i] + ':' + @years[i+1])
+				i += 2
+			}
+			string = new.join('/')
+			redirect_to '/franchise_compare/multi/' + string
+		end
 	end
-	
   end
   
 end

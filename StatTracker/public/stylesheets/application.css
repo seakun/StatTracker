@@ -231,8 +231,7 @@ div.button:hover a{
 	color: black;
 	color: black;
 	}
-	
-	
+		
 
 #container{
 	background-color:#E6E6D9;
@@ -329,6 +328,10 @@ width: 100%
 }
 
 #table_checkbox {
+text-align:center;
+}
+
+#chart_select {
 text-align:center;
 }
 
