@@ -10,7 +10,7 @@ autocomplete :player, :name, :full => true
 	if @player.final_game.nil?
     @google_image = GoogleImage.all(@player.name+" rotoworld headshot", 0).first
 	else
-	@google_image = GoogleImage.all(@player.name+" baseball player portrait", 0).first
+	@google_image = GoogleImage.all(@player.name+" wiki", 0).first
 	end
     @batting_stats=BattingStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @chart = GoogleVisualr::Table.new
