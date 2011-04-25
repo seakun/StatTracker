@@ -3,16 +3,7 @@
   <strong>Franchise:</strong>
   <%=link_to h(@franchise.name), franchise_path(@franchise) %>
 </p>
-<p>
-  <strong>League:</strong>
-  <%= League.find(Division.find(@team.division_id).league_id).name %>
-</p>
-<% if !Division.find(@team.division_id).name.nil? %>
-<p>
-  <strong>Division:</strong>
-  <%= Division.find(@team.division_id).name %>
-</p>
-<% end %>
+<p><strong>Rank: </strong><%= @team.rank.ordinalize %> in <%= @team.division.league.name %> <%= @team.division.name %></p>
 <p>
   <strong>Baseball Era:</strong>
   <%= @team.baseball_era %>
@@ -27,7 +18,7 @@
   <%= number_with_delimiter(@team.attendance, :delimiter => ',') %>
   <% end %>
 </p>
-<p><strong>Rank: </strong><%= @team.rank %></p>
+
 <p><strong>Games: </strong><%= @team.games %></p>
 <%if !@team.home_games.nil?%><p><strong>Home Games: </strong><%= @team.home_games %></p><% end %>
 <p><strong>Wins-Losses: </strong><%= @team.wins %>-<%= @team.losses %></p>
