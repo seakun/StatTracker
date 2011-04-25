@@ -532,22 +532,25 @@ autocomplete :player, :name, :full => true
   end
 
   def player_search
+    name = '%' + params[:query].downcase + '%'
+    letter = params[:letter].downcase + '%'
+    position = params[:position] + '%'
+
+    @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :joins => [:fielding_stats]).uniq
+    
     @query = params[:query]
-	# first_name, last_name, year, dash = @query.split(" ")
-	# last_name.chomp!(",")
-	# name = first_name + " " + last_name
-    @players = @query.blank?? Array.new : Player.player_search(@query)
-    if @query.blank?
-      if params[:letter].blank?
-        @players = FieldingStat.find(:all, :conditions => ['position like ?', params[:position]]).map{|p| p.player}
-      else
-        @players = Player.find(:all, :conditions => ["lower(last_name) like ?", params[:letter].downcase + '%'])
-        @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
-      end
-    else
-      @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
-      @players.delete_if{|p| p.last_name[0].downcase != params[:letter].downcase} unless params[:letter].blank?
-    end
+#    @players = @query.blank?? Array.new : Player.player_search(@query)
+#    if @query.blank?
+#      if params[:letter].blank?
+#        @players = Player.find(:all, :conditions => ['position like ?', params[:position]], :joins => [:fielding_stats]).uniq
+#      else
+#        @players = Player.find(:all, :conditions => ["lower(last_name) like ?", params[:letter].downcase + '%'])
+#        @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
+#      end
+#    else
+#      @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
+#      @players.delete_if{|p| p.last_name[0].downcase != params[:letter].downcase} unless params[:letter].blank?
+#    end
     @total_hits = @players.size
     if @total_hits == 1
       if @players.first != nil
