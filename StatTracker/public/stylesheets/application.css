@@ -383,7 +383,9 @@ text-align:center;
 .error_messages ul {
   margin: 0;
 }
-#chart a, #chart2 a, #chart3 a, #chart4 a{ text-decoration: underline
+#chart a, #chart2 a, #chart3 a, #chart4 a, #table_place a, #table a{ text-decoration: underline;
+}
+#chart , #chart2 , #chart3 , #chart4, #table_place, #table { text-align:right;
 }
 .tooltip {
 		display:none;
