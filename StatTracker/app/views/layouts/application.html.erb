@@ -92,7 +92,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
   
   <body>
 
-
+<div id="wrapper">
     <div id="hd">
 	<%= link_to image_tag("/images/logo.png"), '/index' %>
 
@@ -537,11 +537,14 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        </div>
 	   
         </div>
-		
+		</div>
+		<div id="footer">
+		<%= render :partial => "partials/footer" %>
+		</div>
 
   </body>
   
-  		<%= render :partial => "partials/footer" %>
+  		
 </html>
 
 

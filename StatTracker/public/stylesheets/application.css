@@ -1,11 +1,16 @@
+html {
+	height:100%;
+}
+
 body {
-  background-image: url('/images/stattracker-background.png');
+  background-image: url('/images/texture.png');
   background-position: 0px -70px;
   font-family: Helvetica;
   font-size: 16px;
   background-attachment: fixed;
   background-repeat: repeat-x;
   height:100%;
+  margin:0px;
 }
 
 p{
@@ -29,7 +34,7 @@ h1{
 color:#523300;
 margin-top:0px;
 text-align: center;
-font-size:30px;
+font-size:27px;
 }
 
 #hd {
@@ -234,6 +239,8 @@ div.button:hover a{
 	margin-left:auto;
 	margin-top:0px;
 	margin-right:auto;
+	margin-bottom:110px;
+	overflow:auto;
 	position:relative;
 	padding:20px;
 	padding-bottom:60px;
@@ -434,13 +441,28 @@ height: 2px;
 a.handle{
 
 }
-#footer{
+
+#wrapper{
+	min-height:100%;
+}
+
+
+#footercontent{
  font-family: Helvetica;
   font-size: 14px;
   color:white;
   font-weight:bold;
-  position:absolute;
+}
+
+#footer{
+background-image:url('/images/grass.png');
+background-repeat:repeat-x;
+  position:relative;
+  clear:both;
+  padding-top:30px;
+  margin-top:-80px;
   width:100%;
+  height:80px;
 }
 
 #footer a{
