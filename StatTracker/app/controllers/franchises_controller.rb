@@ -7,7 +7,7 @@ autocomplete :franchise, :name, :full => true
 
   def show
     @franchise = Franchise.find(params[:id])
-    @google_image = GoogleImage.all(@franchise.name+" logo wiki", 0).first
+    @google_image = GoogleImage.all(@franchise.name+" current logo", 0).first
     @teams= Team.find(:all, :conditions => ['franchise_id = ?', params[:id]])
     @first_team=@teams.first
     if !@franchise.active
