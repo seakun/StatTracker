@@ -21,3 +21,473 @@ Started POST "/player_search" for 127.0.0.1 at 2011-04-25 17:55:26 -0400
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 18:06:35 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:06:51 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:06:54 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 0ms
+
+ArgumentError (uncaught throw "Chris"):
+  app/controllers/players_controller.rb:541:in `throw'
+  app/controllers/players_controller.rb:541:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:07:01 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:07:04 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:09:32 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 48ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:09:59 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 69ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:10:15 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (27129.6ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%')
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 30069ms (Views: 74.0ms | ActiveRecord: 27130.6ms)
+
+
+Started GET "/players/autocomplete_player_name?term=ed" for 127.0.0.1 at 2011-04-25 18:11:18 -0400
+  Processing by PlayersController#autocomplete_player_name as JSON
+  Parameters: {"term"=>"ed"}
+  [1m[36mPlayer Load (103.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE (LOWER(name) LIKE '%ed%') ORDER BY name ASC LIMIT 10[0m
+Completed 200 OK in 439ms (Views: 64.0ms | ActiveRecord: 103.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:11:23 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 1ms
+
+ArgumentError (uncaught throw "a"):
+  app/controllers/players_controller.rb:541:in `throw'
+  app/controllers/players_controller.rb:541:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:11:52 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 0ms
+
+ArgumentError (uncaught throw "a"):
+  app/controllers/players_controller.rb:541:in `throw'
+  app/controllers/players_controller.rb:541:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:12:09 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:12:24 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 1ms
+
+ArgumentError (uncaught throw "a"):
+  app/controllers/players_controller.rb:541:in `throw'
+  app/controllers/players_controller.rb:541:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:12:29 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:12:32 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:12:47 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 54ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:12:51 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 2ms
+
+NameError (undefined local variable or method `players' for #<PlayersController:0xa86e0d0>):
+  app/controllers/players_controller.rb:543:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (37.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (79.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:13:04 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:13:07 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:14:10 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:17:13 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:17:28 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:17:32 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Completed   in 0ms
+
+ArgumentError (uncaught throw "a"):
+  app/controllers/players_controller.rb:541:in `throw'
+  app/controllers/players_controller.rb:541:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:17:40 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:22:50 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:561:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:23:07 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:562:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:23:10 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:562:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started POST "/search" for 127.0.0.1 at 2011-04-25 18:23:13 -0400
+  Processing by HomeController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+  [1m[35mPlayer Load (35226.0ms)[0m  SELECT "players".* FROM "players" WHERE (lower(first_name) LIKE '%e%' OR lower(last_name) LIKE '%e%' OR lower(first_name) || ' ' || lower(last_name) LIKE '%e%')
+  [1m[36mFranchise Load (22.0ms)[0m  [1mSELECT "franchises".* FROM "franchises" WHERE (lower(name) LIKE '%e%')[0m
+Completed 302 Found in 39532ms
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:23:53 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 51ms (Views: 51.0ms | ActiveRecord: 35248.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:24:05 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.size):
+  app/controllers/players_controller.rb:562:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:24:33 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed 302 Found in 1ms
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:24:33 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered players/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 47ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:24:37 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed 302 Found in 1ms
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:24:37 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 49ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:24:49 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:26:55 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 49ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:27:11 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed 302 Found in 1ms
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:27:11 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 48ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/autocomplete_player_name?term=je" for 127.0.0.1 at 2011-04-25 18:27:18 -0400
+  Processing by PlayersController#autocomplete_player_name as JSON
+  Parameters: {"term"=>"je"}
+  [1m[36mPlayer Load (88.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE (LOWER(name) LIKE '%je%') ORDER BY name ASC LIMIT 10[0m
+Completed 200 OK in 437ms (Views: 67.0ms | ActiveRecord: 88.0ms)
+
+
+Started GET "/players/autocomplete_player_name?term=jeter" for 127.0.0.1 at 2011-04-25 18:27:19 -0400
+  Processing by PlayersController#autocomplete_player_name as JSON
+  Parameters: {"term"=>"jeter"}
+  [1m[35mPlayer Load (77.0ms)[0m  SELECT "players".* FROM "players" WHERE (LOWER(name) LIKE '%jeter%') ORDER BY name ASC LIMIT 10
+Completed 200 OK in 408ms (Views: 66.0ms | ActiveRecord: 77.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:27:20 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"jeter", "letter"=>"", "position"=>"", "commit"=>"Search"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (1238.1ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%jeter%' OR lower(last_name) like '%jeter%' OR lower(name) like '%jeter%') AND lower(last_name) like '%' AND position like '%')
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 1643ms (Views: 63.0ms | ActiveRecord: 1239.1ms)
+
+
+Started GET "/players/autocomplete_player_name?term=jeter" for 127.0.0.1 at 2011-04-25 18:27:42 -0400
+  Processing by PlayersController#autocomplete_player_name as JSON
+  Parameters: {"term"=>"jeter"}
+  [1m[36mPlayer Load (75.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE (LOWER(name) LIKE '%jeter%') ORDER BY name ASC LIMIT 10[0m
+Completed 200 OK in 355ms (Views: 65.0ms | ActiveRecord: 75.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-25 18:27:46 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6+6oaMVsL/3iYiSNLQgaNB4sja7kxShndmNlnFUcGeY=", "query"=>"e", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed 302 Found in 1ms
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-25 18:27:46 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.0ms)

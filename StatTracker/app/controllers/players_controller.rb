@@ -538,11 +538,14 @@ autocomplete :player, :name, :full => true
 
     @query = params[:query]
     if !@query.blank? && @query.length < 3
-      flash[:notice] = 'Please be more specific with your search'
+      #throw "a"
       redirect_to :back
+      flash[:notice] = 'Please be more specific with your search'
+      @players = Array.new
+    else
+      @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :joins => [:fielding_stats]).uniq
     end
-
-    @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :joins => [:fielding_stats]).uniq
+    
     
     
 #    @players = @query.blank?? Array.new : Player.player_search(@query)
