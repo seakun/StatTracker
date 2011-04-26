@@ -612,10 +612,14 @@ class PitchingStatsController < ApplicationController
       operations.push(string)
 
     end
-    if params[:postseason].nil?
-      @batting_stats = PitchingStat.where(operations.join(" AND "))
+    if @stats.size == 0
+      flash[:notice] = 'You must select at least one stat.'
+      redirect_to :back
+      @batting_stats = Array.new
+    elsif params[:postseason].nil?
+      @batting_stats = BattingStat.where(operations.join(" AND "))
     else
-      @batting_stats = PitchingPostStat.where(operations.join(" AND "))
+      @batting_stats = BattingPostStat.where(operations.join(" AND "))
     end
     @chart2 = GoogleVisualr::Table.new
 		@chart2.add_column('string' , 'Name')

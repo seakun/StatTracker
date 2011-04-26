@@ -866,3 +866,303 @@ Started GET "/" for 127.0.0.1 at 2011-04-25 18:57:37 -0400
 Rendered partials/_footer.html.erb (1.3ms)
 Rendered home/index.html.erb within layouts/application (9.7ms)
 Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-25 19:50:27 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (0.0ms)
+Rendered home/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 50ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:50:46 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (10.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 60ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:50:55 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>"200"}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+  [1m[36mSQL (30.0ms)[0m  [1mSELECT COUNT(*) FROM "batting_stats"[0m
+  [1m[35mBattingStat Load (143342.2ms)[0m  SELECT "batting_stats".* FROM "batting_stats"
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:54:04 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (0.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 70ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:54:10 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (0.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 100ms (Views: 100.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:54:21 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Completed   in 1ms
+
+ArgumentError (uncaught throw ""):
+  app/controllers/batting_stats_controller.rb:591:in `throw'
+  app/controllers/batting_stats_controller.rb:591:in `block in find_seasons'
+  app/controllers/batting_stats_controller.rb:589:in `each'
+  app/controllers/batting_stats_controller.rb:589:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:54:50 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Completed   in 0ms
+
+ArgumentError (uncaught throw 0):
+  app/controllers/batting_stats_controller.rb:602:in `throw'
+  app/controllers/batting_stats_controller.rb:602:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:55:27 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Completed   in 2ms
+
+NameError (undefined local variable or method `stats' for #<BattingStatsController:0x554f9e8>):
+  app/controllers/batting_stats_controller.rb:602:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:55:38 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Completed   in 2ms
+
+NameError (undefined local variable or method `stats' for #<BattingStatsController:0x54f3450>):
+  app/controllers/batting_stats_controller.rb:602:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.0ms)
+
+
+Started GET "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:55:43 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/batting_stats_controller.rb:586:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:55:45 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/batting_stats_controller.rb:586:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:55:57 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+Completed   in 1ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/batting_stats_controller.rb:586:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:55:59 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+Completed   in 0ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/batting_stats_controller.rb:586:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:56:02 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Completed   in 4ms
+
+NameError (undefined local variable or method `stats' for #<BattingStatsController:0x5407908>):
+  app/controllers/batting_stats_controller.rb:602:in `find_seasons'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (39.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (52.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:56:15 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/batting
+Completed 302 Found in 1ms
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:56:16 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 62ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/fielding" for 127.0.0.1 at 2011-04-25 19:57:39 -0400
+  Processing by FieldingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered fielding_stats/season_finder.html.erb within layouts/application (75.0ms)
+Completed 200 OK in 107ms (Views: 107.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/fielding/results" for 127.0.0.1 at 2011-04-25 19:57:42 -0400
+  Processing by FieldingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/fielding
+Completed 302 Found in 1ms
+
+
+Started GET "/seasonfinder/fielding" for 127.0.0.1 at 2011-04-25 19:57:42 -0400
+  Processing by FieldingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered fielding_stats/season_finder.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:57:45 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:57:47 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/batting
+Completed 302 Found in 1ms
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:57:48 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 54ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/pitching" for 127.0.0.1 at 2011-04-25 19:59:03 -0400
+  Processing by PitchingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered pitching_stats/season_finder.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 52ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:59:08 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/batting/results" for 127.0.0.1 at 2011-04-25 19:59:10 -0400
+  Processing by BattingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/batting
+Completed 302 Found in 1ms
+
+
+Started GET "/seasonfinder/batting" for 127.0.0.1 at 2011-04-25 19:59:10 -0400
+  Processing by BattingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered batting_stats/season_finder.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/pitching" for 127.0.0.1 at 2011-04-25 19:59:12 -0400
+  Processing by PitchingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered pitching_stats/season_finder.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 61ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/pitching/results" for 127.0.0.1 at 2011-04-25 19:59:14 -0400
+  Processing by PitchingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/pitching
+Completed 302 Found in 0ms
+
+
+Started GET "/seasonfinder/pitching" for 127.0.0.1 at 2011-04-25 19:59:15 -0400
+  Processing by PitchingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered pitching_stats/season_finder.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 52ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/seasonfinder/fielding" for 127.0.0.1 at 2011-04-25 19:59:19 -0400
+  Processing by FieldingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered fielding_stats/season_finder.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/fielding/results" for 127.0.0.1 at 2011-04-25 19:59:22 -0400
+  Processing by FieldingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/fielding
+Completed 302 Found in 1ms
+
+
+Started GET "/seasonfinder/fielding" for 127.0.0.1 at 2011-04-25 19:59:22 -0400
+  Processing by FieldingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (3.0ms)
+Rendered fielding_stats/season_finder.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 84ms (Views: 84.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/seasonfinder/fielding/results" for 127.0.0.1 at 2011-04-25 19:59:25 -0400
+  Processing by FieldingStatsController#find_seasons as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWui3AWy8sowEGKt1aDOXsGWz2THC4Ariy1SPg58HkM=", "fields"=>{"count"=>"5"}, "1"=>{"stat"=>"", "operator"=>"=", "number"=>"200"}, "2"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "3"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "4"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "5"=>{"stat"=>"", "operator"=>"=", "number"=>""}, "commit"=>"Find Seasons"}
+Redirected to http://localhost:3000/seasonfinder/fielding
+Completed 302 Found in 1ms
+
+
+Started GET "/seasonfinder/fielding" for 127.0.0.1 at 2011-04-25 19:59:26 -0400
+  Processing by FieldingStatsController#season_finder as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered fielding_stats/season_finder.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 58ms (Views: 58.0ms | ActiveRecord: 0.0ms)

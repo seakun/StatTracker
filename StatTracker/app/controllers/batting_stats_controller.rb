@@ -614,7 +614,11 @@ include ApplicationHelper
 		@stats.push(stat)
 		operations.push(string)
     end
-    if params[:postseason].nil?
+    if @stats.size == 0
+      flash[:notice] = 'You must select at least one stat.'
+      redirect_to :back
+      @batting_stats = Array.new
+    elsif params[:postseason].nil?
       @batting_stats = BattingStat.where(operations.join(" AND "))
     else
       @batting_stats = BattingPostStat.where(operations.join(" AND "))
