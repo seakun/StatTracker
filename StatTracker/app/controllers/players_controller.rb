@@ -665,6 +665,10 @@ autocomplete :player, :name, :full => true
       position = params[:position] + '%'
       @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :order => "(final_game IS NOT NULL), last_name ASC, first_name ASC", :joins => [:fielding_stats]).uniq
     end
+
+    if @players.size == 1
+      redirect_to @players.first
+    end
     
     @players = @players.paginate :page => params[:page], :per_page => 20
     @arr = Array.new
