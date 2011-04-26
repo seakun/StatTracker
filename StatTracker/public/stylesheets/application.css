@@ -191,12 +191,12 @@ float:left;
 
 #comparePlayers{
 margin-top:-300px;
-margin-left: 600px;
+margin-left: 650px;
 }
 
 #compareTeams{
 margin-top:-200px;
-margin-left: 600px;
+margin-left: 650px;
 }
 
 div.button a{
@@ -472,16 +472,26 @@ height: 2px;
           padding: 10px;
 		  padding-bottom:10px;
           width: 550px;
-		  height:650px;
-          background: #ccc;
-          border: 1px solid #29216d;
+		  height:680px;
+          background:  #F0F0EE;
+		  z-index:50;
+		  opacity:0.9;
+          border: 1px solid #333300;
+		  color:#693600;
+		  font-weight:bold;
 		  font-size:14px;
 		  z-index:5;
       }
 	  
-a.handle{
+.slide-out-div h2,h3{
+		  color:#996600;
 
 }
+
+.slide-out-div a:hover{
+color:#771200;
+}
+	  
 
 #wrapper{
 	min-height:100%;
