@@ -617,17 +617,17 @@ include ApplicationHelper
     @stats = []
     operations = []
     (1..number).each do |i|
-    stat = params["#{i}"][:stat]
-    next if stat.blank?
-		operator = params["#{i}"][:operator]
-		number = params["#{i}"][:number]
-		if valid_finder?(number)
-			flash[:notice] = 'At least one of your values was invalid. Please try again.'
-			redirect_to :back
-		end
-		string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
-		@stats.push(stat)
-		operations.push(string)
+      stat = params["#{i}"][:stat]
+      next if stat.blank?
+      operator = params["#{i}"][:operator]
+      number = params["#{i}"][:number]
+	  if number.to_i < 0
+		flash[:notice] = 'At least one of your values was invalid. Please try again.'
+		redirect_to :back
+	  end
+      string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
+      @stats.push(stat)
+      operations.push(string)
     end
     order = @stats.map{|s| s.downcase.gsub(" ", "_") + " DESC"}.join(", ")
     if @stats.size == 0
@@ -639,33 +639,38 @@ include ApplicationHelper
     else
       @batting_stats = BattingPostStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
     end
-    @chart2 = GoogleVisualr::Table.new
-	@chart2.add_column('string' , 'Name')
-    @chart2.add_column('string' , 'Bats')
-	@chart2.add_column('string' , 'Team')
-    @chart2.add_column('string' , 'Year')
-    @stats.each do |i|
-		@chart2.add_column('number' , i.titleize)
+    number = 200
+    if @batting_stats.size > number
+      flash[:notice] = "Your search returned more than #{number} results. Try a more specific search."
+      redirect_to :back
+    else
+      @chart2 = GoogleVisualr::Table.new
+      @chart2.add_column('string' , 'Name')
+      @chart2.add_column('string' , 'Bats')
+      @chart2.add_column('string' , 'Team')
+      @chart2.add_column('string' , 'Year')
+      @stats.each do |i|
+       @chart2.add_column('number' , i.titleize)
+      end
+      @chart2.add_rows(@batting_stats.size)
+      @batting_stats.each { |b|
+        i = @batting_stats.index(b)
+        @chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
+        @chart2.set_cell(i, 1, b.player.bats.to_s)
+        @chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
+        @chart2.set_cell(i, 3, b.team.year.to_s)
+        k=4
+      @stats.each do |j|
+       number= b.send(j.downcase.gsub(" ", "_"))
+       @chart2.set_value(i, k, number)
+       k+=1
+      end
+      }
+      options = { :width => 600, :allowHtml=>true }
+      options.each_pair do | key, value |
+      @chart2.send "#{key}=", value
+      @operations = operations
+      end
     end
-    @chart2.add_rows(@batting_stats.size)
-    @batting_stats.each { |b|
-		i = @batting_stats.index(b)
-		@chart2.set_cell(i, 0, "<a href='/players/#{b.player.id}'>#{b.player.name}</a>")
-		@chart2.set_cell(i, 1, b.player.bats.to_s)
-		@chart2.set_cell(i, 2, "<a href='/teams/#{b.team.id}'>#{b.team.name}</a>")
-		@chart2.set_cell(i, 3, b.team.year.to_s)
-		k=4
-    @stats.each do |j|
-		number= b.send(j.downcase.gsub(" ", "_"))
-		@chart2.set_value(i, k, number)
-		k+=1
-    end
-    }
-    options = { :width => 600, :allowHtml=>true }
-    options.each_pair do | key, value |
-    @chart2.send "#{key}=", value
-    @operations = operations.join(", ").titleize
-  end
-
   end
 end
