@@ -593,6 +593,96 @@ autocomplete :player, :name, :full => true
 		options.each_pair do | key, value |
 			@chart6.send "#{key}=", value
 		end
+		
+	@chart7 = GoogleVisualr::Table.new
+    @chart7.add_column('string' , 'Year')
+	@chart7.add_column('string' , 'Age')
+	@chart7.add_column('string' , 'Team')
+	@chart7.add_column('number' , 'W')
+	@chart7.add_column('number' , 'L')
+	@chart7.add_column('string' , 'ERA')
+	@chart7.add_column('number' , 'SV')
+    @chart7.add_column('string' , 'IP')
+    @chart7.add_column('number' , 'K')
+    @chart7.add_column('string' , 'WHIP')
+    @chart7.add_rows(@pitching_stats.size+1)
+	wins="\"Wins \""
+    losses="\"Losses\""
+    saves="\"Saves\""
+    strikes="\"Strikeouts\""
+    totalwins="\"Total Wins\""
+    totallosses="\"Total Losses\""
+    totalsaves="\"Total Saves\""
+    totalstrikes="\"Total Strikeouts\""
+	@pitching_stats.each { |b|
+		i = @pitching_stats.index(b)
+		@chart7.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
+		@chart7.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
+		@chart7.set_cell(i, 2, "<span title='Team'>#{"<a href='/teams/#{b.team.id}'>#{b.team.name}</a>"}</span>")
+		@chart7.set_cell(i, 3, b.wins, "<span title=#{wins}>#{b.wins.to_s}</span>")
+		@chart7.set_cell(i, 4, b.losses, "<span title=#{losses}>#{b.losses.to_s}</span>")
+		@chart7.set_cell(i, 5, "<span title='ERA'>#{b.era.to_s}</span>" )
+		@chart7.set_cell(i, 6, b.saves, "<span title=#{saves}>#{b.saves.to_s}</span>" )
+		@chart7.set_cell(i, 7, "<span title='Innings Pitched'>#{b.innings_pitched_display.to_s}</span>" )
+		@chart7.set_cell(i, 8, b.strikeouts, "<span title=#{strikes}>#{b.strikeouts.to_s}</span>")
+		@chart7.set_cell(i, 9, "<span title='Walks and Hits per Innings Pitched'>#{b.walks_and_hits_innings_pitched.to_s}</span>" )
+	}
+    i+=1
+    numbersaves=PitchingStat.get_stat_total(params[:id], :saves)
+    @chart7.set_cell(i, 0, "Totals")
+    @chart7.set_cell(i, 3,  @player.career_wins, "<span title=#{totalwins}>#{@player.career_wins}</span>")
+    @chart7.set_cell(i, 4,  @player.career_losses, "<span title=#{totallosses}>#{@player.career_losses}</span>")
+    @chart7.set_cell(i, 5, "<span title='ERA'>#{@player.career_era}</span>")
+    @chart7.set_cell(i, 6, numbersaves.to_i, "<span title=#{totalsaves}>#{numbersaves}</span>")
+    @chart7.set_cell(i, 7, "<span title='Total Innings Pitched'>#{@player.career_innings_pitched_display}</span>")
+    @chart7.set_cell(i, 8, @player.career_strikeouts_allowed, "<span title=#{totalstrikes}>#{@player.career_strikeouts_allowed}</span>")
+	@chart7.set_cell(i, 9, "<span title='Walks and Hits per Innings Pitched'>#{@player.career_walks_and_hits_innings_pitched}</span>" )
+	options = { :width => '100%', :allowHtml =>true }
+	options.each_pair do | key, value |
+		@chart7.send "#{key}=", value
+	end
+    @chart8 = GoogleVisualr::Table.new
+    @chart8.add_column('string' , 'Year')
+	@chart8.add_column('string' , 'Age')
+	@chart8.add_column('string' , 'Team')
+    @chart8.add_column('string' , 'Round')
+	@chart8.add_column('number' , 'W')
+	@chart8.add_column('number' , 'L')
+    @chart8.add_column('string' , 'ERA')
+    @chart8.add_column('number' , 'SV')
+    @chart8.add_column('string' , 'IP')
+    @chart8.add_column('number' , 'K')
+    @chart8.add_column('string' , 'WHIP')
+    @chart8.add_rows(@pitching_stats_post.size+1)
+    @pitching_stats_post.each { |b|
+		i = @pitching_stats_post.index(b)
+		@chart8.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
+		@chart8.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
+		@chart8.set_cell(i, 2, "<span title='Team'>#{"<a href='/teams/#{b.team.id}'>#{b.team.name}</a>"}</span>")
+		@chart8.set_cell(i, 3, "<span title='Round'>#{b.round.to_s[0,4]}</span>")
+		@chart8.set_cell(i, 4, b.wins, "<span title=#{wins}>#{b.wins.to_s}</span>")
+		@chart8.set_cell(i, 5, b.losses, "<span title=#{losses}>#{b.losses.to_s}</span>")
+		@chart8.set_cell(i, 6, "<span title='ERA'>#{b.era.to_s}</span>" )
+		@chart8.set_cell(i, 7, b.saves, "<span title=#{saves}>#{b.saves.to_s}</span>" )
+		@chart8.set_cell(i, 8, "<span title='Innings Pitched'>#{b.innings_pitched_display.to_s}</span>" )
+		@chart8.set_cell(i, 9, b.strikeouts, "<span title=#{strikes}>#{b.strikeouts.to_s}</span>")
+		@chart8.set_cell(i, 10, "<span title='Walks and Hits per Innings Pitched'>#{b.walks_and_hits_innings_pitched.to_s}</span>" )
+		}
+    i+=1
+    numbersaves=PitchingPostStat.get_stat_total(params[:id], :saves)
+    @chart8.set_cell(i, 0, "Totals")
+    @chart8.set_cell(i, 4,  @player.career_wins_post, "<span title=#{totalwins}>#{@player.career_wins_post}</span>")
+    @chart8.set_cell(i, 5,  @player.career_losses_post, "<span title=#{totallosses}>#{@player.career_losses_post}</span>")
+    @chart8.set_cell(i, 6, "<span title='ERA'>#{@player.career_post_era}</span>")
+    @chart8.set_cell(i, 7, numbersaves.to_i, "<span title=#{totalsaves}>#{numbersaves}</span>")
+    @chart8.set_cell(i, 8, "<span title='Total Innings Pitched'>#{@player.career_post_innings_pitched_display}</span>")
+    @chart8.set_cell(i, 9, @player.career_strikeouts_allowed_post, "<span title=#{totalstrikes}>#{@player.career_strikeouts_allowed_post}</span>")
+	@chart8.set_cell(i, 10, "<span title='Walks and Hits per Innings Pitched'>#{@player.career_post_walks_and_hits_innings_pitched}</span>" )
+	options = { :width => '100%', :allowHtml=>true }
+		options.each_pair do | key, value |
+		@chart8.send "#{key}=", value
+	end
+  
   end
 
   def new

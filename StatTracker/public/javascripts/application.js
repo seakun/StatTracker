@@ -24,16 +24,7 @@ jQuery(function($) {
 		  $("#years_place").html(data);
 		});
 	});
-	
-jQuery(function($) {
 
-	  $("#batting_advanced_link")
-		.bind("ajax:success", function(event, data, status, xhr) {
-		  $("#batting_advanced").html(data);
-		});
-	});
-	
-	
 jQuery(function($) {
 
 		$("#batting_advanced_button").click( function () {
@@ -71,5 +62,45 @@ jQuery(function($) {
 			$("#batting_post_simple_button").hide();
 			$("#batting_post_simple").show();
 			$("#batting_post_advanced_button").show();
+		});
+	});
+	
+	jQuery(function($) {
+
+		$("#pitching_advanced_button").click( function () {
+			$("#pitching_simple").hide();
+			$("#pitching_advanced_button").hide();
+			$("#pitching_advanced").show();
+			$("#pitching_simple_button").show();
+		});
+	});
+	
+	jQuery(function($) {
+
+		$("#pitching_simple_button").click( function () {
+			$("#pitching_advanced").hide();
+			$("#pitching_simple_button").hide();
+			$("#pitching_simple").show();
+			$("#pitching_advanced_button").show();
+		});
+	});
+	
+		jQuery(function($) {
+
+		$("#pitching_post_advanced_button").click( function () {
+			$("#pitching_post_simple").hide();
+			$("#pitching_post_advanced_button").hide();
+			$("#pitching_post_advanced").show();
+			$("#pitching_post_simple_button").show();
+		});
+	});
+	
+	jQuery(function($) {
+
+		$("#pitching_post_simple_button").click( function () {
+			$("#pitching_post_advanced").hide();
+			$("#pitching_post_simple_button").hide();
+			$("#pitching_post_simple").show();
+			$("#pitching_post_advanced_button").show();
 		});
 	});

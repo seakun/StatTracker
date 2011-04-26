@@ -351,6 +351,22 @@ display:none;
 display:none;
 }
 
+#pitching_advanced {
+display:none;
+}
+
+#pitching_simple_button {
+display:none;
+}
+
+#pitching_post_advanced {
+display:none;
+}
+
+#pitching_post_simple_button {
+display:none;
+}
+
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
