@@ -418,6 +418,7 @@ display:none;
 .error_messages ul {
   margin: 0;
 }
+.google-visualization-table-td:nth-child(3){text-align:left; padding-left:0px;}
 #chart a, #chart2 a, #chart3 a, #chart4 a, #table_place a, #table a{ text-decoration: underline;
 }
 #chart , #chart2 , #chart3 , #chart4, #table { text-align:right;
