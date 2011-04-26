@@ -118,164 +118,178 @@ include ApplicationHelper
 	
 	def season_compare
 		@batters = BattingStat.season_compare(params[:comp])
-		@table = GoogleVisualr::Table.new
-		@table.add_column('string' , 'Name')
-		@table.add_column('string' , 'Bats')
-		@table.add_column('string' , 'Year')
-		@table.add_column('string' , 'Age')
-		@table.add_column('string' , 'Team')
-		@table.add_column('string' , 'League')
-		@table.add_column('string' , 'G')
-		@table.add_column('string' , 'PA')
-		@table.add_column('string' , 'AB')
-		@table.add_column('string' , 'R')
-		@table.add_column('string' , 'H')
-		@table.add_column('string' , '2B')
-		@table.add_column('string' , '3B')
-		@table.add_column('string' , 'HR')
-		@table.add_column('string' , 'RBI')
-		@table.add_column('string' , 'TB')
-		@table.add_column('string' , 'SB')
-		@table.add_column('string' , 'CS')
-		@table.add_column('string' , 'BB')
-		@table.add_column('string' , 'K')
-		@table.add_column('string' , 'AVG')
-		@table.add_column('string' , 'OBP')
-		@table.add_column('string' , 'SLG')
-		@table.add_column('string' , 'OPS')
-		@table.add_rows(@batters.size)
-		i = 0
-		@batters.each {|b|
-			@table.set_cell(i, 0, "<a href='/players/#{b[0].player_id}'>#{b[0].player.name}</a>")
-			if !b[0].player.bats.nil?
-				@table.set_cell(i, 1, b[0].player.bats.to_s)
-			else @table.set_cell(i, 1, 'N/A')
+		if @batters.empty?	
+			flash[:notice] = "One or more of the players you have chosen do not have batting statistics available. Please select different players."
+			redirect_to :back
+		else
+			@table = GoogleVisualr::Table.new
+			@table.add_column('string' , 'Name')
+			@table.add_column('string' , 'Bats')
+			@table.add_column('string' , 'Year')
+			@table.add_column('string' , 'Age')
+			@table.add_column('string' , 'Team')
+			@table.add_column('string' , 'League')
+			@table.add_column('string' , 'G')
+			@table.add_column('string' , 'PA')
+			@table.add_column('string' , 'AB')
+			@table.add_column('string' , 'R')
+			@table.add_column('string' , 'H')
+			@table.add_column('string' , '2B')
+			@table.add_column('string' , '3B')
+			@table.add_column('string' , 'HR')
+			@table.add_column('string' , 'RBI')
+			@table.add_column('string' , 'TB')
+			@table.add_column('string' , 'SB')
+			@table.add_column('string' , 'CS')
+			@table.add_column('string' , 'BB')
+			@table.add_column('string' , 'K')
+			@table.add_column('string' , 'AVG')
+			@table.add_column('string' , 'OBP')
+			@table.add_column('string' , 'SLG')
+			@table.add_column('string' , 'OPS')
+			@table.add_rows(@batters.size)
+			i = 0
+			@batters.each {|b|
+				@table.set_cell(i, 0, "<a href='/players/#{b[0].player_id}'>#{b[0].player.name}</a>")
+				if !b[0].player.bats.nil?
+					@table.set_cell(i, 1, b[0].player.bats.to_s)
+				else @table.set_cell(i, 1, 'N/A')
+				end
+				@table.set_cell(i, 2, b[0].team.year.to_s)
+				@table.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
+				@table.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
+				@table.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
+				@table.set_cell(i, 6, b[0].games.to_s)
+				@table.set_cell(i, 7, b[0].plate_appearances.to_s)
+				@table.set_cell(i, 8, b[0].at_bats.to_s)
+				@table.set_cell(i, 9, b[0].runs.to_s)
+				@table.set_cell(i, 10, b[0].hits.to_s)
+				@table.set_cell(i, 11, b[0].doubles.to_s)
+				@table.set_cell(i, 12, b[0].triples.to_s)
+				@table.set_cell(i, 13, b[0].home_runs.to_s)
+				@table.set_cell(i, 14, b[0].rbi.to_s)
+				@table.set_cell(i, 15, b[0].total_bases.to_s)
+				@table.set_cell(i, 16, b[0].stolen_bases.to_s)
+				@table.set_cell(i, 17, b[0].caught_stealing.to_s)
+				@table.set_cell(i, 18, b[0].walks.to_s)
+				@table.set_cell(i, 19, b[0].strikeouts.to_s)
+				@table.set_cell(i, 20, b[0].batting_average.to_s)
+				@table.set_cell(i, 21, b[0].on_base_percentage.to_s)
+				@table.set_cell(i, 22, b[0].slugging_percentage.to_s)
+				@table.set_cell(i, 23, b[0].on_base_plus_slugging.to_s)
+				i += 1
+			}
+			
+			options = { :width => '100%', :allowHtml=>true }
+			options.each_pair do | key, value |
+				@table.send "#{key}=", value
 			end
-			@table.set_cell(i, 2, b[0].team.year.to_s)
-			@table.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
-			@table.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
-			@table.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
-			@table.set_cell(i, 6, b[0].games.to_s)
-			@table.set_cell(i, 7, b[0].plate_appearances.to_s)
-			@table.set_cell(i, 8, b[0].at_bats.to_s)
-			@table.set_cell(i, 9, b[0].runs.to_s)
-			@table.set_cell(i, 10, b[0].hits.to_s)
-			@table.set_cell(i, 11, b[0].doubles.to_s)
-			@table.set_cell(i, 12, b[0].triples.to_s)
-			@table.set_cell(i, 13, b[0].home_runs.to_s)
-			@table.set_cell(i, 14, b[0].rbi.to_s)
-			@table.set_cell(i, 15, b[0].total_bases.to_s)
-			@table.set_cell(i, 16, b[0].stolen_bases.to_s)
-			@table.set_cell(i, 17, b[0].caught_stealing.to_s)
-			@table.set_cell(i, 18, b[0].walks.to_s)
-			@table.set_cell(i, 19, b[0].strikeouts.to_s)
-			@table.set_cell(i, 20, b[0].batting_average.to_s)
-			@table.set_cell(i, 21, b[0].on_base_percentage.to_s)
-			@table.set_cell(i, 22, b[0].slugging_percentage.to_s)
-			@table.set_cell(i, 23, b[0].on_base_plus_slugging.to_s)
-			i += 1
-		}
-		
-		options = { :width => '100%', :allowHtml=>true }
-		options.each_pair do | key, value |
-			@table.send "#{key}=", value
 		end
 	end
 	
 	def career_compare
 		@batters = BattingStat.career_compare(params[:comp])
-		@player = []
-		@players = []
-		@batters.each_value {|value|
-			if @player.include?(value)
-			else @player.push(value)
+		if @batters.empty?	
+			flash[:notice] = "One or more of the players you have chosen do not have batting statistics available. Please select different players."
+			redirect_to :back
+		else
+			@player = []
+			@players = []
+			@batters.each_value {|value|
+				if @player.include?(value)
+				else @player.push(value)
+				end
+			}
+			@max = []
+			@player.each {|p|
+				@players.push(Player.find(p.to_i))
+				@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
+			}
+			@chart = GoogleVisualr::LineChart.new
+			@chart.add_column('string', 'Year')
+			@players.each { |play|
+				@chart.add_column('number', play.name)
+			}	
+			@chart.add_rows(@max.max)
+			y = 1
+			@players.each { |play|
+			x = 0
+			year = 1
+			stats = BattingStat.get_all_stats(play.id, :home_runs)
+				stats.each {|s|
+					@chart.set_value(x, 0, year.to_s)
+					@chart.set_value(x, y, s.home_runs)
+					x += 1
+					year += 1
+				}
+				y += 1
+			}
+			options = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Home Runs Each Year", :titleX => "Year in Player's Career", :titleY => "Number of Home Runs"}
+			options.each_pair do | key, value |
+				@chart.send "#{key}=", value
 			end
-		}
-		@max = []
-		@player.each {|p|
-			@players.push(Player.find(p.to_i))
-			@max.push(BattingStat.find(:all, :select => [:team_id], :conditions => ['player_id =?', p]).size)
-		}
-		@chart = GoogleVisualr::LineChart.new
-		@chart.add_column('string', 'Year')
-		@players.each { |play|
-			@chart.add_column('number', play.name)
-		}	
-		@chart.add_rows(@max.max)
-		y = 1
-		@players.each { |play|
-		x = 0
-		year = 1
-		stats = BattingStat.get_all_stats(play.id, :home_runs)
-			stats.each {|s|
-				@chart.set_value(x, 0, year.to_s)
-				@chart.set_value(x, y, s.home_runs)
-				x += 1
-				year += 1
+			
+			@chart2 = GoogleVisualr::LineChart.new
+			@chart2.add_column('string', 'Year')
+			@players.each { |play|
+				@chart2.add_column('number', play.name)
+			}	
+			@chart2.add_rows(@max.max)
+			y = 1
+			@players.each { |play|
+			x = 0
+			year = 1
+			stats = BattingStat.get_all_stats(play.id, :home_runs)
+			total = 0
+				stats.each {|s|
+					total += s.home_runs
+					@chart2.set_value(x, 0, year.to_s)
+					@chart2.set_value(x, y, total)
+					x += 1
+					year += 1
+				}
+				y += 1
 			}
-			y += 1
-		}
-		options = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Home Runs Each Year", :titleX => "Year in Player's Career", :titleY => "Number of Home Runs"}
-		options.each_pair do | key, value |
-			@chart.send "#{key}=", value
-		end
-		
-		@chart2 = GoogleVisualr::LineChart.new
-		@chart2.add_column('string', 'Year')
-		@players.each { |play|
-			@chart2.add_column('number', play.name)
-		}	
-		@chart2.add_rows(@max.max)
-		y = 1
-		@players.each { |play|
-		x = 0
-		year = 1
-		stats = BattingStat.get_all_stats(play.id, :home_runs)
-		total = 0
-			stats.each {|s|
-				total += s.home_runs
-				@chart2.set_value(x, 0, year.to_s)
-				@chart2.set_value(x, y, total)
-				x += 1
-				year += 1
-			}
-			y += 1
-		}
-		options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Home Runs", :titleX => "Year in Player's Career", :titleY => "Number of Home Runs"}
-		options2.each_pair do | key, value |
-			@chart2.send "#{key}=", value
-		end
+			options2 = { :width => '100%', :height => 300, :legend => 'bottom', :title => "Cumulative Home Runs", :titleX => "Year in Player's Career", :titleY => "Number of Home Runs"}
+			options2.each_pair do | key, value |
+				@chart2.send "#{key}=", value
+			end
 
-		@table = GoogleVisualr::Table.new
-		@table.add_column('string' , 'Name')
-		@table.add_column('string' , 'Bats')
-		@table.add_column('string' , 'Runs')
-		@table.add_column('string' , 'Hits')
-		@table.add_column('string' , 'Home Runs')
-		@table.add_column('string' , 'RBI')
-		@table.add_column('string' , 'Stolen Bases')
-		
-		@table.add_rows(@players.size)
-		i = 0
-			@players.each { |p|
-				@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
-				@table.set_cell(i, 1, p.bats)
-				@table.set_cell(i, 2, BattingStat.get_stat_total(p, :runs))
-				@table.set_cell(i, 3, BattingStat.get_stat_total(p, :hits))
-				@table.set_cell(i, 4, BattingStat.get_stat_total(p, :home_runs))
-				@table.set_cell(i, 5, BattingStat.get_stat_total(p, :rbi))
-				@table.set_cell(i, 6, BattingStat.get_stat_total(p, :stolen_bases))
-				i += 1
-			}
+			@table = GoogleVisualr::Table.new
+			@table.add_column('string' , 'Name')
+			@table.add_column('string' , 'Bats')
+			@table.add_column('string' , 'Runs')
+			@table.add_column('string' , 'Hits')
+			@table.add_column('string' , 'Home Runs')
+			@table.add_column('string' , 'RBI')
+			@table.add_column('string' , 'Stolen Bases')
+			
+			@table.add_rows(@players.size)
+			i = 0
+				@players.each { |p|
+					@table.set_cell(i, 0, "<a href='/players/#{p.id}'>#{p.name}</a>")
+					@table.set_cell(i, 1, p.bats)
+					@table.set_cell(i, 2, BattingStat.get_stat_total(p, :runs))
+					@table.set_cell(i, 3, BattingStat.get_stat_total(p, :hits))
+					@table.set_cell(i, 4, BattingStat.get_stat_total(p, :home_runs))
+					@table.set_cell(i, 5, BattingStat.get_stat_total(p, :rbi))
+					@table.set_cell(i, 6, BattingStat.get_stat_total(p, :stolen_bases))
+					i += 1
+				}
 
-		options = { :width => '100%', :allowHtml => true}
-		options.each_pair do | key, value |
-			@table.send "#{key}=", value
+			options = { :width => '100%', :allowHtml => true}
+			options.each_pair do | key, value |
+				@table.send "#{key}=", value
+			end
 		end
 	end
 	
 	def multi_compare
-		@batters, @max, @years = BattingStat.multi_compare(params[:comp])
+	@batters, @max, @years = BattingStat.multi_compare(params[:comp])
+	if @batters.empty?	
+		flash[:notice] = "One or more of the players you have chosen do not have batting statistics available. Please select different players."
+		redirect_to :back
+	else
     #throw @years
     #throw @batters.values
 		@player = []
@@ -294,8 +308,8 @@ include ApplicationHelper
 			split_player = p.split(".")
 			player = Player.find(split_player[0]).name
 			years = split_player[1].gsub(":", "-")
-      text = player + " " + years
-      @strings.push(text)
+		text = player + " " + years
+		@strings.push(text)
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
@@ -373,9 +387,10 @@ include ApplicationHelper
 				i += 1
 			}
 
-		options = { :width => '100%', :allowHtml => true}
-		options.each_pair do | key, value |
-			@table.send "#{key}=", value
+			options = { :width => '100%', :allowHtml => true}
+			options.each_pair do | key, value |
+				@table.send "#{key}=", value
+			end
 		end
 	end
 	

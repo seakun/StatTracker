@@ -1,6 +1,9 @@
 
 <h1> Fielding Leaderboards </h1>
-        
+ 
+<table>
+<tr>
+<td> 
 <%= form_tag (fielding_leaders_path) do %>
 		<%= select_tag "stat", 
 		raw("<option>Games</option>
@@ -15,11 +18,21 @@
 		<option>Stolen Bases</option>
 		<option>Caught Stealing</option>")
 		%>
+</td>
+<td>
 		<%= radio_button_tag 'type', 'season' , true%>Season
 		<%= radio_button_tag 'type', 'career' %>Career
 		<%= radio_button_tag 'type', 'active' %>Active
-		<%= check_box_tag 'post', 'post', false %>Postseason
+</td>
+<td>
 		<%= submit_tag 'Submit' %>
+</td>
+</tr>
+<tr>
+<td></td>
+<td><%= check_box_tag 'post', 'post', false %>Postseason</td>
+</tr>
+</table>
 	<% end %>
 		<style>
 #container{
