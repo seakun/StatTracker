@@ -59,7 +59,7 @@ class Player < ActiveRecord::Base
   # search for all the players in the system by either first or last name
   def self.player_search(search)
     search_condition = "%" + search.downcase + "%"
-    find(:all, :conditions => ["lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(first_name) || ' ' || lower(last_name) LIKE ?", search_condition, search_condition, search_condition])
+    find(:all, :conditions => ["lower(first_name) LIKE ? OR lower(last_name) LIKE ? OR lower(first_name) || ' ' || lower(last_name) LIKE ?", search_condition, search_condition, search_condition], :order => "(final_game IS NOT NULL), last_name ASC, first_name ASC")
   end
   
   def auto_search
