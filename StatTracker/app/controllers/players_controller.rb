@@ -10,7 +10,7 @@ autocomplete :player, :name, :full => true
 	if @player.final_game.nil?
     @google_image = GoogleImage.all(@player.name+" rotoworld headshot", 0).first
 	else
-    query = "\"#{@player.name}\" \"baseball card\" \"#{@player.fielding_stats.last.team.year}\""
+    query = "\"#{@player.name}\" baseball wiki"
     #throw query
 	@google_image = GoogleImage.all(query, 0).first
   puts query
