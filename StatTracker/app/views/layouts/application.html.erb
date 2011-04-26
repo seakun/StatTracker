@@ -183,6 +183,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
                 <a href="#" onclick="toggleVisibility('SF');return false;"><strong>(SF)</strong>Sacrifice Flies</a> <br />
                  <a href="#" onclick="toggleVisibility('SLG');return false;"><strong>(SLG)</strong>Slugging Percentage</a> <br />
                 <a href="#" onclick="toggleVisibility('TB');return false;"><strong>(TB)</strong>Total Bases</a> <br />
+                <a href="#" onclick="toggleVisibility('EB');return false;"><strong>(EB)</strong>Extra Bases</a> <br />
                
                 
                
@@ -335,6 +336,11 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
        <a name="TB"><h3>Total Bases - TB</h3></a>
        <p>The total number of bases a player obtains by a hit.  It is a weighted statistic - a batter
        gets 1 for a single, 2 for a double, 3 for a triple and 4 for a home run.</p>
+       </div>
+		 <div id="EB" class="section">
+       <a name="EB"><h3>Extra Bases - EB</h3></a>
+       <p>The number of base hits on which the batter is able to advance past first base without
+         the benefit of a fielder. It is the sum of tatal of a batter's dobules, triples, and home runs.</p>
        </div>
 		 <div id="BA" class="section">
        <a name="BA"><h3>Batting Average - BA</h3></a>
