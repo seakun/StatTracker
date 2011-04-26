@@ -4,7 +4,7 @@
 <% if @player.nickname.nil? %>
 <h1><%=@player.name%></h1>
 <% end %>
-<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') %>
+<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') unless @google_image.nil? %>
 <div class="player">
 </div>
 <div id="text">

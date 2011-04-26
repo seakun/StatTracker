@@ -51,6 +51,8 @@ class Player < ActiveRecord::Base
 		return nil
 	elsif birth_state.nil?
 		return birth_city+ ", "+birth_country
+  elsif birth_city.nil?
+    return nil
 	else
 		return birth_city+ ", "+birth_state+ ", "+birth_country
 	end
