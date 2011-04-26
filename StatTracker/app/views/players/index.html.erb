@@ -44,6 +44,7 @@
       <th> Players by Position </th>
                           <%= select_tag "position",
                           raw("<option></option>
+                          <option>P</option>
                           <option>C</option>
                           <option>1B</option>
                           <option>2B</option>
@@ -53,8 +54,7 @@
                           <option>CF</option>
                           <option>RF</option>
                           <option>OF</option>
-                          <option>DH</option>
-                          <option>P</option>")
+                          <option>DH</option>")
 		%>      
     </tr>
     <br /><br /><%= submit_tag('Search') %>

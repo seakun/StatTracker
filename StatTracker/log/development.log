@@ -13689,3 +13689,80 @@ Started GET "/player_search?letter=&page=2&position=DH&query=" for 127.0.0.1 at 
 Rendered partials/_footer.html.erb (5.0ms)
 Rendered players/player_search.html.erb within layouts/application (43.0ms)
 Completed 200 OK in 47493ms (Views: 81.0ms | ActiveRecord: 43398.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 02:19:07 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered home/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 65ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-26 02:19:22 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 66ms (Views: 66.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players/autocomplete_player_name?term=je" for 127.0.0.1 at 2011-04-26 02:19:27 -0400
+  Processing by PlayersController#autocomplete_player_name as JSON
+  Parameters: {"term"=>"je"}
+  [1m[36mPlayer Load (115.0ms)[0m  [1mSELECT "players".* FROM "players" WHERE (LOWER(name) LIKE '%je%') ORDER BY name ASC LIMIT 10[0m
+Completed 200 OK in 541ms (Views: 89.0ms | ActiveRecord: 115.0ms)
+
+
+Started GET "/players/autocomplete_player_name?term=jeter" for 127.0.0.1 at 2011-04-26 02:19:28 -0400
+  Processing by PlayersController#autocomplete_player_name as JSON
+  Parameters: {"term"=>"jeter"}
+  [1m[35mPlayer Load (98.0ms)[0m  SELECT "players".* FROM "players" WHERE (LOWER(name) LIKE '%jeter%') ORDER BY name ASC LIMIT 10
+Completed 200 OK in 645ms (Views: 133.0ms | ActiveRecord: 98.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:19:28 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"jeter", "letter"=>"", "position"=>"", "commit"=>"Search"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (1673.1ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%jeter%' OR lower(last_name) like '%jeter%' OR lower(name) like '%jeter%') AND lower(last_name) like '%' AND position like '%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 2214ms (Views: 95.0ms | ActiveRecord: 1674.1ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:19:37 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[36mPlayer Load (39470.3ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC[0m
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 43206ms (Views: 78.0ms | ActiveRecord: 39470.3ms)
+
+
+Started GET "/player_search?letter=&page=2&position=DH&query=" for 127.0.0.1 at 2011-04-26 02:20:35 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"letter"=>"", "page"=>"2", "position"=>"DH", "query"=>""}
+  [1m[35mPlayer Load (35864.1ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (170.0ms)
+Completed 200 OK in 39641ms (Views: 208.0ms | ActiveRecord: 35864.1ms)
+
+
+Started GET "/player_search?letter=&page=3&position=DH&query=" for 127.0.0.1 at 2011-04-26 02:24:09 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"letter"=>"", "page"=>"3", "position"=>"DH", "query"=>""}
+  [1m[36mPlayer Load (30721.8ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC[0m
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 34678ms (Views: 78.0ms | ActiveRecord: 30721.8ms)
+
+
+Started GET "/player_search?letter=&page=2&position=DH&query=" for 127.0.0.1 at 2011-04-26 02:25:31 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"letter"=>"", "page"=>"2", "position"=>"DH", "query"=>""}
+  [1m[35mPlayer Load (31368.8ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (273.0ms)
+Completed 200 OK in 35414ms (Views: 306.0ms | ActiveRecord: 31368.8ms)
