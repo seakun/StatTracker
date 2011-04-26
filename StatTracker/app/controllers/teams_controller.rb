@@ -421,8 +421,10 @@ class TeamsController < ApplicationController
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
+		i = 0
 		@franchises.each { |f|
-			@chart.add_column('number', f.name)
+			@chart.add_column('number', f.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart.add_rows(@max)
 		y = 1
@@ -445,8 +447,10 @@ class TeamsController < ApplicationController
 		
 		@chart2 = GoogleVisualr::LineChart.new
 		@chart2.add_column('string', 'Year')
+		i = 0
 		@franchises.each { |f|
-			@chart2.add_column('number', f.name)
+			@chart2.add_column('number', f.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart2.add_rows(@max)
 		y = 1
@@ -500,14 +504,17 @@ class TeamsController < ApplicationController
 		@franchise = params[:franchises]
 		@team, @max = Team.multi_compare(params[:comp])
 		@teams = @team.keys
+		@years = params[:years]
 		@franchises = []
 		@franchise.each {|f|
 			@franchises.push(Franchise.find(f.to_i))
 		}
 		@chart = GoogleVisualr::LineChart.new
 		@chart.add_column('string', 'Year')
+		i = 0
 		@franchises.each { |f|
-			@chart.add_column('number', f.name)
+			@chart.add_column('number', f.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart.add_rows(@max)
 		y = 1
@@ -530,8 +537,10 @@ class TeamsController < ApplicationController
 		
 		@chart2 = GoogleVisualr::LineChart.new
 		@chart2.add_column('string', 'Year')
+		i = 0
 		@franchises.each { |f|
-			@chart2.add_column('number', f.name)
+			@chart2.add_column('number', f.name + ', ' + @years[i])
+			i += 1
 		}	
 		@chart2.add_rows(@max)
 		y = 1
