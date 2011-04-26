@@ -629,14 +629,15 @@ include ApplicationHelper
 		@stats.push(stat)
 		operations.push(string)
     end
+    order = @stats.map{|s| s.downcase.gsub(" ", "_") + " DESC"}.join(", ")
     if @stats.size == 0
       flash[:notice] = 'You must select at least one stat.'
       redirect_to :back
       @batting_stats = Array.new
     elsif params[:postseason].nil?
-      @batting_stats = BattingStat.where(operations.join(" AND "))
+      @batting_stats = BattingStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
     else
-      @batting_stats = BattingPostStat.where(operations.join(" AND "))
+      @batting_stats = BattingPostStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
     end
     @chart2 = GoogleVisualr::Table.new
 	@chart2.add_column('string' , 'Name')

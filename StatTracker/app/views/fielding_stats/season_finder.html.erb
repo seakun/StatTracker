@@ -17,11 +17,7 @@
 		<option>Wild Pitches</option>
 		<option>Stolen Bases</option>
 		<option>Caught Stealing</option>
-		<option>Zone Rating</option>
-		<option>Innings</option>
-		<option>Fielding Percentage</option>
-		<option>Range Factor Innings</option>
-		<option>Range Factor Game</option>")
+		<option>Innings</option>")
 		%>
       <%= select_tag "#{i}[operator]", options_for_select(%w(= < <= > >=)) %>
       <%= text_field "#{i}", "number", :size => 5, :placeholder => "Value" %><br />
