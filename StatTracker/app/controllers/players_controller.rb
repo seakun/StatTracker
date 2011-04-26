@@ -10,7 +10,10 @@ autocomplete :player, :name, :full => true
 	if @player.final_game.nil?
     @google_image = GoogleImage.all(@player.name+" rotoworld headshot", 0).first
 	else
-	@google_image = GoogleImage.all(@player.name+" wiki", 0).first
+    query = "\"#{@player.name}\" portrait \"#{@player.fielding_stats.last.team.year}\""
+    #throw query
+	@google_image = GoogleImage.all(query, 0).first
+  puts query
 	end
     @batting_stats=BattingStat.find(:all, :conditions => ['player_id = ?', params[:id]])
     @chart = GoogleVisualr::Table.new
@@ -536,7 +539,7 @@ autocomplete :player, :name, :full => true
       flash[:notice] = 'Please be more specific with your search.'
       @players = Array.new
     else
-      @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :joins => [:fielding_stats]).uniq
+      @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :order => "(final_game IS NOT NULL), last_name ASC, first_name ASC", :joins => [:fielding_stats]).uniq
     end
     
     
