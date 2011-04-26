@@ -475,6 +475,8 @@ height: 2px;
 		  height:650px;
           background: #ccc;
           border: 1px solid #29216d;
+		  font-size:14px;
+		  z-index:5;
       }
 	  
 a.handle{
