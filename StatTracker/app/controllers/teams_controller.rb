@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     @chart2.add_column('string' , '3B')
     @chart2.add_column('string' , 'HR')
     @chart2.add_column('string' , 'TB')
-    @chart2.add_column('string' , 'EBH')
+    @chart2.add_column('string' , 'XBH')
     @chart2.add_column('string' , 'PA')
     @chart2.add_column('string' , 'BB')
     @chart2.add_column('string' , 'K')
