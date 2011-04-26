@@ -632,11 +632,11 @@ class PitchingStatsController < ApplicationController
       redirect_to :back
       @batting_stats = Array.new
     elsif params[:postseason].nil?
-      @batting_stats = FieldingStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
+      @batting_stats = PitchingStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
     else
-      @batting_stats = FieldingPostStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
+      @batting_stats = PitchingPostStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
     end
-    number = 200
+    number = 400
     if @batting_stats.size > number
       flash[:notice] = "Your search returned more than #{number} results. Try a more specific search."
       redirect_to :back

@@ -136,7 +136,7 @@ class FieldingStatsController < ApplicationController
     else
       @batting_stats = FieldingPostStat.find(:all, :conditions => [operations.join(" AND ")], :order => order)
     end
-    number = 200
+    number = 400
     if @batting_stats.size > number
       flash[:notice] = "Your search returned more than #{number} results. Try a more specific search."
       redirect_to :back
