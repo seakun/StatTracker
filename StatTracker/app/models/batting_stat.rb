@@ -249,15 +249,24 @@ class BattingStat < ActiveRecord::Base
   private
 
   def avg
-	hits / at_bats.to_f
+	if at_bats == 0
+		0.to_f
+	else hits / at_bats.to_f
+	end
   end
 
   def obp
-    (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_flies).to_f
+	if (at_bats + walks + hit_by_pitch + sacrifice_flies) == 0
+		0.to_f
+	else (hits + walks + hit_by_pitch) / (at_bats + walks + hit_by_pitch + sacrifice_flies).to_f
+	end
   end
 
   def slg
-    total_bases / at_bats.to_f
+	if at_bats == 0
+		0.to_f
+    else total_bases / at_bats.to_f
+	end
   end
 
   def ops
@@ -265,15 +274,24 @@ class BattingStat < ActiveRecord::Base
   end
 
   def sbp
-    stolen_bases / (stolen_bases + caught_stealing)
+	if (stolen_bases + caught_stealing) == 0
+		0.to_f
+    else stolen_bases / (stolen_bases + caught_stealing)
+	end
   end
 
   def ab_per_k
-    at_bats / strikeouts.to_f
+	if at_bats == 0
+		0.to_f
+	else at_bats / strikeouts.to_f
+	end
   end
 
   def ab_per_hr
-    at_bats / home_runs.to_f
+	if at_bats == 0
+		0.to_f
+    else at_bats / home_runs.to_f
+	end
   end
 
   def sec_avg

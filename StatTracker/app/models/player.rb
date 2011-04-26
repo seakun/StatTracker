@@ -331,7 +331,7 @@ class Player < ActiveRecord::Base
 		end
 	end
 
-	def career_innings_pitched
+	def career_innings_pitched_display
 		ip = sprintf("%.1f", career_innings_pitched_outs / 3.to_f)
 		if ip[ip.size-1] == '3'
 			ip[ip.size-1] = '1'
@@ -340,6 +340,10 @@ class Player < ActiveRecord::Base
 		else
 		end
 		ip
+	end
+	
+	def career_innings_pitched
+		career_innings_pitched_outs / 3.to_f
 	end
 
 	def career_era
@@ -433,7 +437,7 @@ class Player < ActiveRecord::Base
 		end
 	end
 
-	def career_post_innings_pitched
+	def career_post_innings_pitched_display
 		ip = sprintf("%.1f", career_innings_pitched_outs_post / 3.to_f)
 		if ip[ip.size-1] == '3'
 			ip[ip.size-1] = '1'
@@ -442,6 +446,10 @@ class Player < ActiveRecord::Base
 		else
 		end
 		ip
+	end
+	
+	def career_post_innings_pitched
+		career_innings_pitched_outs_post / 3.to_f
 	end
 
 	def career_post_era

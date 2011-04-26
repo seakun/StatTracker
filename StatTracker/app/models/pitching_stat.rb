@@ -189,7 +189,7 @@ class PitchingStat < ActiveRecord::Base
 		end
 	end
 
-	def innings_pitched
+	def innings_pitched_display
 		ip = sprintf("%.1f", innings_pitched_outs / 3.to_f)
 		if ip[ip.size-1] == '3'
 			ip[ip.size-1] = '1'
@@ -199,39 +199,65 @@ class PitchingStat < ActiveRecord::Base
 		end
 		ip
 	end
+	
+	def innings_pitched
+		innings_pitched_outs / 3.to_f
+	end
 
 	def era
-		sprintf("%.2f", (earned_runs * 9) / innings_pitched.to_f)
+		if innings_pitched == 0
+			'INF'
+		else sprintf("%.2f", (earned_runs * 9) / innings_pitched.to_f)
+		end
 	end
 
 	def opponents_batting_average
-		if !batters_faced != 0
-			sprintf("%.3f", ((hits) / (batters_faced - walks - hit_by_pitch).to_f))
+		if (batters_faced - walks - hit_by_pitch - intentional_walks) == 0
+			sprintf("%.2f", 0.to_f)
+		else sprintf("%.3f", ((hits) / (batters_faced - walks - hit_by_pitch - intentional_walks).to_f))
 		end
 	end
 
 	def walks_and_hits_innings_pitched
-		sprintf("%.2f", ((walks + hits) / innings_pitched.to_f))
+		if innings_pitched == 0
+			'INF'
+		else sprintf("%.2f", ((walks + hits) / innings_pitched.to_f))
+		end
 	end
 
 	def hits_per_9_innings
-		sprintf("%.2f", ((hits * 9) / innings_pitched.to_f))
+		if innings_pitched == 0
+			'INF'
+		else sprintf("%.2f", ((hits * 9) / innings_pitched.to_f))
+		end
 	end
 
 	def home_runs_per_9_innings
-		sprintf("%.2f", ((home_runs * 9) / innings_pitched.to_f))
+		if innings_pitched == 0
+			'INF'
+		else sprintf("%.2f", ((home_runs * 9) / innings_pitched.to_f))
+		end
 	end
-  
+
 	def walks_per_9_innings
-		sprintf("%.2f", ((walks * 9) / innings_pitched.to_f))
+		if innings_pitched == 0
+			'INF'
+		else sprintf("%.2f", ((walks * 9) / innings_pitched.to_f))
+		end
 	end
 
 	def strikeouts_per_9_innings
-		sprintf("%.2f", ((strikeouts * 9) / innings_pitched.to_f))
+		if innings_pitched == 0
+			'INF'
+		else sprintf("%.2f", ((strikeouts * 9) / innings_pitched.to_f))
+		end
 	end
 
 	def strikeouts_per_walk
-		sprintf("%.2f", ((strikeouts / walks.to_f)))
+		if walks == 0
+			'INF'
+		else sprintf("%.2f", ((strikeouts / walks.to_f)))
+		end
 	end
 
 	def adjusted_era
