@@ -528,9 +528,6 @@ autocomplete :player, :name, :full => true
   end
 
   def player_search
-    name = '%' + params[:query].downcase + '%'
-    letter = params[:letter].downcase + '%'
-    position = params[:position] + '%'
 
     @query = params[:query]
     if !@query.blank? && @query.length < 3
@@ -538,35 +535,17 @@ autocomplete :player, :name, :full => true
       redirect_to :back
       flash[:notice] = 'Please be more specific with your search.'
       @players = Array.new
+    elsif @query.blank? && params[:letter].blank? && params[:position].blank?
+      redirect_to :back
+			flash[:notice] = 'Please fill in one of the fields.'
+      @players = Array.new
     else
+      name = '%' + params[:query].downcase + '%'
+      letter = params[:letter].downcase + '%'
+      position = params[:position] + '%'
       @players = Player.find(:all, :conditions => ["(lower(first_name) like ? OR lower(last_name) like ? OR lower(name) like ?) AND lower(last_name) like ? AND position like ?", name, name, name, letter, position], :order => "(final_game IS NOT NULL), last_name ASC, first_name ASC", :joins => [:fielding_stats]).uniq
     end
     
-    
-    
-   @players = @query.blank?? Array.new : Player.player_search(@query)
-   if @query.blank?
-     if params[:letter].blank?
-		if params[:position].blank?
-			redirect_to :back
-			flash[:notice] = 'Please fill in one of the fields.'
-		else
-		@players = Player.find(:all, :conditions => ['position like ?', params[:position]], :joins => [:fielding_stats]).uniq
-		end
-     else
-       @players = Player.find(:all, :conditions => ["lower(last_name) like ?", params[:letter].downcase + '%'])
-       @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
-     end
-   else
-     @players.delete_if{|p| !p.fielding_stats.map{|s| s.position}.include?(params[:position])} unless params[:position].blank?
-     @players.delete_if{|p| p.last_name[0].downcase != params[:letter].downcase} unless params[:letter].blank?
-   end
-    @total_hits = @players.size
-    if @total_hits == 1
-      if @players.first != nil
-        redirect_to @players.first
-      end
-    end
     @players = @players.paginate :page => params[:page], :per_page => 20
     @arr = Array.new
     @arr << "Name: " + @query unless @query.blank?

@@ -39,5 +39,5 @@
             </table>
 	</ul>
 	<p class="smtext">&nbsp;</p>
-        <%= will_paginate @players, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+        <%= will_paginate @players, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next", :params => {:query => params[:query], :letter => params[:letter], :position => params[:position]} %>
 <% end %>

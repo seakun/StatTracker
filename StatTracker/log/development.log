@@ -13214,3 +13214,478 @@ Started GET "/players/1274" for 127.0.0.1 at 2011-04-26 01:48:52 -0400
 Rendered partials/_footer.html.erb (1.0ms)
 Rendered players/show.html.erb within layouts/application (20.0ms)
 Completed 200 OK in 5353ms (Views: 51.0ms | ActiveRecord: 1153.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 01:55:09 -0400
+  Processing by HomeController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered home/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-26 01:55:18 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 48ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 01:55:30 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (29613.7ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+  [1m[36mPlayer Load (40611.3ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE (position like 'DH')[0m
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 76009ms (Views: 74.0ms | ActiveRecord: 70226.0ms)
+
+
+Started GET "/player_search?page=2" for 127.0.0.1 at 2011-04-26 01:56:57 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"page"=>"2"}
+Completed   in 0ms
+
+NoMethodError (undefined method `paginate' for nil:NilClass):
+  app/controllers/players_controller.rb:572:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 01:58:52 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[35mPlayer Load (24170.4ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+  [1m[36mPlayer Load (41452.4ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE (position like 'DH')[0m
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 71545ms (Views: 70.0ms | ActiveRecord: 65622.8ms)
+
+
+Started GET "/player_search?authenticity_token=ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO%2BY%3D&commit=Search&letter=&page=2&position=DH&query=&utf8=%E2%9C%93" for 127.0.0.1 at 2011-04-26 02:00:18 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "commit"=>"Search", "letter"=>"", "page"=>"2", "position"=>"DH", "query"=>"", "utf8"=>"✓"}
+  [1m[35mPlayer Load (31312.8ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+  [1m[36mPlayer Load (44464.5ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE (position like 'DH')[0m
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered players/player_search.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 82437ms (Views: 103.0ms | ActiveRecord: 75777.3ms)
+
+
+Started GET "/player_search?authenticity_token=ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO%2BY%3D&commit=Search&letter=&page=1&position=DH&query=&utf8=%E2%9C%93" for 127.0.0.1 at 2011-04-26 02:03:50 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "commit"=>"Search", "letter"=>"", "page"=>"1", "position"=>"DH", "query"=>"", "utf8"=>"✓"}
+  [1m[35mPlayer Load (33466.9ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-26 02:05:04 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 65ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:05:15 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/players
+Completed 302 Found in 1ms
+
+
+Started GET "/players" for 127.0.0.1 at 2011-04-26 02:05:15 -0400
+  Processing by PlayersController#index as HTML
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 65ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:05:19 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlayer Load (41455.4ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered players/player_search.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 45537ms (Views: 108.0ms | ActiveRecord: 41456.4ms)
+
+
+Started GET "/player_search?page=2" for 127.0.0.1 at 2011-04-26 02:06:09 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"page"=>"2"}
+Completed   in 1ms
+
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  app/controllers/players_controller.rb:531:in `player_search'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/player_search?page=2" for 127.0.0.1 at 2011-04-26 02:06:43 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"page"=>"2"}
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:06:43 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:06:43 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:06:43 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:06:44 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:06:44 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:06:44 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:06:47 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[36mPlayer Load (30634.8ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC[0m
+Rendered partials/_footer.html.erb (1.0ms)
+Rendered players/player_search.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 34375ms (Views: 72.0ms | ActiveRecord: 30634.8ms)
+
+
+Started GET "/player_search?page=2" for 127.0.0.1 at 2011-04-26 02:07:37 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"page"=>"2"}
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:37 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:38 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:38 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:38 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:38 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:38 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:39 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:39 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:39 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:39 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:39 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:40 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:40 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:40 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:40 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:41 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:41 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:41 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:42 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:07:42 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:01 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:01 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:01 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:01 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:02 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:02 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:02 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:02 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:02 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:03 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:03 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:03 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:04 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:04 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:04 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:04 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:05 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:05 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:05 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:05 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:08:06 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 2ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:09:17 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 0ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:09:17 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started GET "/player_search" for 127.0.0.1 at 2011-04-26 02:09:18 -0400
+  Processing by PlayersController#player_search as HTML
+Redirected to http://localhost:3000/player_search
+Completed 302 Found in 1ms
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:09:21 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[35mPlayer Load (30642.8ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+Rendered players/player_search.html.erb within layouts/application (63.0ms)
+Completed   in 34592ms
+
+ActionView::Template::Error (undefined method `to_sym' for {:query=>"", :letter=>"", :position=>"DH"}:Hash):
+    39:             </table>
+    40: 	</ul>
+    41: 	<p class="smtext">&nbsp;</p>
+    42:         <%= will_paginate @players, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next", :params => [:query => params[:query], :letter => params[:letter], :position => params[:position]] %>
+    43: <% end %>
+  app/views/players/player_search.html.erb:42:in `_app_views_players_player_search_html_erb__330997925_88545348_566362865'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (19.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (38.0ms)
+
+
+Started POST "/player_search" for 127.0.0.1 at 2011-04-26 02:10:37 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ONBlCgyA2jEPouPiN92GiMm0Fr0WltZBSVQlapJBO+Y=", "query"=>"", "letter"=>"", "position"=>"DH", "commit"=>"Search"}
+  [1m[36mPlayer Load (29412.7ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC[0m
+Rendered partials/_footer.html.erb (2.0ms)
+Rendered players/player_search.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 33428ms (Views: 73.0ms | ActiveRecord: 29412.7ms)
+
+
+Started GET "/player_search?letter=&page=2&position=DH&query=" for 127.0.0.1 at 2011-04-26 02:11:15 -0400
+  Processing by PlayersController#player_search as HTML
+  Parameters: {"letter"=>"", "page"=>"2", "position"=>"DH", "query"=>""}
+  [1m[35mPlayer Load (43398.5ms)[0m  SELECT "players".* FROM "players" INNER JOIN "fielding_stats" ON "fielding_stats"."player_id" = "players"."id" WHERE ((lower(first_name) like '%%' OR lower(last_name) like '%%' OR lower(name) like '%%') AND lower(last_name) like '%' AND position like 'DH%') ORDER BY (final_game IS NOT NULL), last_name ASC, first_name ASC
+Rendered partials/_footer.html.erb (5.0ms)
+Rendered players/player_search.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 47493ms (Views: 81.0ms | ActiveRecord: 43398.5ms)
