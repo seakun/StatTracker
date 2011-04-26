@@ -473,6 +473,126 @@ autocomplete :player, :name, :full => true
   options.each_pair do | key, value |
     @chart4.send "#{key}=", value
   end
+  
+	@chart5 = GoogleVisualr::Table.new
+	@chart5.add_column('string' , 'Year')
+	@chart5.add_column('string' , 'Age')
+	@chart5.add_column('string' , 'Team')
+    @chart5.add_column('number' , 'AB')
+    @chart5.add_column('number' , 'R')
+    @chart5.add_column('number' , 'H')
+    @chart5.add_column('number' , 'HR')
+    @chart5.add_column('number' , 'RBI')
+    @chart5.add_column('number' , 'SB')
+    @chart5.add_column('string' , 'BA')
+	 count = 0
+	@batting_stats.each { |b|
+		if b.games_batting == 0
+		else
+			count+=1
+		end
+	}
+    @chart5.add_rows(count+1)
+		i=0
+		runs="\"Runs\""
+		bats="\"At Bats\""
+		hits="\"Hits\""
+		home="\"Home Runs\""
+		rbi="\"RBI\""
+		stolen="\"Stolen Bases\""
+		totalruns="\"Total Runs\""
+		totalbats="\"Total At Bats\""
+		totalhits="\"Total Hits\""
+		totalhome="\"Total Home Runs\""
+		totalrbi="\"Total RBI\""
+		totalstolen="\"Total Stolen Bases\""
+    @batting_stats.each { |b|
+		
+	if b.games_batting == 0
+	
+	else
+		@chart5.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
+		@chart5.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
+		@chart5.set_cell(i, 2, "<span title='Team'><a href='/teams/#{b.team.id}'>#{b.team.name}</a></span>")
+		  @chart5.set_cell(i, 3, b.at_bats, "<span title=#{bats}>#{b.at_bats.to_s}</span>")
+		  @chart5.set_cell(i, 4, b.runs, "<span title=#{runs}>#{b.runs.to_s}</span>")
+		  @chart5.set_cell(i, 5, b.hits, "<span title=#{hits}>#{b.hits.to_s}</span>")
+		@chart5.set_cell(i, 6, b.home_runs, "<span title=#{home}>#{b.home_runs.to_s}</span>")
+		@chart5.set_cell(i, 7, b.rbi, "<span title=#{rbi}>#{b.rbi.to_s}</span>")
+		@chart5.set_cell(i, 8, b.stolen_bases, "<span title=#{stolen}>#{b.stolen_bases.to_s}</span>")
+		@chart5.set_cell(i, 9, "<span title='Batting Average'>#{b.batting_average.to_s}</span>")
+		i += 1
+	end
+	}
+    numberruns=BattingStat.get_stat_total(params[:id], :runs)
+    numberrbi=BattingStat.get_stat_total(params[:id], :rbi)
+		 @chart5.set_cell(i, 0, "Totals")
+		   @chart5.set_cell(i, 3, @player.career_at_bats, "<span title=#{totalbats}>#{@player.career_at_bats}</span>")
+		   @chart5.set_cell(i, 4, numberruns.to_i, "<span title=#{totalruns}>#{numberruns}</span>")
+		   @chart5.set_cell(i, 5, @player.career_hits, "<span title=#{totalhits}>#{@player.career_hits}</span>")
+		 @chart5.set_cell(i, 6, @player.career_home_runs, "<span title=#{totalhome}>#{@player.career_home_runs}</span>")
+		 @chart5.set_cell(i, 7, numberrbi.to_i, "<span title=#{totalrbi}>#{numberrbi}</span>")
+		 @chart5.set_cell(i, 8, @player.career_stolen_bases, "<span title=#{totalstolen}>#{@player.career_stolen_bases}</span>")
+		 @chart5.set_cell(i, 9, "<span title='Batting Average'>#{@player.career_batting_average}</span>")
+		options = { :width => '100%', :allowHtml =>true}
+		options.each_pair do | key, value |
+			@chart5.send "#{key}=", value
+		end
+		
+	@chart6 = GoogleVisualr::Table.new
+	@chart6.add_column('string' , 'Year')
+	@chart6.add_column('string' , 'Age')
+	@chart6.add_column('string' , 'Team')
+	@chart6.add_column('string' , 'Round')
+    @chart6.add_column('number' , 'AB')
+    @chart6.add_column('number' , 'R')
+    @chart6.add_column('number' , 'H')
+    @chart6.add_column('number' , 'HR')
+    @chart6.add_column('number' , 'RBI')
+    @chart6.add_column('number' , 'SB')
+    @chart6.add_column('string' , 'BA')
+    @chart6.add_rows(@batting_stats_post.size+1)
+		i=0
+		runs="\"Runs\""
+		bats="\"At Bats\""
+		hits="\"Hits\""
+		home="\"Home Runs\""
+		rbi="\"RBI\""
+		stolen="\"Stolen Bases\""
+		totalruns="\"Total Runs\""
+		totalbats="\"Total At Bats\""
+		totalhits="\"Total Hits\""
+		totalhome="\"Total Home Runs\""
+		totalrbi="\"Total RBI\""
+		totalstolen="\"Total Stolen Bases\""
+    @batting_stats_post.each { |b|
+		@chart6.set_cell(i, 0, "<span title='Year'>#{b.team.year.to_s}</span>")
+		@chart6.set_cell(i, 1, "<span title='Age'>#{b.player.age(b.team.year).to_s}</span>")
+		@chart6.set_cell(i, 2, "<span title='Team'><a href='/teams/#{b.team.id}'>#{b.team.name}</a></span>")
+		@chart6.set_cell(i, 3, "<span title='Round'>#{b.round.to_s[0,4]}</span>")
+		  @chart6.set_cell(i, 4, b.at_bats, "<span title=#{bats}>#{b.at_bats.to_s}</span>")
+		  @chart6.set_cell(i, 5, b.runs, "<span title=#{runs}>#{b.runs.to_s}</span>")
+		  @chart6.set_cell(i, 6, b.hits, "<span title=#{hits}>#{b.hits.to_s}</span>")
+		@chart6.set_cell(i, 7, b.home_runs, "<span title=#{home}>#{b.home_runs.to_s}</span>")
+		@chart6.set_cell(i, 8, b.rbi, "<span title=#{rbi}>#{b.rbi.to_s}</span>")
+		@chart6.set_cell(i, 9, b.stolen_bases, "<span title=#{stolen}>#{b.stolen_bases.to_s}</span>")
+		@chart6.set_cell(i, 10, "<span title='Batting Average'>#{b.batting_average.to_s}</span>")
+		i += 1
+	}
+    numberruns=BattingPostStat.get_stat_total(params[:id], :runs)
+    numberrbi=BattingPostStat.get_stat_total(params[:id], :rbi)
+		 @chart6.set_cell(i, 0, "Totals")
+		   @chart6.set_cell(i, 4, @player.career_at_bats_post, "<span title=#{totalbats}>#{@player.career_at_bats_post}</span>")
+		   @chart6.set_cell(i, 5, numberruns.to_i, "<span title=#{totalruns}>#{numberruns}</span>")
+		   @chart6.set_cell(i, 6, @player.career_hits_post, "<span title=#{totalhits}>#{@player.career_hits_post}</span>")
+		 @chart6.set_cell(i, 7, @player.career_home_runs_post, "<span title=#{totalhome}>#{@player.career_home_runs_post}</span>")
+		 @chart6.set_cell(i, 8, numberrbi.to_i, "<span title=#{totalrbi}>#{numberrbi}</span>")
+		 @chart6.set_cell(i, 9, @player.career_stolen_bases_post, "<span title=#{totalstolen}>#{@player.career_stolen_bases_post}</span>")
+		 @chart6.set_cell(i, 10, "<span title='Batting Average'>#{@player.career_post_batting_average}</span>")
+		options = { :width => '100%', :allowHtml =>true}
+		options.each_pair do | key, value |
+			@chart6.send "#{key}=", value
+		end
   end
 
   def new
@@ -552,5 +672,4 @@ autocomplete :player, :name, :full => true
     @arr << "Position: " + params[:position] unless params[:position].blank?
     @arr << "Last Name Begins With: " + params[:letter] unless params[:letter].blank?
   end
-
 end

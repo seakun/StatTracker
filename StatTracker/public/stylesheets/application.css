@@ -335,6 +335,22 @@ text-align:center;
 text-align:center;
 }
 
+#batting_advanced {
+display:none;
+}
+
+#batting_simple_button {
+display:none;
+}
+
+#batting_post_advanced {
+display:none;
+}
+
+#batting_post_simple_button {
+display:none;
+}
+
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
