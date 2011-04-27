@@ -4,10 +4,10 @@
 <% if @player.nickname.nil? %>
 <h1><%=@player.name%></h1>
 <% end %>
-<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; float:right') unless @google_image.nil? %>
+<%= image_tag(@google_image.original,:style => 'padding:3px; border:solid 1px #EEE; margin:2px; width:200px; height:auto; position:absolute; right:180px;') unless @google_image.nil? %>
 <div class="player">
 </div>
-<div id="text">
+<div id="text" style="margin-bottom:80px;">
 <%if !@player.birthPlace.nil? %>
 <ul>
   <strong>Place of Birth:</strong>

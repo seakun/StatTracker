@@ -148,9 +148,9 @@ font-size: 100%;
 	}
  li.dropdownmenu:hover ul { 
 	display: block; 
-	position: relative;
-	float:left;
+	position:relative;
 	background-color: #F0E8D9;
+	margin-left:-250px;
 	}
 #container{
 	background-color:#E6E6D9;
@@ -166,12 +166,13 @@ font-size: 100%;
 	width:1060px;
 	z-index:1;
 }
+
 .slide-out-div {
           padding: 10px;
 		  padding-bottom:10px;
           width: 550px;
-		  height:550px;
-          background:  #F0F0EE;
+		  height:520px;
+          background:#F0F0EE;
 		  z-index:50;
 		  opacity:0.9;
           border: 1px solid #333300;
@@ -239,7 +240,6 @@ font-size: 100%;
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
 	  
-      	
     </div>
 	
 <div class="slide-out-div">
