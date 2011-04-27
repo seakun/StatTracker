@@ -213,7 +213,7 @@ div.button a{
 		-webkit-border-radius:15px;
 		-o-border-radius:15px;
 		border-radius:15px;
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#B0B0B0'); /* for IE */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#B0B0B0'); /* for IE */
         background: -webkit-gradient(linear, left top, left bottom, from(white), to(#888)); /* for webkit browsers */
         background: -moz-linear-gradient(top,  white,  #888); /* for firefox 3.6+ */ 
 	}
@@ -477,20 +477,19 @@ height: 2px;
           padding: 10px;
 		  padding-bottom:10px;
           width: 550px;
-		  height:720px;
+		  height:550px;
           background:  #F0F0EE;
 		  z-index:50;
 		  opacity:0.9;
           border: 1px solid #333300;
 		  color:#693600;
 		  font-weight:bold;
-		  font-size:16px;
-		  z-index:5;
+		  font-size:13px;
+		  
       }
 	  
 .slide-out-div h2,h3{
 		  color:#996600;
-
 }
 
 .slide-out-div a:hover{
