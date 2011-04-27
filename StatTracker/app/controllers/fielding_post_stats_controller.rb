@@ -64,7 +64,7 @@ class FieldingPostStatsController < ApplicationController
 				}
 		end
 
-		options = { :width => 600, :showRowNumber => true }
+		options = { :width => 600, :showRowNumber => true, :allowHtml =>true }
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end
