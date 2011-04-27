@@ -143,7 +143,7 @@ include ApplicationHelper
 			@table.add_column('number' , 'CS')
 			@table.add_column('number' , 'BB')
 			@table.add_column('number' , 'K')
-			@table.add_column('string' , 'AVG')
+			@table.add_column('string' , 'BA')
 			@table.add_column('string' , 'OBP')
 			@table.add_column('string' , 'SLG')
 			@table.add_column('string' , 'OPS')
@@ -197,6 +197,47 @@ include ApplicationHelper
 			options = { :width => '100%', :allowHtml=>true }
 			options.each_pair do | key, value |
 				@table.send "#{key}=", value
+			end
+			
+			@chart = GoogleVisualr::Table.new
+			@chart.add_column('string' , 'Name')
+			@chart.add_column('string' , 'Bats')
+			@chart.add_column('string' , 'Year')
+			@chart.add_column('string' , 'Age')
+			@chart.add_column('string' , 'Team')
+			@chart.add_column('string' , 'League')
+			@chart.add_column('number' , 'AB')
+			@chart.add_column('number' , 'R')
+			@chart.add_column('number' , 'H')
+			@chart.add_column('number' , 'HR')
+			@chart.add_column('number' , 'RBI')
+			@chart.add_column('number' , 'SB')
+			@chart.add_column('string' , 'BA')
+			@chart.add_rows(@batters.size)
+			i = 0
+			@batters.each {|b|
+				@chart.set_cell(i, 0, "<a href='/players/#{b[0].player_id}'>#{b[0].player.name}</a>")
+				if !b[0].player.bats.nil?
+					@chart.set_cell(i, 1, b[0].player.bats.to_s)
+				else @chart.set_cell(i, 1, 'N/A')
+				end
+				@chart.set_cell(i, 2, b[0].team.year.to_s)
+				@chart.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
+				@chart.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
+				@chart.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
+				@chart.set_cell(i, 6, b[0].at_bats)
+				@chart.set_cell(i, 7, b[0].runs)
+				@chart.set_cell(i, 8, b[0].hits)
+				@chart.set_cell(i, 9, b[0].home_runs)
+				@chart.set_cell(i, 10, b[0].rbi)
+				@chart.set_cell(i, 11, b[0].stolen_bases)
+				@chart.set_cell(i, 12, b[0].batting_average.to_s)
+				i += 1
+			}
+			
+			options = { :width => '100%', :allowHtml=>true }
+			options.each_pair do | key, value |
+				@chart.send "#{key}=", value
 			end
 		end
 	end

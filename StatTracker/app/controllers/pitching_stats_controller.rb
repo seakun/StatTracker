@@ -218,6 +218,47 @@ class PitchingStatsController < ApplicationController
 			options.each_pair do | key, value |
 				@table.send "#{key}=", value
 			end
+			
+			@chart = GoogleVisualr::Table.new
+			@chart.add_column('string' , 'Name')
+			@chart.add_column('string' , 'Bats')
+			@chart.add_column('string' , 'Year')
+			@chart.add_column('string' , 'Age')
+			@chart.add_column('string' , 'Team')
+			@chart.add_column('string' , 'League')
+			@chart.add_column('number' , 'W')
+			@chart.add_column('number' , 'L')
+			@chart.add_column('string' , 'ERA')
+			@chart.add_column('number' , 'SV')
+			@chart.add_column('string' , 'IP')
+			@chart.add_column('number' , 'K')
+			@chart.add_column('string' , 'WHIP')
+			@chart.add_rows(@pitchers.size)
+			i = 0
+			@pitchers.each {|b|
+				@chart.set_cell(i, 0, "<a href='/players/#{b[0].player_id}'>#{b[0].player.name}</a>")
+				if !b[0].player.bats.nil?
+					@chart.set_cell(i, 1, b[0].player.bats.to_s)
+				else @chart.set_cell(i, 1, 'N/A')
+				end
+				@chart.set_cell(i, 2, b[0].team.year.to_s)
+				@chart.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
+				@chart.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
+				@chart.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
+				@chart.set_cell(i, 6, b[0].wins)
+				@chart.set_cell(i, 7, b[0].losses)
+				@chart.set_cell(i, 8, b[0].era.to_s)
+				@chart.set_cell(i, 9, b[0].saves)
+				@chart.set_cell(i, 10, b[0].innings_pitched_display.to_s)
+				@chart.set_cell(i, 11, b[0].strikeouts)
+				@chart.set_cell(i, 12, b[0].walks_and_hits_innings_pitched.to_s)
+				i += 1
+			}
+			
+			options = { :width => '100%', :allowHtml=>true }
+			options.each_pair do | key, value |
+				@chart.send "#{key}=", value
+			end
 		end
 	end
 	

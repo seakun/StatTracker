@@ -367,6 +367,11 @@ display:none;
 display:none;
 }
 
+.years_select {
+padding-top:2.5px;
+padding-bottom:2.5px;
+}
+
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;

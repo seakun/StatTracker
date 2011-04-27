@@ -7,7 +7,7 @@
 	<br/>
 	
 	<div id = "table_checkbox">
-		<span><p>Check with statistics you want to view in the table</p></span>
+		<span><p>Check which statistics you want to view in the table</p></span>
 		<%= form_tag change_career_table_batting_path(:players => @players), :remote => true, :id => "change_table" do %>
 			<span title="Games"><%= check_box_tag 'stat[]', 'games', false %>G</span>&nbsp;
 			<span title="Plate Appearances"><%= check_box_tag 'stat[]', 'plate_appearances', false %>PA</span>&nbsp;
