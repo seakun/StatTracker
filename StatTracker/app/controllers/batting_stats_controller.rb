@@ -129,20 +129,20 @@ include ApplicationHelper
 			@table.add_column('string' , 'Age')
 			@table.add_column('string' , 'Team')
 			@table.add_column('string' , 'League')
-			@table.add_column('string' , 'G')
-			@table.add_column('string' , 'PA')
-			@table.add_column('string' , 'AB')
-			@table.add_column('string' , 'R')
-			@table.add_column('string' , 'H')
-			@table.add_column('string' , '2B')
-			@table.add_column('string' , '3B')
-			@table.add_column('string' , 'HR')
-			@table.add_column('string' , 'RBI')
-			@table.add_column('string' , 'TB')
-			@table.add_column('string' , 'SB')
-			@table.add_column('string' , 'CS')
-			@table.add_column('string' , 'BB')
-			@table.add_column('string' , 'K')
+			@table.add_column('number' , 'G')
+			@table.add_column('number' , 'PA')
+			@table.add_column('number' , 'AB')
+			@table.add_column('number' , 'R')
+			@table.add_column('number' , 'H')
+			@table.add_column('number' , '2B')
+			@table.add_column('number' , '3B')
+			@table.add_column('number' , 'HR')
+			@table.add_column('number' , 'RBI')
+			@table.add_column('number' , 'TB')
+			@table.add_column('number' , 'SB')
+			@table.add_column('number' , 'CS')
+			@table.add_column('number' , 'BB')
+			@table.add_column('number' , 'K')
 			@table.add_column('string' , 'AVG')
 			@table.add_column('string' , 'OBP')
 			@table.add_column('string' , 'SLG')
@@ -155,28 +155,42 @@ include ApplicationHelper
 					@table.set_cell(i, 1, b[0].player.bats.to_s)
 				else @table.set_cell(i, 1, 'N/A')
 				end
+				games="\"Games\""
+		runs="\"Runs\""
+		bats="\"At Bats\""
+		plates="\"Plate Appearances\""
+		hits="\"Hits\""
+		doubles="\"Doubles\""
+		triples="\"Triples\""
+		home="\"Home Runs\""
+		rbi="\"RBI\""
+		stolen="\"Stolen Bases\""
+		caught="\"Caught Stealing\""
+		walks="\"Walks\""
+		strikes="\"Strikeouts\""
+		bases="\"Total Bases\""
 				@table.set_cell(i, 2, b[0].team.year.to_s)
 				@table.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
 				@table.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
 				@table.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
-				@table.set_cell(i, 6, b[0].games.to_s)
-				@table.set_cell(i, 7, b[0].plate_appearances.to_s)
-				@table.set_cell(i, 8, b[0].at_bats.to_s)
-				@table.set_cell(i, 9, b[0].runs.to_s)
-				@table.set_cell(i, 10, b[0].hits.to_s)
-				@table.set_cell(i, 11, b[0].doubles.to_s)
-				@table.set_cell(i, 12, b[0].triples.to_s)
-				@table.set_cell(i, 13, b[0].home_runs.to_s)
-				@table.set_cell(i, 14, b[0].rbi.to_s)
-				@table.set_cell(i, 15, b[0].total_bases.to_s)
-				@table.set_cell(i, 16, b[0].stolen_bases.to_s)
-				@table.set_cell(i, 17, b[0].caught_stealing.to_s)
-				@table.set_cell(i, 18, b[0].walks.to_s)
-				@table.set_cell(i, 19, b[0].strikeouts.to_s)
-				@table.set_cell(i, 20, b[0].batting_average.to_s)
-				@table.set_cell(i, 21, b[0].on_base_percentage.to_s)
-				@table.set_cell(i, 22, b[0].slugging_percentage.to_s)
-				@table.set_cell(i, 23, b[0].on_base_plus_slugging.to_s)
+				@table.set_cell(i, 6, b[0].games, "<span title=#{games}>#{b[0].games.to_s}</span>")
+		@table.set_cell(i, 7, b[0].plate_appearances, "<span title=#{plates}>#{b[0].plate_appearances.to_s}</span>")
+		@table.set_cell(i, 8, b[0].at_bats, "<span title=#{bats}>#{b[0].at_bats.to_s}</span>")
+		@table.set_cell(i, 9, b[0].runs, "<span title=#{runs}>#{b[0].runs.to_s}</span>")
+		@table.set_cell(i, 10, b[0].hits, "<span title=#{hits}>#{b[0].hits.to_s}</span>")
+		@table.set_cell(i, 11, b[0].doubles, "<span title=#{doubles}>#{b[0].doubles.to_s}</span>")
+		@table.set_cell(i, 12, b[0].triples, "<span title=#{triples}>#{b[0].triples.to_s}</span>")
+		@table.set_cell(i, 13, b[0].home_runs, "<span title=#{home}>#{b[0].home_runs.to_s}</span>")
+		@table.set_cell(i, 14, b[0].rbi, "<span title=#{rbi}>#{b[0].rbi.to_s}</span>")
+		@table.set_cell(i, 15, b[0].total_bases, "<span title=#{bases}>#{b[0].total_bases.to_s}</span>")
+		@table.set_cell(i, 16, b[0].stolen_bases, "<span title=#{stolen}>#{b[0].stolen_bases.to_s}</span>")
+		@table.set_cell(i, 17, b[0].caught_stealing, "<span title=#{caught}>#{b[0].caught_stealing.to_s}</span>")
+		@table.set_cell(i, 18, b[0].walks, "<span title=#{walks}>#{b[0].walks.to_s}</span>")
+		@table.set_cell(i, 19, b[0].strikeouts, "<span title=#{strikes}>#{b[0].strikeouts.to_s}</span>")
+		@table.set_cell(i, 20, "<span title='Batting Average'>#{b[0].batting_average.to_s}</span>")
+		@table.set_cell(i, 21, "<span title='Slugging Percentage'>#{b[0].slugging_percentage.to_s}</span>")
+		@table.set_cell(i, 22, "<span title='On Base Percentage'>#{b[0].on_base_percentage.to_s}</span>")
+		@table.set_cell(i, 23, "<span title='On Base+Slugging'>#{b[0].on_base_plus_slugging.to_s}</span>")
 				i += 1
 			}
 			
