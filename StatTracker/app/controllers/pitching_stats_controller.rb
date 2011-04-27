@@ -219,6 +219,10 @@ class PitchingStatsController < ApplicationController
 				@table.send "#{key}=", value
 			end
 			
+			  wins="\"Wins \""
+				  losses="\"Losses\""
+				  saves="\"Saves\""
+				  strikes="\"Strikeouts\""
 			@chart = GoogleVisualr::Table.new
 			@chart.add_column('string' , 'Name')
 			@chart.add_column('string' , 'Bats')
@@ -245,13 +249,13 @@ class PitchingStatsController < ApplicationController
 				@chart.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
 				@chart.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
 				@chart.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
-				@chart.set_cell(i, 6, b[0].wins)
-				@chart.set_cell(i, 7, b[0].losses)
-				@chart.set_cell(i, 8, b[0].era.to_s)
-				@chart.set_cell(i, 9, b[0].saves)
-				@chart.set_cell(i, 10, b[0].innings_pitched_display.to_s)
-				@chart.set_cell(i, 11, b[0].strikeouts)
-				@chart.set_cell(i, 12, b[0].walks_and_hits_innings_pitched.to_s)
+				@chart.set_cell(i, 6, b[0].wins, "<span title=#{wins}>#{b[0].wins.to_s}</span>")
+				@chart.set_cell(i, 7, b[0].losses, "<span title=#{losses}>#{b[0].losses.to_s}</span>")
+				@chart.set_cell(i, 8, "<span title='ERA'>#{b[0].era.to_s}</span>" )
+				@chart.set_cell(i, 9, b[0].saves, "<span title=#{saves}>#{b[0].saves.to_s}</span>" )
+				@chart.set_cell(i, 10, "<span title='Innings Pitched'>#{b[0].innings_pitched_display.to_s}</span>" )
+				@chart.set_cell(i, 11, b[0].strikeouts, "<span title=#{strikes}>#{b[0].strikeouts.to_s}</span>")
+				@chart.set_cell(i, 12, "<span title='Walks and Hits per Innings Pitched'>#{b[0].walks_and_hits_innings_pitched.to_s}</span>")
 				i += 1
 			}
 			
@@ -723,7 +727,7 @@ class PitchingStatsController < ApplicationController
        k+=1
       end
       }
-      options = { :width => 600, :allowHtml=>true }
+      options = { :width => 600, :allowHtml=>true}
       options.each_pair do | key, value |
       @chart2.send "#{key}=", value
       @operations = operations

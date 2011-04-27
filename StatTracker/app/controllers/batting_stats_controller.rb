@@ -33,7 +33,7 @@ include ApplicationHelper
 			@table.set_cell(i, 4, "#{b.send(params[:stat])}")
 		}
 		
-		options = { :width => 600, :showRowNumber => true, :allowHtml => true, :page => 'enable', :pageSize => '25' }
+		options = { :width => 600, :showRowNumber => true, :allowHtml => true}
 		options.each_pair do | key, value |
 			@table.send "#{key}=", value
 		end	
@@ -199,6 +199,13 @@ include ApplicationHelper
 				@table.send "#{key}=", value
 			end
 			
+				runs="\"Runs\""
+		bats="\"At Bats\""
+		hits="\"Hits\""
+		home="\"Home Runs\""
+		rbi="\"RBI\""
+		stolen="\"Stolen Bases\""
+
 			@chart = GoogleVisualr::Table.new
 			@chart.add_column('string' , 'Name')
 			@chart.add_column('string' , 'Bats')
@@ -225,13 +232,13 @@ include ApplicationHelper
 				@chart.set_cell(i, 3, b[0].player.age(b[0].team.year).to_s)
 				@chart.set_cell(i, 4, "<a href='/teams/#{b[0].team.id}'>#{b[0].team.name}</a>")
 				@chart.set_cell(i, 5, b[0].team.division.league.abbrev.to_s)
-				@chart.set_cell(i, 6, b[0].at_bats)
-				@chart.set_cell(i, 7, b[0].runs)
-				@chart.set_cell(i, 8, b[0].hits)
-				@chart.set_cell(i, 9, b[0].home_runs)
-				@chart.set_cell(i, 10, b[0].rbi)
-				@chart.set_cell(i, 11, b[0].stolen_bases)
-				@chart.set_cell(i, 12, b[0].batting_average.to_s)
+				@chart.set_cell(i, 6, b[0].at_bats, "<span title=#{bats}>#{b[0].at_bats.to_s}</span>")
+				@chart.set_cell(i, 7, b[0].runs, "<span title=#{runs}>#{b[0].runs.to_s}</span>")
+				@chart.set_cell(i, 8, b[0].hits, "<span title=#{hits}>#{b[0].hits.to_s}</span>")
+				@chart.set_cell(i, 9, b[0].home_runs, "<span title=#{home}>#{b[0].home_runs.to_s}</span>")
+				@chart.set_cell(i, 10, b[0].rbi, "<span title=#{rbi}>#{b[0].rbi.to_s}</span>")
+				@chart.set_cell(i, 11, b[0].stolen_bases, "<span title=#{stolen}>#{b[0].stolen_bases.to_s}</span>")
+				@chart.set_cell(i, 12, "<span title='Batting Average'>#{b[0].batting_average.to_s}</span>")
 				i += 1
 			}
 			

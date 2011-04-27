@@ -236,14 +236,14 @@ class TeamsController < ApplicationController
 			@chart.set_cell(i, 1, "<a href='/franchises/#{b[0].franchise.id}'>#{b[0].franchise.name}</a>")
 			@chart.set_cell(i, 2, b[0].year.to_s)
 			@chart.set_cell(i, 3, b[0].division.league.abbrev.to_s)
-			@chart.set_cell(i, 4, b[0].wins.to_s)
-			@chart.set_cell(i, 5, b[0].losses.to_s)
-			@chart.set_cell(i, 6, b[0].runs.to_s)
-			@chart.set_cell(i, 7, b[0].hits.to_s)
-			@chart.set_cell(i, 8, b[0].home_runs.to_s)
-			@chart.set_cell(i, 9, b[0].runs_allowed.to_s)
-			@chart.set_cell(i, 10, b[0].strikeouts_allowed.to_s)
-			@chart.set_cell(i, 11, b[0].errors_made.to_s)
+			@chart.set_cell(i, 4,"<span title='Wins'>#{b[0].wins.to_s}</span>")
+			@chart.set_cell(i, 5, "<span title='Losses'>#{b[0].losses.to_s}</span>")
+			@chart.set_cell(i, 6, "<span title='Runs'>#{b[0].runs.to_s}</span>")
+			@chart.set_cell(i, 7, "<span title='Hits'>#{b[0].hits.to_s}</span>")
+			@chart.set_cell(i, 8, "<span title='Home Runs'>#{b[0].home_runs.to_s}</span>")
+			@chart.set_cell(i, 9, "<span title='Runs Allowed'>#{b[0].runs_allowed.to_s}</span>")
+			@chart.set_cell(i, 10, "<span title='Strikeouts Allowed'>#{b[0].strikeouts_allowed.to_s}</span>")
+			@chart.set_cell(i, 11, "<span title='Errors'>#{b[0].errors_made.to_s}</span>")
 			i += 1
 		}
 		

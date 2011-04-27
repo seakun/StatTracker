@@ -33,7 +33,7 @@ autocomplete :franchise, :name, :full => true
       @chart.set_cell(i, 5, b.pct.to_s)
       @chart.set_cell(i, 6, b.rank.to_s)
     }
-    options = { :width => 600, :allowHtml => true }
+    options = { :width => 600, :allowHtml => true}
     options.each_pair do | key, value |
     @chart.send "#{key}=", value
   end
