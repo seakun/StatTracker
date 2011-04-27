@@ -117,12 +117,12 @@ class FieldingStatsController < ApplicationController
       stat = params["#{i}"][:stat]
       next if stat.blank?
       operator = params["#{i}"][:operator]
-      number = params["#{i}"][:number]
+      number = params["#{i}"][:number].to_i
 	  if number.to_i < 0
 		flash[:notice] = 'At least one of your values was invalid. Please try again.'
 		redirect_to :back
 	  end
-      string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number
+      string = stat.downcase.gsub(" ", "_") + " " + operator + " " + number.to_s
       @stats.push(stat)
       operations.push(string)
     end
